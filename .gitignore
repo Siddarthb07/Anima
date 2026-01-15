@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.venv/
+venv/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Probe checkpoints (large / optional — ship via releases or Git LFS if needed)
+*.pt
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Node / frontend
+dashboard/node_modules/
+dashboard/dist/
+npm-debug.log*
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs / local artifacts
+*.log
+docs/dash_demo_last_run.png

@@ -1,0 +1,20 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./probes/zoo:/app/probes/zoo
+      - ./data/narratives:/app/data/narratives
+    environment:
+      HF_TOKEN: ${HF_TOKEN:-}
+
+  dashboard:
+    build:
+      context: ./dashboard
+      args:
+        VITE_WS_BASE: ${VITE_WS_BASE:-ws://localhost:8000}
+    ports:
+      - "8080:80"
+    depends_on:
+      - api

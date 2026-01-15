@@ -1,0 +1,158 @@
+Anima (beta) - running & testing commands
+==========================================
+Before demos or papers, read: docs/USAGE_AND_LIMITATIONS.md
+Docs index: docs/README.md
+
+Project root (adjust if your path differs):
+  c:\Users\siddu\OneDrive\Desktop\llm_emotions_tribev2
+
+Last automated run (local):
+  - pytest (default): 7 passed, 2 skipped (HF tests opt-in)
+  - dashboard: npm run build — succeeded
+
+
+SETUP (one-time)
+----------------
+PowerShell:
+
+  cd c:\Users\siddu\OneDrive\Desktop\llm_emotions_tribev2
+  pip install -e ".[dev]"
+
+Dashboard dependencies:
+
+  cd c:\Users\siddu\OneDrive\Desktop\llm_emotions_tribev2\dashboard
+  npm install
+
+
+RUN API (FastAPI + WebSocket)
+-----------------------------
+Terminal A:
+
+  cd c:\Users\siddu\OneDrive\Desktop\llm_emotions_tribev2
+  python -m uvicorn api.server:app --reload --host 127.0.0.1 --port 8010
+
+Health check:
+
+  curl http://127.0.0.1:8010/health
+
+Interactive docs:
+
+  Start browser: http://127.0.0.1:8010/docs
+
+
+RUN DASHBOARD (development)
+---------------------------
+Terminal B:
+
+  cd c:\Users\siddu\OneDrive\Desktop\llm_emotions_tribev2\dashboard
+  npm run dev
+
+Browser: http://localhost:5173
+
+Dev WebSocket: `npm run dev` uses **same-origin** `ws(s)://<vite-host>/ws/...` and Vite proxies to `VITE_API_HTTP_TARGET`. `VITE_WS_BASE` is ignored in dev unless you set `VITE_WS_DIRECT=1`. Match `VITE_API_HTTP_TARGET` to uvicorn (e.g. `http://127.0.0.1:8010`).
+
+
+RUN DASHBOARD (production preview, local)
+-----------------------------------------
+  cd c:\Users\siddu\OneDrive\Desktop\llm_emotions_tribev2\dashboard
+  npm run build
+  npm run preview
+
+
+CLI HELPERS
+-----------
+  cd c:\Users\siddu\OneDrive\Desktop\llm_emotions_tribev2
+  python -m cli.run smoke --prompt "Hello"
+  python -m cli.run smoke --model distilgpt2 --prompt "Hello"
+  python -m cli.run api --host 127.0.0.1 --port 8010
+
+
+TESTS
+-----
+Default (no Hugging Face model download; stable on minimal CI):
+
+  cd c:\Users\siddu\OneDrive\Desktop\llm_emotions_tribev2
+  python -m pytest -q
+
+Verbose:
+
+  python -m pytest -v --tb=short
+
+Uncertainty metrics + WebSocket plumbing (needs PyTorch importable):
+
+  python -m pytest tests/test_uncertainty_signals.py tests/test_ws_plumbing.py -q
+
+TRIBEv2 surrogate encoder tests (numpy-only):
+
+  python -m pytest tests/test_tribe_encoder.py -q
+
+Full integration (downloads distilgpt2; requires working PyTorch / HF):
+
+  CMD:
+    set RUN_HF_TESTS=1
+    python -m pytest -q
+
+  PowerShell:
+    $env:RUN_HF_TESTS="1"; python -m pytest -q
+
+
+REST SMOKE (requires API running)
+---------------------------------
+PowerShell example (omit model to use DEFAULT_CAUSAL_LM — tiny HF regression checkpoint):
+
+  Invoke-RestMethod -Method POST -Uri http://127.0.0.1:8010/generate `
+    -ContentType "application/json" `
+    -Body '{"prompt":"Hello","max_new_tokens":8,"detect_suppression":true}'
+
+Optional coherent English (needs RAM / HF download):
+
+  Invoke-RestMethod -Method POST -Uri http://127.0.0.1:8010/generate `
+    -ContentType "application/json" `
+    -Body '{"model":"distilgpt2","prompt":"Hello","max_new_tokens":8,"detect_suppression":true}'
+
+
+DOCKER COMPOSE
+--------------
+From project root:
+
+  docker compose build
+  docker compose up
+
+API:    http://localhost:8000
+Dashboard (nginx): http://localhost:8080
+
+Rebuild dashboard with custom WebSocket URL for other hosts:
+
+  $env:VITE_WS_BASE="ws://YOUR_HOST_IP:8000"; docker compose build dashboard
+
+
+FIRST-TIME MODEL DOWNLOAD
+-------------------------
+Using distilgpt2 or other Hub models requires network; gated models need HF_TOKEN in environment.
+
+
+Dashboard demo (Playwright) - optional
+--------------------------------------
+Requires: pip install playwright; python -m playwright install chromium
+
+With API + Vite already running, drive one streamed generation and save a screenshot to docs\dash_demo_last_run.png:
+
+  PowerShell (example: API on 8010, Vite chose 5174 because 5173 was busy):
+
+    $env:ANIMA_API_PORT="8010"
+    $env:ANIMA_DASH_PORT="5174"
+    $env:ANIMA_DEMO_HEADLESS_ONLY="1"
+    python scripts\run_dash_demo.py
+
+  Env vars (ANIMA_* preferred; LLM_AFFECT_* still accepted):
+    ANIMA_DEMO_MODEL - default hf-internal-testing/tiny-random-gpt2 (tiny RAM; distilgpt2 if you have memory).
+    ANIMA_DEMO_HEADLESS_ONLY=1 - skip headed Chromium.
+
+  Match dashboard\.env VITE_API_HTTP_TARGET to uvicorn (default http://127.0.0.1:8010). In dev, WebSockets use the Vite proxy unless VITE_WS_DIRECT=1 (then set VITE_WS_BASE).
+
+
+Notes
+-----
+- Skipped tests: tests\test_hooks.py and tests\test_api.py unless RUN_HF_TESTS=1.
+- If Windows PyTorch crashes loading models, keep RUN_HF_TESTS unset and test via browser + manual API.
+- If model load fails with Windows paging file error (1455), use a smaller HF model (see ANIMA_DEMO_MODEL above) or enlarge the system paging file.
