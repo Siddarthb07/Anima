@@ -1,6 +1,8 @@
 # Anima documentation index
 
-Start here if you want depth beyond the root [README.md](../README.md).
+Start here if you want depth beyond the root [`README.md`](../README.md).
+
+Screenshots embedded in the root README live under [`images/`](images/) (`dashboard-readout-example.png`, `dashboard-websocket-troubleshooting.png`).
 
 | Document | Audience |
 |----------|----------|
