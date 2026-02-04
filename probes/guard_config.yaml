@@ -1,0 +1,4 @@
+fused_high: 0.75
+fused_abstain: 0.82
+probe_uncertainty_abstain: 0.78
+hedge_words_threshold: 2
