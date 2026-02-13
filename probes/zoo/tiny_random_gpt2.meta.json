@@ -1,0 +1,6 @@
+{
+  "probe_origin": "synthetic_tiny",
+  "model": "hf-internal-testing/tiny-random-gpt2",
+  "n_samples": 40,
+  "note": "Quick zoo checkpoint for default tiny model; train GoEmotions/Narratives for real use."
+}
