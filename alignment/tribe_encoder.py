@@ -12,6 +12,7 @@ consistent and inspectable.
 from __future__ import annotations
 
 import hashlib
+from pathlib import Path
 from typing import Any, Dict, Optional
 
 import numpy as np
@@ -54,16 +55,47 @@ def _hidden_to_numpy(h: Any) -> np.ndarray:
 class TRIBEv2Encoder:
     """Maps pooled LM hidden states to named ROI surrogate scores."""
 
-    def __init__(self, hidden_dim: int, seed: int = 42):
+    def __init__(self, hidden_dim: int, seed: int = 42, weights_path: Optional[str] = None):
         self.hidden_dim = int(hidden_dim)
         self.available = self.hidden_dim > 0
         self.seed = int(seed)
-        rng = np.random.default_rng(self.seed & 0xFFFFFFFF)
+        self.mode = "surrogate_random"
         self._weights: dict[str, np.ndarray] = {}
+        if weights_path:
+            loaded = self._load_weights_file(weights_path)
+            if loaded:
+                self.mode = "surrogate_trained"
+            else:
+                self._init_random_weights()
+        else:
+            self._init_random_weights()
+
+    def _init_random_weights(self) -> None:
+        rng = np.random.default_rng(self.seed & 0xFFFFFFFF)
         for roi in ROI_DEFINITIONS:
             w = rng.standard_normal(self.hidden_dim).astype(np.float64)
             w /= np.linalg.norm(w) + 1e-12
             self._weights[roi] = w
+
+    def _load_weights_file(self, path: str) -> bool:
+        p = Path(path) if not isinstance(path, Path) else path
+        if not p.exists():
+            return False
+        data = np.load(str(p))
+        for roi in ROI_DEFINITIONS:
+            key = f"roi_{roi}"
+            if key not in data:
+                return False
+            w = np.asarray(data[key], dtype=np.float64).reshape(-1)
+            if w.shape[0] != self.hidden_dim:
+                return False
+            self._weights[roi] = w / (np.linalg.norm(w) + 1e-12)
+        return True
+
+    @classmethod
+    def save_weights(cls, path: Path, weights: dict[str, np.ndarray]) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        np.savez(path, **{f"roi_{k}": v for k, v in weights.items()})
 
     def encode_layer_activations(self, activations: Dict[int, Any]) -> dict[str, float]:
         """Average ROI scores across all provided layers (same set probed by AffectProbe)."""
