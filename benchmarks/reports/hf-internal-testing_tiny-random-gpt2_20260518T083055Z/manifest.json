@@ -1,0 +1,21 @@
+{
+  "model": "hf-internal-testing/tiny-random-gpt2",
+  "git_sha": "91d6c4e",
+  "generated_at": "2026-05-18T08:30:55.384105+00:00",
+  "entries": [
+    {
+      "tier": "internal",
+      "benchmark": "smoke_extract",
+      "n_tokens": 4,
+      "probe_origin": "synthetic_tiny",
+      "status": "ok"
+    },
+    {
+      "benchmark": "narratives_dev",
+      "tier": "internal",
+      "status": "skipped",
+      "reason": "NARRATIVES_ROOT not set",
+      "model": "hf-internal-testing/tiny-random-gpt2"
+    }
+  ]
+}

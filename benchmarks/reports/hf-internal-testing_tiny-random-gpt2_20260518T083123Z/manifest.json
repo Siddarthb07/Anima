@@ -1,0 +1,55 @@
+{
+  "model": "hf-internal-testing/tiny-random-gpt2",
+  "git_sha": "91d6c4e",
+  "generated_at": "2026-05-18T08:31:23.541398+00:00",
+  "entries": [
+    {
+      "tier": "external",
+      "benchmark": "narratives_holdout",
+      "status": "skipped",
+      "reason": "NARRATIVES_ROOT unset or missing"
+    },
+    {
+      "tier": "external",
+      "benchmark": "litcoder_style_ridge",
+      "status": "skipped"
+    },
+    {
+      "benchmark": "tribe_reference",
+      "tier": "external",
+      "status": "skipped",
+      "model": "hf-internal-testing/tiny-random-gpt2",
+      "anima_tribe_mode": "surrogate",
+      "runtime_available": false,
+      "runtime_roi_scores": null,
+      "reason": "tribev2 not installed \u2014 surrogate-only CI path"
+    },
+    {
+      "tier": "external",
+      "benchmark": "brainscore_language",
+      "status": "skipped",
+      "reason": "brainscore_language not installed"
+    },
+    {
+      "tier": "external_text",
+      "benchmark": "go_emotions",
+      "status": "ok",
+      "pearson_valence": -0.0107,
+      "pearson_arousal": 0.1071,
+      "probe_origin": "synthetic_tiny"
+    },
+    {
+      "tier": "external_guard",
+      "benchmark": "halueval",
+      "status": "skipped",
+      "reason": "v1 stub \u2014 enable when HaluEval JSON path set via HALUEVAL_PATH"
+    },
+    {
+      "benchmark": "truthfulqa_guard",
+      "tier": "external_guard",
+      "status": "skipped",
+      "reason": "Set TRUTHFULQA_PATH to TruthfulQA question JSON for full run",
+      "model": "hf-internal-testing/tiny-random-gpt2"
+    }
+  ]
+}

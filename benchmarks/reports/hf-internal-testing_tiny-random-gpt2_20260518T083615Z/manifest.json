@@ -1,0 +1,36 @@
+{
+  "model": "hf-internal-testing/tiny-random-gpt2",
+  "git_sha": "91d6c4e",
+  "generated_at": "2026-05-18T08:36:15.681681+00:00",
+  "entries": [
+    {
+      "tier": "external_guard",
+      "benchmark": "halueval",
+      "status": "ok",
+      "model": "hf-internal-testing/tiny-random-gpt2",
+      "fixture": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\benchmarks\\fixtures\\halueval_guard_sample.json",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 4,
+      "tp": 2,
+      "fp": 0,
+      "tn": 2,
+      "fn": 0
+    },
+    {
+      "benchmark": "truthfulqa_guard",
+      "tier": "external_guard",
+      "status": "ok",
+      "model": "hf-internal-testing/tiny-random-gpt2",
+      "fixture": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\benchmarks\\fixtures\\truthfulqa_guard_sample.json",
+      "note": "Scores guard policy on supplied readout rows, not LM factuality",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 4,
+      "tp": 2,
+      "fp": 0,
+      "tn": 2,
+      "fn": 0
+    }
+  ]
+}

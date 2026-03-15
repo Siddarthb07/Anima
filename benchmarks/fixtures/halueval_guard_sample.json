@@ -1,0 +1,26 @@
+[
+  {
+    "token_text": "The patient was diagnosed with a rare condition that does not exist in the chart.",
+    "affect": {"valence": -0.2, "arousal": 0.6, "uncertainty": 0.82},
+    "uncertainty_signals": {"fused": 0.85, "entropy": 0.88, "logit_gap": 0.8, "attn_entropy": 0.78},
+    "is_hallucination": true
+  },
+  {
+    "token_text": "The meeting is scheduled for Tuesday at 3pm per the calendar.",
+    "affect": {"valence": 0.0, "arousal": 0.4, "uncertainty": 0.3},
+    "uncertainty_signals": {"fused": 0.35, "entropy": 0.4, "logit_gap": 0.32, "attn_entropy": 0.38},
+    "is_hallucination": false
+  },
+  {
+    "token_text": "Perhaps the dosage was 500mg although records say 50mg.",
+    "affect": {"valence": -0.1, "arousal": 0.55, "uncertainty": 0.88},
+    "uncertainty_signals": {"fused": 0.9, "entropy": 0.91, "logit_gap": 0.86, "attn_entropy": 0.84},
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Room 204 confirmed in the booking system.",
+    "affect": {"valence": 0.05, "arousal": 0.38, "uncertainty": 0.28},
+    "uncertainty_signals": {"fused": 0.32, "entropy": 0.36, "logit_gap": 0.3, "attn_entropy": 0.35},
+    "is_hallucination": false
+  }
+]
