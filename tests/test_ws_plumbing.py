@@ -62,9 +62,11 @@ def ws_client(monkeypatch):
 
     def fake_get(model_name: str):
         _ = model_name
-        return FakeExtractor(), AffectProbe(8, 2)
+        return FakeExtractor(), AffectProbe(8, 2), {"probe_origin": "random"}
 
     monkeypatch.setattr(srv, "get_extractor_and_probe", fake_get)
+    monkeypatch.setattr(srv, "_probe_meta_cache", {})
+    monkeypatch.setattr(srv, "_calib_cache", {})
     monkeypatch.setattr(
         srv,
         "get_tribe_encoder",

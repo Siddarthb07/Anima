@@ -1,8 +1,15 @@
-from typing import Any, Literal
+from typing import Any, Literal, Optional
 
 from pydantic import BaseModel, Field
 
 from core.defaults import DEFAULT_CAUSAL_LM
+
+
+class GuardInfo(BaseModel):
+    tier: str
+    abstain_recommended: bool
+    composite_score: float
+    reasons: list[str] = Field(default_factory=list)
 
 
 class SuppressionEvent(BaseModel):
@@ -17,12 +24,10 @@ class SuppressionEvent(BaseModel):
 
 
 class TRIBEv2TokenSurrogate(BaseModel):
-    """Per-token surrogate ROI ladder computed alongside probe readouts."""
-
     roi_scores: dict[str, float]
     derived_va: dict[str, float] = Field(
         ...,
-        description="Valence/arousal sketch inferred from surrogate ROI scalars (not duplicate of probe heads).",
+        description="Valence/arousal sketch inferred from surrogate ROI scalars.",
     )
     methodology_note: str
 
@@ -38,6 +43,7 @@ class AffectReadout(BaseModel):
     uncertainty_signals: dict[str, float]
     brain_alignment_note: str
     tribe_v2: TRIBEv2TokenSurrogate
+    guard: GuardInfo = Field(default_factory=lambda: GuardInfo(tier="MEDIUM", abstain_recommended=False, composite_score=0.5))
 
 
 class GenerateRequest(BaseModel):
@@ -53,6 +59,32 @@ class GenerateResponse(BaseModel):
     tokens: list[AffectReadout]
     suppression_events: list[SuppressionEvent]
     summary: dict[str, Any]
+
+
+class EncodeRequest(BaseModel):
+    model: str = DEFAULT_CAUSAL_LM
+    text: str
+    max_length: Optional[int] = None
+
+
+class EncodeResponse(BaseModel):
+    model: str
+    text: str
+    tokens: list[AffectReadout]
+    summary: dict[str, Any]
+
+
+class ModelInfo(BaseModel):
+    model_id: str
+    hidden_dim: int
+    layers: int
+    has_sae: bool
+    zoo_checkpoints: list[str] = Field(default_factory=list)
+    probe_origin: str = "random"
+
+
+class ModelsResponse(BaseModel):
+    models: list[ModelInfo]
 
 
 class StreamTokenMessage(BaseModel):

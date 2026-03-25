@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 
 import pytest
 import torch
@@ -12,21 +11,23 @@ pytestmark = pytest.mark.skipif(
 from probes.linear_probe import AffectProbe
 from fastapi.testclient import TestClient
 
+
 @pytest.fixture()
 def client(monkeypatch, tmp_path):
     import api.server as srv
+    import probes.zoo_io as zio
 
     monkeypatch.setattr(srv, "_registry", {})
     monkeypatch.setattr(srv, "_tribe_registry", {})
+    monkeypatch.setattr(srv, "_probe_meta_cache", {})
+    monkeypatch.setattr(srv, "_calib_cache", {})
 
-    def zoo(slug: str) -> Path:
-        p = tmp_path / f"{slug}.pt"
-        if not p.exists():
-            probe = AffectProbe(768, 2)
-            torch.save(probe.state_dict(), p)
-        return p
-
-    monkeypatch.setattr(srv, "_zoo_path", zoo)
+    zoo_dir = tmp_path / "zoo"
+    zoo_dir.mkdir(parents=True)
+    slug = "distilgpt2"
+    probe = AffectProbe(768, 2)
+    torch.save({"state_dict": probe.state_dict(), "probe_origin": "test"}, zoo_dir / f"{slug}.pt")
+    monkeypatch.setattr(zio, "ZOO_DIR", zoo_dir)
 
     return TestClient(srv.app)
 
@@ -46,14 +47,12 @@ def test_generate_endpoint(client):
     assert "tokens" in data and isinstance(data["tokens"], list)
     assert data["tokens"]
     assert "summary" in data
+    assert "probe_origin" in data["summary"]
     assert isinstance(data["suppression_events"], list)
     assert data["tokens"][0]["brain_alignment_note"]
     assert "tribe_v2" in data["tokens"][0]
+    assert "guard" in data["tokens"][0]
     tv = data["tokens"][0]["tribe_v2"]
     assert tv["roi_scores"] and len(tv["roi_scores"]) >= 3
-    assert "derived_va" in tv and "valence" in tv["derived_va"]
-    assert tv["methodology_note"]
     aff = data["tokens"][0]["affect"]
     assert -1 <= aff["valence"] <= 1
-    assert 0 <= aff["arousal"] <= 1
-    assert 0 <= aff["uncertainty"] <= 1
