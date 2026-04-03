@@ -1,3 +1,4 @@
+import os
 from typing import Optional
 
 import torch
@@ -5,6 +6,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from core.hooks import ActivationHook
 from core.layer_config import LAYER_CONFIG
+
+
+def _resolve_load_dtype(hidden_dim: int, *, on_cpu: bool) -> torch.dtype:
+    if hidden_dim < 64 or on_cpu:
+        return torch.float32
+    return torch.float16
 
 
 class ActivationExtractor:
@@ -26,14 +33,28 @@ class ActivationExtractor:
         if self.tokenizer.pad_token_id is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
-        # Very small models (smoke tests) stay in float32 — fp16 + tiny dims is brittle on CPU.
-        torch_dtype = torch.float32 if config["hidden_dim"] < 64 else torch.float16
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            torch_dtype=torch_dtype,
-            device_map=device,
-            low_cpu_mem_usage=True,
-        )
+        cuda_ok = torch.cuda.is_available()
+        force_cpu = os.environ.get("ANIMA_FORCE_CPU") == "1"
+        on_cpu = force_cpu or device == "cpu" or (device == "auto" and not cuda_ok)
+        device_map = "cpu" if on_cpu else device
+
+        dtype = _resolve_load_dtype(config["hidden_dim"], on_cpu=on_cpu)
+        load_kwargs: dict = {
+            "dtype": dtype,
+            "device_map": device_map,
+            "low_cpu_mem_usage": True,
+        }
+        if os.environ.get("ANIMA_LOAD_8BIT") == "1" and cuda_ok and config["hidden_dim"] >= 2048:
+            try:
+                from transformers import BitsAndBytesConfig
+
+                load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
+                load_kwargs["device_map"] = "auto"
+                load_kwargs.pop("torch_dtype", None)
+            except ImportError:
+                pass
+
+        self.model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
         self.model.eval()
         self.hook = ActivationHook(self.model, self.layer_indices)
 
@@ -129,15 +150,24 @@ class ActivationExtractor:
     def extract_iter(self, prompt: str, max_new_tokens: int = 200):
         """Yield one result dict per generated token (for WebSocket streaming)."""
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
+        past_key_values = None
 
         with torch.no_grad():
             for _ in range(max_new_tokens):
                 self.hook.clear()
+                if past_key_values is None:
+                    model_inputs = {**inputs}
+                else:
+                    model_inputs = {
+                        "input_ids": inputs["input_ids"][:, -1:],
+                        "past_key_values": past_key_values,
+                    }
                 outputs = self.model(
-                    **inputs,
+                    **model_inputs,
                     output_attentions=True,
-                    use_cache=False,
+                    use_cache=True,
                 )
+                past_key_values = outputs.past_key_values
                 logits = outputs.logits[0, -1, :]
 
                 entropy = self._compute_entropy(logits)

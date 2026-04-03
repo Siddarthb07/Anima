@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "anima"
-version = "2.0.0"
-description = "Anima (beta): dimensional LLM readouts via FastAPI and optional Vite dashboard — research tooling, not a clinical feelings detector."
+version = "1.0.0"
+description = "Anima v1: dimensional LLM readouts via FastAPI and optional Vite dashboard — research tooling, not a clinical feelings detector."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.9"
-authors = [{ name = "anima contributors" }]
+authors = [{ name = "Anima contributors" }]
 keywords = [
     "llm",
     "interpretability",
@@ -18,9 +18,10 @@ keywords = [
     "transformers",
     "affect",
     "dashboard",
+    "open-source",
 ]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Science/Research",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
@@ -31,6 +32,13 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
+
+[project.urls]
+Homepage = "https://github.com/Siddarthb07/Anima"
+Documentation = "https://github.com/Siddarthb07/Anima/blob/main/docs/README.md"
+Repository = "https://github.com/Siddarthb07/Anima"
+Issues = "https://github.com/Siddarthb07/Anima/issues"
+
 dependencies = [
     "torch>=2.1.0",
     "transformers>=4.40.0",
@@ -43,14 +51,24 @@ dependencies = [
     "scipy>=1.12.0",
     "scikit-learn>=1.4.0",
     "nibabel>=5.2.0",
+    "pyyaml>=6.0",
 ]
 
 [project.optional-dependencies]
 sae = ["sae-lens>=3.0.0"]
+tribe = []
+bench = ["pyyaml>=6.0"]
+bench-guard = []
 dev = ["pytest>=8.0.0", "httpx>=0.27.0"]
+train = ["datasets>=2.18.0", "nibabel>=5.2.0"]
+gradio = ["gradio>=4.0.0"]
+all = ["pytest>=8.0.0", "httpx>=0.27.0", "gradio>=4.0.0"]
+
+[project.scripts]
+anima = "cli.run:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["core", "alignment", "probes", "api", "cli"]
+packages = ["core", "alignment", "probes", "api", "cli", "benchmarks"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
