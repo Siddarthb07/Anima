@@ -36,6 +36,18 @@ export function UncertaintyBar({ readout }) {
         <TierBadge tier={readout.confidence_tier} />
       </div>
 
+      {readout.guard && (
+        <div className="mb-3 rounded border border-white/10 bg-ink-950/80 p-2 text-[11px] text-slate-400">
+          <span className="font-semibold text-slate-300">Readout guard</span>
+          {readout.guard.abstain_recommended && (
+            <span className="ml-2 text-accent-rose">abstain recommended</span>
+          )}
+          {readout.guard.reasons?.length > 0 && (
+            <p className="mt-1 font-mono text-[10px]">{readout.guard.reasons.join(" · ")}</p>
+          )}
+        </div>
+      )}
+
       <div className="mb-2 flex h-4 overflow-hidden rounded-full bg-ink-950">
         <div className="bg-violet-500" style={{ width: `${(e / sum) * 100}%` }} title="entropy" />
         <div className="bg-sky-500" style={{ width: `${(g / sum) * 100}%` }} title="logit gap" />

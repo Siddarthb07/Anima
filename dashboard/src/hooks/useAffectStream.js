@@ -168,5 +168,24 @@ export function useAffectStream(apiBase) {
     [apiBase, stop]
   );
 
-  return { tokens, suppressionEvents, summary, streaming, error, statusMessage, start, stop };
+  const loadFromGenerateResponse = useCallback((data) => {
+    stop();
+    setError(null);
+    setTokens(data.tokens || []);
+    setSuppressionEvents(data.suppression_events || []);
+    setSummary(data.summary || null);
+    setStatusMessage(null);
+  }, [stop]);
+
+  return {
+    tokens,
+    suppressionEvents,
+    summary,
+    streaming,
+    error,
+    statusMessage,
+    start,
+    stop,
+    loadFromGenerateResponse,
+  };
 }

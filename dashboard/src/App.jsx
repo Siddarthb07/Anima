@@ -6,6 +6,8 @@ import { TokenStream } from "./components/TokenStream.jsx";
 import { SuppressionAlert } from "./components/SuppressionAlert.jsx";
 import { BrainAlignmentPanel } from "./components/BrainAlignmentPanel.jsx";
 import { GeneratedOutput } from "./components/GeneratedOutput.jsx";
+import { ModelCard } from "./components/ModelCard.jsx";
+import { useRestGenerate } from "./hooks/useRestGenerate.js";
 
 function defaultModelId() {
   const v = import.meta.env.VITE_DEFAULT_MODEL;
@@ -50,20 +52,37 @@ function wsBaseUrl() {
 
 export default function App() {
   const wsUrl = useMemo(() => wsBaseUrl(), []);
-  const { tokens, suppressionEvents, summary, streaming, error, statusMessage, start, stop } =
-    useAffectStream(wsUrl);
+  const {
+    tokens,
+    suppressionEvents,
+    summary,
+    streaming,
+    error,
+    statusMessage,
+    start,
+    stop,
+    loadFromGenerateResponse,
+  } = useAffectStream(wsUrl);
 
   const [model, setModel] = useState(defaultModelId);
   const [prompt, setPrompt] = useState("Say hello in a few tokens.");
   const [maxTok, setMaxTok] = useState(24);
+  const [detectSuppression, setDetectSuppression] = useState(true);
   const [selectedIdx, setSelectedIdx] = useState(null);
+  const { generate: restGenerate, loading: restLoading } = useRestGenerate();
 
   const selected = selectedIdx != null ? tokens[selectedIdx] : tokens[tokens.length - 1];
 
   const run = useCallback(() => {
     setSelectedIdx(null);
-    start(model, prompt, maxTok, true);
-  }, [model, prompt, maxTok, start]);
+    start(model, prompt, maxTok, detectSuppression);
+  }, [model, prompt, maxTok, detectSuppression, start]);
+
+  const runRest = useCallback(async () => {
+    setSelectedIdx(null);
+    const data = await restGenerate(model, prompt, maxTok, detectSuppression);
+    if (data?.tokens) loadFromGenerateResponse(data);
+  }, [model, prompt, maxTok, detectSuppression, restGenerate, loadFromGenerateResponse]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-ink-950 via-ink-900 to-slate-950">
@@ -164,8 +183,24 @@ export default function App() {
               >
                 Stop
               </button>
+              <button
+                type="button"
+                disabled={streaming || restLoading}
+                onClick={runRest}
+                className="mt-6 rounded-lg border border-accent-cyan/40 px-4 py-2 text-sm text-accent-cyan hover:bg-accent-cyan/10 disabled:opacity-40"
+              >
+                REST batch
+              </button>
             </div>
           </div>
+          <label className="mt-2 flex items-center gap-2 text-xs text-slate-400">
+            <input
+              type="checkbox"
+              checked={detectSuppression}
+              onChange={(e) => setDetectSuppression(e.target.checked)}
+            />
+            Detect layer disagreement (suppression)
+          </label>
           {error && <p className="mt-3 text-sm text-accent-rose">{error}</p>}
           {!error && statusMessage && (
             <p className="mt-3 text-sm text-slate-400">{statusMessage}</p>
@@ -190,7 +225,10 @@ export default function App() {
               onSelectToken={setSelectedIdx}
             />
           </div>
-          <SuppressionAlert events={suppressionEvents} summary={summary} />
+          <div className="space-y-4">
+            <ModelCard summary={summary} />
+            <SuppressionAlert events={suppressionEvents} summary={summary} />
+          </div>
         </div>
       </main>
     </div>
