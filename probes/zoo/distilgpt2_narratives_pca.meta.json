@@ -1,0 +1,29 @@
+{
+  "baselines": {
+    "pieman": {
+      "word_rate_mean_r": 0.021146199224634586,
+      "lexical_len_mean_r": 0.013152102546445917
+    },
+    "tunnel": {
+      "word_rate_mean_r": 0.016466165207305598,
+      "lexical_len_mean_r": 0.03151864663975526
+    },
+    "holdout_lucy": {
+      "word_rate_mean_r": 0.0966947149136891,
+      "lexical_len_mean_r": -0.0015275396946065945
+    }
+  },
+  "train_stories": [],
+  "holdout_stories": [
+    "lucy"
+  ],
+  "target_mode": "pca",
+  "n_train": 45,
+  "n_val": 23,
+  "probe_origin": "narratives_fMRI_synthetic_minimal",
+  "narratives_root": "c:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\data\\narratives_minimal",
+  "val_mse": 0.1531949073035756,
+  "val_r_valence": 0.11746469586726599,
+  "val_r_arousal": -0.3014256137698859,
+  "model": "distilgpt2"
+}

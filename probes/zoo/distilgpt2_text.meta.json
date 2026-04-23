@@ -1,0 +1,12 @@
+{
+  "dataset": "go_emotions",
+  "split": "train",
+  "n_samples": 50,
+  "probe_origin": "text_emotion",
+  "val_loss": 1.413892,
+  "val_pearson_valence": 0.4821,
+  "val_pearson_arousal": -0.1014,
+  "model": "distilgpt2",
+  "hidden_dim": 768,
+  "n_layers": 2
+}

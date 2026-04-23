@@ -1,0 +1,14 @@
+{
+  "source": "synthetic_brain_minimal",
+  "note": "For pipeline dev; replace with ds002345 for real benchmarks.",
+  "stories": [
+    "pieman",
+    "tunnel",
+    "lucy"
+  ],
+  "subjects": [
+    "01",
+    "02",
+    "03"
+  ]
+}
