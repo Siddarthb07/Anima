@@ -17,6 +17,7 @@ RUN pip install --no-cache-dir pip setuptools wheel \
 
 ENV PYTHONUNBUFFERED=1
 
-EXPOSE 8000
+ENV ANIMA_API_PORT=8010
+EXPOSE 8010
 
-CMD ["uvicorn", "api.server:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "api.server:app", "--host", "0.0.0.0", "--port", "8010"]

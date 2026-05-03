@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://github.com/Siddarthb07/Anima/blob/main/docs/README.md
+    about: Getting started, training, benchmarks, models & zoo

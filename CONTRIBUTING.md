@@ -1,29 +1,50 @@
 # Contributing to Anima
 
-Thanks for improving **Anima**. This project ships as **beta**; small API/UI tweaks are still fair game — just describe them in PRs so downstream users aren’t surprised.
+Anima is an **open-source** research tool (MIT). Contributions that help others install, train probes, and reproduce benchmarks are welcome.
 
-## Principles
+## Before you start
 
-- **Framing:** Don’t imply models literally “feel” emotions. Prefer **readouts**, internal geometry, and clearly flagged psychology analogies (see root `README.md` and `docs/USAGE_AND_LIMITATIONS.md`).
-- **Scope:** Keep patches focused; avoid unrelated cleanups in the same PR.
-- **Tests:** Run `python -m pytest -q`. Heavy Hugging Face tests are optional: `RUN_HF_TESTS=1`.
+- Read [docs/USAGE_AND_LIMITATIONS.md](docs/USAGE_AND_LIMITATIONS.md) — do not frame readouts as literal emotions or clinical scores.
+- Anima targets **Hugging Face** causal LMs, not Ollama. If you add model support, extend `core/layer_config.py` and document training steps in [docs/MODELS_AND_ZOO.md](docs/MODELS_AND_ZOO.md).
 
 ## Local setup
 
-```powershell
-pip install -e ".[dev]"
-cd dashboard
-npm install
+```bash
+git clone https://github.com/Siddarthb07/Anima.git
+cd Anima
+python scripts/bootstrap.py
 ```
 
-Copy `dashboard/.env.example` → `dashboard/.env`.
+Or manually:
+
+```bash
+pip install -e ".[dev]"
+python scripts/download_narratives_minimal.py
+python scripts/train_all_probes.py   # tiny default model
+cd dashboard && npm install && cp .env.example .env
+```
+
+## Tests
+
+```bash
+python -m pytest -q -k "not distilgpt2"
+RUN_HF_TESTS=1 python -m pytest -q   # downloads Hub weights
+```
 
 ## Pull requests
 
-1. What changed and **why**.
-2. Any visible behavior change for `/generate`, WebSocket messages, or the dashboard.
-3. New dependencies need a short justification.
+1. **What** and **why** (one feature or fix per PR when possible).
+2. Note API or WebSocket schema changes.
+3. New dependencies need justification in the PR body.
+4. If you change training or benchmarks, say how to reproduce (`anima train-text`, `anima benchmark`, etc.).
 
-## Issues
+## Adding a new Hugging Face model
 
-Include OS, Python version, CPU vs CUDA Torch if relevant, model id, and reproduction steps.
+1. Add an entry to `core/layer_config.py` (`layers`, `hidden_dim`).
+2. Train: `anima train-text --model <hf_id>` and optionally `anima train --narratives-root ...`.
+3. Document in `probes/zoo/README.md` — checkpoints are gitignored; describe how to obtain or train them.
+4. Do not commit gated or licensed weights without permission.
+
+## Code of conduct
+
+See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).

@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package
+        run: pip install -e ".[dev]"
+      - name: Pytest (no HF download)
+        run: python -m pytest -q --tb=short -k "not distilgpt2"
+        env:
+          RUN_HF_TESTS: "0"
+
+  benchmark-smoke:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Internal benchmark smoke
+        run: python -m benchmarks.run_all --model hf-internal-testing/tiny-random-gpt2 --tiers internal
+        env:
+          RUN_BENCHMARK: internal
+      - name: Upload manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-manifest
+          path: benchmarks/reports/latest_manifest.json

@@ -1,82 +1,109 @@
-# Anima (beta)
+# Anima
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Repository:** [github.com/Siddarthb07/Anima](https://github.com/Siddarthb07/Anima)
+**Open-source instrumentation** for Hugging Face **causal language models**: per-token hidden-state hooks → valence / arousal / uncertainty readouts, optional brain-alignment training, and a live dashboard.
 
-**Anima** is a research-facing stack for watching **what happens inside a Hugging Face causal LM** while it generates text. It registers **forward hooks** on a configurable set of transformer layers, grabs hidden states at each new token, and turns those tensors into **scalar readouts** (valence, arousal, probe-style uncertainty) plus extra diagnostics (entropy, attention summaries, layer-disagreement hints). A **FastAPI** server exposes REST and **WebSocket** streaming; the **React + Vite** dashboard plots readouts live so you can click tokens and inspect uncertainty and “brain-alignment” context panels.
-
-I’m shipping this as **beta**: defaults and JSON shapes might still move. The UI wording is intentional — this is **instrumentation**, not evidence that the model **feels** emotions.
+Anima is **not** a chat product and **does not integrate with Ollama**. Point it at a [supported Hugging Face model id](core/layer_config.py) (e.g. `distilgpt2`, `mistralai/Mistral-7B-Instruct-v0.2`) and load or train matching probe weights under `probes/zoo/`.
 
 ---
 
-## What it’s actually doing (end-to-end)
+## Who this is for
 
-1. **Load a causal LM** from Hugging Face (default is a tiny regression checkpoint so the pipeline runs on modest RAM; you can switch to `distilgpt2` or other ids supported in `core/layer_config.py`).
-2. **Run generation** from your prompt. On each step, hooks capture **layer hidden states** for the current token.
-3. **Linear probe heads** (`probes/linear_probe.py`) map fused activations to **valence** (−1…1), **arousal** (0…1), and a probe **uncertainty** scalar.  
-   - If `probes/zoo/<model_slug>.pt` is missing, those weights are **random** — great for wiring the UI, weak for interpretive claims until you train (`probes/train.py`).
-4. **Uncertainty breakdown** in the UI mixes probe output with **cheap signals** from logits and attention (see `core/extractor.py`) so you get bars for entropy, logit-gap-style spread, attention, and a fused score.
-5. **TRIBEv2-style surrogate** (`alignment/tribe_encoder.py`): deterministic linear projections of the **same** hooked states into named ROI-like axes for the dashboard — a **visualization ladder**, not TRIBE fMRI decoding (details in [docs/PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)).
-6. **Suppression / layer-disagreement** heuristics (`core/suppression.py`) can flag tokens where early vs late layers disagree — surfaced after the stream completes.
+- Researchers and developers who want **measurable internal readouts** while a model generates text.
+- Anyone reproducing or extending **probe training** (GoEmotions text path, Narratives-style fMRI path).
+- Contributors — MIT licensed, standard Python + FastAPI + optional Vite UI.
 
-So in one sentence: **Anima streams token-by-token geometric summaries of internal activations**, not a chatbot with opinions.
+**Not for:** claiming models “feel” emotions, clinical use, or running weights inside Ollama without the HF stack.
 
 ---
 
-## What the dashboard looks like
+## Quick start (any OS)
 
-After `npm run dev` + API on **:8010**, you get a dark UI with model id, prompt, max tokens, **Stream readout**, a **valence × arousal** circumplex, uncertainty decomposition, brain-alignment / TRIBEv2 surrogate panels, concatenated decoded text, and a per-token strip.
-
-**Example run** (default tiny model — decoded text is gibberish by design; readouts still exercise the full path):
-
-![Anima dashboard showing circumplex readout, uncertainty bars, TRIBEv2 surrogate ROI axes, decoded token stream, and token tiles.](docs/images/dashboard-readout-example.png)
-
-*Figure: live readout while streaming. The tiny HF test model repeats subwords like `fe` — that’s expected noise, not a broken install. Swap to `distilgpt2` when you want readable English.*
-
----
-
-## Quick try
-
-```powershell
-pip install -e ".[dev]"
-cd dashboard && npm install && copy .env.example .env
+```bash
+git clone https://github.com/Siddarthb07/Anima.git
+cd Anima
+python scripts/bootstrap.py
 ```
 
-Terminal A: `python -m uvicorn api.server:app --host 127.0.0.1 --port 8010`  
-Terminal B (from `dashboard/`): `npm run dev` → open **http://127.0.0.1:5173**
+This installs the package, builds the minimal brain-training dataset, trains default **tiny** probes (low RAM), and runs tests.
 
-Windows helper (after installs):  
-`powershell -ExecutionPolicy Bypass -File scripts\start_anima.ps1`
+**Run:**
 
-Full detail: [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md).
+```bash
+anima api --port 8010
+# other terminal:
+cd dashboard && cp .env.example .env && npm install && npm run dev
+```
+
+Open **http://127.0.0.1:5173** (API health: **http://127.0.0.1:8010/health**).
+
+Windows: `powershell -ExecutionPolicy Bypass -File scripts\start_anima.ps1` after bootstrap.
 
 ---
 
-## If the UI shows a WebSocket error
+## Models & probes
 
-The dashboard expects the API at the URL in `dashboard/.env` (`VITE_API_HTTP_TARGET`, default `http://127.0.0.1:8010`). In dev, traffic usually goes through the Vite proxy — **start uvicorn first**, then **`npm run dev`**, and reload the page.
+| Question | Answer |
+|----------|--------|
+| Does it work with Ollama? | **No.** Use the equivalent **Hugging Face** model id. See [docs/MODELS_AND_ZOO.md](docs/MODELS_AND_ZOO.md). |
+| Are Mistral/Llama probes pre-trained? | **Not in git** (`*.pt` is gitignored). Run `anima train-text` / `anima train` or `python scripts/train_all_probes.py`. |
+| Default model | `hf-internal-testing/tiny-random-gpt2` — small, works on CPU; text output is intentionally noisy. |
+| Bigger models | Need RAM/GPU + `huggingface-cli login` for gated weights. [docs/TRAIN_ON_YOUR_MACHINE.md](docs/TRAIN_ON_YOUR_MACHINE.md) |
 
-![Example WebSocket connection error when the API is not reachable on the configured port.](docs/images/dashboard-websocket-troubleshooting.png)
+---
 
-*Figure: typical error when uvicorn isn’t running or the port/env doesn’t match — open `/health` on the API host and align `.env`.*
+## What it does
+
+1. Load a causal LM from Hugging Face and register **forward hooks** on selected layers.
+2. On each generated token, map activations through **trainable probe heads** (valence, arousal, uncertainty).
+3. Expose **REST** + **WebSocket** streaming; optional **React dashboard** for live plots.
+4. Optional **Narratives-shaped** brain alignment training (`probes/train.py`) and guard / benchmark tooling.
+
+If `probes/zoo/<model_slug>*.pt` is missing, probes are **random** — fine for plumbing, not for scientific claims until you train.
+
+![Dashboard example](docs/images/dashboard-readout-example.png)
+
+---
+
+## CLI
+
+```bash
+anima api --port 8010
+anima train-zoo --tier cpu
+ANIMA_TRAIN_LARGE=1 anima train-zoo --tier large
+anima benchmark --tiers internal,external,external_text,external_guard
+```
+
+Ollama → HF: `scripts/ollama_to_hf.json` · Full list: `anima --help` · [docs/TRAINING.md](docs/TRAINING.md)
 
 ---
 
 ## Documentation
 
-| Doc | What’s in it |
-|-----|----------------|
-| [**Getting started**](docs/GETTING_STARTED.md) | Install, ports, models, REST/WebSocket, Docker, troubleshooting |
-| [**Project overview**](docs/PROJECT_OVERVIEW.md) | Repo layout, probe zoo vs random weights, TRIBE surrogate clarification |
-| [**Usage & limitations**](docs/USAGE_AND_LIMITATIONS.md) | What you should and shouldn’t use this for |
-| [**Docs index**](docs/README.md) | Links to everything above |
-| [**Commands & tests**](docs/RUN_AND_TEST_COMMANDS.txt) | Pytest, CLI, optional Playwright demo |
+| Doc | Contents |
+|-----|----------|
+| [Getting started](docs/GETTING_STARTED.md) | Install, Docker, API, dashboard |
+| [Models & zoo](docs/MODELS_AND_ZOO.md) | HF vs Ollama, checkpoint naming |
+| [Training](docs/TRAINING.md) | Text + brain probes |
+| [Benchmarks](docs/BENCHMARKS.md) | Manifests and external suites |
+| [Project overview](docs/PROJECT_OVERVIEW.md) | Architecture |
+| [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md) | Ethics and scope |
+| [Contributing](CONTRIBUTING.md) | PRs, tests, conduct |
 
-Contributing: [`CONTRIBUTING.md`](CONTRIBUTING.md) · Security: [`SECURITY.md`](SECURITY.md)
+---
+
+## Development
+
+```bash
+python -m pytest -q -k "not distilgpt2"
+RUN_HF_TESTS=1 python -m pytest -q   # optional Hub downloads
+```
+
+CI: `.github/workflows/ci.yml`
 
 ---
 
 ## License
 
-Released under the [MIT License](LICENSE). Model weights from Hugging Face remain under **their** licenses — Anima only runs models you point it at.
+[MIT](LICENSE). Hugging Face **model weights** stay under their own licenses; you are responsible for compliance when you download or redistribute them.

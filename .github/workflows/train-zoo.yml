@@ -1,0 +1,71 @@
+name: Train probe zoo
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 1 * *"
+
+jobs:
+  train-cpu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e ".[dev,train]"
+      - run: python scripts/download_narratives_minimal.py
+      - run: python scripts/train_zoo_full.py --tier cpu
+        env:
+          ANIMA_FORCE_CPU: "1"
+          NARRATIVES_ROOT: ${{ github.workspace }}/data/narratives_minimal
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zoo-cpu-tier
+          path: |
+            probes/zoo/*.pt
+            probes/zoo/*.meta.json
+            probes/zoo/*.npz
+          if-no-files-found: warn
+
+  train-gpu:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        model:
+          - meta-llama/Meta-Llama-3-8B-Instruct
+          - mistralai/Mistral-7B-Instruct-v0.2
+          - Qwen/Qwen2-7B-Instruct
+          - google/gemma-2-9b-it
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install torch --index-url https://download.pytorch.org/whl/cu121
+      - run: pip install -e ".[dev,train]"
+      - name: HF login
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -n "$HF_TOKEN" ]; then
+            pip install huggingface_hub
+            huggingface-cli login --token "$HF_TOKEN"
+          fi
+      - run: python scripts/download_narratives_minimal.py
+      - name: Train
+        env:
+          ANIMA_TRAIN_LARGE: "1"
+          ANIMA_LOAD_8BIT: "1"
+          NARRATIVES_ROOT: ${{ github.workspace }}/data/narratives_minimal
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python scripts/train_zoo_full.py --models ${{ matrix.model }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zoo-gpu-probes
+          path: |
+            probes/zoo/*.pt
+            probes/zoo/*.meta.json
+            probes/zoo/*.npz
+          if-no-files-found: warn

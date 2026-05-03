@@ -1,0 +1,39 @@
+name: Bug report
+description: Something broke in install, API, training, or dashboard
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: "python scripts/bootstrap.py\nanima api --port 8010"
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Hugging Face model id (if applicable)
+      placeholder: hf-internal-testing/tiny-random-gpt2
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      options: ["Linux", "macOS", "Windows", "Other"]
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.11"
+  - type: checkboxes
+    id: ollama
+    attributes:
+      label: Note
+      options:
+        - label: I understand Anima uses Hugging Face models, not Ollama runtimes
+          required: true

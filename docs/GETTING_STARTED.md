@@ -1,6 +1,13 @@
 # Getting started with Anima
 
-This guide assumes you’ve cloned the **Anima** repo (GitHub project name can be `Anima`; your local folder name may differ).
+Clone from GitHub and run the bootstrap script (works on Linux, macOS, and Windows):
+
+```bash
+git clone https://github.com/Siddarthb07/Anima.git
+cd Anima
+python scripts/bootstrap.py
+# or: anima bootstrap
+```
 
 ## What you need
 
@@ -103,7 +110,7 @@ docker compose build
 docker compose up
 ```
 
-Compose typically exposes the API on **8000** and serves the built dashboard on **8080** — see `docker-compose.yml`. Rebuild the dashboard image with the correct **`VITE_WS_BASE`** if you’re not opening the UI from localhost.
+Compose exposes the API on **8010** by default — see `docker-compose.yml`. Rebuild the dashboard image with the correct **`VITE_WS_BASE`** if you’re not opening the UI from localhost.
 
 ---
 
