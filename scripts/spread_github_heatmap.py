@@ -146,7 +146,7 @@ def process_repo(name: str, day_cursor: datetime, *, dry_run: bool, push: bool) 
         run(["git", "push", "--force-with-lease", "origin", "HEAD"], cwd=dest)
         print("  pushed", flush=True)
     shutil.rmtree(dest, ignore_errors=True)
-    return d + timedelta(days=1)
+    return END + timedelta(days=1)
 
 
 def main() -> int:
