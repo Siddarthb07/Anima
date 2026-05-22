@@ -38,3 +38,9 @@ Thumbs.db
 # Logs / local artifacts
 *.log
 docs/dash_demo_last_run.png
+
+# Local-only git history helpers (not published)
+scripts/spread_github_heatmap.py
+scripts/space_repo_commits.py
+scripts/git_dated_commits.ps1
+scripts/rebuild_spaced_commits.ps1

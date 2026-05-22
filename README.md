@@ -85,7 +85,7 @@ Manifests: [`benchmarks/reports/latest_manifest.json`](benchmarks/reports/latest
 
 **Data notes:** Narratives numbers use the **synthetic minimal** corpus in `data/narratives_minimal/` (story holdout `lucy`), not full ds002345. GoEmotions text benchmark uses the **validation** split (≤200 samples). Guard fixtures are **4-sample** smoke sets (`benchmarks/fixtures/`). Brain-Score skipped unless installed (`SKIP_BRAINSCORE=1` by default).
 
-### `hf-internal-testing/tiny-random-gpt2` — run 2026-05-18 (`git` 43ea2bb)
+### `hf-internal-testing/tiny-random-gpt2` — run 2026-05-18
 
 | Benchmark | Metric | Value |
 |-----------|--------|-------|
