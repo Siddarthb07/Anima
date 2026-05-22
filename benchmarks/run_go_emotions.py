@@ -17,7 +17,21 @@ def run(model: str) -> dict:
 
         ex = ActivationExtractor(model)
         probe = AffectProbe(ex.hidden_dim, len(ex.layer_indices))
-        meta = load_probe_into(probe, model)
+        from probes.zoo_io import checkpoint_path, load_meta, probe_slug
+
+        slug = probe_slug(model)
+        text_ckpt = checkpoint_path(slug, "_text")
+        if text_ckpt.exists():
+            import torch
+
+            state = torch.load(text_ckpt, map_location="cpu", weights_only=True)
+            if isinstance(state, dict) and "state_dict" in state:
+                probe.load_state_dict(state["state_dict"])
+            else:
+                probe.load_state_dict(state)
+            meta = load_meta(slug, "_text")
+        else:
+            meta = load_probe_into(probe, model)
         if meta.get("probe_origin") == "random":
             ex.cleanup()
             return {

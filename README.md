@@ -47,9 +47,69 @@ Windows: `powershell -ExecutionPolicy Bypass -File scripts\start_anima.ps1` afte
 | Question | Answer |
 |----------|--------|
 | Does it work with Ollama? | **No.** Use the equivalent **Hugging Face** model id. See [docs/MODELS_AND_ZOO.md](docs/MODELS_AND_ZOO.md). |
-| Are Mistral/Llama probes pre-trained? | **Not in git** (`*.pt` is gitignored). Run `anima train-text` / `anima train` or `python scripts/train_all_probes.py`. |
-| Default model | `hf-internal-testing/tiny-random-gpt2` — small, works on CPU; text output is intentionally noisy. |
+| Are Mistral/Llama probes pre-trained? | **Not yet** — train locally or use CI artifacts (below). |
+| Default model | `hf-internal-testing/tiny-random-gpt2` — CPU-friendly; LM output is intentionally noisy. |
 | Bigger models | Need RAM/GPU + `huggingface-cli login` for gated weights. [docs/TRAIN_ON_YOUR_MACHINE.md](docs/TRAIN_ON_YOUR_MACHINE.md) |
+
+### Published probe weights (CPU tier)
+
+Weights live in `probes/zoo/` after `python scripts/bootstrap.py` (or the commands below). Checkpoints are **gitignored** (`*.pt`); **metrics sidecars** (`*.meta.json`) are committed. Reproduce with:
+
+```bash
+python scripts/download_narratives_minimal.py
+python scripts/train_all_probes.py          # tiny + minimal Narratives brain probe
+anima train-text --model distilgpt2 --max-samples 500
+anima train --model distilgpt2 --narratives-root ./data/narratives_minimal
+```
+
+| HF model | Checkpoint files | Origin |
+|----------|------------------|--------|
+| `hf-internal-testing/tiny-random-gpt2` | `tiny_random_gpt2_text.pt`, `tiny_random_gpt2_narratives_pca.pt`, `tiny_random_gpt2_tribe_proj.npz` | `text_emotion` + `narratives_fMRI_synthetic_minimal` |
+| `distilgpt2` | `distilgpt2_text.pt`, `distilgpt2_narratives_pca.pt`, `distilgpt2_tribe_proj.npz` | same |
+
+### Train remaining zoo families
+
+```bash
+anima train-zoo --tier cpu                    # TinyLlama, Qwen-0.5B, SmolLM2 proxies (~8 GB+ RAM)
+ANIMA_TRAIN_LARGE=1 anima train-zoo --tier large   # Llama-3-8B, Mistral-7B, Qwen2-7B, Gemma-9B (GPU)
+```
+
+Per-model overrides: `anima train-text --model <hf_id>` and `anima train --model <hf_id> --narratives-root <path>`. Ollama name → HF id: [`scripts/ollama_to_hf.json`](scripts/ollama_to_hf.json). CI builds large tiers: [`.github/workflows/train-zoo.yml`](.github/workflows/train-zoo.yml) (download workflow artifacts into `probes/zoo/`).
+
+---
+
+## Benchmarks (v1)
+
+Run locally: `anima benchmark --model <hf_id> --tiers internal,external,external_text,external_guard`  
+Manifests: [`benchmarks/reports/latest_manifest.json`](benchmarks/reports/latest_manifest.json) (tiny), [`benchmarks/reports/latest_distilgpt2_manifest.json`](benchmarks/reports/latest_distilgpt2_manifest.json).
+
+**Data notes:** Narratives numbers use the **synthetic minimal** corpus in `data/narratives_minimal/` (story holdout `lucy`), not full ds002345. GoEmotions text benchmark uses the **validation** split (≤200 samples). Guard fixtures are **4-sample** smoke sets (`benchmarks/fixtures/`). Brain-Score skipped unless installed (`SKIP_BRAINSCORE=1` by default).
+
+### `hf-internal-testing/tiny-random-gpt2` — run 2026-05-18 (`git` 43ea2bb)
+
+| Benchmark | Metric | Value |
+|-----------|--------|-------|
+| Narratives holdout | Val MSE | 0.118 |
+| | Pearson r (valence / arousal) | −0.109 / −0.239 |
+| | Word-rate baseline r (holdout lucy) | 0.097 |
+| GoEmotions (text probe, val split) | Pearson r (valence / arousal) | 0.004 / 0.010 |
+| HaluEval guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
+| TruthfulQA guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
+| TRIBE reference | — | skipped (no `tribev2`) |
+| Brain-Score Language | — | skipped |
+
+### `distilgpt2` — metrics from trained checkpoints (`*.meta.json`, 2026-05-18)
+
+| Benchmark | Metric | Value |
+|-----------|--------|-------|
+| Narratives holdout | Val MSE | 0.153 |
+| | Pearson r (valence / arousal) | 0.117 / −0.301 |
+| | Word-rate baseline r (holdout lucy) | 0.097 |
+| GoEmotions (text probe, train val, n=50) | Pearson r (valence / arousal) | 0.482 / −0.101 |
+| HaluEval guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
+| TruthfulQA guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
+
+Full distilgpt2 live benchmark (`anima benchmark --model distilgpt2`) needs **~8 GB+ RAM** to load the LM on CPU; export meta-only: `python -m benchmarks.export_meta_manifest --model distilgpt2`.
 
 ---
 
@@ -72,10 +132,10 @@ If `probes/zoo/<model_slug>*.pt` is missing, probes are **random** — fine for 
 anima api --port 8010
 anima train-zoo --tier cpu
 ANIMA_TRAIN_LARGE=1 anima train-zoo --tier large
-anima benchmark --tiers internal,external,external_text,external_guard
+anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard
 ```
 
-Ollama → HF: `scripts/ollama_to_hf.json` · Full list: `anima --help` · [docs/TRAINING.md](docs/TRAINING.md)
+Ollama → HF: `scripts/ollama_to_hf.json` · Full list: `anima --help` · [docs/BENCHMARKS.md](docs/BENCHMARKS.md) · [docs/TRAINING.md](docs/TRAINING.md)
 
 ---
 

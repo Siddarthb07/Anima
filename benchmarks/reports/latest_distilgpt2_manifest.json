@@ -1,0 +1,83 @@
+{
+  "model": "distilgpt2",
+  "git_sha": "43ea2bb",
+  "generated_at": "2026-05-18T11:12:36.403348+00:00",
+  "entries": [
+    {
+      "tier": "external_text",
+      "benchmark": "go_emotions",
+      "status": "ok",
+      "source": "train_text.meta.json",
+      "pearson_valence": 0.4821,
+      "pearson_arousal": -0.1014,
+      "n_samples": 50,
+      "probe_origin": "text_emotion"
+    },
+    {
+      "tier": "external",
+      "benchmark": "narratives_holdout",
+      "status": "ok",
+      "source": "narratives_pca.meta.json",
+      "val_mse": 0.1531949073035756,
+      "val_r_valence": 0.11746469586726599,
+      "val_r_arousal": -0.3014256137698859,
+      "holdout_stories": [
+        "lucy"
+      ],
+      "probe_origin": "narratives_fMRI_synthetic_minimal",
+      "baselines": {
+        "pieman": {
+          "word_rate_mean_r": 0.021146199224634586,
+          "lexical_len_mean_r": 0.013152102546445917
+        },
+        "tunnel": {
+          "word_rate_mean_r": 0.016466165207305598,
+          "lexical_len_mean_r": 0.03151864663975526
+        },
+        "holdout_lucy": {
+          "word_rate_mean_r": 0.0966947149136891,
+          "lexical_len_mean_r": -0.0015275396946065945
+        }
+      }
+    },
+    {
+      "tier": "external",
+      "benchmark": "litcoder_style_ridge",
+      "status": "ok",
+      "source": "narratives_pca.meta.json",
+      "val_mse": 0.1531949073035756,
+      "val_r_valence": 0.11746469586726599,
+      "val_r_arousal": -0.3014256137698859,
+      "holdout_word_rate_mean_r": 0.0966947149136891
+    },
+    {
+      "tier": "external_guard",
+      "benchmark": "halueval",
+      "status": "ok",
+      "model": "distilgpt2",
+      "fixture": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\benchmarks\\fixtures\\halueval_guard_sample.json",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 4,
+      "tp": 2,
+      "fp": 0,
+      "tn": 2,
+      "fn": 0
+    },
+    {
+      "benchmark": "truthfulqa_guard",
+      "tier": "external_guard",
+      "status": "ok",
+      "model": "distilgpt2",
+      "fixture": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\benchmarks\\fixtures\\truthfulqa_guard_sample.json",
+      "note": "Scores guard policy on supplied readout rows, not LM factuality",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 4,
+      "tp": 2,
+      "fp": 0,
+      "tn": 2,
+      "fn": 0
+    }
+  ]
+}

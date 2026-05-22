@@ -48,7 +48,16 @@ python -m benchmarks.run_all --model distilgpt2 --tiers internal,external,extern
 
 ## Reproducing README tables
 
-After a release run, copy metrics from `latest_manifest.json` into the README benchmark section. Do not cherry-pick: failed/skipped entries include a `reason` field.
+```bash
+anima benchmark --model hf-internal-testing/tiny-random-gpt2 --tiers internal,external,external_text,external_guard
+# distilgpt2 needs ~8GB+ RAM to load the LM; if OOM, use meta export:
+python -m benchmarks.export_meta_manifest --model distilgpt2
+```
+
+- Tiny: `benchmarks/reports/latest_manifest.json`
+- DistilGPT-2: `benchmarks/reports/latest_distilgpt2_manifest.json`
+
+Do not cherry-pick: failed/skipped entries include a `reason` field.
 
 ## TRIBE reference
 

@@ -1,7 +1,7 @@
 {
   "model": "hf-internal-testing/tiny-random-gpt2",
-  "git_sha": "91d6c4e",
-  "generated_at": "2026-05-18T09:20:22.978939+00:00",
+  "git_sha": "43ea2bb",
+  "generated_at": "2026-05-18T11:12:21.497645+00:00",
   "entries": [
     {
       "tier": "internal",
@@ -88,9 +88,9 @@
       "tier": "external_text",
       "benchmark": "go_emotions",
       "status": "ok",
-      "pearson_valence": -0.0535,
-      "pearson_arousal": 0.086,
-      "probe_origin": "narratives_fMRI_synthetic_minimal"
+      "pearson_valence": 0.0036,
+      "pearson_arousal": 0.0101,
+      "probe_origin": "text_emotion"
     },
     {
       "tier": "external_guard",

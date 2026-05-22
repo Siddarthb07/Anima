@@ -32,13 +32,6 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
-
-[project.urls]
-Homepage = "https://github.com/Siddarthb07/Anima"
-Documentation = "https://github.com/Siddarthb07/Anima/blob/main/docs/README.md"
-Repository = "https://github.com/Siddarthb07/Anima"
-Issues = "https://github.com/Siddarthb07/Anima/issues"
-
 dependencies = [
     "torch>=2.1.0",
     "transformers>=4.40.0",
@@ -53,6 +46,12 @@ dependencies = [
     "nibabel>=5.2.0",
     "pyyaml>=6.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/Siddarthb07/Anima"
+Documentation = "https://github.com/Siddarthb07/Anima/blob/main/docs/README.md"
+Repository = "https://github.com/Siddarthb07/Anima"
+Issues = "https://github.com/Siddarthb07/Anima/issues"
 
 [project.optional-dependencies]
 sae = ["sae-lens>=3.0.0"]
