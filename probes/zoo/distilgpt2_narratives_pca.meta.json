@@ -22,8 +22,8 @@
   "n_val": 23,
   "probe_origin": "narratives_fMRI_synthetic_minimal",
   "narratives_root": "c:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\data\\narratives_minimal",
-  "val_mse": 0.1531949073035756,
-  "val_r_valence": 0.11746469586726599,
-  "val_r_arousal": -0.3014256137698859,
+  "val_mse": 0.08090218958323417,
+  "val_r_valence": 0.284259499213011,
+  "val_r_arousal": 0.0041028333058972044,
   "model": "distilgpt2"
 }

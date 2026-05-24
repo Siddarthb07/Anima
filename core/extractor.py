@@ -29,7 +29,14 @@ class ActivationExtractor:
         self.early_layer = self.layer_indices[0]
         self.late_layer = self.layer_indices[-1]
 
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        use_fast = os.environ.get("ANIMA_SLOW_TOKENIZER", "0") != "1"
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=use_fast)
+        except Exception:
+            if use_fast:
+                self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
+            else:
+                raise
         if self.tokenizer.pad_token_id is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 

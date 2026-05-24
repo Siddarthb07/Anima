@@ -49,12 +49,18 @@ def main() -> int:
     narr = ROOT / "data" / "narratives_minimal"
     os.environ["NARRATIVES_ROOT"] = str(narr.resolve())
 
-    if not args.skip_train:
+    # Phase 2: prefer published Release weights; fall back to local train
+    dl_code = run([py, str(ROOT / "scripts" / "download_zoo.py"), "--skip-existing"])
+    has_pt = any(ROOT.glob("probes/zoo/*.pt"))
+
+    if not args.skip_train and (dl_code != 0 or not has_pt):
         code = run([py, str(ROOT / "scripts" / "train_all_probes.py")])
         if code != 0:
             print("warn: full train failed; trying tiny synthetic probe only", flush=True)
             run([py, str(ROOT / "scripts" / "build_zoo_tiny_probe.py")])
             run([py, str(ROOT / "scripts" / "train_text_lite.py"), "--max-samples", "40"])
+    elif has_pt:
+        print("Using probe weights from probes/zoo/ (release or existing)", flush=True)
 
     run([py, str(ROOT / "scripts" / "setup_benchmarks.py")])
 

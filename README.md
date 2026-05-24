@@ -47,13 +47,20 @@ Windows: `powershell -ExecutionPolicy Bypass -File scripts\start_anima.ps1` afte
 | Question | Answer |
 |----------|--------|
 | Does it work with Ollama? | **No.** Use the equivalent **Hugging Face** model id. See [docs/MODELS_AND_ZOO.md](docs/MODELS_AND_ZOO.md). |
-| Are Mistral/Llama probes pre-trained? | **Not yet** — train locally or use CI artifacts (below). |
+| Are Mistral/Llama probes pre-trained? | **CPU tier:** [Release v1.1.0](https://github.com/Siddarthb07/Anima/releases/tag/v1.1.0) (tiny + distilgpt2). **1B+ proxies / 7B:** CI [train-zoo workflow](.github/workflows/train-zoo.yml) or train locally. |
 | Default model | `hf-internal-testing/tiny-random-gpt2` — CPU-friendly; LM output is intentionally noisy. |
 | Bigger models | Need RAM/GPU + `huggingface-cli login` for gated weights. [docs/TRAIN_ON_YOUR_MACHINE.md](docs/TRAIN_ON_YOUR_MACHINE.md) |
 
 ### Published probe weights (CPU tier)
 
-Weights live in `probes/zoo/` after `python scripts/bootstrap.py` (or the commands below). Checkpoints are **gitignored** (`*.pt`); **metrics sidecars** (`*.meta.json`) are committed. Reproduce with:
+**Download pre-trained checkpoints** (no training required):
+
+```bash
+python scripts/download_zoo.py              # from GitHub Release v1.1.0
+python scripts/download_zoo.py --list       # show asset URLs
+```
+
+Or train locally: checkpoints are **gitignored** (`*.pt`); **metrics sidecars** (`*.meta.json`) are in git.
 
 ```bash
 python scripts/download_narratives_minimal.py
@@ -62,10 +69,12 @@ anima train-text --model distilgpt2 --max-samples 500
 anima train --model distilgpt2 --narratives-root ./data/narratives_minimal
 ```
 
-| HF model | Checkpoint files | Origin |
-|----------|------------------|--------|
+| HF model | Release assets | Origin |
+|----------|----------------|--------|
 | `hf-internal-testing/tiny-random-gpt2` | `tiny_random_gpt2_text.pt`, `tiny_random_gpt2_narratives_pca.pt`, `tiny_random_gpt2_tribe_proj.npz` | `text_emotion` + `narratives_fMRI_synthetic_minimal` |
-| `distilgpt2` | `distilgpt2_text.pt`, `distilgpt2_narratives_pca.pt`, `distilgpt2_tribe_proj.npz` | same |
+| `distilgpt2` | `distilgpt2_text.pt`, `distilgpt2_narratives_pca.pt`, `distilgpt2_tribe_proj.npz` | same (live benchmark 2026-05-24) |
+
+More families (Qwen, TinyLlama, SmolLM2, 7B): [GitHub Actions train-zoo workflow](.github/workflows/train-zoo.yml) → download artifact into `probes/zoo/`.
 
 ### Train remaining zoo families
 
@@ -98,18 +107,18 @@ Manifests: [`benchmarks/reports/latest_manifest.json`](benchmarks/reports/latest
 | TRIBE reference | — | skipped (no `tribev2`) |
 | Brain-Score Language | — | skipped |
 
-### `distilgpt2` — metrics from trained checkpoints (`*.meta.json`, 2026-05-18)
+### `distilgpt2` — live run 2026-05-24
 
 | Benchmark | Metric | Value |
 |-----------|--------|-------|
-| Narratives holdout | Val MSE | 0.153 |
-| | Pearson r (valence / arousal) | 0.117 / −0.301 |
+| Narratives holdout | Val MSE | 0.081 |
+| | Pearson r (valence / arousal) | 0.284 / 0.004 |
 | | Word-rate baseline r (holdout lucy) | 0.097 |
-| GoEmotions (text probe, train val, n=50) | Pearson r (valence / arousal) | 0.482 / −0.101 |
+| GoEmotions (text probe, val split) | Pearson r (valence / arousal) | 0.057 / 0.021 |
 | HaluEval guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
 | TruthfulQA guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
 
-Full distilgpt2 live benchmark (`anima benchmark --model distilgpt2`) needs **~8 GB+ RAM** to load the LM on CPU; export meta-only: `python -m benchmarks.export_meta_manifest --model distilgpt2`.
+Manifest: [`benchmarks/reports/latest_distilgpt2_manifest.json`](benchmarks/reports/latest_distilgpt2_manifest.json). Reproduce: `anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard`.
 
 ---
 
@@ -147,6 +156,7 @@ Ollama → HF: `scripts/ollama_to_hf.json` · Full list: `anima --help` · [docs
 | [Models & zoo](docs/MODELS_AND_ZOO.md) | HF vs Ollama, checkpoint naming |
 | [Training](docs/TRAINING.md) | Text + brain probes |
 | [Benchmarks](docs/BENCHMARKS.md) | Manifests and external suites |
+| [Build plan](docs/BUILD_PLAN.md) | Phased roadmap (local vs CI vs release) |
 | [Project overview](docs/PROJECT_OVERVIEW.md) | Architecture |
 | [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md) | Ethics and scope |
 | [Contributing](CONTRIBUTING.md) | PRs, tests, conduct |

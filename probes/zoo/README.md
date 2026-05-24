@@ -28,4 +28,14 @@ Slug = last path segment of HF id, lowercased, `-` → `_` (e.g. `mistralai/Mist
 
 ## CI-built weights
 
-GitHub Actions workflow `.github/workflows/train-zoo.yml` builds probes on Ubuntu (GPU for 7B+). Download artifacts from a workflow run and copy into this folder.
+GitHub Actions [`.github/workflows/train-zoo.yml`](../.github/workflows/train-zoo.yml) builds additional probes on Ubuntu (GPU for 7B+).
+
+**Published Release (CPU tier):**
+
+```bash
+python scripts/download_zoo.py
+```
+
+Assets on [v1.1.0](https://github.com/Siddarthb07/Anima/releases/tag/v1.1.0): tiny + distilgpt2 text/brain probes and tribe projections.
+
+Download CI artifacts from a workflow run and copy into this folder for proxy / 7B builds.

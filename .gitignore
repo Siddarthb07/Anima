@@ -35,7 +35,7 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Logs / local artifacts
+dist/
 *.log
 docs/dash_demo_last_run.png
 

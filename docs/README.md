@@ -14,5 +14,6 @@ Screenshots embedded in the root README live under [`images/`](images/) (`dashbo
 | [TRAINING.md](TRAINING.md) | Train text + brain probes |
 | [TRAIN_ON_YOUR_MACHINE.md](TRAIN_ON_YOUR_MACHINE.md) | RAM, GPU, gated weights |
 | [BENCHMARKS.md](BENCHMARKS.md) | Benchmark manifests |
+| [BUILD_PLAN.md](BUILD_PLAN.md) | Phased roadmap: local vs CI, releases, demos |
 
 Repository meta: [CONTRIBUTING.md](../CONTRIBUTING.md) · [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md) · [SECURITY.md](../SECURITY.md) · [LICENSE](../LICENSE)
