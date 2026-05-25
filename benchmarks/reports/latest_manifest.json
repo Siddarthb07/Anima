@@ -1,7 +1,7 @@
 {
   "model": "distilgpt2",
-  "git_sha": "f43eeaa",
-  "generated_at": "2026-05-24T08:00:43.421495+00:00",
+  "git_sha": "c016cc4",
+  "generated_at": "2026-05-25T13:24:18.845830+00:00",
   "entries": [
     {
       "tier": "internal",
@@ -82,7 +82,8 @@
     {
       "tier": "external",
       "benchmark": "brainscore_language",
-      "status": "skipped"
+      "status": "skipped",
+      "reason": "brainscore_language not installed"
     },
     {
       "tier": "external_text",
@@ -121,5 +122,6 @@
       "tn": 2,
       "fn": 0
     }
-  ]
+  ],
+  "manifest_schema_version": 1
 }

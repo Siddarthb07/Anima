@@ -30,6 +30,7 @@ export function ModelCard({ summary }) {
             {m.model_id}
             {m.zoo_checkpoints?.length ? ` [${m.zoo_checkpoints.join(", ")}]` : " [random probe]"}
             {m.probe_origin ? ` · ${m.probe_origin}` : ""}
+            {m.brain_data_tier && m.brain_data_tier !== "none" ? ` · brain:${m.brain_data_tier}` : ""}
           </li>
         ))}
       </ul>

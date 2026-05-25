@@ -13,7 +13,10 @@
       "lexical_len_mean_r": -0.0015275396946065945
     }
   },
-  "train_stories": [],
+  "train_stories": [
+    "pieman",
+    "tunnel"
+  ],
   "holdout_stories": [
     "lucy"
   ],

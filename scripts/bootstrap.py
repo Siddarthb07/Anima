@@ -23,6 +23,31 @@ def run(cmd: list[str], **kwargs) -> int:
     return subprocess.call(cmd, cwd=str(ROOT), **kwargs)
 
 
+def _warn_zoo_quality() -> None:
+    """Part A (R5): surface synthetic vs real brain tier after zoo load."""
+    try:
+        from probes.zoo_io import load_meta, meta_path, probe_slug
+
+        slug = probe_slug("distilgpt2")
+        brain = load_meta(slug, "_narratives_pca")
+        if brain.get("probe_origin") == "narratives_fMRI_synthetic_minimal":
+            print(
+                "note: brain probes are synthetic-minimal (not ds002345). "
+                "See docs/RESEARCH_GRADE.md and docs/BRAIN_PROBE_DATA.md.",
+                flush=True,
+            )
+        text = load_meta(slug, "_text")
+        vp = text.get("val_pearson_valence")
+        if vp is not None and float(vp) < 0.05:
+            print(
+                "warn: distilgpt2_text val_pearson_valence is weak — "
+                "retrain: anima train-text --model distilgpt2 --max-samples 1500",
+                flush=True,
+            )
+    except Exception:
+        pass
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description="Bootstrap Anima for local development")
     p.add_argument("--skip-train", action="store_true")
@@ -61,6 +86,8 @@ def main() -> int:
             run([py, str(ROOT / "scripts" / "train_text_lite.py"), "--max-samples", "40"])
     elif has_pt:
         print("Using probe weights from probes/zoo/ (release or existing)", flush=True)
+
+    _warn_zoo_quality()
 
     run([py, str(ROOT / "scripts" / "setup_benchmarks.py")])
 

@@ -50,6 +50,23 @@ def save_meta(slug: str, meta: dict[str, Any], suffix: str = "") -> Path:
     return p
 
 
+def load_brain_meta(model_name: str) -> dict[str, Any]:
+    """Sidecar meta for the brain (_narratives_pca) checkpoint, if present."""
+    slug = probe_slug(model_name)
+    if meta_path(slug, "_narratives_pca").exists():
+        return load_meta(slug, "_narratives_pca")
+    return {}
+
+
+def brain_data_tier(probe_origin: str) -> str:
+    """Research-grade label for UI and /models."""
+    if probe_origin == "narratives_fMRI":
+        return "real_fMRI"
+    if probe_origin == "narratives_fMRI_synthetic_minimal":
+        return "synthetic_minimal"
+    return "none"
+
+
 def resolve_checkpoint_slug(model_name: str) -> tuple[Optional[Path], str, dict[str, Any]]:
     """Pick best zoo checkpoint: narratives > text > base slug."""
     slug = probe_slug(model_name)

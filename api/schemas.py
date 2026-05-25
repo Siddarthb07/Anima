@@ -1,6 +1,6 @@
 from typing import Any, Literal, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from core.defaults import DEFAULT_CAUSAL_LM
 
@@ -75,12 +75,22 @@ class EncodeResponse(BaseModel):
 
 
 class ModelInfo(BaseModel):
+    model_config = ConfigDict(protected_namespaces=())
+
     model_id: str
     hidden_dim: int
     layers: int
     has_sae: bool
     zoo_checkpoints: list[str] = Field(default_factory=list)
     probe_origin: str = "random"
+    brain_data_tier: str = Field(
+        default="none",
+        description="none | synthetic_minimal | real_fMRI — from brain probe meta when present.",
+    )
+    narratives_root: Optional[str] = None
+    train_stories: list[str] = Field(default_factory=list)
+    holdout_stories: list[str] = Field(default_factory=list)
+    brain_val_r_valence: Optional[float] = None
 
 
 class ModelsResponse(BaseModel):

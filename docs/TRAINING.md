@@ -18,7 +18,7 @@ python scripts/download_narratives_minimal.py
 python scripts/train_all_probes.py
 ```
 
-Uses `data/narratives_minimal/` (synthetic BOLD, Narratives layout) when ds002345 is not installed. Outputs `tiny_random_gpt2_text.pt` and `tiny_random_gpt2_narratives_pca.pt`.
+Uses `data/narratives_minimal/` (synthetic BOLD, Narratives layout) when ds002345 is not installed. Outputs `tiny_random_gpt2_text.pt` and `tiny_random_gpt2_narratives_pca.pt`. Holdout split: [`benchmarks/splits/narratives_holdout.json`](../benchmarks/splits/narratives_holdout.json) (train `pieman`/`tunnel`, holdout `lucy`).
 
 ## Narratives fMRI probe (real OpenNeuro data)
 

@@ -2,7 +2,7 @@
 Drive the dashboard through one streamed generation for QA.
 
 Requires:
-  - API: uvicorn (default port from ANIMA_API_PORT or LLM_AFFECT_API_PORT, 8000)
+  - API: uvicorn (default port from ANIMA_API_PORT or LLM_AFFECT_API_PORT, 8010)
   - Dashboard: Vite dev (port from ANIMA_DASH_PORT or LLM_AFFECT_DASH_PORT, default 5173)
   - pip install playwright && python -m playwright install chromium
 
@@ -38,7 +38,7 @@ def _env_str(anim_key: str, legacy_key: str, default: str) -> str:
     return os.environ.get(anim_key) or os.environ.get(legacy_key) or default
 
 
-API_PORT = _env_int("ANIMA_API_PORT", "LLM_AFFECT_API_PORT", "8000")
+API_PORT = _env_int("ANIMA_API_PORT", "LLM_AFFECT_API_PORT", "8010")
 DASH_PORT = _env_int("ANIMA_DASH_PORT", "LLM_AFFECT_DASH_PORT", "5173")
 DEMO_MODEL = _env_str(
     "ANIMA_DEMO_MODEL",

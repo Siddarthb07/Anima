@@ -4,6 +4,8 @@
 
 **Open-source instrumentation** for Hugging Face **causal language models**: per-token hidden-state hooks → valence / arousal / uncertainty readouts, optional brain-alignment training, and a live dashboard.
 
+**Limits and scope:** read [`docs/USAGE_AND_LIMITATIONS.md`](docs/USAGE_AND_LIMITATIONS.md) before citing metrics. **Research-grade checklist:** [`docs/RESEARCH_GRADE.md`](docs/RESEARCH_GRADE.md). **Brain data provenance:** [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
+
 Anima is **not** a chat product and **does not integrate with Ollama**. Point it at a [supported Hugging Face model id](core/layer_config.py) (e.g. `distilgpt2`, `mistralai/Mistral-7B-Instruct-v0.2`) and load or train matching probe weights under `probes/zoo/`.
 
 ---
@@ -69,10 +71,12 @@ anima train-text --model distilgpt2 --max-samples 500
 anima train --model distilgpt2 --narratives-root ./data/narratives_minimal
 ```
 
-| HF model | Release assets | Origin |
-|----------|----------------|--------|
-| `hf-internal-testing/tiny-random-gpt2` | `tiny_random_gpt2_text.pt`, `tiny_random_gpt2_narratives_pca.pt`, `tiny_random_gpt2_tribe_proj.npz` | `text_emotion` + `narratives_fMRI_synthetic_minimal` |
-| `distilgpt2` | `distilgpt2_text.pt`, `distilgpt2_narratives_pca.pt`, `distilgpt2_tribe_proj.npz` | same (live benchmark 2026-05-24) |
+| HF model | Release assets | Brain data tier |
+|----------|----------------|-----------------|
+| `hf-internal-testing/tiny-random-gpt2` | `tiny_random_gpt2_*` | **synthetic_minimal** (dev/CI) |
+| `distilgpt2` | `distilgpt2_*` | **synthetic_minimal** today; **real_fMRI** target in v1.2 |
+
+Probe vs word-rate baseline (synthetic holdout `lucy`): distilgpt2 valence **r ≈ 0.28** vs word-rate baseline **r ≈ 0.10** — see [`latest_distilgpt2_manifest.json`](benchmarks/reports/latest_distilgpt2_manifest.json).
 
 More families (Qwen, TinyLlama, SmolLM2, 7B): [GitHub Actions train-zoo workflow](.github/workflows/train-zoo.yml) → download artifact into `probes/zoo/`.
 
@@ -159,6 +163,9 @@ Ollama → HF: `scripts/ollama_to_hf.json` · Full list: `anima --help` · [docs
 | [Build plan](docs/BUILD_PLAN.md) | Phased roadmap (local vs CI vs release) |
 | [Project overview](docs/PROJECT_OVERVIEW.md) | Architecture |
 | [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md) | Ethics and scope |
+| [Research-grade criteria](docs/RESEARCH_GRADE.md) | Part A checklist (synthetic vs real) |
+| [Brain probe data](docs/BRAIN_PROBE_DATA.md) | ds002345 vs synthetic minimal |
+| [Researcher quickstart](docs/RESEARCHER_QUICKSTART.md) | 10-minute reproduce path |
 | [Contributing](CONTRIBUTING.md) | PRs, tests, conduct |
 
 ---
@@ -168,9 +175,12 @@ Ollama → HF: `scripts/ollama_to_hf.json` · Full list: `anima --help` · [docs
 ```bash
 python -m pytest -q -k "not distilgpt2"
 RUN_HF_TESTS=1 python -m pytest -q   # optional Hub downloads
+powershell -ExecutionPolicy Bypass -File scripts\stress_v1.ps1   # Windows gate
 ```
 
 CI: `.github/workflows/ci.yml`
+
+**Researchers:** [`docs/RESEARCHER_QUICKSTART.md`](docs/RESEARCHER_QUICKSTART.md)
 
 ---
 

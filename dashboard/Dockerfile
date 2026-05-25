@@ -5,7 +5,7 @@ COPY package.json ./
 RUN npm install
 
 COPY . .
-ARG VITE_WS_BASE=ws://localhost:8000
+ARG VITE_WS_BASE=ws://localhost:8010
 ENV VITE_WS_BASE=$VITE_WS_BASE
 RUN npm run build
 

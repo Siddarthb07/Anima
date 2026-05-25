@@ -35,7 +35,9 @@ You still need HF access, enough RAM/VRAM, and **your own** trained `probes/zoo/
 |----------|----------------------------|----------------|
 | `hf-internal-testing/tiny-random-gpt2` | `tiny_random_gpt2.pt` (run `scripts/build_zoo_tiny_probe.py`) | `synthetic_tiny` |
 | `distilgpt2` | `distilgpt2_text.pt` — **train**: `anima train-text` | `text_emotion` |
-| `distilgpt2` | `distilgpt2_narratives_pca.pt` — **train**: `anima train` + Narratives | `narratives_fMRI` |
+| `distilgpt2` | `distilgpt2_narratives_pca.pt` — **train**: `anima train` + Narratives | `narratives_fMRI` (real) or `narratives_fMRI_synthetic_minimal` (dev) |
+
+API `GET /models` exposes `brain_data_tier`: `none` | `synthetic_minimal` | `real_fMRI`. See [`BRAIN_PROBE_DATA.md`](BRAIN_PROBE_DATA.md).
 | `meta-llama/Llama-3.2-1B-Instruct` (CPU proxy) | `*_text.pt` via `anima train-text-all` | `text_emotion` |
 | `Qwen/Qwen2.5-0.5B-Instruct`, `google/gemma-2-2b-it` | same | `text_emotion` |
 | Llama-3-8B / Mistral-7B / Qwen2-7B / Gemma-9B | **GPU only** — `ANIMA_TRAIN_LARGE=1` | train on GPU machine |

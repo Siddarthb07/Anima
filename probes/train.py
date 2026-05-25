@@ -30,6 +30,17 @@ from probes.zoo_io import probe_slug, save_meta, save_probe_bundle, tribe_weight
 
 DEFAULT_HOLDOUT = ["lucy"]
 DEFAULT_TRAIN_STORIES = ["pieman", "tunnel"]
+SPLIT_PATH = Path(__file__).resolve().parent.parent / "benchmarks" / "splits" / "narratives_holdout.json"
+
+
+def load_narratives_split() -> Tuple[List[str], List[str]]:
+    """Leakage-safe train/holdout stories from benchmarks/splits/narratives_holdout.json."""
+    if SPLIT_PATH.is_file():
+        spec = json.loads(SPLIT_PATH.read_text(encoding="utf-8"))
+        train = spec.get("train") or DEFAULT_TRAIN_STORIES
+        holdout = spec.get("holdout") or DEFAULT_HOLDOUT
+        return list(train), list(holdout)
+    return list(DEFAULT_TRAIN_STORIES), list(DEFAULT_HOLDOUT)
 
 
 def _uncertainty_by_tr(
@@ -163,7 +174,11 @@ def build_training_set(
 
     train_acts, train_v, train_a, train_u = [], [], [], []
     val_acts, val_v, val_a, val_u = [], [], [], []
-    metrics: dict[str, Any] = {"baselines": {}, "train_stories": [], "holdout_stories": []}
+    metrics: dict[str, Any] = {
+        "baselines": {},
+        "train_stories": list(train_stories),
+        "holdout_stories": list(holdout_stories),
+    }
 
     # Fit PCA on train stories only (BOLD rows from train split)
     Y_train_fit = []
@@ -344,8 +359,10 @@ def train_probe(
     roi_npz_path: Optional[str] = None,
     epochs: int = 30,
 ) -> tuple[AffectProbe, dict]:
-    train_stories = train_stories or DEFAULT_TRAIN_STORIES
-    holdout_stories = holdout_stories or DEFAULT_HOLDOUT
+    if train_stories is None or holdout_stories is None:
+        split_train, split_hold = load_narratives_split()
+        train_stories = train_stories or split_train
+        holdout_stories = holdout_stories or split_hold
     (
         train_acts,
         train_v,

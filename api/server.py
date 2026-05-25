@@ -31,7 +31,16 @@ from core.layer_config import LAYER_CONFIG
 from core.regions import compute_flags, confidence_tier_from_fused
 from core.suppression import detect_suppression
 from probes.linear_probe import AffectProbe
-from probes.zoo_io import calib_path, load_meta, load_probe_into, meta_path, probe_slug, tribe_weights_path
+from probes.zoo_io import (
+    brain_data_tier,
+    calib_path,
+    load_brain_meta,
+    load_meta,
+    load_probe_into,
+    meta_path,
+    probe_slug,
+    tribe_weights_path,
+)
 
 APP_VERSION = "1.0.0"
 
@@ -263,6 +272,10 @@ def list_models():
                 origin = str(meta.get("probe_origin", "zoo"))
         if not zoo and meta_path(slug).exists():
             origin = str(load_meta(slug).get("probe_origin", "random"))
+        brain_meta = load_brain_meta(mid)
+        display_origin = str(brain_meta.get("probe_origin", origin)) if brain_meta else origin
+        tier = brain_data_tier(display_origin) if brain_meta else "none"
+        val_r = brain_meta.get("val_r_valence")
         models.append(
             ModelInfo(
                 model_id=mid,
@@ -270,7 +283,12 @@ def list_models():
                 layers=len(LAYER_CONFIG[mid]["layers"]),
                 has_sae=bool(LAYER_CONFIG[mid].get("has_sae")),
                 zoo_checkpoints=zoo,
-                probe_origin=origin,
+                probe_origin=display_origin,
+                brain_data_tier=tier,
+                narratives_root=brain_meta.get("narratives_root"),
+                train_stories=list(brain_meta.get("train_stories") or []),
+                holdout_stories=list(brain_meta.get("holdout_stories") or []),
+                brain_val_r_valence=float(val_r) if val_r is not None else None,
             )
         )
     return ModelsResponse(models=models)

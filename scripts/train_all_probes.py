@@ -46,7 +46,7 @@ def main() -> None:
     print(f"NARRATIVES_ROOT: {narr_root}")
 
     print("\n--- text probe (GoEmotions) ---")
-    probe_t, meta_t = train_text_probe(model, max_samples=50, epochs=6, device="cpu")
+    probe_t, meta_t = train_text_probe(model, max_samples=200, epochs=8, device="cpu")
     p_text = save_probe_bundle(probe_t, slug, meta_t, suffix="_text")
     print("Saved", p_text)
 

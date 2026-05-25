@@ -1,6 +1,6 @@
 # Benchmarks (Anima v1)
 
-Anima reports numbers on **external** suites where possible, plus **internal** smoke checks. Results land in `benchmarks/reports/<run>/manifest.json` and `benchmarks/reports/latest_manifest.json`.
+Anima reports numbers on **external** suites where possible, plus **internal** smoke checks. Results land in `benchmarks/reports/<run>/manifest.json`, `benchmarks/reports/latest_manifest.json`, and `benchmarks/reports/latest_<slug>_manifest.json` (e.g. `latest_distilgpt2_manifest.json`). Manifests include `manifest_schema_version: 1`.
 
 ## One-time setup
 

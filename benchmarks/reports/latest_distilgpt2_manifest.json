@@ -121,5 +121,6 @@
       "tn": 2,
       "fn": 0
     }
-  ]
+  ],
+  "manifest_schema_version": 1
 }

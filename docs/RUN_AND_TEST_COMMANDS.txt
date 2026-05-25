@@ -31,6 +31,8 @@ Anima — commands (paths are relative to repository root)
 === Tests ===
   python -m pytest -q -k "not distilgpt2"
   RUN_HF_TESTS=1 python -m pytest -q
+  powershell -ExecutionPolicy Bypass -File scripts\stress_v1.ps1
+  RUN_API_SMOKE=1 powershell -File scripts\stress_v1.ps1   # needs uvicorn on 8010
 
 === Docker ===
   docker compose build && docker compose up

@@ -65,6 +65,16 @@ Open **http://127.0.0.1:5173** (or the URL Vite prints).
 
 In dev, the browser talks to **`ws://127.0.0.1:5173/ws/...`** and Vite **proxies** `/ws` to `VITE_API_HTTP_TARGET`. After changing `.env`, restart `npm run dev`.
 
+### Dashboard not loading?
+
+1. **API must run first** on the same port as `dashboard/.env` (`VITE_API_HTTP_TARGET=http://127.0.0.1:8010`).
+2. **Docker optional** — if Docker Desktop is down, use native `anima api` + `npm run dev` (not `docker compose`).
+3. Copy `dashboard/.env.example` → `dashboard/.env` if missing.
+4. Check **http://127.0.0.1:8010/health** then open the Vite URL.
+5. Screenshot guide: [`images/dashboard-websocket-troubleshooting.png`](images/dashboard-websocket-troubleshooting.png).
+
+`GET /models` lists each HF id with `brain_data_tier` (`synthetic_minimal` vs `real_fMRI`).
+
 Optional direct WebSocket (skip proxy): set `VITE_WS_DIRECT=1` and `VITE_WS_BASE` — see `.env.example`.
 
 ---

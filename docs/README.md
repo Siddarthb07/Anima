@@ -15,5 +15,8 @@ Screenshots embedded in the root README live under [`images/`](images/) (`dashbo
 | [TRAIN_ON_YOUR_MACHINE.md](TRAIN_ON_YOUR_MACHINE.md) | RAM, GPU, gated weights |
 | [BENCHMARKS.md](BENCHMARKS.md) | Benchmark manifests |
 | [BUILD_PLAN.md](BUILD_PLAN.md) | Phased roadmap: local vs CI, releases, demos |
+| [RESEARCH_GRADE.md](RESEARCH_GRADE.md) | Part A exit criteria; synthetic vs real tier |
+| [BRAIN_PROBE_DATA.md](BRAIN_PROBE_DATA.md) | Data card: narratives_minimal vs ds002345 |
+| [RESEARCHER_QUICKSTART.md](RESEARCHER_QUICKSTART.md) | Download probes, API, benchmark reproduce |
 
 Repository meta: [CONTRIBUTING.md](../CONTRIBUTING.md) · [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md) · [SECURITY.md](../SECURITY.md) · [LICENSE](../LICENSE)
