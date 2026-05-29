@@ -2,140 +2,214 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Open-source instrumentation** for Hugging Face **causal language models**: per-token hidden-state hooks → valence / arousal / uncertainty readouts, optional brain-alignment training, and a live dashboard.
+**Anima** is an open-source tool to **read emotion-style signals from large language models (LLMs)** as they generate text—**valence** (negative ↔ positive), **arousal** (calm ↔ intense), and an **uncertainty** score—using small neural **probes** on transformer hidden states. Think of it as a **live emotion meter for Hugging Face causal LMs**: hook layers → probe → numbers per token → API + dashboard.
 
-**Limits and scope:** read [`docs/USAGE_AND_LIMITATIONS.md`](docs/USAGE_AND_LIMITATIONS.md) before citing metrics. **Research-grade checklist:** [`docs/RESEARCH_GRADE.md`](docs/RESEARCH_GRADE.md). **Brain data provenance:** [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
+> **Plain English:** Anima watches the model’s internal activations while it writes and outputs **emotion-like readouts** for each word/token. That helps you study **LLM affect**, **emotion probing**, and **interpretability**—not a chat app and not proof the model truly “feels” anything. See [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md).
 
-Anima is **not** a chat product and **does not integrate with Ollama**. Point it at a [supported Hugging Face model id](core/layer_config.py) (e.g. `distilgpt2`, `mistralai/Mistral-7B-Instruct-v0.2`) and load or train matching probe weights under `probes/zoo/`.
+**Keywords:** LLM emotions · emotion readouts · valence/arousal probing · Hugging Face interpretability · fMRI-aligned brain probes (optional) · FastAPI streaming dashboard.
 
----
-
-## Who this is for
-
-- Researchers and developers who want **measurable internal readouts** while a model generates text.
-- Anyone reproducing or extending **probe training** (GoEmotions text path, Narratives-style fMRI path).
-- Contributors — MIT licensed, standard Python + FastAPI + optional Vite UI.
-
-**Not for:** claiming models “feel” emotions, clinical use, or running weights inside Ollama without the HF stack.
+Anima does **not** use Ollama. Use a [supported Hugging Face model id](core/layer_config.py) (e.g. `distilgpt2`) with matching weights in `probes/zoo/`.
 
 ---
 
-## Quick start (any OS)
+## What Anima does (concrete)
+
+Given a prompt and a Hugging Face model id (e.g. `distilgpt2`):
+
+1. **Load** `AutoModelForCausalLM` and attach **forward hooks** on layers listed in [`core/layer_config.py`](core/layer_config.py).
+2. **Generate** tokens one at a time (or encode a fixed string with `/encode`).
+3. For **each token**, read the hooked hidden vectors and run them through a small **probe network** ([`probes/linear_probe.py`](probes/linear_probe.py)) trained to predict **emotion dimensions**:
+   - **valence** (−1 … 1) — how negative vs positive the readout looks
+   - **arousal** (−1 … 1) — how calm vs intense it looks
+   - **uncertainty** — how much to trust this token’s readout (not a medical score)
+4. Add **diagnostics** from logits/attention (entropy-style signals, layer disagreement) in [`core/extractor.py`](core/extractor.py).
+5. Optionally map the **same** activations through a **TRIBEv2 surrogate** ([`alignment/tribe_encoder.py`](alignment/tribe_encoder.py))—named ROI-like scalars for the UI. This is a **linear sketch for visualization**, not voxel-level fMRI decoding.
+6. Apply a **guard** policy ([`core/guard.py`](core/guard.py)) that can recommend abstaining when readouts look unreliable (benchmarked on small fixtures).
+7. Detect **suppression-style shifts** ([`core/suppression.py`](core/suppression.py)) when early vs late token readouts diverge sharply (heuristic inconsistency flag, not “lying”).
+
+**Outputs:** JSON per token (affect, region label, flags, tribe surrogate, guard) via **REST** `POST /generate` or **WebSocket** streaming. Optional **React dashboard** plots valence/arousal over time.
+
+```
+  Prompt → HF causal LM → hooks (layers L₁…Lₖ)
+                              ↓
+                    AffectProbe (trained .pt)
+                              ↓
+              valence / arousal / uncertainty  +  guard + suppression events
+                              ↓
+                    FastAPI  →  dashboard (live)
+```
+
+---
+
+## Two ways probes get their meaning
+
+| Path | Training data | Checkpoint | `probe_origin` (typical) |
+|------|----------------|------------|---------------------------|
+| **Text** | [GoEmotions](https://huggingface.co/datasets/google-research-datasets/go_emotions) labels → valence/arousal mapping | `probes/zoo/{slug}_text.pt` | `text_emotion` |
+| **Brain-aligned** | Story text + fMRI (Narratives layout; OpenNeuro [ds002345](https://openneuro.org/datasets/ds002345) or dev subset) | `probes/zoo/{slug}_narratives_pca.pt` | `narratives_fMRI` or `narratives_fMRI_synthetic_minimal` |
+
+The API prefers the **brain** checkpoint when present, then text, then an uninitialized probe (**random** readouts—fine for wiring tests only).
+
+**Published weights (CPU tier):** [GitHub Release v1.1.0](https://github.com/Siddarthb07/Anima/releases/tag/v1.1.0) — `distilgpt2` and `hf-internal-testing/tiny-random-gpt2`. Brain probes in v1.1.0 are trained on **synthetic minimal** BOLD ([`data/narratives_minimal/`](data/narratives_minimal/)), not full real fMRI. Details: [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
+
+```bash
+python scripts/download_zoo.py    # fetch Release checkpoints into probes/zoo/
+```
+
+---
+
+## What you get on each token
+
+Example fields from `POST /generate` (see [`api/schemas.py`](api/schemas.py)):
+
+| Field | Meaning |
+|-------|---------|
+| `affect.valence`, `affect.arousal`, `affect.uncertainty` | Probe head outputs |
+| `region`, `region_analog` | Thresholded labels from readout geometry (metaphor, not neuroscience) |
+| `flags` | e.g. high_uncertainty |
+| `confidence_tier` | Coarse reliability bucket |
+| `tribe_v2.roi_scores` | Surrogate ROI scalars (same activations as probe) |
+| `guard.abstain_recommended` | Policy suggests not trusting this readout |
+| `brain_alignment_note` | How probe was trained (`probe_origin` in summary) |
+
+`GET /models` lists each supported HF id with `brain_data_tier` (`none` | `synthetic_minimal` | `real_fMRI`), holdout stories, and validation metrics when meta exists.
+
+---
+
+## Quick start
 
 ```bash
 git clone https://github.com/Siddarthb07/Anima.git
 cd Anima
-python scripts/bootstrap.py
+pip install -e ".[dev]"
+python scripts/download_zoo.py          # optional: Release probes
+python scripts/bootstrap.py           # minimal data + tests
 ```
 
-This installs the package, builds the minimal brain-training dataset, trains default **tiny** probes (low RAM), and runs tests.
-
-**Run:**
+**Terminal 1 — API (port 8010):**
 
 ```bash
 anima api --port 8010
-# other terminal:
+# health: http://127.0.0.1:8010/health
+```
+
+**Terminal 2 — dashboard:**
+
+```bash
 cd dashboard && cp .env.example .env && npm install && npm run dev
+# UI: http://127.0.0.1:5173  (proxies WebSocket to API)
 ```
 
-Open **http://127.0.0.1:5173** (API health: **http://127.0.0.1:8010/health**).
+Windows helper: `powershell -ExecutionPolicy Bypass -File scripts\start_anima.ps1`
 
-Windows: `powershell -ExecutionPolicy Bypass -File scripts\start_anima.ps1` after bootstrap.
+**Smoke request:**
+
+```bash
+curl -X POST http://127.0.0.1:8010/generate \
+  -H "Content-Type: application/json" \
+  -d "{\"model\":\"distilgpt2\",\"prompt\":\"Hello\",\"max_new_tokens\":8}"
+```
+
+Default model for low RAM: `hf-internal-testing/tiny-random-gpt2` (decoded text is intentionally noisy; pipeline still runs).
+
+![Live emotion readouts on the dashboard](docs/images/dashboard-readout-example.png)
 
 ---
 
-## Models & probes
-
-| Question | Answer |
-|----------|--------|
-| Does it work with Ollama? | **No.** Use the equivalent **Hugging Face** model id. See [docs/MODELS_AND_ZOO.md](docs/MODELS_AND_ZOO.md). |
-| Are Mistral/Llama probes pre-trained? | **CPU tier:** [Release v1.1.0](https://github.com/Siddarthb07/Anima/releases/tag/v1.1.0) (tiny + distilgpt2). **1B+ proxies / 7B:** CI [train-zoo workflow](.github/workflows/train-zoo.yml) or train locally. |
-| Default model | `hf-internal-testing/tiny-random-gpt2` — CPU-friendly; LM output is intentionally noisy. |
-| Bigger models | Need RAM/GPU + `huggingface-cli login` for gated weights. [docs/TRAIN_ON_YOUR_MACHINE.md](docs/TRAIN_ON_YOUR_MACHINE.md) |
-
-### Published probe weights (CPU tier)
-
-**Download pre-trained checkpoints** (no training required):
+## Train your own probes
 
 ```bash
-python scripts/download_zoo.py              # from GitHub Release v1.1.0
-python scripts/download_zoo.py --list       # show asset URLs
-```
+# Text probe (GoEmotions)
+anima train-text --model distilgpt2 --max-samples 1500
 
-Or train locally: checkpoints are **gitignored** (`*.pt`); **metrics sidecars** (`*.meta.json`) are in git.
-
-```bash
+# Brain probe (set NARRATIVES_ROOT to narratives_minimal or ds002345)
 python scripts/download_narratives_minimal.py
-python scripts/train_all_probes.py          # tiny + minimal Narratives brain probe
-anima train-text --model distilgpt2 --max-samples 500
 anima train --model distilgpt2 --narratives-root ./data/narratives_minimal
+
+# Benchmark holdout + text + guard tiers
+anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard
 ```
 
-| HF model | Release assets | Brain data tier |
-|----------|----------------|-----------------|
-| `hf-internal-testing/tiny-random-gpt2` | `tiny_random_gpt2_*` | **synthetic_minimal** (dev/CI) |
-| `distilgpt2` | `distilgpt2_*` | **synthetic_minimal** today; **real_fMRI** target in v1.2 |
+Holdout stories are fixed in [`benchmarks/splits/narratives_holdout.json`](benchmarks/splits/narratives_holdout.json) (train: `pieman`, `tunnel`; holdout: `lucy`). More commands: [`docs/TRAINING.md`](docs/TRAINING.md).
 
-Probe vs word-rate baseline (synthetic holdout `lucy`): distilgpt2 valence **r ≈ 0.28** vs word-rate baseline **r ≈ 0.10** — see [`latest_distilgpt2_manifest.json`](benchmarks/reports/latest_distilgpt2_manifest.json).
+---
 
-More families (Qwen, TinyLlama, SmolLM2, 7B): [GitHub Actions train-zoo workflow](.github/workflows/train-zoo.yml) → download artifact into `probes/zoo/`.
+## Benchmarks — how well do the emotion readouts track real targets?
 
-### Train remaining zoo families
+Anima ships a **benchmark suite** that scores your probes on public tasks. Each run writes a `manifest.json` you can cite or reproduce.
 
 ```bash
-anima train-zoo --tier cpu                    # TinyLlama, Qwen-0.5B, SmolLM2 proxies (~8 GB+ RAM)
-ANIMA_TRAIN_LARGE=1 anima train-zoo --tier large   # Llama-3-8B, Mistral-7B, Qwen2-7B, Gemma-9B (GPU)
+anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard
 ```
 
-Per-model overrides: `anima train-text --model <hf_id>` and `anima train --model <hf_id> --narratives-root <path>`. Ollama name → HF id: [`scripts/ollama_to_hf.json`](scripts/ollama_to_hf.json). CI builds large tiers: [`.github/workflows/train-zoo.yml`](.github/workflows/train-zoo.yml) (download workflow artifacts into `probes/zoo/`).
+### What each benchmark checks (simple)
+
+| Benchmark | What it measures | In one sentence |
+|-----------|------------------|-----------------|
+| **Narratives holdout** | Brain-aligned probe vs story fMRI targets | “When the model reads a held-out story, do valence/arousal tracks match brain-derived targets better than guessing?” |
+| **GoEmotions** | Text-emotion probe vs human emotion labels | “Do hidden states predict human-labeled emotion (mapped to valence/arousal) on tweet text?” |
+| **HaluEval / TruthfulQA guard** | When to **not** trust a readout | “Does the guard flag unreliable emotion scores on tiny test fixtures?” |
+| **Smoke extract** | Pipeline runs end-to-end | “Do hooks + probes return tokens without crashing?” |
+
+**Holdout rule:** stories `pieman` + `tunnel` train, **`lucy` is held out** — see [`benchmarks/splits/narratives_holdout.json`](benchmarks/splits/narratives_holdout.json).
+
+**Data honesty:** Narratives scores below use **`data/narratives_minimal/`** (synthetic fMRI for dev), **not** the full OpenNeuro ds002345 release yet. Label them as **synthetic_minimal** in papers. Real-fMRI tier: [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
+
+### Latest results (CPU tier)
+
+#### `distilgpt2` — [full manifest](benchmarks/reports/latest_distilgpt2_manifest.json) (2026-05-24)
+
+| Benchmark | Metric | Result | Beat simple baseline? |
+|-----------|--------|--------|------------------------|
+| **Narratives holdout** (`lucy`) | Pearson r (valence / arousal) | **0.28** / 0.004 | Valence **yes** vs word-rate r ≈ **0.10** |
+| | Val MSE | 0.081 | — |
+| **GoEmotions** (validation, ≤200 samples) | Pearson r (valence / arousal) | 0.06 / 0.02 | Weak; text probe still training-limited |
+| **HaluEval guard** (n=4 smoke) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture smoke only |
+| **TruthfulQA guard** (n=4 smoke) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture smoke only |
+| **TRIBE reference** | Runtime decoder | skipped | Surrogate-only path in CI |
+| **Brain-Score Language** | — | skipped | Install optional package |
+
+#### `hf-internal-testing/tiny-random-gpt2` — [manifest](benchmarks/reports/latest_manifest.json) (dev / CI)
+
+| Benchmark | Pearson r (valence / arousal) | Notes |
+|-----------|-------------------------------|--------|
+| Narratives holdout | **−0.11** / −0.24 | For plumbing only; LM output is random noise |
+| GoEmotions | ~0.004 / ~0.01 | Not for emotion claims |
+
+**How to read r:** closer to **1** = probe emotion tracks line up more with the target; **0** ≈ no linear relationship; negative = inverse trend (often means “not trained yet”).
+
+**Reproduce:**
+
+```bash
+$env:NARRATIVES_ROOT=".\data\narratives_minimal"   # Windows
+anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard
+```
+
+More detail: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md).
 
 ---
 
-## Benchmarks (v1)
+## What Anima is not
 
-Run locally: `anima benchmark --model <hf_id> --tiers internal,external,external_text,external_guard`  
-Manifests: [`benchmarks/reports/latest_manifest.json`](benchmarks/reports/latest_manifest.json) (tiny), [`benchmarks/reports/latest_distilgpt2_manifest.json`](benchmarks/reports/latest_distilgpt2_manifest.json).
-
-**Data notes:** Narratives numbers use the **synthetic minimal** corpus in `data/narratives_minimal/` (story holdout `lucy`), not full ds002345. GoEmotions text benchmark uses the **validation** split (≤200 samples). Guard fixtures are **4-sample** smoke sets (`benchmarks/fixtures/`). Brain-Score skipped unless installed (`SKIP_BRAINSCORE=1` by default).
-
-### `hf-internal-testing/tiny-random-gpt2` — run 2026-05-18
-
-| Benchmark | Metric | Value |
-|-----------|--------|-------|
-| Narratives holdout | Val MSE | 0.118 |
-| | Pearson r (valence / arousal) | −0.109 / −0.239 |
-| | Word-rate baseline r (holdout lucy) | 0.097 |
-| GoEmotions (text probe, val split) | Pearson r (valence / arousal) | 0.004 / 0.010 |
-| HaluEval guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
-| TruthfulQA guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
-| TRIBE reference | — | skipped (no `tribev2`) |
-| Brain-Score Language | — | skipped |
-
-### `distilgpt2` — live run 2026-05-24
-
-| Benchmark | Metric | Value |
-|-----------|--------|-------|
-| Narratives holdout | Val MSE | 0.081 |
-| | Pearson r (valence / arousal) | 0.284 / 0.004 |
-| | Word-rate baseline r (holdout lucy) | 0.097 |
-| GoEmotions (text probe, val split) | Pearson r (valence / arousal) | 0.057 / 0.021 |
-| HaluEval guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
-| TruthfulQA guard fixture | Abstain accuracy / AUROC | 1.00 / 1.00 |
-
-Manifest: [`benchmarks/reports/latest_distilgpt2_manifest.json`](benchmarks/reports/latest_distilgpt2_manifest.json). Reproduce: `anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard`.
+- A chatbot, therapy tool, or “emotion detector” for humans  
+- Ollama / GGUF inference (use matching **Hugging Face** ids; see [`scripts/ollama_to_hf.json`](scripts/ollama_to_hf.json))  
+- Proof of subjective experience in LMs  
+- Real TRIBE fMRI decoding (surrogate block is labeled in API responses)
 
 ---
 
-## What it does
+## Architecture (one screen)
 
-1. Load a causal LM from Hugging Face and register **forward hooks** on selected layers.
-2. On each generated token, map activations through **trainable probe heads** (valence, arousal, uncertainty).
-3. Expose **REST** + **WebSocket** streaming; optional **React dashboard** for live plots.
-4. Optional **Narratives-shaped** brain alignment training (`probes/train.py`) and guard / benchmark tooling.
+| Component | Role |
+|-----------|------|
+| [`core/`](core/) | Layer map, hooks, streaming generation, suppression |
+| [`probes/`](probes/) | `AffectProbe`, training, `probes/zoo/*.pt` |
+| [`alignment/`](alignment/) | Narratives loader, word–token align, TRIBEv2 surrogate |
+| [`api/`](api/) | FastAPI + WebSocket protocol |
+| [`dashboard/`](dashboard/) | Vite/React live plots |
+| [`benchmarks/`](benchmarks/) | Holdout runners + `manifest.json` reports |
 
-If `probes/zoo/<model_slug>*.pt` is missing, probes are **random** — fine for plumbing, not for scientific claims until you train.
-
-![Dashboard example](docs/images/dashboard-readout-example.png)
+Deeper walkthrough: [`docs/PROJECT_OVERVIEW.md`](docs/PROJECT_OVERVIEW.md).
 
 ---
 
@@ -143,30 +217,25 @@ If `probes/zoo/<model_slug>*.pt` is missing, probes are **random** — fine for 
 
 ```bash
 anima api --port 8010
+anima train-text --model <hf_id>
+anima train --model <hf_id> --narratives-root <path>
 anima train-zoo --tier cpu
-ANIMA_TRAIN_LARGE=1 anima train-zoo --tier large
-anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard
+anima benchmark --model <hf_id> --tiers internal,external,external_text,external_guard
 ```
-
-Ollama → HF: `scripts/ollama_to_hf.json` · Full list: `anima --help` · [docs/BENCHMARKS.md](docs/BENCHMARKS.md) · [docs/TRAINING.md](docs/TRAINING.md)
 
 ---
 
 ## Documentation
 
-| Doc | Contents |
-|-----|----------|
-| [Getting started](docs/GETTING_STARTED.md) | Install, Docker, API, dashboard |
-| [Models & zoo](docs/MODELS_AND_ZOO.md) | HF vs Ollama, checkpoint naming |
-| [Training](docs/TRAINING.md) | Text + brain probes |
-| [Benchmarks](docs/BENCHMARKS.md) | Manifests and external suites |
-| [Build plan](docs/BUILD_PLAN.md) | Phased roadmap (local vs CI vs release) |
-| [Project overview](docs/PROJECT_OVERVIEW.md) | Architecture |
-| [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md) | Ethics and scope |
-| [Research-grade criteria](docs/RESEARCH_GRADE.md) | Part A checklist (synthetic vs real) |
-| [Brain probe data](docs/BRAIN_PROBE_DATA.md) | ds002345 vs synthetic minimal |
-| [Researcher quickstart](docs/RESEARCHER_QUICKSTART.md) | 10-minute reproduce path |
-| [Contributing](CONTRIBUTING.md) | PRs, tests, conduct |
+| Doc | When to read |
+|-----|----------------|
+| [Getting started](docs/GETTING_STARTED.md) | Install, Docker, troubleshooting |
+| [Researcher quickstart](docs/RESEARCHER_QUICKSTART.md) | Reproduce with Release weights in ~10 min |
+| [Models & zoo](docs/MODELS_AND_ZOO.md) | HF ids, checkpoint naming, Ollama clarification |
+| [Brain probe data](docs/BRAIN_PROBE_DATA.md) | Synthetic vs real ds002345 |
+| [Research-grade criteria](docs/RESEARCH_GRADE.md) | What “research-grade” means here |
+| [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md) | **Before** papers, apps, or demos |
+| [Training](docs/TRAINING.md) · [Benchmarks](docs/BENCHMARKS.md) | Commands and manifests |
 
 ---
 
@@ -174,16 +243,13 @@ Ollama → HF: `scripts/ollama_to_hf.json` · Full list: `anima --help` · [docs
 
 ```bash
 python -m pytest -q -k "not distilgpt2"
-RUN_HF_TESTS=1 python -m pytest -q   # optional Hub downloads
-powershell -ExecutionPolicy Bypass -File scripts\stress_v1.ps1   # Windows gate
+powershell -ExecutionPolicy Bypass -File scripts\stress_v1.ps1
 ```
 
-CI: `.github/workflows/ci.yml`
-
-**Researchers:** [`docs/RESEARCHER_QUICKSTART.md`](docs/RESEARCHER_QUICKSTART.md)
+CI: [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
 
 ---
 
 ## License
 
-[MIT](LICENSE). Hugging Face **model weights** stay under their own licenses; you are responsible for compliance when you download or redistribute them.
+[MIT](LICENSE). Hugging Face **model weights** and **datasets** (GoEmotions, Narratives, etc.) have their own terms—you are responsible for compliance.

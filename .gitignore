@@ -42,6 +42,7 @@ docs/dash_demo_last_run.png
 # Local reference plans (not published)
 plan v1.txt
 repost v1.txt
+README.draft.md
 
 # Local-only git history helpers (not published)
 scripts/spread_github_heatmap.py

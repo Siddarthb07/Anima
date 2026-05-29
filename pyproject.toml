@@ -5,18 +5,23 @@ build-backend = "hatchling.build"
 [project]
 name = "anima"
 version = "1.0.0"
-description = "Anima v1: dimensional LLM readouts via FastAPI and optional Vite dashboard — research tooling, not a clinical feelings detector."
+description = "Read emotion-style valence/arousal readouts from Hugging Face LLMs per token — probes, benchmarks, FastAPI, and dashboard (research tooling, not clinical)."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.9"
 authors = [{ name = "Anima contributors" }]
 keywords = [
     "llm",
+    "emotions",
+    "emotion-probing",
+    "valence",
+    "arousal",
     "interpretability",
     "probing",
     "fastapi",
     "transformers",
     "affect",
+    "go-emotions",
     "dashboard",
     "open-source",
 ]
