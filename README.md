@@ -152,6 +152,8 @@ Ollama → HF: `scripts/ollama_to_hf.json` · Full list: `anima --help` · [docs
 
 | Doc | Contents |
 |-----|----------|
+| [Technical overview (PDF)](docs/ANIMA_TECHNICAL_OVERVIEW.pdf) | Methodology, architecture, training, limitations |
+| [Technical overview (Markdown)](docs/ANIMA_TECHNICAL_OVERVIEW.md) | Same content, editable source |
 | [Getting started](docs/GETTING_STARTED.md) | Install, Docker, API, dashboard |
 | [Models & zoo](docs/MODELS_AND_ZOO.md) | HF vs Ollama, checkpoint naming |
 | [Training](docs/TRAINING.md) | Text + brain probes |
