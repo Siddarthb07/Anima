@@ -1,22 +1,17 @@
-# Security
+# Security Policy
 
-## Reporting
+## Reporting a vulnerability
 
-If you discover a security vulnerability in **this repository’s code** (e.g., API injection, unsafe deserialization in shipped paths), please report it responsibly:
+Please **do not** open a public issue for security problems.
 
-- Open a **private** security advisory on the hosting platform if available, **or**
-- Contact the maintainers with a clear reproducer and impact statement.
+Email **siddarthb078@gmail.com** with:
 
-Do **not** file public issues with exploit details until a fix is agreed.
+- A description of the issue
+- Steps to reproduce
+- Impact assessment (if known)
 
-## Deployment notes
-
-This project runs a **local FastAPI server** and serves a **dashboard**. Treat it like any other ML web stack:
-
-- Do **not** expose unauthenticated instances to the public internet without your own auth, rate limits, and threat modeling.
-- **Do not** commit `.env` files with API keys (`HF_TOKEN`, etc.).
-- Hugging Face **model execution** is arbitrary code loading **trusted weights** only from sources **you** trust.
+We aim to acknowledge reports within 72 hours.
 
 ## Scope
 
-We cannot patch vulnerabilities in **upstream** PyTorch, transformers, or OS kernels here — upgrade dependencies per your own policy.
+This policy applies to the application code in this repository. Third-party dependencies are tracked via Dependabot where enabled.
