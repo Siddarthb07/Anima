@@ -20,6 +20,7 @@ $env:VITE_DEFAULT_MODEL = $defaultModel
 $env:ANIMA_WARMUP_MODEL = $defaultModel
 $env:VITE_WS_BASE = "ws://localhost:8080"
 $env:VITE_API_HTTP_TARGET = "http://localhost:8080"
+Write-Host "  (First run: python scripts/download_zoo.py  then  docker compose --profile pull run --rm model-pull)" -ForegroundColor DarkGray
 Write-Host "Starting stack '$Profile' -> $defaultModel" -ForegroundColor Cyan
 Write-Host "  dashboard http://localhost:8080  |  API http://localhost:8010" -ForegroundColor DarkGray
 $prevEap = $ErrorActionPreference

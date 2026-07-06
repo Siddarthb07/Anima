@@ -98,11 +98,21 @@ anima api --port 8010
 **Terminal 2 — dashboard:**
 
 ```bash
+python scripts/download_zoo.py   # probe weights from GitHub Release v2.0.0
 cd dashboard && cp .env.example .env && npm install && npm run dev
 # UI: http://127.0.0.1:5173  (proxies WebSocket to API)
 ```
 
-Windows helper: `powershell -ExecutionPolicy Bypass -File scripts\start_anima.ps1`
+**Docker (API + dashboard on one machine):**
+
+```bash
+python scripts/download_zoo.py
+./scripts/docker-build.ps1          # Windows: build images only
+./scripts/docker-up.ps1 qwen      # Windows: http://localhost:8080
+# Linux/macOS: chmod +x scripts/docker-up.sh && ./scripts/docker-up.sh qwen
+```
+
+Windows helper (native, no Docker): `powershell -ExecutionPolicy Bypass -File scripts\start_anima.ps1`
 
 **Smoke request:**
 

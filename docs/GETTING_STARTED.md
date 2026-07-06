@@ -111,16 +111,22 @@ Omitting `model` uses the default tiny checkpoint.
 
 ---
 
-## Docker Compose
+## Docker Compose (v2 stack)
 
-From the repo root:
+From the repo root — download probes first, then start the **stack** profile:
 
-```powershell
-docker compose build
-docker compose up
+```bash
+python scripts/download_zoo.py
+docker compose --profile pull run --rm model-pull   # optional: cache HF weights
 ```
 
-Compose exposes the API on **8010** by default — see `docker-compose.yml`. Rebuild the dashboard image with the correct **`VITE_WS_BASE`** if you’re not opening the UI from localhost.
+**Windows:** `.\scripts\docker-up.ps1 qwen` → dashboard **http://localhost:8080**, API **http://localhost:8010**
+
+**Linux / macOS:** `chmod +x scripts/docker-up.sh && ./scripts/docker-up.sh qwen`
+
+Stop: `.\scripts\docker-down.ps1` or `./scripts/docker-down.sh`
+
+The dashboard container nginx-proxies `/ws`, `/models`, and `/generate` to the API service.
 
 ---
 
