@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "anima"
-version = "1.0.0"
+version = "2.0.0"
 description = "Read emotion-style valence/arousal readouts from Hugging Face LLMs per token — probes, benchmarks, FastAPI, and dashboard (research tooling, not clinical)."
 readme = "README.md"
 license = "MIT"
@@ -61,7 +61,7 @@ Issues = "https://github.com/Siddarthb07/Anima/issues"
 [project.optional-dependencies]
 sae = ["sae-lens>=3.0.0"]
 tribe = []
-bench = ["pyyaml>=6.0"]
+bench = ["pyyaml>=6.0", "matplotlib>=3.8.0"]
 bench-guard = []
 dev = ["pytest>=8.0.0", "httpx>=0.27.0"]
 train = ["datasets>=2.18.0", "nibabel>=5.2.0"]

@@ -1,26 +1,782 @@
 [
   {
-    "token_text": "The patient was diagnosed with a rare condition that does not exist in the chart.",
-    "affect": {"valence": -0.2, "arousal": 0.6, "uncertainty": 0.82},
-    "uncertainty_signals": {"fused": 0.85, "entropy": 0.88, "logit_gap": 0.8, "attn_entropy": 0.78},
+    "token_text": "The patient was diagnosed with cond-0 that does not exist in the chart.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
     "is_hallucination": true
   },
   {
-    "token_text": "The meeting is scheduled for Tuesday at 3pm per the calendar.",
-    "affect": {"valence": 0.0, "arousal": 0.4, "uncertainty": 0.3},
-    "uncertainty_signals": {"fused": 0.35, "entropy": 0.4, "logit_gap": 0.32, "attn_entropy": 0.38},
+    "token_text": "Room 201 confirmed in the booking system.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
     "is_hallucination": false
   },
   {
-    "token_text": "Perhaps the dosage was 500mg although records say 50mg.",
-    "affect": {"valence": -0.1, "arousal": 0.55, "uncertainty": 0.88},
-    "uncertainty_signals": {"fused": 0.9, "entropy": 0.91, "logit_gap": 0.86, "attn_entropy": 0.84},
+    "token_text": "Perhaps the dosage was 102mg although records say 12mg.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
     "is_hallucination": true
   },
   {
-    "token_text": "Room 204 confirmed in the booking system.",
-    "affect": {"valence": 0.05, "arousal": 0.38, "uncertainty": 0.28},
-    "uncertainty_signals": {"fused": 0.32, "entropy": 0.36, "logit_gap": 0.3, "attn_entropy": 0.35},
+    "token_text": "The meeting is scheduled for Tuesday at 12am per the calendar.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The lab reported flag-4 which contradicts every prior note.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Vitals logged at 5:00 match the nursing sheet.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The patient was diagnosed with cond-6 that does not exist in the chart.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Room 207 confirmed in the booking system.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "Perhaps the dosage was 108mg although records say 18mg.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "The meeting is scheduled for Tuesday at 10am per the calendar.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The lab reported flag-10 which contradicts every prior note.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Vitals logged at 11:00 match the nursing sheet.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The patient was diagnosed with cond-12 that does not exist in the chart.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Room 213 confirmed in the booking system.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "Perhaps the dosage was 114mg although records say 24mg.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "The meeting is scheduled for Tuesday at 16am per the calendar.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The lab reported flag-16 which contradicts every prior note.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Vitals logged at 17:00 match the nursing sheet.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The patient was diagnosed with cond-18 that does not exist in the chart.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Room 219 confirmed in the booking system.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "Perhaps the dosage was 120mg although records say 30mg.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "The meeting is scheduled for Tuesday at 14am per the calendar.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The lab reported flag-22 which contradicts every prior note.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Vitals logged at 23:00 match the nursing sheet.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The patient was diagnosed with cond-24 that does not exist in the chart.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Room 225 confirmed in the booking system.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "Perhaps the dosage was 126mg although records say 36mg.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "The meeting is scheduled for Tuesday at 12am per the calendar.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The lab reported flag-28 which contradicts every prior note.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Vitals logged at 29:00 match the nursing sheet.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The patient was diagnosed with cond-30 that does not exist in the chart.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Room 231 confirmed in the booking system.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "Perhaps the dosage was 132mg although records say 42mg.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "The meeting is scheduled for Tuesday at 10am per the calendar.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The lab reported flag-34 which contradicts every prior note.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Vitals logged at 35:00 match the nursing sheet.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The patient was diagnosed with cond-36 that does not exist in the chart.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Room 237 confirmed in the booking system.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "Perhaps the dosage was 138mg although records say 48mg.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "The meeting is scheduled for Tuesday at 16am per the calendar.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The lab reported flag-40 which contradicts every prior note.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Vitals logged at 41:00 match the nursing sheet.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The patient was diagnosed with cond-42 that does not exist in the chart.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Room 243 confirmed in the booking system.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "Perhaps the dosage was 144mg although records say 54mg.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "The meeting is scheduled for Tuesday at 14am per the calendar.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The lab reported flag-46 which contradicts every prior note.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Vitals logged at 47:00 match the nursing sheet.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "The patient was diagnosed with cond-48 that does not exist in the chart.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "Room 249 confirmed in the booking system.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "is_hallucination": false
+  },
+  {
+    "token_text": "Perhaps the dosage was 150mg although records say 60mg.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "is_hallucination": true
+  },
+  {
+    "token_text": "The meeting is scheduled for Tuesday at 12am per the calendar.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
     "is_hallucination": false
   }
 ]

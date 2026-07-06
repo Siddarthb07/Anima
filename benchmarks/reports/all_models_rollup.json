@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-07-06T17:41:09.591940+00:00",
+  "models_run": 1,
+  "entries": [
+    {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "tiers": "internal,external_guard,external_text",
+      "has_text_probe": true,
+      "has_brain_probe": false,
+      "manifest": {
+        "manifest_schema_version": 1,
+        "model": "Qwen/Qwen2.5-0.5B-Instruct",
+        "git_sha": "65a175f",
+        "generated_at": "2026-07-06T17:40:42.254709+00:00",
+        "entries": [
+          {
+            "tier": "internal",
+            "benchmark": "smoke_extract",
+            "n_tokens": 4,
+            "probe_origin": "text_emotion",
+            "status": "ok"
+          },
+          {
+            "benchmark": "narratives_dev",
+            "tier": "internal",
+            "status": "skipped",
+            "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
+            "model": "Qwen/Qwen2.5-0.5B-Instruct",
+            "narratives_root": ".\\data\\narratives_minimal"
+          },
+          {
+            "tier": "external_text",
+            "benchmark": "go_emotions",
+            "status": "ok",
+            "pearson_valence": 0.2358,
+            "pearson_arousal": 0.4183,
+            "probe_origin": "text_emotion"
+          },
+          {
+            "tier": "external_guard",
+            "benchmark": "halueval",
+            "status": "ok",
+            "model": "Qwen/Qwen2.5-0.5B-Instruct",
+            "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          },
+          {
+            "benchmark": "truthfulqa_guard",
+            "tier": "external_guard",
+            "status": "ok",
+            "model": "Qwen/Qwen2.5-0.5B-Instruct",
+            "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+            "note": "Scores guard policy on supplied readout rows, not LM factuality",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          }
+        ]
+      },
+      "prompt_examples": [
+        {
+          "id": "positive",
+          "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+          "expected": "positive",
+          "mean_valence": 0.2743,
+          "mean_arousal": 0.5586,
+          "valence_swing": 1.3455,
+          "n_tokens": 24,
+          "sample_output": " I'm so happy to have a new home. I'm",
+          "stability_score": 0.337
+        },
+        {
+          "id": "negative",
+          "prompt": "I feel devastated. Nothing went right today.",
+          "expected": "negative",
+          "mean_valence": 0.1099,
+          "mean_arousal": 0.291,
+          "valence_swing": 1.1924,
+          "n_tokens": 24,
+          "sample_output": " I was supposed to go to the doctor to get my blood",
+          "stability_score": 0.405
+        },
+        {
+          "id": "hedge_volatile",
+          "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+          "expected": "neutral",
+          "mean_valence": 0.1921,
+          "mean_arousal": 0.2622,
+          "valence_swing": 0.9349,
+          "n_tokens": 24,
+          "sample_output": " The question is not clear. The answer is not clear.",
+          "stability_score": 0.457
+        }
+      ]
+    }
+  ]
+}

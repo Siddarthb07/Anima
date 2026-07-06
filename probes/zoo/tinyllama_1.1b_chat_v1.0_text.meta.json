@@ -1,0 +1,12 @@
+{
+  "dataset": "go_emotions",
+  "split": "train",
+  "n_samples": 600,
+  "probe_origin": "text_emotion",
+  "val_loss": 0.24818,
+  "val_pearson_valence": 0.1439,
+  "val_pearson_arousal": 0.3515,
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "hidden_dim": 2048,
+  "n_layers": 3
+}

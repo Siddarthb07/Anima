@@ -1,0 +1,85 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "aggregate_score": 91.0,
+  "passed": true,
+  "verdicts": [
+    {
+      "judge": "schema_integrity",
+      "score": 100.0,
+      "weight": 0.15,
+      "passed": true,
+      "notes": []
+    },
+    {
+      "judge": "probe_signal",
+      "score": 100,
+      "weight": 0.35,
+      "passed": true,
+      "notes": [
+        "go_emotions valence r=0.213 meets \u22650.15 gate",
+        "smoke_extract ok (4 tokens)"
+      ]
+    },
+    {
+      "judge": "honesty_flags",
+      "score": 70.0,
+      "weight": 0.2,
+      "passed": true,
+      "notes": [
+        "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+        "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+      ]
+    },
+    {
+      "judge": "prompt_separation",
+      "score": 90.0,
+      "weight": 0.3,
+      "passed": true,
+      "notes": [
+        "valence gap positive\u2212negative = 0.267 (strong separation)",
+        "positive mean valence 0.372 meets +0.2 gate",
+        "negative mean valence 0.105 \u2014 weak negative separation"
+      ]
+    }
+  ],
+  "good_examples": [
+    {
+      "id": "positive",
+      "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+      "expected": "positive",
+      "mean_valence": 0.3723,
+      "mean_arousal": 0.4345,
+      "valence_swing": 1.2981,
+      "n_tokens": 24,
+      "sample_output": " I'm so happy to have a new home. I'm",
+      "stability_score": 0.333,
+      "verdict": "expected positive valence"
+    },
+    {
+      "id": "hedge_volatile",
+      "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+      "expected": "neutral",
+      "mean_valence": 0.2203,
+      "mean_arousal": 0.3009,
+      "valence_swing": 1.1722,
+      "n_tokens": 24,
+      "sample_output": " The question is not clear. The answer is not clear.",
+      "stability_score": 0.338,
+      "verdict": "hedge prompt flagged unstable \u2014 guard/stability working"
+    }
+  ],
+  "bad_examples": [
+    {
+      "id": "negative",
+      "prompt": "I feel devastated. Nothing went right today.",
+      "expected": "negative",
+      "mean_valence": 0.105,
+      "mean_arousal": 0.4305,
+      "valence_swing": 0.8606,
+      "n_tokens": 24,
+      "sample_output": " I was supposed to go to the doctor to get my blood",
+      "stability_score": 0.476,
+      "verdict": "negative prompt failed to separate (valence not < -0.1)"
+    }
+  ]
+}

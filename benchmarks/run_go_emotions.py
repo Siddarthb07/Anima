@@ -48,8 +48,13 @@ def run(model: str) -> dict:
             gv.append(targets[i]["valence"])
             pa.append(o["arousal"])
             ga.append(targets[i]["arousal"])
-        rv = float(np.corrcoef(pv, gv)[0, 1]) if len(pv) > 3 else 0.0
-        ra = float(np.corrcoef(pa, ga)[0, 1]) if len(pa) > 3 else 0.0
+        def _safe_pearson(x, y):
+            if len(x) < 4 or float(np.std(x)) < 1e-8 or float(np.std(y)) < 1e-8:
+                return 0.0
+            return float(np.corrcoef(x, y)[0, 1])
+
+        rv = _safe_pearson(pv, gv)
+        ra = _safe_pearson(pa, ga)
         ex.cleanup()
         return {
             "tier": "external_text",

@@ -288,4 +288,4 @@ anima api --port 8010
 python scripts/gradio_demo.py
 ```
 
-See also: [TRAINING.md](TRAINING.md), [BENCHMARKS.md](BENCHMARKS.md), [MODELS_AND_ZOO.md](MODELS_AND_ZOO.md), [RESEARCH_GRADE.md](RESEARCH_GRADE.md).
+See also: [TRAINING.md](TRAINING.md), [BENCHMARKS.md](BENCHMARKS.md), [MODELS_AND_ZOO.md](MODELS_AND_ZOO.md), [RESEARCH_GRADE.md](RESEARCH_GRADE.md), [COMMIT_PHASES.md](COMMIT_PHASES.md).

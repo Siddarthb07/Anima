@@ -1,0 +1,43 @@
+{
+  "model": "meta-llama/Llama-3.2-1B-Instruct",
+  "aggregate_score": 48.0,
+  "passed": false,
+  "verdicts": [
+    {
+      "judge": "schema_integrity",
+      "score": 30.0,
+      "weight": 0.15,
+      "passed": false,
+      "notes": [
+        "missing or wrong manifest_schema_version",
+        "missing generated_at",
+        "no benchmark entries"
+      ]
+    },
+    {
+      "judge": "probe_signal",
+      "score": 50.0,
+      "weight": 0.35,
+      "passed": false,
+      "notes": []
+    },
+    {
+      "judge": "honesty_flags",
+      "score": 100.0,
+      "weight": 0.2,
+      "passed": true,
+      "notes": []
+    },
+    {
+      "judge": "prompt_separation",
+      "score": 20.0,
+      "weight": 0.3,
+      "passed": false,
+      "notes": [
+        "missing positive/negative prompt runs"
+      ]
+    }
+  ],
+  "good_examples": [],
+  "bad_examples": []
+}

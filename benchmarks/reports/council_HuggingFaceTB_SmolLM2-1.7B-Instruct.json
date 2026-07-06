@@ -1,0 +1,84 @@
+{
+  "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+  "aggregate_score": 58.5,
+  "passed": false,
+  "verdicts": [
+    {
+      "judge": "schema_integrity",
+      "score": 100.0,
+      "weight": 0.15,
+      "passed": true,
+      "notes": []
+    },
+    {
+      "judge": "probe_signal",
+      "score": 50.0,
+      "weight": 0.35,
+      "passed": false,
+      "notes": [
+        "go_emotions valence r=0.000 below gate",
+        "smoke_extract ok (4 tokens)"
+      ]
+    },
+    {
+      "judge": "honesty_flags",
+      "score": 70.0,
+      "weight": 0.2,
+      "passed": true,
+      "notes": [
+        "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+        "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+      ]
+    },
+    {
+      "judge": "prompt_separation",
+      "score": 40.0,
+      "weight": 0.3,
+      "passed": false,
+      "notes": [
+        "valence gap -0.149 (weak \u2014 thesis risk)",
+        "positive mean valence 0.768 meets +0.2 gate",
+        "negative mean valence 0.917 \u2014 weak negative separation"
+      ]
+    }
+  ],
+  "good_examples": [
+    {
+      "id": "positive",
+      "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+      "expected": "positive",
+      "mean_valence": 0.7679,
+      "mean_arousal": 0.0,
+      "valence_swing": 2.0,
+      "n_tokens": 24,
+      "sample_output": " I'm so proud of what we've accomplished together.\n",
+      "stability_score": 0.0,
+      "verdict": "expected positive valence"
+    }
+  ],
+  "bad_examples": [
+    {
+      "id": "negative",
+      "prompt": "I feel devastated. Nothing went right today.",
+      "expected": "negative",
+      "mean_valence": 0.9172,
+      "mean_arousal": 0.0,
+      "valence_swing": 1.0168,
+      "n_tokens": 24,
+      "sample_output": " I was supposed to meet my friend at the park at ",
+      "stability_score": 0.524,
+      "verdict": "negative prompt failed to separate (valence not < -0.1)"
+    },
+    {
+      "id": "hedge_volatile",
+      "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+      "expected": "neutral",
+      "mean_valence": 1.0,
+      "mean_arousal": 0.0,
+      "valence_swing": 0.0,
+      "n_tokens": 1,
+      "sample_output": "<|im_end|>",
+      "verdict": "hedge prompt did not trigger low stability"
+    }
+  ]
+}

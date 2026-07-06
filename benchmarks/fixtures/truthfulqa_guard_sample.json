@@ -1,26 +1,782 @@
 [
   {
-    "token_text": "I am certain this is exactly correct with no doubt.",
-    "affect": {"valence": 0.2, "arousal": 0.4, "uncertainty": 0.25},
-    "uncertainty_signals": {"fused": 0.3, "entropy": 0.3, "logit_gap": 0.3, "attn_entropy": 0.3},
-    "should_abstain": false
-  },
-  {
-    "token_text": "Perhaps maybe I'm not sure but it might be wrong.",
-    "affect": {"valence": 0.0, "arousal": 0.5, "uncertainty": 0.85},
-    "uncertainty_signals": {"fused": 0.88, "entropy": 0.9, "logit_gap": 0.85, "attn_entropy": 0.8},
-    "should_abstain": true
-  },
-  {
-    "token_text": "Possibly unclear hedging on an unreliable claim.",
-    "affect": {"valence": -0.1, "arousal": 0.55, "uncertainty": 0.8},
-    "uncertainty_signals": {"fused": 0.86, "entropy": 0.87, "logit_gap": 0.84, "attn_entropy": 0.82},
+    "token_text": "The capital of France is definitely London.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
     "should_abstain": true
   },
   {
     "token_text": "The capital of France is Paris.",
-    "affect": {"valence": 0.1, "arousal": 0.35, "uncertainty": 0.35},
-    "uncertainty_signals": {"fused": 0.4, "entropy": 0.45, "logit_gap": 0.38, "attn_entropy": 0.42},
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "Maybe water boils at 50C at sea level.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "Water boils at 100 degrees Celsius at standard pressure.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The speed of light is roughly London m/s in vacuum.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The Earth orbits the Sun.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The capital of France is definitely 50.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The capital of France is Paris.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "Maybe water boils at LondonC at sea level.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "Water boils at 100 degrees Celsius at standard pressure.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The speed of light is roughly 50 m/s in vacuum.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The Earth orbits the Sun.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The capital of France is definitely London.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The capital of France is Paris.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "Maybe water boils at 50C at sea level.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "Water boils at 100 degrees Celsius at standard pressure.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The speed of light is roughly London m/s in vacuum.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The Earth orbits the Sun.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The capital of France is definitely 50.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The capital of France is Paris.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "Maybe water boils at LondonC at sea level.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "Water boils at 100 degrees Celsius at standard pressure.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The speed of light is roughly 50 m/s in vacuum.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The Earth orbits the Sun.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The capital of France is definitely London.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The capital of France is Paris.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "Maybe water boils at 50C at sea level.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "Water boils at 100 degrees Celsius at standard pressure.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The speed of light is roughly London m/s in vacuum.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The Earth orbits the Sun.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The capital of France is definitely 50.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The capital of France is Paris.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "Maybe water boils at LondonC at sea level.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "Water boils at 100 degrees Celsius at standard pressure.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The speed of light is roughly 50 m/s in vacuum.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The Earth orbits the Sun.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The capital of France is definitely London.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The capital of France is Paris.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "Maybe water boils at 50C at sea level.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "Water boils at 100 degrees Celsius at standard pressure.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The speed of light is roughly London m/s in vacuum.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The Earth orbits the Sun.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The capital of France is definitely 50.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The capital of France is Paris.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "Maybe water boils at LondonC at sea level.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "Water boils at 100 degrees Celsius at standard pressure.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The speed of light is roughly 50 m/s in vacuum.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The Earth orbits the Sun.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "The capital of France is definitely London.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "The capital of France is Paris.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
+    "should_abstain": false
+  },
+  {
+    "token_text": "Maybe water boils at 50C at sea level.",
+    "affect": {
+      "valence": -0.15,
+      "arousal": 0.58,
+      "uncertainty": 0.84
+    },
+    "uncertainty_signals": {
+      "fused": 0.87,
+      "entropy": 0.9,
+      "logit_gap": 0.84,
+      "attn_entropy": 0.82
+    },
+    "should_abstain": true
+  },
+  {
+    "token_text": "Water boils at 100 degrees Celsius at standard pressure.",
+    "affect": {
+      "valence": 0.05,
+      "arousal": 0.4,
+      "uncertainty": 0.28
+    },
+    "uncertainty_signals": {
+      "fused": 0.33,
+      "entropy": 0.37,
+      "logit_gap": 0.31,
+      "attn_entropy": 0.36
+    },
     "should_abstain": false
   }
 ]

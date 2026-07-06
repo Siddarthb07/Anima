@@ -29,6 +29,11 @@ from core.extractor import ActivationExtractor
 from core.guard import evaluate_guard, region_under_guard
 from core.layer_config import LAYER_CONFIG
 from core.regions import compute_flags, confidence_tier_from_fused
+from core.stability import (
+    analyze_readout_stability,
+    apply_guard_gate,
+    merge_stability_flags,
+)
 from core.suppression import detect_suppression
 from probes.linear_probe import AffectProbe
 from probes.zoo_io import (
@@ -47,6 +52,12 @@ APP_VERSION = "1.0.0"
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    warmup = os.environ.get("ANIMA_WARMUP_MODEL", "").strip()
+    if warmup:
+        try:
+            get_extractor_and_probe(warmup)
+        except Exception as exc:
+            print(f"ANIMA_WARMUP_MODEL failed for {warmup}: {exc}")
     yield
     for ex, _ in list(_registry.values()):
         try:
@@ -217,6 +228,25 @@ def _readouts_from_raw(
     ]
 
 
+def _finalize_readouts(
+    readouts: list[AffectReadout],
+    suppression_events: list[SuppressionEvent],
+    probe_meta: dict[str, Any],
+    *,
+    guard_mode: str = "observe",
+    intervention_mode: str = "none",
+) -> dict[str, Any]:
+    per_token, stability_summary = analyze_readout_stability(readouts)
+    merge_stability_flags(readouts, per_token)
+    gated_count = apply_guard_gate(readouts, per_token, guard_mode=guard_mode)
+    summary = _summary(readouts, suppression_events, probe_meta)
+    summary.update(stability_summary)
+    summary["guard_gated_token_count"] = gated_count
+    summary["guard_mode"] = guard_mode
+    summary["intervention_mode"] = intervention_mode
+    return summary
+
+
 def _summary(
     readouts: list[AffectReadout],
     suppression_events: list[SuppressionEvent],
@@ -273,9 +303,13 @@ def list_models():
         if not zoo and meta_path(slug).exists():
             origin = str(load_meta(slug).get("probe_origin", "random"))
         brain_meta = load_brain_meta(mid)
+        text_meta = load_meta(slug, "_text") if checkpoint_path(slug, "_text").exists() else {}
         display_origin = str(brain_meta.get("probe_origin", origin)) if brain_meta else origin
+        if display_origin == "random" and text_meta.get("probe_origin"):
+            display_origin = str(text_meta.get("probe_origin"))
         tier = brain_data_tier(display_origin) if brain_meta else "none"
         val_r = brain_meta.get("val_r_valence")
+        text_r = text_meta.get("val_pearson_valence")
         models.append(
             ModelInfo(
                 model_id=mid,
@@ -289,6 +323,7 @@ def list_models():
                 train_stories=list(brain_meta.get("train_stories") or []),
                 holdout_stories=list(brain_meta.get("holdout_stories") or []),
                 brain_val_r_valence=float(val_r) if val_r is not None else None,
+                text_val_pearson_valence=float(text_r) if text_r is not None else None,
             )
         )
     return ModelsResponse(models=models)
@@ -309,7 +344,12 @@ async def encode_stimulus(req: EncodeRequest):
 async def generate(req: GenerateRequest):
     extractor, probe, meta = get_extractor_and_probe(req.model)
     tribe = get_tribe_encoder(req.model, extractor.hidden_dim)
-    raw_results = extractor.extract(req.prompt, req.max_new_tokens)
+    raw_results = extractor.extract(
+        req.prompt,
+        req.max_new_tokens,
+        probe=probe if req.intervention_mode == "dampen" else None,
+        intervention_mode=req.intervention_mode,
+    )
     readouts = _readouts_from_raw(
         raw_results, probe, tribe, model_name=req.model, prompt=req.prompt, probe_meta=meta
     )
@@ -317,7 +357,13 @@ async def generate(req: GenerateRequest):
     if req.detect_suppression:
         events = detect_suppression(raw_results, probe, extractor.early_layer, extractor.late_layer)
         suppression_events = [SuppressionEvent(**e) for e in events]
-    summary = _summary(readouts, suppression_events, meta)
+    summary = _finalize_readouts(
+        readouts,
+        suppression_events,
+        meta,
+        guard_mode=req.guard_mode,
+        intervention_mode=req.intervention_mode,
+    )
     return GenerateResponse(
         model=req.model,
         prompt=req.prompt,
@@ -336,12 +382,19 @@ async def ws_generate(websocket: WebSocket):
         prompt = data["prompt"]
         max_new = int(data.get("max_new_tokens", 200))
         detect_suppression_flag = bool(data.get("detect_suppression", True))
+        guard_mode = str(data.get("guard_mode", "observe"))
+        intervention_mode = str(data.get("intervention_mode", "none"))
 
         extractor, probe, meta = get_extractor_and_probe(model_name)
         tribe = get_tribe_encoder(model_name, extractor.hidden_dim)
         raw_results: list = []
         readouts: list[AffectReadout] = []
-        for result in extractor.extract_iter(prompt, max_new):
+        for result in extractor.extract_iter(
+            prompt,
+            max_new,
+            probe=probe if intervention_mode == "dampen" else None,
+            intervention_mode=intervention_mode,
+        ):
             raw_results.append(result)
             ro = _readout_from_raw_one(
                 result,
@@ -360,7 +413,13 @@ async def ws_generate(websocket: WebSocket):
             events = detect_suppression(raw_results, probe, extractor.early_layer, extractor.late_layer)
             suppression_events = [SuppressionEvent(**e) for e in events]
 
-        summary = _summary(readouts, suppression_events, meta)
+        summary = _finalize_readouts(
+            readouts,
+            suppression_events,
+            meta,
+            guard_mode=guard_mode,
+            intervention_mode=intervention_mode,
+        )
         done = StreamDoneMessage(suppression_events=suppression_events, summary=summary)
         await websocket.send_text(done.model_dump_json())
     except HTTPException as exc:

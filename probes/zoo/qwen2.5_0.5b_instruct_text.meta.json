@@ -1,0 +1,14 @@
+{
+  "dataset": "go_emotions",
+  "split": "train",
+  "n_samples": 2000,
+  "probe_origin": "text_emotion",
+  "val_loss": 0.290339,
+  "val_pearson_valence": 0.3254,
+  "val_pearson_arousal": 0.324,
+  "max_length": 128,
+  "train_seed": 42,
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "hidden_dim": 896,
+  "n_layers": 3
+}

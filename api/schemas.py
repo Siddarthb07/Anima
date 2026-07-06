@@ -51,6 +51,8 @@ class GenerateRequest(BaseModel):
     prompt: str
     max_new_tokens: int = 200
     detect_suppression: bool = True
+    guard_mode: Literal["observe", "gate"] = "observe"
+    intervention_mode: Literal["none", "dampen"] = "none"
 
 
 class GenerateResponse(BaseModel):
@@ -91,6 +93,7 @@ class ModelInfo(BaseModel):
     train_stories: list[str] = Field(default_factory=list)
     holdout_stories: list[str] = Field(default_factory=list)
     brain_val_r_valence: Optional[float] = None
+    text_val_pearson_valence: Optional[float] = None
 
 
 class ModelsResponse(BaseModel):

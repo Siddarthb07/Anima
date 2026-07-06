@@ -1,0 +1,11 @@
+{
+  "generated_from": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\benchmarks\\reports\\all_models_rollup.json",
+  "charts": [
+    "docs/images/benchmarks/council_scores.png",
+    "docs/images/benchmarks/probe_pearson_r.png",
+    "docs/images/benchmarks/prompt_valence_separation.png",
+    "docs/images/benchmarks/valence_gap.png",
+    "docs/images/benchmarks/hedge_stability.png",
+    "docs/images/benchmarks/benchmark_overview.png"
+  ]
+}

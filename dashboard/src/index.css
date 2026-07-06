@@ -5,3 +5,12 @@
 body {
   margin: 0;
 }
+
+.model-select option {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  background-color: #0c0f14;
+  padding: 0.35rem 0.5rem;
+}

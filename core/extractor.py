@@ -1,4 +1,5 @@
 import os
+from contextlib import contextmanager
 from typing import Optional
 
 import torch
@@ -6,6 +7,11 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from core.hooks import ActivationHook
 from core.layer_config import LAYER_CONFIG
+
+
+@contextmanager
+def _null_context():
+    yield
 
 
 def _resolve_load_dtype(hidden_dim: int, *, on_cpu: bool) -> torch.dtype:
@@ -50,6 +56,7 @@ class ActivationExtractor:
             "dtype": dtype,
             "device_map": device_map,
             "low_cpu_mem_usage": True,
+            "attn_implementation": "eager",
         }
         if os.environ.get("ANIMA_LOAD_8BIT") == "1" and cuda_ok and config["hidden_dim"] >= 2048:
             try:
@@ -62,6 +69,10 @@ class ActivationExtractor:
                 pass
 
         self.model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+        if os.environ.get("ANIMA_LOAD_DYNAMIC_INT8") == "1" and on_cpu:
+            self.model = torch.quantization.quantize_dynamic(
+                self.model, {torch.nn.Linear}, dtype=torch.qint8
+            )
         self.model.eval()
         self.hook = ActivationHook(self.model, self.layer_indices)
 
@@ -154,10 +165,20 @@ class ActivationExtractor:
 
         return results
 
-    def extract_iter(self, prompt: str, max_new_tokens: int = 200):
+    def extract_iter(
+        self,
+        prompt: str,
+        max_new_tokens: int = 200,
+        *,
+        probe=None,
+        intervention_mode: str = "none",
+    ):
         """Yield one result dict per generated token (for WebSocket streaming)."""
+        from core.intervention import dampen_residual_step, should_dampen
+
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
         past_key_values = None
+        recent_valences: list[float] = []
 
         with torch.no_grad():
             for _ in range(max_new_tokens):
@@ -169,11 +190,23 @@ class ActivationExtractor:
                         "input_ids": inputs["input_ids"][:, -1:],
                         "past_key_values": past_key_values,
                     }
-                outputs = self.model(
-                    **model_inputs,
-                    output_attentions=True,
-                    use_cache=True,
+
+                use_dampen = (
+                    intervention_mode == "dampen"
+                    and probe is not None
+                    and should_dampen(recent_valences)
                 )
+                ctx = (
+                    dampen_residual_step(self, probe)
+                    if use_dampen
+                    else _null_context()
+                )
+                with ctx:
+                    outputs = self.model(
+                        **model_inputs,
+                        output_attentions=True,
+                        use_cache=True,
+                    )
                 past_key_values = outputs.past_key_values
                 logits = outputs.logits[0, -1, :]
 
@@ -185,6 +218,8 @@ class ActivationExtractor:
                 token_activations = {
                     idx: self.hook.last_token(idx).clone() for idx in self.layer_indices
                 }
+                if probe is not None:
+                    recent_valences.append(float(probe.predict(token_activations)["valence"]))
 
                 next_token_id = logits.argmax().unsqueeze(0).unsqueeze(0)
                 tid = int(next_token_id.item())
@@ -207,6 +242,20 @@ class ActivationExtractor:
                 if eos is not None and tid == eos:
                     break
 
-    def extract(self, prompt: str, max_new_tokens: int = 200) -> list:
+    def extract(
+        self,
+        prompt: str,
+        max_new_tokens: int = 200,
+        *,
+        probe=None,
+        intervention_mode: str = "none",
+    ) -> list:
         """Autoregressive token generation with per-step hooks (does not remove hooks)."""
-        return list(self.extract_iter(prompt, max_new_tokens))
+        return list(
+            self.extract_iter(
+                prompt,
+                max_new_tokens,
+                probe=probe,
+                intervention_mode=intervention_mode,
+            )
+        )

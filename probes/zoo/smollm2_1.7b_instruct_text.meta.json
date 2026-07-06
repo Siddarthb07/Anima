@@ -1,0 +1,12 @@
+{
+  "dataset": "go_emotions",
+  "split": "train",
+  "n_samples": 500,
+  "probe_origin": "text_emotion",
+  "val_loss": 1.012886,
+  "val_pearson_valence": 0.0,
+  "val_pearson_arousal": 0.1606,
+  "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+  "hidden_dim": 2048,
+  "n_layers": 3
+}

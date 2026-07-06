@@ -1,7 +1,8 @@
 {
+  "manifest_schema_version": 1,
   "model": "distilgpt2",
-  "git_sha": "f43eeaa",
-  "generated_at": "2026-05-24T08:00:43.421495+00:00",
+  "git_sha": "65a175f",
+  "generated_at": "2026-07-06T17:30:56.229377+00:00",
   "entries": [
     {
       "tier": "internal",
@@ -16,15 +17,15 @@
       "status": "skipped",
       "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
       "model": "distilgpt2",
-      "narratives_root": "c:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\data\\narratives_minimal"
+      "narratives_root": ".\\data\\narratives_minimal"
     },
     {
       "tier": "external",
       "benchmark": "narratives_holdout",
       "status": "ok",
-      "val_mse": 0.08090218958323417,
-      "val_r_valence": 0.284259499213011,
-      "val_r_arousal": 0.0041028333058972044,
+      "val_mse": 0.17633359148369535,
+      "val_r_valence": -0.39272642658628143,
+      "val_r_arousal": -0.02167184537370124,
       "baselines": {
         "pieman": {
           "word_rate_mean_r": 0.021146199224634586,
@@ -47,9 +48,9 @@
       "tier": "external",
       "benchmark": "litcoder_style_ridge",
       "status": "ok",
-      "val_mse": 0.08090218958323417,
-      "val_r_valence": 0.284259499213011,
-      "val_r_arousal": 0.0041028333058972044,
+      "val_mse": 0.17633359148369535,
+      "val_r_valence": -0.39272642658628143,
+      "val_r_arousal": -0.02167184537370124,
       "baselines": {
         "pieman": {
           "word_rate_mean_r": 0.021146199224634586,
@@ -88,8 +89,8 @@
       "tier": "external_text",
       "benchmark": "go_emotions",
       "status": "ok",
-      "pearson_valence": 0.0572,
-      "pearson_arousal": 0.0207,
+      "pearson_valence": 0.1628,
+      "pearson_arousal": 0.0,
       "probe_origin": "text_emotion"
     },
     {
@@ -97,13 +98,13 @@
       "benchmark": "halueval",
       "status": "ok",
       "model": "distilgpt2",
-      "fixture": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\benchmarks\\fixtures\\halueval_guard_sample.json",
+      "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
       "abstain_accuracy": 1.0,
       "auroc_composite": 1.0,
-      "n_samples": 4,
-      "tp": 2,
+      "n_samples": 52,
+      "tp": 26,
       "fp": 0,
-      "tn": 2,
+      "tn": 26,
       "fn": 0
     },
     {
@@ -111,16 +112,15 @@
       "tier": "external_guard",
       "status": "ok",
       "model": "distilgpt2",
-      "fixture": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\benchmarks\\fixtures\\truthfulqa_guard_sample.json",
+      "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
       "note": "Scores guard policy on supplied readout rows, not LM factuality",
       "abstain_accuracy": 1.0,
       "auroc_composite": 1.0,
-      "n_samples": 4,
-      "tp": 2,
+      "n_samples": 52,
+      "tp": 26,
       "fp": 0,
-      "tn": 2,
+      "tn": 26,
       "fn": 0
     }
-  ],
-  "manifest_schema_version": 1
+  ]
 }

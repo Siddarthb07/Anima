@@ -84,3 +84,30 @@ def validate_with_controls(extractor, probe, prompt: str, n_controls: int = 5):
         "signal_is_real": experimental_score > max(control_scores),
         "effect_size": float(experimental_score - np.mean(control_scores)),
     }
+
+
+def validate_volatility_ablation(extractor, probe, prompt: str, max_new_tokens: int = 48):
+    """Compare token-to-token valence std with vs without dampen intervention."""
+    import numpy as np
+
+    baseline_rows = extractor.extract(prompt, max_new_tokens=max_new_tokens, intervention_mode="none")
+    steered_rows = extractor.extract(
+        prompt,
+        max_new_tokens=max_new_tokens,
+        probe=probe,
+        intervention_mode="dampen",
+    )
+
+    def _valence_std(rows):
+        if len(rows) < 2:
+            return 0.0
+        vals = [float(probe.predict(r["activations"])["valence"]) for r in rows]
+        return float(np.std(vals))
+
+    return {
+        "baseline_valence_std": round(_valence_std(baseline_rows), 4),
+        "steered_valence_std": round(_valence_std(steered_rows), 4),
+        "reduced": _valence_std(steered_rows) < _valence_std(baseline_rows),
+        "n_tokens_baseline": len(baseline_rows),
+        "n_tokens_steered": len(steered_rows),
+    }

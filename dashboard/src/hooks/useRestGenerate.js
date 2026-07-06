@@ -1,17 +1,15 @@
 import { useCallback, useState } from "react";
-
-const apiHttp =
-  (import.meta.env.VITE_API_HTTP_TARGET || "http://127.0.0.1:8010").replace(/\/$/, "");
+import { apiBase } from "../apiBase.js";
 
 export function useRestGenerate() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const generate = useCallback(async (model, prompt, maxNewTokens, detectSuppression) => {
+  const generate = useCallback(async (model, prompt, maxNewTokens, detectSuppression, guardMode = "observe", interventionMode = "none") => {
     setLoading(true);
     setError(null);
     try {
-      const r = await fetch(`${apiHttp}/generate`, {
+      const r = await fetch(`${apiBase()}/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -19,6 +17,8 @@ export function useRestGenerate() {
           prompt,
           max_new_tokens: maxNewTokens,
           detect_suppression: detectSuppression,
+          guard_mode: guardMode,
+          intervention_mode: interventionMode,
         }),
       });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);

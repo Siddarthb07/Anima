@@ -9,18 +9,22 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname, "");
   const apiHttpTarget = env.VITE_API_HTTP_TARGET || "http://127.0.0.1:8010";
 
+  const proxyCommon = {
+    target: apiHttpTarget,
+    changeOrigin: true,
+    secure: false,
+  };
+
   return {
     plugins: [react()],
     server: {
       port: 5173,
       proxy: {
-        // Browser opens ws(s)://<dev-host>/ws/generate → forwarded to FastAPI (avoids wrong port / localhost IPv6).
-        "/ws": {
-          target: apiHttpTarget,
-          changeOrigin: true,
-          ws: true,
-          secure: false,
-        },
+        "/ws": { ...proxyCommon, ws: true },
+        "/models": proxyCommon,
+        "/health": proxyCommon,
+        "/generate": proxyCommon,
+        "/encode": proxyCommon,
       },
     },
   };

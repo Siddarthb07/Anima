@@ -1,0 +1,60 @@
+{
+  "manifest_schema_version": 1,
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "git_sha": "65a175f",
+  "generated_at": "2026-07-06T17:33:42.928625+00:00",
+  "entries": [
+    {
+      "tier": "internal",
+      "benchmark": "smoke_extract",
+      "n_tokens": 4,
+      "probe_origin": "text_emotion",
+      "status": "ok"
+    },
+    {
+      "benchmark": "narratives_dev",
+      "tier": "internal",
+      "status": "skipped",
+      "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
+      "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "narratives_root": ".\\data\\narratives_minimal"
+    },
+    {
+      "tier": "external_text",
+      "benchmark": "go_emotions",
+      "status": "ok",
+      "pearson_valence": 0.1876,
+      "pearson_arousal": 0.4115,
+      "probe_origin": "text_emotion"
+    },
+    {
+      "tier": "external_guard",
+      "benchmark": "halueval",
+      "status": "ok",
+      "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0
+    },
+    {
+      "benchmark": "truthfulqa_guard",
+      "tier": "external_guard",
+      "status": "ok",
+      "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+      "note": "Scores guard policy on supplied readout rows, not LM factuality",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0
+    }
+  ]
+}

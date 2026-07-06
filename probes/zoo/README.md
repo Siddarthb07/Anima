@@ -38,4 +38,6 @@ python scripts/download_zoo.py
 
 Assets on [v1.1.0](https://github.com/Siddarthb07/Anima/releases/tag/v1.1.0): tiny + distilgpt2 text/brain probes and tribe projections.
 
+**v1.1.1 (local / upcoming Release):** `qwen2.5_0.5b_instruct_text.pt` — train with `anima train-text --model Qwen/Qwen2.5-0.5B-Instruct` or `ANIMA_ZOO_RELEASE=v1.1.1 python scripts/download_zoo.py` when tagged.
+
 Download CI artifacts from a workflow run and copy into this folder for proxy / 7B builds.

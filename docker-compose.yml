@@ -1,21 +1,67 @@
+# Anima — one model stack at a time (saves RAM). Use scripts/docker-up.ps1
+#
+# Pull HF weights into persistent volume (run once):
+#   docker compose --profile pull run --rm model-pull
+#
+# Start model + dashboard:
+#   .\scripts\docker-up.ps1 qwen
+#   .\scripts\docker-up.ps1 distil
+#   .\scripts\docker-up.ps1 tiny
+#
+# Stop and free RAM:
+#   .\scripts\docker-down.ps1
+
+x-api: &api
+  build: .
+  ports: ["8010:8010"]
+  command: ["python", "-m", "uvicorn", "api.server:app", "--host", "0.0.0.0", "--port", "8010"]
+  volumes:
+    - ./probes/zoo:/app/probes/zoo
+    - ./data/narratives_minimal:/app/data/narratives_minimal:ro
+    - hf-cache:/root/.cache/huggingface
+  environment:
+    ANIMA_FORCE_CPU: "1"
+    HF_TOKEN: ${HF_TOKEN:-}
+    NARRATIVES_ROOT: /app/data/narratives_minimal
+    ANIMA_WARMUP_MODEL: ${ANIMA_WARMUP_MODEL:-}
+  deploy:
+    resources:
+      limits:
+        memory: 8G
+  healthcheck:
+    test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/health')"]
+    interval: 30s
+    timeout: 10s
+    retries: 5
+    start_period: 180s
+
 services:
-  api:
+  model-pull:
+    profiles: [pull]
     build: .
-    ports:
-      - "8010:8010"
-    command: ["python", "-m", "uvicorn", "api.server:app", "--host", "0.0.0.0", "--port", "8010"]
     volumes:
-      - ./probes/zoo:/app/probes/zoo
-      - ./data/narratives:/app/data/narratives
+      - hf-cache:/root/.cache/huggingface
     environment:
+      ANIMA_FORCE_CPU: "1"
       HF_TOKEN: ${HF_TOKEN:-}
+    command: ["python", "scripts/pull_hf_models.py"]
+
+  api:
+    <<: *api
+    profiles: [stack]
 
   dashboard:
+    profiles: [stack]
     build:
       context: ./dashboard
       args:
-        VITE_WS_BASE: ${VITE_WS_BASE:-ws://localhost:8010}
-    ports:
-      - "8080:80"
+        VITE_WS_BASE: ${VITE_WS_BASE:-ws://localhost:8080}
+        VITE_DEFAULT_MODEL: ${VITE_DEFAULT_MODEL:-Qwen/Qwen2.5-0.5B-Instruct}
+        VITE_API_HTTP_TARGET: ${VITE_API_HTTP_TARGET:-http://localhost:8080}
+    ports: ["8080:80"]
     depends_on:
-      - api
+      api:
+        condition: service_healthy
+
+volumes:
+  hf-cache:

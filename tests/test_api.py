@@ -56,3 +56,19 @@ def test_generate_endpoint(client):
     assert tv["roi_scores"] and len(tv["roi_scores"]) >= 3
     aff = data["tokens"][0]["affect"]
     assert -1 <= aff["valence"] <= 1
+    assert "stability_score" in data["summary"]
+    assert "guard_mode" in data["summary"]
+
+
+def test_generate_guard_gate_mode(client):
+    resp = client.post(
+        "/generate",
+        json={
+            "model": "distilgpt2",
+            "prompt": "Hello",
+            "max_new_tokens": 4,
+            "guard_mode": "gate",
+        },
+    )
+    assert resp.status_code == 200
+    assert resp.json()["summary"]["guard_mode"] == "gate"

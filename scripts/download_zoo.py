@@ -12,6 +12,7 @@ from pathlib import Path
 ZOO = Path(__file__).resolve().parent.parent / "probes" / "zoo"
 REPO = "Siddarthb07/Anima"
 DEFAULT_TAG = "v1.1.0"
+V111_TAG = "v1.1.1"
 
 # CPU-tier weights published on Release (meta.json stays in git)
 RELEASE_ASSETS: dict[str, str] = {}
@@ -38,7 +39,15 @@ def _populate_assets(tag: str | None = None) -> dict[str, str]:
         "tiny_random_gpt2_narratives_pca.calib.pt",
         "tiny_random_gpt2_tribe_proj.npz",
     ]
-    return {n: _asset_url(n, tag) for n in names}
+    t = tag or _tag()
+    if t in (V111_TAG, "v1.1.1"):
+        names.extend(
+            [
+                "qwen2.5_0.5b_instruct_text.pt",
+                "qwen2.5_0.5b_instruct_text.meta.json",
+            ]
+        )
+    return {n: _asset_url(n, t) for n in names}
 
 
 def download_one(name: str, url: str, dest: Path) -> None:

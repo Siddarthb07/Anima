@@ -1,0 +1,126 @@
+{
+  "manifest_schema_version": 1,
+  "model": "hf-internal-testing/tiny-random-gpt2",
+  "git_sha": "65a175f",
+  "generated_at": "2026-07-06T17:29:35.061881+00:00",
+  "entries": [
+    {
+      "tier": "internal",
+      "benchmark": "smoke_extract",
+      "n_tokens": 4,
+      "probe_origin": "narratives_fMRI_synthetic_minimal",
+      "status": "ok"
+    },
+    {
+      "benchmark": "narratives_dev",
+      "tier": "internal",
+      "status": "skipped",
+      "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
+      "model": "hf-internal-testing/tiny-random-gpt2",
+      "narratives_root": ".\\data\\narratives_minimal"
+    },
+    {
+      "tier": "external",
+      "benchmark": "narratives_holdout",
+      "status": "ok",
+      "val_mse": 0.11819075509581876,
+      "val_r_valence": -0.1094925113867789,
+      "val_r_arousal": -0.23933090139386112,
+      "baselines": {
+        "pieman": {
+          "word_rate_mean_r": 0.021146199224634586,
+          "lexical_len_mean_r": 0.013152102546445917
+        },
+        "tunnel": {
+          "word_rate_mean_r": 0.016466165207305598,
+          "lexical_len_mean_r": 0.03151864663975526
+        },
+        "holdout_lucy": {
+          "word_rate_mean_r": 0.0966947149136891,
+          "lexical_len_mean_r": -0.0015275396946065945
+        }
+      },
+      "holdout_stories": [
+        "lucy"
+      ]
+    },
+    {
+      "tier": "external",
+      "benchmark": "litcoder_style_ridge",
+      "status": "ok",
+      "val_mse": 0.11819075509581876,
+      "val_r_valence": -0.1094925113867789,
+      "val_r_arousal": -0.23933090139386112,
+      "baselines": {
+        "pieman": {
+          "word_rate_mean_r": 0.021146199224634586,
+          "lexical_len_mean_r": 0.013152102546445917
+        },
+        "tunnel": {
+          "word_rate_mean_r": 0.016466165207305598,
+          "lexical_len_mean_r": 0.03151864663975526
+        },
+        "holdout_lucy": {
+          "word_rate_mean_r": 0.0966947149136891,
+          "lexical_len_mean_r": -0.0015275396946065945
+        }
+      },
+      "holdout_stories": [
+        "lucy"
+      ],
+      "holdout_word_rate_mean_r": 0.0967
+    },
+    {
+      "benchmark": "tribe_reference",
+      "tier": "external",
+      "status": "skipped",
+      "model": "hf-internal-testing/tiny-random-gpt2",
+      "anima_tribe_mode": "surrogate",
+      "runtime_available": false,
+      "runtime_roi_scores": null,
+      "reason": "tribev2 not installed \u2014 surrogate-only CI path"
+    },
+    {
+      "tier": "external",
+      "benchmark": "brainscore_language",
+      "status": "skipped"
+    },
+    {
+      "tier": "external_text",
+      "benchmark": "go_emotions",
+      "status": "ok",
+      "pearson_valence": 0.0038,
+      "pearson_arousal": 0.0088,
+      "probe_origin": "text_emotion"
+    },
+    {
+      "tier": "external_guard",
+      "benchmark": "halueval",
+      "status": "ok",
+      "model": "hf-internal-testing/tiny-random-gpt2",
+      "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0
+    },
+    {
+      "benchmark": "truthfulqa_guard",
+      "tier": "external_guard",
+      "status": "ok",
+      "model": "hf-internal-testing/tiny-random-gpt2",
+      "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+      "note": "Scores guard policy on supplied readout rows, not LM factuality",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0
+    }
+  ]
+}

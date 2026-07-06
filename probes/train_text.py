@@ -29,11 +29,41 @@ def _pearson(x: np.ndarray, y: np.ndarray) -> float:
     return float((x * y).sum() / denom)
 
 
+def _eval_probe(
+    probe: AffectProbe,
+    acts: List[dict],
+    targets: List[dict],
+    criterion: nn.Module,
+) -> tuple[float, float, float]:
+    probe.eval()
+    val_loss = 0.0
+    pv, gv, pa, ga = [], [], [], []
+    with torch.no_grad():
+        for i, a in enumerate(acts):
+            t = targets[i]
+            out = probe(a)
+            val_loss += float(
+                criterion(out["valence"], torch.tensor(t["valence"]))
+                + criterion(out["arousal"], torch.tensor(t["arousal"]))
+            )
+            pv.append(float(out["valence"]))
+            gv.append(t["valence"])
+            pa.append(float(out["arousal"]))
+            ga.append(t["arousal"])
+    val_loss /= max(1, len(acts))
+    return (
+        val_loss,
+        _pearson(np.array(pv), np.array(gv)),
+        _pearson(np.array(pa), np.array(ga)),
+    )
+
+
 def build_goemotions_samples(
     extractor: ActivationExtractor,
     *,
     split: str = "train",
     max_samples: int = 2000,
+    max_length: int = 128,
 ) -> Tuple[List[dict], List[dict], dict[str, Any]]:
     from datasets import load_dataset
 
@@ -51,7 +81,7 @@ def build_goemotions_samples(
             continue
         labels = list(row["labels"])
         v, a, u = labels_to_va(labels)
-        rows = extractor.encode_sequence(text[:256], max_length=64)
+        rows = extractor.encode_sequence(text[:512], max_length=max_length)
         if not rows:
             continue
         last = rows[-1]
@@ -75,11 +105,20 @@ def train_text_probe(
     max_samples: int = 2000,
     epochs: int = 15,
     device: str = "cpu",
+    max_length: int = 128,
+    seed: int = 42,
 ) -> tuple[AffectProbe, dict[str, Any]]:
     extractor = ActivationExtractor(model_name, device=device)
-    acts, targets, meta = build_goemotions_samples(extractor, max_samples=max_samples)
+    acts, targets, meta = build_goemotions_samples(
+        extractor, max_samples=max_samples, max_length=max_length
+    )
     if len(acts) < 32:
         raise RuntimeError(f"Only {len(acts)} GoEmotions samples — increase max_samples or check HF cache.")
+
+    rng = np.random.default_rng(seed)
+    order = rng.permutation(len(acts))
+    acts = [acts[i] for i in order]
+    targets = [targets[i] for i in order]
 
     n = len(acts)
     split = int(n * 0.85)
@@ -109,22 +148,7 @@ def train_text_probe(
             optimizer.step()
             total += float(loss.item())
 
-        probe.eval()
-        val_loss = 0.0
-        pv, gv, pa, ga = [], [], [], []
-        with torch.no_grad():
-            for i, a in enumerate(val_acts):
-                t = val_t[i]
-                out = probe(a)
-                val_loss += float(
-                    criterion(out["valence"], torch.tensor(t["valence"]))
-                    + criterion(out["arousal"], torch.tensor(t["arousal"]))
-                )
-                pv.append(float(out["valence"]))
-                gv.append(t["valence"])
-                pa.append(float(out["arousal"]))
-                ga.append(t["arousal"])
-        val_loss /= max(1, len(val_acts))
+        val_loss, _, _ = _eval_probe(probe, val_acts, val_t, criterion)
         if val_loss < best_val:
             best_val = val_loss
             best_state = {k: v.cpu().clone() for k, v in probe.state_dict().items()}
@@ -134,9 +158,12 @@ def train_text_probe(
     if best_state:
         probe.load_state_dict(best_state)
 
+    _, val_r_v, val_r_a = _eval_probe(probe, val_acts, val_t, criterion)
     meta["val_loss"] = round(best_val, 6)
-    meta["val_pearson_valence"] = round(_pearson(np.array(pv), np.array(gv)), 4)
-    meta["val_pearson_arousal"] = round(_pearson(np.array(pa), np.array(ga)), 4)
+    meta["val_pearson_valence"] = round(val_r_v, 4)
+    meta["val_pearson_arousal"] = round(val_r_a, 4)
+    meta["max_length"] = max_length
+    meta["train_seed"] = seed
     meta["model"] = model_name
     meta["hidden_dim"] = extractor.hidden_dim
     meta["n_layers"] = len(extractor.layer_indices)

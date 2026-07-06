@@ -8,6 +8,8 @@
 
 **Keywords:** LLM emotions · emotion readouts · valence/arousal probing · Hugging Face interpretability · fMRI-aligned brain probes (optional) · FastAPI streaming dashboard.
 
+**v2.0.0** — multi-model benchmarks, stability gating, intervention mode, Docker stack. See [v2 release notes](docs/V2_RELEASE.md).
+
 Anima does **not** use Ollama. Use a [supported Hugging Face model id](core/layer_config.py) (e.g. `distilgpt2`) with matching weights in `probes/zoo/`.
 
 ---
@@ -155,19 +157,70 @@ anima benchmark --model distilgpt2 --tiers internal,external,external_text,exter
 
 **Data honesty:** Narratives scores below use **`data/narratives_minimal/`** (synthetic fMRI for dev), **not** the full OpenNeuro ds002345 release yet. Label them as **synthetic_minimal** in papers. Real-fMRI tier: [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
 
-### Latest results (CPU tier)
+### Latest results (CPU tier, 2026-07-06)
 
-#### `distilgpt2` — [full manifest](benchmarks/reports/latest_distilgpt2_manifest.json) (2026-05-24)
+Full multi-model run: [`benchmarks/reports/all_models_rollup.json`](benchmarks/reports/all_models_rollup.json) · council scores: [`benchmarks/reports/council_rollup.json`](benchmarks/reports/council_rollup.json) · narrative report: [`docs/BENCHMARK_REPORT.md`](docs/BENCHMARK_REPORT.md).
+
+**Regenerate charts:**
+
+```bash
+python scripts/run_all_models_benchmark.py
+python scripts/generate_benchmark_report.py   # includes chart PNGs
+# or charts only:
+pip install matplotlib
+python scripts/generate_benchmark_charts.py
+```
+
+#### Benchmark charts (where models struggle vs succeed)
+
+![Anima benchmark overview — council scores, probe r, live prompt valence, valence gap](docs/images/benchmarks/benchmark_overview.png)
+
+| Chart | What it shows |
+|-------|----------------|
+| [Overview](docs/images/benchmarks/benchmark_overview.png) | Council score, probe Pearson r, live prompt valence, pos−neg gap |
+| [Council scores](docs/images/benchmarks/council_scores.png) | Weighted validity score (≥60 = passed) |
+| [Probe Pearson r](docs/images/benchmarks/probe_pearson_r.png) | GoEmotions + brain holdout — **negative r = probe not tracking** |
+| [Prompt valence](docs/images/benchmarks/prompt_valence_separation.png) | Positive vs negative prompts — **inverted bars = weak legibility** |
+| [Valence gap](docs/images/benchmarks/valence_gap.png) | How much positive beats negative (steering headroom) |
+| [Hedge stability](docs/images/benchmarks/hedge_stability.png) | Choppy readouts on hedged language (intervention surface) |
+
+#### All models — council summary (7 run on CPU, 2026-07-06)
+
+| Model | Council | Passed | GoE r (v) | Brain r (v) | Pos prompt v | Neg prompt v | Gap | Struggling on |
+|-------|---------|--------|-----------|-------------|--------------|--------------|-----|----------------|
+| **Qwen/Qwen2.5-0.5B-Instruct** | **91.0** | yes | **0.21** | — | **0.37** | 0.11 | **0.27** | Negative valence separation |
+| **distilgpt2** | **82.2** | yes | **0.16** | −0.39 | **0.59** | 0.28 | **0.31** | Brain holdout; neg still positive |
+| TinyLlama-1.1B-Chat | 62.0 | yes | — (random probe) | — | −0.09 | −0.15 | 0.06 | No text probe; weak gap |
+| SmolLM2-1.7B-Instruct | 62.0 | yes | — (random probe) | — | 0.24 | 0.48 | −0.24 | **Inverted gap** (neg > pos) |
+| tiny-random-gpt2 | 50.2 | no | 0.004 | −0.11 | 0.14 | 0.15 | −0.00 | Gibberish output; CI only |
+| Llama-3.2-1B-Instruct | 48.0 | no | — | — | — | — | — | Gated HF repo (not run) |
+| gemma-2-2b-it | 48.0 | no | — | — | — | — | — | Gated HF repo (not run) |
+
+**Takeaways:** **Qwen** is the best POC hero (text probe + positive prompt separation). **distilgpt2** has strong live positive readouts but **brain holdout r is negative** on synthetic Narratives — label honestly. Models without trained `_text` probes (TinyLlama, SmolLM) only prove the **pipeline runs**, not emotion validity. Guard AUROC 1.0 on all models is **fixture-policy smoke**, not hallucination detection.
+
+#### `Qwen/Qwen2.5-0.5B-Instruct` — [manifest](benchmarks/reports/latest_qwen2.5_0.5b_instruct_manifest.json) (POC demo hero)
+
+| Benchmark | Metric | Result | Notes |
+|-----------|--------|--------|--------|
+| **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.21** / **0.24** | Instruct-tuned; use for intervention demo |
+| **HaluEval guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Synthetic fixture rows |
+| **TruthfulQA guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Synthetic fixture rows |
+
+Train-time holdout: `val_pearson_valence` **0.20** (800 GoEmotions samples).
+
+#### `distilgpt2` — [full manifest](benchmarks/reports/latest_distilgpt2_manifest.json) (2026-07-06)
 
 | Benchmark | Metric | Result | Beat simple baseline? |
 |-----------|--------|--------|------------------------|
-| **Narratives holdout** (`lucy`) | Pearson r (valence / arousal) | **0.28** / 0.004 | Valence **yes** vs word-rate r ≈ **0.10** |
-| | Val MSE | 0.081 | — |
-| **GoEmotions** (validation, ≤200 samples) | Pearson r (valence / arousal) | 0.06 / 0.02 | Weak; text probe still training-limited |
-| **HaluEval guard** (n=4 smoke) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture smoke only |
-| **TruthfulQA guard** (n=4 smoke) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture smoke only |
+| **Narratives holdout** (`lucy`, synthetic_minimal) | Pearson r (valence / arousal) | **−0.39** / −0.02 | **No** — brain probe needs retune; label synthetic |
+| | Val MSE | 0.176 | — |
+| **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.16** / 0.00 | Text probe improved after 1500-sample retrain |
+| **HaluEval guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture policy smoke |
+| **TruthfulQA guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture policy smoke |
 | **TRIBE reference** | Runtime decoder | skipped | Surrogate-only path in CI |
 | **Brain-Score Language** | — | skipped | Install optional package |
+
+Train-time holdout: `val_pearson_valence` **0.18** (1500 GoEmotions samples).
 
 #### `hf-internal-testing/tiny-random-gpt2` — [manifest](benchmarks/reports/latest_manifest.json) (dev / CI)
 
@@ -178,14 +231,22 @@ anima benchmark --model distilgpt2 --tiers internal,external,external_text,exter
 
 **How to read r:** closer to **1** = probe emotion tracks line up more with the target; **0** ≈ no linear relationship; negative = inverse trend (often means “not trained yet”).
 
-**Reproduce:**
+**Reproduce full suite:**
 
 ```bash
 $env:NARRATIVES_ROOT=".\data\narratives_minimal"   # Windows
+$env:ANIMA_FORCE_CPU="1"
+python scripts/run_all_models_benchmark.py
+python scripts/generate_benchmark_report.py
+```
+
+Single model:
+
+```bash
 anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard
 ```
 
-More detail: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md).
+More detail: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md) · [`docs/BENCHMARK_REPORT.md`](docs/BENCHMARK_REPORT.md).
 
 ---
 
@@ -229,13 +290,14 @@ anima benchmark --model <hf_id> --tiers internal,external,external_text,external
 
 | Doc | When to read |
 |-----|----------------|
+| [v2 release notes](docs/V2_RELEASE.md) | v1→v2 changelog, upgrade path, limits |
 | [Getting started](docs/GETTING_STARTED.md) | Install, Docker, troubleshooting |
 | [Researcher quickstart](docs/RESEARCHER_QUICKSTART.md) | Reproduce with Release weights in ~10 min |
 | [Models & zoo](docs/MODELS_AND_ZOO.md) | HF ids, checkpoint naming, Ollama clarification |
 | [Brain probe data](docs/BRAIN_PROBE_DATA.md) | Synthetic vs real ds002345 |
 | [Research-grade criteria](docs/RESEARCH_GRADE.md) | What “research-grade” means here |
 | [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md) | **Before** papers, apps, or demos |
-| [Training](docs/TRAINING.md) · [Benchmarks](docs/BENCHMARKS.md) | Commands and manifests |
+| [Benchmarks](docs/BENCHMARKS.md) · [Benchmark report](docs/BENCHMARK_REPORT.md) | Commands, manifests, charts |
 
 ---
 

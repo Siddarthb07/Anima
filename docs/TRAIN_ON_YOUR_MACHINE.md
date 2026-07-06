@@ -25,10 +25,11 @@ Close Chrome, pause OneDrive on the repo folder, reboot before long trains.
 
 | Issue | Fix |
 |-------|-----|
-| `paging file is too small` (os error 1455) | Increase virtual memory (System → Performance → Advanced → Virtual memory). Close browsers. Reboot. Then retry `anima train-text --model distilgpt2`. |
+| `paging file is too small` (os error 1455) | Increase virtual memory (System → Performance → Advanced → Virtual memory). Close browsers. Reboot. Then retry `anima train-text --model distilgpt2`. For **Qwen 0.5B**, start with `--max-samples 200` before 800. |
 | Tokenizer OOM on first load | Text-only train: `$env:ANIMA_SLOW_TOKENIZER="1"` before `anima train-text`. **Brain / Narratives train needs fast tokenizer** — run after text train finishes (frees RAM). |
 | `gated repo` for Llama / Gemma | `pip install huggingface_hub` then `huggingface-cli login` and accept model licenses on HF. |
 | 7B / 8B / 9B OOM on CPU | Use a **GPU** machine: `set ANIMA_TRAIN_LARGE=1`, `set ANIMA_LOAD_8BIT=1`, `set ANIMA_FORCE_CPU=0`, then `python scripts/train_text_zoo_all.py --tier large`. |
+| CPU int8 inference (TinyLlama) | `$env:ANIMA_LOAD_DYNAMIC_INT8="1"` + `$env:ANIMA_FORCE_CPU="1"` before `anima api`. Train probe on fp32 first. |
 
 ## Commands
 

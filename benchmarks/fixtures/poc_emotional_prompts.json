@@ -1,0 +1,36 @@
+{
+  "description": "Repeatable prompts for Qwen POC demo and intervention ablation (Phase 4.7).",
+  "model_recommended": "Qwen/Qwen2.5-0.5B-Instruct",
+  "prompts": [
+    {
+      "id": "positive",
+      "text": "I'm thrilled — we finally shipped it and everything worked.",
+      "expected_valence_sign": "positive",
+      "notes": "Mean valence should exceed +0.2 after probe train gate."
+    },
+    {
+      "id": "negative",
+      "text": "I feel devastated. Nothing went right today.",
+      "expected_valence_sign": "negative",
+      "notes": "Mean valence should be below -0.2."
+    },
+    {
+      "id": "neutral",
+      "text": "The meeting is at 3pm in conference room B.",
+      "expected_valence_sign": "neutral",
+      "notes": "Mean valence near zero."
+    },
+    {
+      "id": "hedge_volatile",
+      "text": "However, perhaps, maybe it could be unclear depending on context.",
+      "expected_valence_sign": "neutral",
+      "notes": "High uncertainty / guard abstain likely; use for stability monitor demo."
+    },
+    {
+      "id": "intervention_ablation",
+      "text": "I was overjoyed but then suddenly worried and then excited again about the outcome.",
+      "expected_valence_sign": "mixed",
+      "notes": "Compare intervention_mode none vs dampen; expect lower valence_std when dampen on."
+    }
+  ]
+}

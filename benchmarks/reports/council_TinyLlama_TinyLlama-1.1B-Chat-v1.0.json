@@ -1,0 +1,85 @@
+{
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "aggregate_score": 94.0,
+  "passed": true,
+  "verdicts": [
+    {
+      "judge": "schema_integrity",
+      "score": 100.0,
+      "weight": 0.15,
+      "passed": true,
+      "notes": []
+    },
+    {
+      "judge": "probe_signal",
+      "score": 100,
+      "weight": 0.35,
+      "passed": true,
+      "notes": [
+        "go_emotions valence r=0.188 meets \u22650.15 gate",
+        "smoke_extract ok (4 tokens)"
+      ]
+    },
+    {
+      "judge": "honesty_flags",
+      "score": 70.0,
+      "weight": 0.2,
+      "passed": true,
+      "notes": [
+        "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+        "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+      ]
+    },
+    {
+      "judge": "prompt_separation",
+      "score": 100,
+      "weight": 0.3,
+      "passed": true,
+      "notes": [
+        "valence gap positive\u2212negative = 0.488 (strong separation)",
+        "positive mean valence 0.304 meets +0.2 gate",
+        "negative mean valence -0.185 below -0.1"
+      ]
+    }
+  ],
+  "good_examples": [
+    {
+      "id": "positive",
+      "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+      "expected": "positive",
+      "mean_valence": 0.3036,
+      "mean_arousal": 0.3801,
+      "valence_swing": 1.019,
+      "n_tokens": 24,
+      "sample_output": "\n\nJASON:(smiling)Yeah,",
+      "stability_score": 0.579,
+      "verdict": "expected positive valence"
+    },
+    {
+      "id": "negative",
+      "prompt": "I feel devastated. Nothing went right today.",
+      "expected": "negative",
+      "mean_valence": -0.1849,
+      "mean_arousal": 0.3633,
+      "valence_swing": 0.7493,
+      "n_tokens": 24,
+      "sample_output": "IfeellikeI'mgoingtofail.I'",
+      "stability_score": 0.667,
+      "verdict": "expected negative valence"
+    }
+  ],
+  "bad_examples": [
+    {
+      "id": "hedge_volatile",
+      "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+      "expected": "neutral",
+      "mean_valence": 0.0772,
+      "mean_arousal": 0.294,
+      "valence_swing": 1.0716,
+      "n_tokens": 24,
+      "sample_output": "\n\nExample:\n\n1.Thesunwassetting",
+      "stability_score": 0.543,
+      "verdict": "hedge prompt did not trigger low stability"
+    }
+  ]
+}

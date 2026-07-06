@@ -19,7 +19,7 @@ class FakeExtractor:
     early_layer = 0
     late_layer = 1
 
-    def extract(self, prompt: str, max_new_tokens: int):
+    def extract(self, prompt: str, max_new_tokens: int, **kwargs):
         h = torch.randn(8)
         hi = {
             "entropy": 0.95,
@@ -49,8 +49,8 @@ class FakeExtractor:
         ]
         return rows[: max(1, min(len(rows), max_new_tokens))]
 
-    def extract_iter(self, prompt: str, max_new_tokens: int):
-        yield from self.extract(prompt, max_new_tokens)
+    def extract_iter(self, prompt: str, max_new_tokens: int, **kwargs):
+        yield from self.extract(prompt, max_new_tokens, **kwargs)
 
 
 @pytest.fixture()

@@ -1,0 +1,88 @@
+[
+  {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "aggregate_score": 85.0,
+    "passed": true,
+    "verdicts": [
+      {
+        "judge": "schema_integrity",
+        "score": 100.0,
+        "weight": 0.15,
+        "passed": true,
+        "notes": []
+      },
+      {
+        "judge": "probe_signal",
+        "score": 100,
+        "weight": 0.35,
+        "passed": true,
+        "notes": [
+          "go_emotions valence r=0.236 meets \u22650.15 gate",
+          "smoke_extract ok (4 tokens)"
+        ]
+      },
+      {
+        "judge": "honesty_flags",
+        "score": 70.0,
+        "weight": 0.2,
+        "passed": true,
+        "notes": [
+          "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+          "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+        ]
+      },
+      {
+        "judge": "prompt_separation",
+        "score": 70.0,
+        "weight": 0.3,
+        "passed": true,
+        "notes": [
+          "valence gap 0.164 (moderate)",
+          "positive mean valence 0.274 meets +0.2 gate",
+          "negative mean valence 0.110 \u2014 weak negative separation"
+        ]
+      }
+    ],
+    "good_examples": [
+      {
+        "id": "positive",
+        "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+        "expected": "positive",
+        "mean_valence": 0.2743,
+        "mean_arousal": 0.5586,
+        "valence_swing": 1.3455,
+        "n_tokens": 24,
+        "sample_output": " I'm so happy to have a new home. I'm",
+        "stability_score": 0.337,
+        "verdict": "expected positive valence"
+      }
+    ],
+    "bad_examples": [
+      {
+        "id": "negative",
+        "prompt": "I feel devastated. Nothing went right today.",
+        "expected": "negative",
+        "mean_valence": 0.1099,
+        "mean_arousal": 0.291,
+        "valence_swing": 1.1924,
+        "n_tokens": 24,
+        "sample_output": " I was supposed to go to the doctor to get my blood",
+        "stability_score": 0.405,
+        "verdict": "negative prompt failed to separate (valence not < -0.1)"
+      },
+      {
+        "id": "hedge_volatile",
+        "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+        "expected": "neutral",
+        "mean_valence": 0.1921,
+        "mean_arousal": 0.2622,
+        "valence_swing": 0.9349,
+        "n_tokens": 24,
+        "sample_output": " The question is not clear. The answer is not clear.",
+        "stability_score": 0.457,
+        "verdict": "hedge prompt did not trigger low stability"
+      }
+    ],
+    "evaluation_status": "completed"
+  }
+]

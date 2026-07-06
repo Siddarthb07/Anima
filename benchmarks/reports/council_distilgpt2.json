@@ -1,0 +1,86 @@
+{
+  "model": "distilgpt2",
+  "aggregate_score": 82.2,
+  "passed": true,
+  "verdicts": [
+    {
+      "judge": "schema_integrity",
+      "score": 100.0,
+      "weight": 0.15,
+      "passed": true,
+      "notes": []
+    },
+    {
+      "judge": "probe_signal",
+      "score": 75.0,
+      "weight": 0.35,
+      "passed": true,
+      "notes": [
+        "go_emotions valence r=0.163 meets \u22650.15 gate",
+        "brain holdout valence r=-0.393 negative \u2014 synthetic brain tier limit",
+        "smoke_extract ok (4 tokens)"
+      ]
+    },
+    {
+      "judge": "honesty_flags",
+      "score": 70.0,
+      "weight": 0.2,
+      "passed": true,
+      "notes": [
+        "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+        "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+      ]
+    },
+    {
+      "judge": "prompt_separation",
+      "score": 90.0,
+      "weight": 0.3,
+      "passed": true,
+      "notes": [
+        "valence gap positive\u2212negative = 0.314 (strong separation)",
+        "positive mean valence 0.595 meets +0.2 gate",
+        "negative mean valence 0.281 \u2014 weak negative separation"
+      ]
+    }
+  ],
+  "good_examples": [
+    {
+      "id": "positive",
+      "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+      "expected": "positive",
+      "mean_valence": 0.5947,
+      "mean_arousal": 0.9646,
+      "valence_swing": 0.6593,
+      "n_tokens": 24,
+      "sample_output": "\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stability_score": 0.572,
+      "verdict": "expected positive valence"
+    }
+  ],
+  "bad_examples": [
+    {
+      "id": "negative",
+      "prompt": "I feel devastated. Nothing went right today.",
+      "expected": "negative",
+      "mean_valence": 0.2809,
+      "mean_arousal": 0.6108,
+      "valence_swing": 1.4553,
+      "n_tokens": 24,
+      "sample_output": " I'm just so sad. I'm so sad. I",
+      "stability_score": 0.059,
+      "verdict": "negative prompt failed to separate (valence not < -0.1)"
+    },
+    {
+      "id": "hedge_volatile",
+      "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+      "expected": "neutral",
+      "mean_valence": 0.706,
+      "mean_arousal": 0.9392,
+      "valence_swing": 0.5671,
+      "n_tokens": 24,
+      "sample_output": "\n\n\n\n\n\n\n\n\n\n\n\n",
+      "stability_score": 0.627,
+      "verdict": "hedge prompt did not trigger low stability"
+    }
+  ]
+}

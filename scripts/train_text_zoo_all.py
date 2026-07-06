@@ -111,9 +111,14 @@ def main() -> None:
             continue
         max_s = args.max_samples
         if max_s is None:
-            # Keep small on Windows CPU to avoid paging-file OOM
-            max_s = 120 if cfg["hidden_dim"] <= 768 else 80 if cfg["hidden_dim"] <= 1024 else 60
-        ep = args.epochs if args.epochs is not None else (10 if cfg["hidden_dim"] <= 768 else 8)
+            # Scale by model size; Qwen 0.5B / distilgpt2 tolerate 1.5–2k on 16 GB CPU.
+            if cfg["hidden_dim"] <= 768:
+                max_s = 1500
+            elif cfg["hidden_dim"] <= 1024:
+                max_s = 2000
+            else:
+                max_s = 1000
+        ep = args.epochs if args.epochs is not None else (15 if cfg["hidden_dim"] <= 1024 else 12)
         try:
             if cfg.get("requires_gpu"):
                 os.environ["ANIMA_FORCE_CPU"] = "0"

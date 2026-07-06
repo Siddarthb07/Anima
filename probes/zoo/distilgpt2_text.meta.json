@@ -1,11 +1,11 @@
 {
   "dataset": "go_emotions",
   "split": "train",
-  "n_samples": 200,
+  "n_samples": 1500,
   "probe_origin": "text_emotion",
-  "val_loss": 1.031923,
-  "val_pearson_valence": -0.2464,
-  "val_pearson_arousal": 0.0421,
+  "val_loss": 1.158527,
+  "val_pearson_valence": 0.1831,
+  "val_pearson_arousal": 0.028,
   "model": "distilgpt2",
   "hidden_dim": 768,
   "n_layers": 2

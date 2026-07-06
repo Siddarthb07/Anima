@@ -43,6 +43,7 @@ I wrote this so nobody mistakes **Anima** for something it isn’t. Read it befo
 
 - **`hf-internal-testing/tiny-random-gpt2`** is intentionally nonsense text-wise — it’s for CI and low-RAM runs.
 - Readouts depend on checkpoint, prompt, decoding settings, and **whether you trained the probe**.
+- **`intervention_mode: dampen`** applies a small residual correction during generation — it **changes output text**, not just labels. Experimental; not for clinical use.
 - Windows users sometimes hit PyTorch/paging instability; see [GETTING_STARTED.md](GETTING_STARTED.md).
 
 ## Open source compliance

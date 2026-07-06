@@ -48,6 +48,7 @@ def main(argv: Optional[List[str]] = None) -> None:
     validate_p = sub.add_parser("validate", help="Steering / hedge validation")
     validate_p.add_argument("--model", default=DEFAULT_CAUSAL_LM)
     validate_p.add_argument("--prompt", default="I am not sure, but perhaps it might be fine.")
+    validate_p.add_argument("--volatility", action="store_true", help="Compare valence std none vs dampen")
 
     bench_p = sub.add_parser("benchmark", help="Run benchmark suite")
     bench_p.add_argument("--model", default=DEFAULT_CAUSAL_LM)
@@ -125,13 +126,16 @@ def main(argv: Optional[List[str]] = None) -> None:
     elif args.cmd == "validate":
         from core.extractor import ActivationExtractor
         from probes.linear_probe import AffectProbe
-        from probes.validate import validate_with_controls
+        from probes.validate import validate_volatility_ablation, validate_with_controls
         from probes.zoo_io import load_probe_into
 
         ex = ActivationExtractor(args.model)
         probe = AffectProbe(ex.hidden_dim, len(ex.layer_indices))
         load_probe_into(probe, args.model)
-        print(validate_with_controls(ex, probe, args.prompt))
+        if args.volatility:
+            print(validate_volatility_ablation(ex, probe, args.prompt))
+        else:
+            print(validate_with_controls(ex, probe, args.prompt))
         ex.cleanup()
     elif args.cmd == "benchmark":
         from benchmarks.run_all import main as bench_main

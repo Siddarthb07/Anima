@@ -62,7 +62,7 @@ export function useAffectStream(apiBase) {
   }, []);
 
   const start = useCallback(
-    (model, prompt, maxNewTokens = 200, detectSuppression = true) => {
+    (model, prompt, maxNewTokens = 200, detectSuppression = true, guardMode = "observe", interventionMode = "none") => {
       stop();
       receivedTokenRef.current = false;
       setError(null);
@@ -109,6 +109,8 @@ export function useAffectStream(apiBase) {
             prompt,
             max_new_tokens: maxNewTokens,
             detect_suppression: detectSuppression,
+            guard_mode: guardMode,
+            intervention_mode: interventionMode,
           })
         );
       };

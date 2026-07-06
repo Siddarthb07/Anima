@@ -2,3 +2,7 @@ fused_high: 0.75
 fused_abstain: 0.82
 probe_uncertainty_abstain: 0.78
 hedge_words_threshold: 2
+stability_window: 8
+stability_score_threshold: 0.45
+valence_swing_threshold: 0.35
+stability_abstain_rate: 0.5
