@@ -19,7 +19,7 @@ jobs:
         env:
           ANIMA_FORCE_CPU: "1"
           NARRATIVES_ROOT: ${{ github.workspace }}/data/narratives_minimal
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: zoo-cpu-tier
           path: |
@@ -61,7 +61,7 @@ jobs:
           NARRATIVES_ROOT: ${{ github.workspace }}/data/narratives_minimal
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python scripts/train_zoo_full.py --models ${{ matrix.model }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: zoo-gpu-probes
           path: |
