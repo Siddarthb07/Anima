@@ -11,8 +11,30 @@ from pathlib import Path
 
 ZOO = Path(__file__).resolve().parent.parent / "probes" / "zoo"
 REPO = "Siddarthb07/Anima"
-DEFAULT_TAG = "v1.1.0"
+DEFAULT_TAG = "v2.0.0"
 V111_TAG = "v1.1.1"
+V200_TAG = "v2.0.0"
+
+# Base CPU-tier assets (v1.1.0+)
+_BASE_ASSETS = [
+    "distilgpt2_text.pt",
+    "distilgpt2_narratives_pca.pt",
+    "distilgpt2_narratives_pca.calib.pt",
+    "distilgpt2_tribe_proj.npz",
+    "tiny_random_gpt2.pt",
+    "tiny_random_gpt2_text.pt",
+    "tiny_random_gpt2_narratives_pca.pt",
+    "tiny_random_gpt2_narratives_pca.calib.pt",
+    "tiny_random_gpt2_tribe_proj.npz",
+]
+
+# v1.1.1 adds Qwen text probe; v2.0.0 adds TinyLlama + SmolLM2 text probes
+_V111_EXTRA = ["qwen2.5_0.5b_instruct_text.pt"]
+_V200_EXTRA = [
+    "qwen2.5_0.5b_instruct_text.pt",
+    "tinyllama_1.1b_chat_v1.0_text.pt",
+    "smollm2_1.7b_instruct_text.pt",
+]
 
 # CPU-tier weights published on Release (meta.json stays in git)
 RELEASE_ASSETS: dict[str, str] = {}
@@ -28,25 +50,12 @@ def _asset_url(name: str, tag: str | None = None) -> str:
 
 
 def _populate_assets(tag: str | None = None) -> dict[str, str]:
-    names = [
-        "distilgpt2_text.pt",
-        "distilgpt2_narratives_pca.pt",
-        "distilgpt2_narratives_pca.calib.pt",
-        "distilgpt2_tribe_proj.npz",
-        "tiny_random_gpt2.pt",
-        "tiny_random_gpt2_text.pt",
-        "tiny_random_gpt2_narratives_pca.pt",
-        "tiny_random_gpt2_narratives_pca.calib.pt",
-        "tiny_random_gpt2_tribe_proj.npz",
-    ]
     t = tag or _tag()
-    if t in (V111_TAG, "v1.1.1"):
-        names.extend(
-            [
-                "qwen2.5_0.5b_instruct_text.pt",
-                "qwen2.5_0.5b_instruct_text.meta.json",
-            ]
-        )
+    names = list(_BASE_ASSETS)
+    if t in (V200_TAG, "v2.0.0"):
+        names.extend(_V200_EXTRA)
+    elif t in (V111_TAG, "v1.1.1"):
+        names.extend(_V111_EXTRA)
     return {n: _asset_url(n, t) for n in names}
 
 

@@ -36,8 +36,6 @@ GitHub Actions [`.github/workflows/train-zoo.yml`](../.github/workflows/train-zo
 python scripts/download_zoo.py
 ```
 
-Assets on [v1.1.0](https://github.com/Siddarthb07/Anima/releases/tag/v1.1.0): tiny + distilgpt2 text/brain probes and tribe projections.
-
-**v1.1.1 (local / upcoming Release):** `qwen2.5_0.5b_instruct_text.pt` — train with `anima train-text --model Qwen/Qwen2.5-0.5B-Instruct` or `ANIMA_ZOO_RELEASE=v1.1.1 python scripts/download_zoo.py` when tagged.
+Assets on [v2.0.0](https://github.com/Siddarthb07/Anima/releases/tag/v2.0.0): v1.1.0 CPU set plus **Qwen2.5-0.5B**, **TinyLlama-1.1B**, and **SmolLM2-1.7B** text probes. Older tags: [v1.1.0](https://github.com/Siddarthb07/Anima/releases/tag/v1.1.0) (base CPU), `ANIMA_ZOO_RELEASE=v1.1.1` for Qwen-only delta.
 
 Download CI artifacts from a workflow run and copy into this folder for proxy / 7B builds.
