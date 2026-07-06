@@ -291,13 +291,19 @@ anima benchmark --model <hf_id> --tiers internal,external,external_text,external
 | Doc | When to read |
 |-----|----------------|
 | [v2 release notes](docs/V2_RELEASE.md) | v1→v2 changelog, upgrade path, limits |
+| [Technical overview (PDF)](docs/ANIMA_TECHNICAL_OVERVIEW.pdf) | Methodology, architecture, training, limitations |
+| [Technical overview (Markdown)](docs/ANIMA_TECHNICAL_OVERVIEW.md) | Same content, editable source |
 | [Getting started](docs/GETTING_STARTED.md) | Install, Docker, troubleshooting |
 | [Researcher quickstart](docs/RESEARCHER_QUICKSTART.md) | Reproduce with Release weights in ~10 min |
 | [Models & zoo](docs/MODELS_AND_ZOO.md) | HF ids, checkpoint naming, Ollama clarification |
+| [Training](docs/TRAINING.md) | Text + brain probes |
 | [Brain probe data](docs/BRAIN_PROBE_DATA.md) | Synthetic vs real ds002345 |
 | [Research-grade criteria](docs/RESEARCH_GRADE.md) | What “research-grade” means here |
 | [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md) | **Before** papers, apps, or demos |
 | [Benchmarks](docs/BENCHMARKS.md) · [Benchmark report](docs/BENCHMARK_REPORT.md) | Commands, manifests, charts |
+| [Build plan](docs/BUILD_PLAN.md) | Phased roadmap (local vs CI vs release) |
+| [Project overview](docs/PROJECT_OVERVIEW.md) | Architecture |
+| [Contributing](CONTRIBUTING.md) | PRs, tests, conduct |
 
 ---
 
