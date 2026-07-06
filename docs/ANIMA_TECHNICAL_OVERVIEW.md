@@ -302,7 +302,7 @@ Probes must be trained before readouts carry semantic meaning. Anima ships two t
 ```bash
 anima train-zoo --tier cpu                    # TinyLlama, Qwen-0.5B, SmolLM2
 ANIMA_TRAIN_LARGE=1 anima train-zoo --tier large   # 7B+ models (GPU)
-python scripts/download_zoo.py                  # fetch Release v1.1.0 weights
+python scripts/download_zoo.py                  # fetch Release v2.0.0 weights
 ```
 
 CI trains CPU/GPU tiers via `.github/workflows/train-zoo.yml`; artifacts download into `probes/zoo/`.

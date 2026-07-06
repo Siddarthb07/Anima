@@ -52,7 +52,7 @@ Given a prompt and a Hugging Face model id (e.g. `distilgpt2`):
 
 The API prefers the **brain** checkpoint when present, then text, then an uninitialized probe (**random** readouts—fine for wiring tests only).
 
-**Published weights (CPU tier):** [GitHub Release v1.1.0](https://github.com/Siddarthb07/Anima/releases/tag/v1.1.0) — `distilgpt2` and `hf-internal-testing/tiny-random-gpt2`. Brain probes in v1.1.0 are trained on **synthetic minimal** BOLD ([`data/narratives_minimal/`](data/narratives_minimal/)), not full real fMRI. Details: [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
+**Published weights (CPU tier):** [GitHub Release v2.0.0](https://github.com/Siddarthb07/Anima/releases/tag/v2.0.0) — `distilgpt2`, `tiny-random-gpt2`, **Qwen2.5-0.5B**, **TinyLlama-1.1B**, **SmolLM2-1.7B** text probes (+ brain/narratives where listed). Brain probes use **synthetic minimal** BOLD ([`data/narratives_minimal/`](data/narratives_minimal/)), not full real fMRI. Details: [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
 
 ```bash
 python scripts/download_zoo.py    # fetch Release checkpoints into probes/zoo/
@@ -199,14 +199,14 @@ python scripts/generate_benchmark_charts.py
 | Model | Council | Passed | GoE r (v) | Brain r (v) | Pos prompt v | Neg prompt v | Gap | Struggling on |
 |-------|---------|--------|-----------|-------------|--------------|--------------|-----|----------------|
 | **Qwen/Qwen2.5-0.5B-Instruct** | **91.0** | yes | **0.21** | — | **0.37** | 0.11 | **0.27** | Negative valence separation |
+| **TinyLlama/TinyLlama-1.1B-Chat-v1.0** | **94.0** | yes | 0.14 | — | varies | varies | — | Weak GoE *r*; strong rubric on separation |
 | **distilgpt2** | **82.2** | yes | **0.16** | −0.39 | **0.59** | 0.28 | **0.31** | Brain holdout; neg still positive |
-| TinyLlama-1.1B-Chat | 62.0 | yes | — (random probe) | — | −0.09 | −0.15 | 0.06 | No text probe; weak gap |
-| SmolLM2-1.7B-Instruct | 62.0 | yes | — (random probe) | — | 0.24 | 0.48 | −0.24 | **Inverted gap** (neg > pos) |
+| SmolLM2-1.7B-Instruct | 58.5 | no | ~0.00 | — | 0.24 | 0.48 | −0.24 | **Inverted gap** — do not cite for validity |
 | tiny-random-gpt2 | 50.2 | no | 0.004 | −0.11 | 0.14 | 0.15 | −0.00 | Gibberish output; CI only |
 | Llama-3.2-1B-Instruct | 48.0 | no | — | — | — | — | — | Gated HF repo (not run) |
 | gemma-2-2b-it | 48.0 | no | — | — | — | — | — | Gated HF repo (not run) |
 
-**Takeaways:** **Qwen** is the best POC hero (text probe + positive prompt separation). **distilgpt2** has strong live positive readouts but **brain holdout r is negative** on synthetic Narratives — label honestly. Models without trained `_text` probes (TinyLlama, SmolLM) only prove the **pipeline runs**, not emotion validity. Guard AUROC 1.0 on all models is **fixture-policy smoke**, not hallucination detection.
+**Takeaways:** **Qwen** is the best POC hero (text probe + positive prompt separation). **TinyLlama** scores highest on the validation rubric but has weak GoEmotions *r* — cite with limits. **distilgpt2** has strong live positive readouts but **brain holdout r is negative** on synthetic Narratives. **SmolLM** fails the publication bar (inverted gap, *r* ≈ 0). Guard AUROC 1.0 on all models is **fixture-policy smoke**, not hallucination detection.
 
 #### `Qwen/Qwen2.5-0.5B-Instruct` — [manifest](benchmarks/reports/latest_qwen2.5_0.5b_instruct_manifest.json) (POC demo hero)
 
@@ -216,7 +216,7 @@ python scripts/generate_benchmark_charts.py
 | **HaluEval guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Synthetic fixture rows |
 | **TruthfulQA guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Synthetic fixture rows |
 
-Train-time holdout: `val_pearson_valence` **0.20** (800 GoEmotions samples).
+Train-time holdout: `val_pearson_valence` **0.33** (2000 GoEmotions samples, seed 42).
 
 #### `distilgpt2` — [full manifest](benchmarks/reports/latest_distilgpt2_manifest.json) (2026-07-06)
 

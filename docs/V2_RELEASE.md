@@ -46,9 +46,9 @@ Published rollup: [`benchmarks/reports/all_models_rollup.json`](../benchmarks/re
 | Model | Council | Passed | Notes |
 |-------|---------|--------|-------|
 | **Qwen/Qwen2.5-0.5B-Instruct** | 91.0 | yes | Best POC hero — text probe + prompt separation |
+| **TinyLlama/TinyLlama-1.1B-Chat-v1.0** | 94.0 | yes | Highest rubric score; weak GoE *r* — cite with limits |
 | **distilgpt2** | 82.2 | yes | Strong live positive readouts; brain holdout *r* negative on synthetic tier |
-| **TinyLlama-1.1B-Chat** | 62.0 | yes | Pipeline proof; weak valence gap without full probe tuning |
-| **SmolLM2-1.7B-Instruct** | 62.0 | yes | Inverted prompt gap — cite with limits |
+| **SmolLM2-1.7B-Instruct** | 58.5 | no | Inverted prompt gap; valence *r* ≈ 0 — do not cite for validity |
 | **tiny-random-gpt2** | 50.2 | no | CI/plumbing only |
 | Llama-3.2-1B, gemma-2-2b-it | — | no | Gated HF repos (not run) |
 

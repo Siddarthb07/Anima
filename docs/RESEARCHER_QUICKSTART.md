@@ -8,7 +8,7 @@ Reproduce **brain-aligned readouts** with published probes (no retraining).
 git clone https://github.com/Siddarthb07/Anima.git
 cd Anima
 pip install -e ".[dev]"
-python scripts/download_zoo.py    # Release v1.1.0 CPU tier
+python scripts/download_zoo.py    # fetch v2.0.0 Release checkpoints into probes/zoo/
 ```
 
 ## 2. Verify probes
