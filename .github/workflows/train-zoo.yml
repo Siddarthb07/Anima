@@ -9,7 +9,7 @@ jobs:
   train-cpu:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
@@ -39,7 +39,7 @@ jobs:
           - Qwen/Qwen2-7B-Instruct
           - google/gemma-2-9b-it
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
