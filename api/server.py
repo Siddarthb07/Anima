@@ -5,7 +5,7 @@ from typing import Any, Dict, Optional
 import asyncio
 import os
 import torch
-from fastapi import FastAPI, HTTPException, WebSocket
+from fastapi import Depends, FastAPI, Header, HTTPException, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 
 from alignment.tribe_encoder import TRIBEv2Encoder, TRIBEv2_SURROGATE_NOTE, tribe_seed
@@ -28,6 +28,13 @@ from api.schemas import (
 from core.extractor import ActivationExtractor
 from core.guard import evaluate_guard, region_under_guard
 from core.layer_config import LAYER_CONFIG
+from core.limits import (
+    assert_model_allowed,
+    clamp_max_new_tokens,
+    public_mode_enabled,
+    PUBLIC_DEMO_MODELS,
+    validate_prompt,
+)
 from core.regions import compute_flags, confidence_tier_from_fused
 from core.stability import (
     analyze_readout_stability,
@@ -47,7 +54,7 @@ from probes.zoo_io import (
     tribe_weights_path,
 )
 
-APP_VERSION = "1.0.0"
+APP_VERSION = "2.0.0"
 
 
 @asynccontextmanager
@@ -90,6 +97,63 @@ _probe_meta_cache: dict[str, dict[str, Any]] = {}
 _calib_cache: dict[str, Optional[Any]] = {}
 
 
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parent.parent
+
+
+def _sanitize_narratives_root(raw: Any) -> Optional[str]:
+    """Strip absolute paths from API responses (public demo safety)."""
+    if raw is None:
+        return None
+    s = str(raw).replace("\\", "/")
+    if "narratives_minimal" in s:
+        return "data/narratives_minimal"
+    if "ds002345" in s:
+        return "ds002345"
+    try:
+        p = Path(s)
+        if p.is_absolute():
+            try:
+                rel = p.resolve().relative_to(_repo_root().resolve())
+                return rel.as_posix()
+            except ValueError:
+                return p.name or None
+    except (OSError, ValueError):
+        pass
+    return s if not s.startswith("/") and ":" not in s[:3] else "redacted"
+
+
+def _verify_api_key(provided: Optional[str]) -> None:
+    expected = os.environ.get("ANIMA_API_KEY", "").strip()
+    if expected and (provided or "").strip() != expected:
+        raise HTTPException(status_code=401, detail="invalid_api_key")
+
+
+def _require_api_key_header(x_anima_api_key: Optional[str] = Header(default=None, alias="X-Anima-API-Key")) -> None:
+    _verify_api_key(x_anima_api_key)
+
+
+def _prepare_model(model_name: str) -> None:
+    try:
+        assert_model_allowed(model_name)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+def _evict_other_models(keep: str) -> None:
+    """Public demo: one CPU model in RAM at a time."""
+    if not public_mode_enabled():
+        return
+    for name in list(_registry.keys()):
+        if name != keep:
+            ex, _ = _registry.pop(name)
+            try:
+                ex.cleanup()
+            except Exception:
+                pass
+            _probe_meta_cache.pop(name, None)
+
+
 def _load_calibrator(slug: str, suffix: str = "") -> Optional[Any]:
     key = f"{slug}{suffix}"
     if key in _calib_cache:
@@ -109,9 +173,11 @@ def _load_calibrator(slug: str, suffix: str = "") -> Optional[Any]:
 
 
 def get_extractor_and_probe(model_name: str) -> tuple[ActivationExtractor, AffectProbe, dict[str, Any]]:
+    _prepare_model(model_name)
     if model_name not in _registry:
         if model_name not in LAYER_CONFIG:
             raise HTTPException(status_code=400, detail=f"unknown_model:{model_name}")
+        _evict_other_models(model_name)
         extractor = ActivationExtractor(model_name)
         n_layers = len(extractor.layer_indices)
         probe = AffectProbe(extractor.hidden_dim, n_layers)
@@ -291,11 +357,17 @@ def list_models():
     from probes.zoo_io import checkpoint_path
 
     models = []
-    for mid in sorted(LAYER_CONFIG.keys()):
+    model_ids = sorted(LAYER_CONFIG.keys())
+    if public_mode_enabled():
+        model_ids = [mid for mid in model_ids if mid in PUBLIC_DEMO_MODELS]
+    for mid in model_ids:
         slug = probe_slug(mid)
         zoo = []
         origin = "random"
-        for suf in ("_narratives_pca", "_text", ""):
+        from probes.zoo_io import _prefer_text_probe
+
+        suffix_order = ("_text", "_narratives_pca", "") if _prefer_text_probe() else ("_narratives_pca", "_text", "")
+        for suf in suffix_order:
             if checkpoint_path(slug, suf).exists():
                 zoo.append(suf or "default")
                 meta = load_meta(slug, suf)
@@ -304,10 +376,16 @@ def list_models():
             origin = str(load_meta(slug).get("probe_origin", "random"))
         brain_meta = load_brain_meta(mid)
         text_meta = load_meta(slug, "_text") if checkpoint_path(slug, "_text").exists() else {}
-        display_origin = str(brain_meta.get("probe_origin", origin)) if brain_meta else origin
+        if _prefer_text_probe() and text_meta.get("probe_origin"):
+            display_origin = str(text_meta.get("probe_origin"))
+            tier = "none"
+        else:
+            display_origin = str(brain_meta.get("probe_origin", origin)) if brain_meta else origin
+            tier = brain_data_tier(display_origin) if brain_meta else "none"
         if display_origin == "random" and text_meta.get("probe_origin"):
             display_origin = str(text_meta.get("probe_origin"))
-        tier = brain_data_tier(display_origin) if brain_meta else "none"
+        if tier == "none" and brain_meta and not _prefer_text_probe():
+            tier = brain_data_tier(display_origin)
         val_r = brain_meta.get("val_r_valence")
         text_r = text_meta.get("val_pearson_valence")
         models.append(
@@ -319,7 +397,7 @@ def list_models():
                 zoo_checkpoints=zoo,
                 probe_origin=display_origin,
                 brain_data_tier=tier,
-                narratives_root=brain_meta.get("narratives_root"),
+                narratives_root=_sanitize_narratives_root(brain_meta.get("narratives_root")),
                 train_stories=list(brain_meta.get("train_stories") or []),
                 holdout_stories=list(brain_meta.get("holdout_stories") or []),
                 brain_val_r_valence=float(val_r) if val_r is not None else None,
@@ -329,7 +407,7 @@ def list_models():
     return ModelsResponse(models=models)
 
 
-@app.post("/encode", response_model=EncodeResponse)
+@app.post("/encode", response_model=EncodeResponse, dependencies=[Depends(_require_api_key_header)])
 async def encode_stimulus(req: EncodeRequest):
     extractor, probe, meta = get_extractor_and_probe(req.model)
     tribe = get_tribe_encoder(req.model, extractor.hidden_dim)
@@ -340,7 +418,7 @@ async def encode_stimulus(req: EncodeRequest):
     return EncodeResponse(model=req.model, text=req.text, tokens=readouts, summary=_summary(readouts, [], meta))
 
 
-@app.post("/generate", response_model=GenerateResponse)
+@app.post("/generate", response_model=GenerateResponse, dependencies=[Depends(_require_api_key_header)])
 async def generate(req: GenerateRequest):
     extractor, probe, meta = get_extractor_and_probe(req.model)
     tribe = get_tribe_encoder(req.model, extractor.hidden_dim)
@@ -378,9 +456,14 @@ async def ws_generate(websocket: WebSocket):
     await websocket.accept()
     try:
         data = await websocket.receive_json()
+        _verify_api_key(data.get("api_key"))
         model_name = data["model"]
         prompt = data["prompt"]
-        max_new = int(data.get("max_new_tokens", 200))
+        try:
+            validate_prompt(prompt)
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
+        max_new = clamp_max_new_tokens(int(data.get("max_new_tokens", 200)))
         detect_suppression_flag = bool(data.get("detect_suppression", True))
         guard_mode = str(data.get("guard_mode", "observe"))
         intervention_mode = str(data.get("intervention_mode", "none"))
@@ -427,8 +510,13 @@ async def ws_generate(websocket: WebSocket):
         await websocket.send_text(payload.model_dump_json())
         await websocket.close(code=1008)
         return
-    except Exception as exc:
-        payload = StreamErrorMessage(message=f"{type(exc).__name__}: {exc}")
+    except Exception:
+        detail = "internal_error"
+        if os.environ.get("ANIMA_DEBUG", "").strip().lower() in ("1", "true", "yes"):
+            import traceback
+
+            detail = traceback.format_exc(limit=3)
+        payload = StreamErrorMessage(message=detail)
         try:
             await websocket.send_text(payload.model_dump_json())
         finally:

@@ -3,6 +3,7 @@ from typing import Any, Literal, Optional
 from pydantic import BaseModel, ConfigDict, Field
 
 from core.defaults import DEFAULT_CAUSAL_LM
+from core.limits import MAX_ENCODE_LENGTH, MAX_NEW_TOKENS, MAX_PROMPT_CHARS
 
 
 class GuardInfo(BaseModel):
@@ -48,8 +49,8 @@ class AffectReadout(BaseModel):
 
 class GenerateRequest(BaseModel):
     model: str = DEFAULT_CAUSAL_LM
-    prompt: str
-    max_new_tokens: int = 200
+    prompt: str = Field(..., max_length=MAX_PROMPT_CHARS)
+    max_new_tokens: int = Field(default=200, ge=1, le=MAX_NEW_TOKENS)
     detect_suppression: bool = True
     guard_mode: Literal["observe", "gate"] = "observe"
     intervention_mode: Literal["none", "dampen"] = "none"
@@ -65,8 +66,8 @@ class GenerateResponse(BaseModel):
 
 class EncodeRequest(BaseModel):
     model: str = DEFAULT_CAUSAL_LM
-    text: str
-    max_length: Optional[int] = None
+    text: str = Field(..., max_length=MAX_PROMPT_CHARS)
+    max_length: Optional[int] = Field(default=None, ge=1, le=MAX_ENCODE_LENGTH)
 
 
 class EncodeResponse(BaseModel):
