@@ -45,7 +45,7 @@ def post_generate(
 def main() -> int:
     p = argparse.ArgumentParser(description="Run POC emotional prompts against anima API")
     p.add_argument("--api", default=os.environ.get("ANIMA_API", "http://127.0.0.1:8010"))
-    p.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
+    p.add_argument("--model", default=os.environ.get("ANIMA_HERO_MODEL", "TinyLlama/TinyLlama-1.1B-Chat-v1.0"))
     p.add_argument("--guard-mode", default="gate", choices=["observe", "gate"])
     p.add_argument("--intervention", default="none", choices=["none", "dampen"])
     p.add_argument("--compare-dampen", action="store_true", help="Run intervention_ablation with none vs dampen")

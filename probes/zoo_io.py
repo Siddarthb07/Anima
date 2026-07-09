@@ -67,10 +67,22 @@ def brain_data_tier(probe_origin: str) -> str:
     return "none"
 
 
+def _prefer_text_probe() -> bool:
+    """Portfolio/public demos use text-emotion probes, not synthetic brain checkpoints."""
+    import os
+
+    from core.limits import public_mode_enabled
+
+    if public_mode_enabled():
+        return True
+    return os.environ.get("ANIMA_PREFER_TEXT_PROBE", "").strip().lower() in ("1", "true", "yes")
+
+
 def resolve_checkpoint_slug(model_name: str) -> tuple[Optional[Path], str, dict[str, Any]]:
-    """Pick best zoo checkpoint: narratives > text > base slug."""
+    """Pick best zoo checkpoint: narratives > text > base slug (text first when prefer-text/public)."""
     slug = probe_slug(model_name)
-    for suffix in ("_narratives_pca", "_text", ""):
+    suffix_order = ("_text", "_narratives_pca", "") if _prefer_text_probe() else ("_narratives_pca", "_text", "")
+    for suffix in suffix_order:
         ckpt = checkpoint_path(slug, suffix)
         if ckpt.exists():
             meta = load_meta(slug, suffix)
