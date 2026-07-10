@@ -1,6 +1,6 @@
 # Anima build plan
 
-Phased plan from **v1 (shipped)** → **v1.1 (CPU zoo release)** → **v1.2 (adoption surface)** → **v2.0 (real brain, optional)**.
+Phased engineering from **v1.1 (CPU zoo)** → **v2.0 (shipped: validation + adoption features)** → **v2.1 (public demo)** → **v3.0+ (real brain, optional)**.
 
 Constraints: primary dev on **Windows CPU, 16 GB RAM**, Python 3.9+ (see [TRAIN_ON_YOUR_MACHINE.md](TRAIN_ON_YOUR_MACHINE.md)). CI and Brain-Score jobs use **Python 3.11**. **7B+ training** requires a GPU runner or GPU cloud — not `ubuntu-latest` CPU alone.
 
@@ -9,29 +9,31 @@ Constraints: primary dev on **Windows CPU, 16 GB RAM**, Python 3.9+ (see [TRAIN_
 | Tag | Meaning |
 |-----|---------|
 | **v1.1.0** | CPU zoo release (tiny + distilgpt2), synthetic brain tier |
-| **v1.2.0** | Adoption — HF Space, CI benchmark smoke on push, dashboard/API polish |
-| **v2.0.0** | Research — real ds002345 holdout numbers + optional TRIBE compare |
+| **v2.0.0** | **Shipped** — council benchmarks, multi-model text probes on Release, dashboard v2, Docker, stability/intervention; brain still **synthetic_minimal** |
+| **v2.1.0** | College-apps target — public Gradio Space, hero probe (TinyLlama), portfolio integration |
+| **v3.0.0+** | Optional research — real ds002345 holdout + optional TRIBE compare |
 
 ---
 
-## Current baseline
+## Current baseline (v2.0.0 shipped, 2026-07-06)
 
 | Area | Status |
 |------|--------|
-| Core hooks + probes + guard | **Done** |
+| Core hooks + probes + guard + stability/intervention | **Done** |
 | API `/encode`, `/models`, WebSocket | **Done** |
-| Dashboard + model card | **Done** (model selector still TODO — Phase 4) |
+| Dashboard v2 (model selector, stability, tribe surrogate) | **Done** |
+| Council benchmark rubric + chart pipeline | **Done** |
 | Benchmark runners + manifests | **Done** (`manifest_schema_version: 1`) |
-| CI `test` job | **Done** (green on push) |
-| README benchmark tables | **Done** (tiny live + distilgpt2; guard n=4 — do not cite AUROC yet) |
-| GitHub Release **v1.1.0** | **Done** (tiny + distilgpt2 `.pt` / `.npz`) |
-| `download_zoo.py` + bootstrap integration | **Done** (`bootstrap.py` calls `--skip-existing`) |
-| distilgpt2 probe **quality** | **Weak** — retrain needed (Phase 1); meta shows low/negative val r at 200 samples |
-| CPU proxy weights on Release | **Not done** — Qwen/TinyLlama local-only unless v1.1.1 patch |
-| CI `benchmark-smoke` on push | **Not done** — dispatch/schedule only (Phase 3) |
-| HF Space / Gradio public demo | Script exists; Space not deployed (Phase 4) |
-| Real ds002345 Narratives | Not integrated (Phase 5 / v2.0) |
-| 7B zoo weights | `train-gpu` workflow exists but **blocked** — needs GPU runner label |
+| CI `test` + benchmark-smoke on push | **Done** (see `.github/workflows/ci.yml`) |
+| README benchmark tables (council rollup) | **Done** (2026-07-06 CPU tier) |
+| GitHub Release **v2.0.0** | **Done** — tiny, distilgpt2, Qwen, TinyLlama, SmolLM2 text probes |
+| `download_zoo.py` + bootstrap | **Done** |
+| distilgpt2 **text** probe | **Done** — GoE r≈0.16; brain holdout **negative** on synthetic tier (disclose) |
+| Guard fixtures n=52 | **Done** — cite as policy smoke only |
+| API public-mode bounds | **Done** — `core/limits.py`, `ANIMA_PUBLIC_MODE`, request caps, path sanitization |
+| HF Space / Gradio public demo | **Done** — [spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima) |
+| Real ds002345 Narratives | Not integrated — **v3.0.0+** (post-apps) |
+| 7B zoo weights | `train-gpu` **blocked** — needs GPU runner |
 
 ---
 
@@ -171,30 +173,30 @@ To ship proxies on Release: extend `scripts/download_zoo.py` asset list + tag **
 
 **Done when:** guard n>50 or fixture path documented; GoEmotions validation metrics in README; CI uploads manifest artifact on every push.
 
-**Honesty rule:** Keep labeling **synthetic minimal** Narratives until real ds002345 is wired (Phase 5 / v2.0).
+**Honesty rule:** Keep labeling **synthetic minimal** Narratives until real ds002345 is wired (Phase 5 / **v3.0.0+**).
 
 ---
 
-## Phase 4 — Adoption surface (Week 4–6)
+## Phase 4 — Adoption surface (v2.1)
 
 **Goal:** One-link demo for portfolio / interviews.
 
-| # | Task | Where | Notes |
-|---|------|-------|-------|
-| 4.1 | HF Space | Hugging Face | **Not** raw `gradio_demo.py` alone — it proxies a separate API. Options: (a) Space runs embedded inference + Gradio, default **tiny**; (b) deploy API + Gradio as two Space components. distilgpt2 may OOM on free CPU — document limits |
-| 4.2 | Space README | HF | Link to Anima repo + [USAGE_AND_LIMITATIONS.md](USAGE_AND_LIMITATIONS.md) |
-| 4.3 | Dashboard polish | Code | Model selector + probe suffix in UI (not implemented) |
-| 4.4 | API model card | Code | Extend `/models`: train date from meta, `benchmark_snapshot_id` (manifest git sha / alias) — partial today (`probe_origin`, `brain_data_tier` done) |
-| 4.5 | Screen capture | Assets | `docs/images/` dashboard clip for README |
-| 4.6 | `download_zoo` smoke test | CI | HEAD check against Release URLs on tag |
+| # | Task | Where | Status |
+|---|------|-------|--------|
+| 4.1 | HF Space Gradio | [spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima) | **Done** |
+| 4.2 | Space README | HF + `space/README.md` | Link repo + limits |
+| 4.3 | Dashboard polish | Code | **Done** |
+| 4.4 | API public mode | `core/limits.py` | **Done** |
+| 4.5 | Screen capture | `docs/images/` | Dashboard clip in README |
+| 4.6 | Hero demo path | GETTING_STARTED.md | 2-min TinyLlama path |
 
 **Done when:** Public Space URL in README; 2-min demo script in GETTING_STARTED.
 
 ---
 
-## Phase 5 — Research tier / v2.0 (optional, Month 2+)
+## Phase 5 — Research tier / v3.0+ (optional, **post college apps**)
 
-**Goal:** Real brain alignment — only if you have ~80 GB disk + GPU time.
+**Goal:** Real brain alignment — only if you have ~80 GB disk + GPU time **after** RD.
 
 | # | Task | Where | Notes |
 |---|------|-------|-------|
@@ -203,9 +205,9 @@ To ship proxies on Release: extend `scripts/download_zoo.py` asset list + tag **
 | 5.3 | Re-benchmark Narratives holdout | GPU | Compare to word-rate baselines in manifest |
 | 5.4 | TRIBE runtime | Optional | `pip install anima[tribe]` when tribev2 available |
 | 5.5 | Paper / blog | External | Use “readout” language per USAGE_AND_LIMITATIONS |
-| 5.6 | Release **v2.0.0** | GitHub | Real-brain probes + updated benchmarks |
+| 5.6 | Release **v3.0.0** | GitHub | Real-brain probes + updated benchmarks |
 
-**Not required for v1.2 portfolio / adoption release.**
+**Not required for v2.1 college-apps release.**
 
 ---
 
@@ -231,9 +233,9 @@ To ship proxies on Release: extend `scripts/download_zoo.py` asset list + tag **
 |-----|-------|---------------|
 | **v1.0.0** | Core OSS | **Done** — API, dashboard, benchmarks, CI |
 | **v1.1.0** | CPU zoo (synthetic brain) | **Done** — Release + `download_zoo` + README tables |
-| **v1.1.1** | Proxy zoo (optional patch) | Qwen or TinyLlama on Release + `download_zoo` list updated |
-| **v1.2.0** | Adoption | HF Space + CI benchmark artifact on push + Phase 1 quality gates + guard n>50 before AUROC |
-| **v2.0.0** | Research | Real Narratives holdout (`narratives_fMRI`) + optional TRIBE compare |
+| **v2.0.0** | Validation + adoption features | **Done** — council, multi-model text probes, dashboard v2, Docker; brain still synthetic |
+| **v2.1.0** | College apps | Public Gradio Space + TinyLlama hero + portfolio link |
+| **v3.0.0+** | Optional research | Real Narratives holdout (`narratives_fMRI`) + optional TRIBE |
 
 ---
 
@@ -255,37 +257,26 @@ To ship proxies on Release: extend `scripts/download_zoo.py` asset list + tag **
 
 ---
 
-## Weekly checklist (realistic)
+## Weekly checklist
 
-**Week 1:** Phase 0 + Phase 1 retrain (distilgpt2 quality gates)  
-**Week 2:** README refresh from live manifest; optional Phase 1b proxies (local)  
-**Week 3:** Phase 3 — guard fixtures + CI benchmark-smoke on push  
-**Week 4–5:** Phase 4 — HF Space design + deploy + dashboard selector  
-**Week 6+:** Phase 5 / v2.0 only if pursuing real fMRI narrative  
+Follow this doc and [BUILD_PLAN.md](BUILD_PLAN.md) for the active timeline. Summary:
+
+**Jul 2026:** Phase B — TinyLlama hero benchmark + POC demo  
+**Aug–Sep 2026:** Phase C — HF Gradio Space  
+**Oct–Dec 2026:** Phase D — application copy + interview prep  
+**Post-RD:** v3.0.0+ real fMRI only if pursued
 
 ---
 
 ## Commands cheat sheet
 
+See [BUILD_PLAN.md](BUILD_PLAN.md) and [GETTING_STARTED.md](GETTING_STARTED.md) for commands. Quick path:
+
 ```powershell
-# Phase 0
 python scripts/download_zoo.py --skip-existing
-python scripts/bootstrap.py
-python -m pytest -q -k "not distilgpt2"
-$env:SKIP_BRAINSCORE="1"
-anima benchmark --model hf-internal-testing/tiny-random-gpt2 --tiers internal,external,external_text,external_guard
-
-# Phase 1
-anima train-text --model distilgpt2 --max-samples 1500
-anima train --model distilgpt2 --narratives-root .\data\narratives_minimal
-anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard
-
-# Phase 2 (v1.1.0 shipped — refresh weights)
-python scripts/download_zoo.py
-
-# Phase 4 (local Gradio needs API running)
-anima api --port 8010
-python scripts/gradio_demo.py
+$env:ANIMA_PUBLIC_MODE="1"
+anima benchmark --model TinyLlama/TinyLlama-1.1B-Chat-v1.0 --tiers external_text,external_guard
+python space/app.py
 ```
 
 See also: [TRAINING.md](TRAINING.md), [BENCHMARKS.md](BENCHMARKS.md), [MODELS_AND_ZOO.md](MODELS_AND_ZOO.md), [RESEARCH_GRADE.md](RESEARCH_GRADE.md), [COMMIT_PHASES.md](COMMIT_PHASES.md).

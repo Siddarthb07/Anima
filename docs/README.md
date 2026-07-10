@@ -2,10 +2,11 @@
 
 Start here if you want depth beyond the root [`README.md`](../README.md).
 
-Screenshots embedded in the root README live under [`images/`](images/) (`dashboard-readout-example.png`, `dashboard-websocket-troubleshooting.png`).
+Screenshots embedded in the root README live under [`images/`](images/) (`dashboard-readout-example.png`, benchmark charts under `images/benchmarks/`).
 
 | Document | Audience |
 |----------|----------|
+| [Live demo (HF Space)](https://huggingface.co/spaces/sidb078/Anima) | Try readouts in browser |
 | [GETTING_STARTED.md](GETTING_STARTED.md) | Anyone installing and running API + dashboard |
 | [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md) | Developers mapping modules, probes, TRIBE surrogate |
 | [USAGE_AND_LIMITATIONS.md](USAGE_AND_LIMITATIONS.md) | Researchers, reviewers — allowed uses and hard boundaries |

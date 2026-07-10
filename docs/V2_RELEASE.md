@@ -39,14 +39,14 @@ Anima v2 is a production-oriented upgrade over v1: multi-model benchmark validat
 | Honesty flags | 20% | Penalises perfect AUROC on tiny fixtures, small *n* |
 | Prompt separation | 30% | Positive vs negative live-prompt mean-valence gap |
 
-Published rollup: [`benchmarks/reports/all_models_rollup.json`](../benchmarks/reports/all_models_rollup.json) · council: [`benchmarks/reports/council_rollup.json`](../benchmarks/reports/council_rollup.json) · full report: [BENCHMARK_REPORT.md](BENCHMARK_REPORT.md).
+Published rollup: [`benchmarks/reports/council_rollup.json`](../benchmarks/reports/council_rollup.json) (multi-model summary) · full report: [BENCHMARK_REPORT.md](BENCHMARK_REPORT.md) · live demo: [HF Space](https://huggingface.co/spaces/sidb078/Anima).
 
 ### CPU-tier results (2026-07-06)
 
 | Model | Council | Passed | Notes |
 |-------|---------|--------|-------|
-| **Qwen/Qwen2.5-0.5B-Instruct** | 91.0 | yes | Best POC hero — text probe + prompt separation |
-| **TinyLlama/TinyLlama-1.1B-Chat-v1.0** | 94.0 | yes | Highest rubric score; weak GoE *r* — cite with limits |
+| **TinyLlama/TinyLlama-1.1B-Chat-v1.0** | 94.0 | yes | **College-apps hero** — best prompt separation |
+| **Qwen/Qwen2.5-0.5B-Instruct** | 91.0 | yes | Backup instruct demo |
 | **distilgpt2** | 82.2 | yes | Strong live positive readouts; brain holdout *r* negative on synthetic tier |
 | **SmolLM2-1.7B-Instruct** | 58.5 | no | Inverted prompt gap; valence *r* ≈ 0 — do not cite for validity |
 | **tiny-random-gpt2** | 50.2 | no | CI/plumbing only |
