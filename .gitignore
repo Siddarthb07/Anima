@@ -43,6 +43,10 @@ docs/dash_demo_last_run.png
 plan v1.txt
 repost v1.txt
 README.draft.md
+docs/COLLEGE_APPS_PLAN.md
+plans v2.txt
+report data v1
+.cursor/
 
 # Local-only git history helpers (not published)
 scripts/spread_github_heatmap.py

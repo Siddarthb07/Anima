@@ -1,24 +1,9 @@
 {
   "manifest_schema_version": 1,
   "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-  "git_sha": "65a175f",
-  "generated_at": "2026-07-06T17:33:42.928625+00:00",
+  "git_sha": "7e1cc0d",
+  "generated_at": "2026-07-12T16:29:56.809467+00:00",
   "entries": [
-    {
-      "tier": "internal",
-      "benchmark": "smoke_extract",
-      "n_tokens": 4,
-      "probe_origin": "text_emotion",
-      "status": "ok"
-    },
-    {
-      "benchmark": "narratives_dev",
-      "tier": "internal",
-      "status": "skipped",
-      "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
-      "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-      "narratives_root": ".\\data\\narratives_minimal"
-    },
     {
       "tier": "external_text",
       "benchmark": "go_emotions",
