@@ -122,4 +122,30 @@ def test_ws_error_envelope_on_failure(ws_client, monkeypatch):
         )
         m = ws.receive_json()
         assert m["kind"] == "error"
+        assert m["message"] == "internal_error"
+
+
+def test_ws_error_envelope_includes_traceback_when_debug(
+    ws_client, monkeypatch
+):
+    import api.server as srv
+
+    monkeypatch.setenv("ANIMA_DEBUG", "1")
+
+    def boom(*_a, **_k):
+        raise RuntimeError("deliberate failure for WS error path")
+
+    monkeypatch.setattr(srv, "get_extractor_and_probe", boom)
+
+    with ws_client.websocket_connect("/ws/generate") as ws:
+        ws.send_json(
+            {
+                "model": "fake-model",
+                "prompt": "hello",
+                "max_new_tokens": 2,
+                "detect_suppression": False,
+            }
+        )
+        m = ws.receive_json()
+        assert m["kind"] == "error"
         assert "deliberate failure" in m["message"]
