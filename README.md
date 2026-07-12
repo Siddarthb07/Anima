@@ -8,7 +8,9 @@
 
 **Keywords:** LLM emotions · emotion readouts · valence/arousal probing · Hugging Face interpretability · fMRI-aligned brain probes (optional) · FastAPI streaming dashboard.
 
-**v2.0.0** — multi-model benchmarks, stability gating, intervention mode, Docker stack. See [v2 release notes](docs/V2_RELEASE.md).
+**v2.1.0** — public demo on [Hugging Face Spaces](https://huggingface.co/spaces/sidb078/Anima) (TinyLlama hero). **v2.0.0** — multi-model council benchmarks, stability gating, intervention mode, Docker stack. See [v2 release notes](docs/V2_RELEASE.md).
+
+**Hero model for demos:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (council 94, strongest prompt separation). Lead with **text-emotion probes** and council validation — not “brain-aligned” claims (synthetic brain holdout for distilgpt2 is negative; see benchmark table).
 
 Anima does **not** use Ollama. Use a [supported Hugging Face model id](core/layer_config.py) (e.g. `distilgpt2`) with matching weights in `probes/zoo/`.
 
@@ -47,10 +49,10 @@ Given a prompt and a Hugging Face model id (e.g. `distilgpt2`):
 
 | Path | Training data | Checkpoint | `probe_origin` (typical) |
 |------|----------------|------------|---------------------------|
-| **Text** | [GoEmotions](https://huggingface.co/datasets/google-research-datasets/go_emotions) labels → valence/arousal mapping | `probes/zoo/{slug}_text.pt` | `text_emotion` |
-| **Brain-aligned** | Story text + fMRI (Narratives layout; OpenNeuro [ds002345](https://openneuro.org/datasets/ds002345) or dev subset) | `probes/zoo/{slug}_narratives_pca.pt` | `narratives_fMRI` or `narratives_fMRI_synthetic_minimal` |
+| **Text** (primary for portfolio) | [GoEmotions](https://huggingface.co/datasets/google-research-datasets/go_emotions) labels → valence/arousal mapping | `probes/zoo/{slug}_text.pt` | `text_emotion` |
+| **Brain-aligned** (experimental; synthetic tier today) | Story text + fMRI (Narratives layout; OpenNeuro [ds002345](https://openneuro.org/datasets/ds002345) or dev subset) | `probes/zoo/{slug}_narratives_pca.pt` | `narratives_fMRI` or `narratives_fMRI_synthetic_minimal` |
 
-The API prefers the **brain** checkpoint when present, then text, then an uninitialized probe (**random** readouts—fine for wiring tests only).
+The API prefers the **brain** checkpoint when present, then text, then an uninitialized probe (**random** readouts—fine for wiring tests only). For **college-app demos**, use **text** probes (TinyLlama or Qwen) and cite council scores — do not headline brain alignment until real fMRI holdout passes (target v3.0.0+).
 
 **Published weights (CPU tier):** [GitHub Release v2.0.0](https://github.com/Siddarthb07/Anima/releases/tag/v2.0.0) — `distilgpt2`, `tiny-random-gpt2`, **Qwen2.5-0.5B**, **TinyLlama-1.1B**, **SmolLM2-1.7B** text probes (+ brain/narratives where listed). Brain probes use **synthetic minimal** BOLD ([`data/narratives_minimal/`](data/narratives_minimal/)), not full real fMRI. Details: [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
 
@@ -73,6 +75,10 @@ Example fields from `POST /generate` (see [`api/schemas.py`](api/schemas.py)):
 | `tribe_v2.roi_scores` | Surrogate ROI scalars (same activations as probe) |
 | `guard.abstain_recommended` | Policy suggests not trusting this readout |
 | `brain_alignment_note` | How probe was trained (`probe_origin` in summary) |
+| `summary.stability_score` | Run-level rolling readout stability (v2; lower = choppier stream) |
+| `summary.guard_mode` / `summary.intervention_mode` | Echo of request knobs (`observe`/`gate`, `none`/`dampen`) |
+
+`POST /generate` accepts **`guard_mode`** (`observe` | `gate`) and **`intervention_mode`** (`none` | `dampen`) for v2 stability gating. See [v2 release notes](docs/V2_RELEASE.md).
 
 `GET /models` lists each supported HF id with `brain_data_tier` (`none` | `synthetic_minimal` | `real_fMRI`), holdout stories, and validation metrics when meta exists.
 
@@ -98,7 +104,6 @@ anima api --port 8010
 **Terminal 2 — dashboard:**
 
 ```bash
-python scripts/download_zoo.py   # probe weights from GitHub Release v2.0.0
 cd dashboard && cp .env.example .env && npm install && npm run dev
 # UI: http://127.0.0.1:5173  (proxies WebSocket to API)
 ```
@@ -123,6 +128,8 @@ curl -X POST http://127.0.0.1:8010/generate \
 ```
 
 Default model for low RAM: `hf-internal-testing/tiny-random-gpt2` (decoded text is intentionally noisy; pipeline still runs).
+
+**Public demo:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima) (TinyLlama hero, Gradio).
 
 ![Live emotion readouts on the dashboard](docs/images/dashboard-readout-example.png)
 
@@ -169,7 +176,7 @@ anima benchmark --model distilgpt2 --tiers internal,external,external_text,exter
 
 ### Latest results (CPU tier, 2026-07-06)
 
-Full multi-model run: [`benchmarks/reports/all_models_rollup.json`](benchmarks/reports/all_models_rollup.json) · council scores: [`benchmarks/reports/council_rollup.json`](benchmarks/reports/council_rollup.json) · narrative report: [`docs/BENCHMARK_REPORT.md`](docs/BENCHMARK_REPORT.md).
+Council scores (CPU tier, 5 models benchmarked): [`benchmarks/reports/council_rollup.json`](benchmarks/reports/council_rollup.json) · per-model manifests under [`benchmarks/reports/`](benchmarks/reports/) · narrative report: [`docs/BENCHMARK_REPORT.md`](docs/BENCHMARK_REPORT.md).
 
 **Regenerate charts:**
 
@@ -194,25 +201,38 @@ python scripts/generate_benchmark_charts.py
 | [Valence gap](docs/images/benchmarks/valence_gap.png) | How much positive beats negative (steering headroom) |
 | [Hedge stability](docs/images/benchmarks/hedge_stability.png) | Choppy readouts on hedged language (intervention surface) |
 
-#### All models — council summary (7 run on CPU, 2026-07-06)
+#### All models — council summary (5 benchmarked on CPU + 2 gated placeholders, 2026-07-06)
 
 | Model | Council | Passed | GoE r (v) | Brain r (v) | Pos prompt v | Neg prompt v | Gap | Struggling on |
 |-------|---------|--------|-----------|-------------|--------------|--------------|-----|----------------|
-| **Qwen/Qwen2.5-0.5B-Instruct** | **91.0** | yes | **0.21** | — | **0.37** | 0.11 | **0.27** | Negative valence separation |
-| **TinyLlama/TinyLlama-1.1B-Chat-v1.0** | **94.0** | yes | 0.14 | — | varies | varies | — | Weak GoE *r*; strong rubric on separation |
+| **TinyLlama/TinyLlama-1.1B-Chat-v1.0** | **94.0** | yes | **0.19** | — | **0.30** | **−0.18** | **0.49** | Hedge stability flag |
+| **Qwen/Qwen2.5-0.5B-Instruct** | **91.0** | yes | **0.24** | — | **0.37** | 0.11 | **0.27** | Negative valence separation |
 | **distilgpt2** | **82.2** | yes | **0.16** | −0.39 | **0.59** | 0.28 | **0.31** | Brain holdout; neg still positive |
-| SmolLM2-1.7B-Instruct | 58.5 | no | ~0.00 | — | 0.24 | 0.48 | −0.24 | **Inverted gap** — do not cite for validity |
-| tiny-random-gpt2 | 50.2 | no | 0.004 | −0.11 | 0.14 | 0.15 | −0.00 | Gibberish output; CI only |
-| Llama-3.2-1B-Instruct | 48.0 | no | — | — | — | — | — | Gated HF repo (not run) |
-| gemma-2-2b-it | 48.0 | no | — | — | — | — | — | Gated HF repo (not run) |
+| **HuggingFaceTB/SmolLM2-1.7B-Instruct** | 58.5 | no | ~0.00 | — | 0.77 | 0.92 | −0.15 | **Inverted gap** — do not cite for validity |
+| **hf-internal-testing/tiny-random-gpt2** | 50.2 | no | 0.004 | −0.11 | 0.14 | 0.15 | −0.00 | Gibberish output; CI only |
+| **meta-llama/Llama-3.2-1B-Instruct** | 48.0* | no | — | — | — | — | — | Gated HF repo (not benchmarked) |
+| **google/gemma-2-2b-it** | 48.0* | no | — | — | — | — | — | Gated HF repo (not benchmarked) |
 
-**Takeaways:** **Qwen** is the best POC hero (text probe + positive prompt separation). **TinyLlama** scores highest on the validation rubric but has weak GoEmotions *r* — cite with limits. **distilgpt2** has strong live positive readouts but **brain holdout r is negative** on synthetic Narratives. **SmolLM** fails the publication bar (inverted gap, *r* ≈ 0). Guard AUROC 1.0 on all models is **fixture-policy smoke**, not hallucination detection.
+\*Placeholder council score (missing manifest — model not run without `huggingface-cli login`).
 
-#### `Qwen/Qwen2.5-0.5B-Instruct` — [manifest](benchmarks/reports/latest_qwen2.5_0.5b_instruct_manifest.json) (POC demo hero)
+**Takeaways:** **TinyLlama** is the **demo hero** (council 94, strongest prompt gap 0.49, negative prompts reach −0.18 valence). **Qwen** is a strong backup instruct demo (GoE r≈0.24) but weak negative separation. **distilgpt2** text probe is OK; **do not lead with brain** (synthetic holdout r negative). **SmolLM2** fails the publication bar — honest failure case only. Guard AUROC 1.0 is **fixture-policy smoke**, not hallucination detection.
+
+**Live demo:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima)
+
+#### `TinyLlama/TinyLlama-1.1B-Chat-v1.0` — hero model ([manifest](benchmarks/reports/latest_tinyllama_1.1b_chat_v1.0_manifest.json)) (2026-07-12)
 
 | Benchmark | Metric | Result | Notes |
 |-----------|--------|--------|--------|
-| **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.21** / **0.24** | Instruct-tuned; use for intervention demo |
+| **Council validation** | Aggregate score | **94.0** | Highest CPU-tier score |
+| **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.19** / **0.41** | Text-emotion probe; meets ≥0.15 gate |
+| **Live prompts** | Pos − neg valence gap | **0.49** | Best separation for portfolio demos |
+| **HaluEval guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture-policy smoke only |
+
+#### `Qwen/Qwen2.5-0.5B-Instruct` — [manifest](benchmarks/reports/latest_qwen2.5_0.5b_instruct_manifest.json) (backup demo)
+
+| Benchmark | Metric | Result | Notes |
+|-----------|--------|--------|--------|
+| **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.24** / **0.42** | Instruct-tuned; use for intervention demo |
 | **HaluEval guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Synthetic fixture rows |
 | **TruthfulQA guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Synthetic fixture rows |
 
@@ -300,6 +320,7 @@ anima benchmark --model <hf_id> --tiers internal,external,external_text,external
 
 | Doc | When to read |
 |-----|----------------|
+| [Live demo (HF Space)](https://huggingface.co/spaces/sidb078/Anima) | Try TinyLlama readouts in browser |
 | [v2 release notes](docs/V2_RELEASE.md) | v1→v2 changelog, upgrade path, limits |
 | [Technical overview (PDF)](docs/ANIMA_TECHNICAL_OVERVIEW.pdf) | Methodology, architecture, training, limitations |
 | [Technical overview (Markdown)](docs/ANIMA_TECHNICAL_OVERVIEW.md) | Same content, editable source |

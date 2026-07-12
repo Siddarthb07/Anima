@@ -71,7 +71,7 @@ In dev, the browser talks to **`ws://127.0.0.1:5173/ws/...`** and Vite **proxies
 2. **Docker optional** — if Docker Desktop is down, use native `anima api` + `npm run dev` (not `docker compose`).
 3. Copy `dashboard/.env.example` → `dashboard/.env` if missing.
 4. Check **http://127.0.0.1:8010/health** then open the Vite URL.
-5. Screenshot guide: [`images/dashboard-websocket-troubleshooting.png`](images/dashboard-websocket-troubleshooting.png).
+5. Confirm `dashboard/.env` has `VITE_API_HTTP_TARGET=http://127.0.0.1:8010` and restart Vite after edits.
 
 `GET /models` lists each HF id with `brain_data_tier` (`synthetic_minimal` vs `real_fMRI`).
 
@@ -108,6 +108,40 @@ curl -X POST http://127.0.0.1:8010/generate -H "Content-Type: application/json" 
 ```
 
 Omitting `model` uses the default tiny checkpoint.
+
+---
+
+## Hero demo — 2 minutes (college-apps path)
+
+Uses **TinyLlama** text probe. **Live demo:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima)
+
+```powershell
+cd <repo-root>
+pip install -e ".[dev]"
+python scripts/download_zoo.py --skip-existing
+
+$env:ANIMA_FORCE_CPU="1"
+$env:ANIMA_PREFER_TEXT_PROBE="1"
+python -m uvicorn api.server:app --host 127.0.0.1 --port 8010
+```
+
+New terminal:
+
+```powershell
+curl -X POST http://127.0.0.1:8010/generate `
+  -H "Content-Type: application/json" `
+  -d "{\"model\":\"TinyLlama/TinyLlama-1.1B-Chat-v1.0\",\"prompt\":\"I'm thrilled we shipped it.\",\"max_new_tokens\":16,\"guard_mode\":\"gate\"}"
+```
+
+Optional standalone Gradio (no separate API):
+
+```powershell
+pip install -e ".[gradio]"
+$env:ANIMA_PUBLIC_MODE="1"
+python space/app.py
+```
+
+Latest hero benchmark: `benchmarks/reports/latest_tinyllama_1.1b_chat_v1.0_manifest.json`
 
 ---
 
