@@ -1,2 +1,2 @@
-anima @ file://../
-gradio>=4.0.0
+git+https://github.com/Siddarthb07/Anima.git
+gradio>=4.44.0

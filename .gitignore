@@ -48,6 +48,14 @@ plans v2.txt
 report data v1
 .cursor/
 
+# Ephemeral per-run benchmark folders (commit latest_* aliases only)
+benchmarks/reports/*_20*/
+!benchmarks/reports/latest_*.json
+!benchmarks/reports/council_*.json
+!benchmarks/reports/all_models_rollup.json
+!benchmarks/reports/validation_rollup.json
+!benchmarks/reports/poc_demo_latest.json
+
 # Local-only git history helpers (not published)
 scripts/spread_github_heatmap.py
 scripts/space_repo_commits.py

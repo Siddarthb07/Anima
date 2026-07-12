@@ -1,8 +1,8 @@
 {
   "manifest_schema_version": 1,
   "model": "hf-internal-testing/tiny-random-gpt2",
-  "git_sha": "95058cd",
-  "generated_at": "2026-07-06T18:30:41.348410+00:00",
+  "git_sha": "7aad842",
+  "generated_at": "2026-07-12T17:08:29.674433+00:00",
   "entries": [
     {
       "tier": "internal",
@@ -15,9 +15,8 @@
       "benchmark": "narratives_dev",
       "tier": "internal",
       "status": "skipped",
-      "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
-      "model": "hf-internal-testing/tiny-random-gpt2",
-      "narratives_root": ".\\data\\narratives_minimal"
+      "reason": "NARRATIVES_ROOT not set",
+      "model": "hf-internal-testing/tiny-random-gpt2"
     }
   ]
 }

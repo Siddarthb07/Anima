@@ -1,0 +1,28 @@
+name: Deploy HF Space
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "space/**"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Install huggingface_hub
+        run: pip install huggingface_hub
+      - name: Upload Space files
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "HF_TOKEN secret not configured — skipping Space deploy"
+            exit 0
+          fi
+          python scripts/deploy_hf_space.py

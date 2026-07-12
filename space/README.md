@@ -4,35 +4,27 @@ emoji: 🧠
 colorFrom: blue
 colorTo: cyan
 sdk: gradio
+sdk_version: 4.44.1
 app_file: app.py
 pinned: false
+license: mit
 ---
 
-# Anima HF Space (v2.1)
+# Anima — LLM affect readouts
 
-Public demo for **dimensional readout** from Hugging Face causal LMs — not claims that models "feel" emotions.
+Live **valence / arousal / uncertainty** readouts from Hugging Face causal LMs via hidden-state probes.
 
-**Live:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima)  
-**Source repo:** [github.com/Siddarthb07/Anima](https://github.com/Siddarthb07/Anima)
+**Not** claims that models feel emotions — [limitations](https://github.com/Siddarthb07/Anima/blob/main/docs/USAGE_AND_LIMITATIONS.md).
 
-## Deploy notes
+- **Repo:** [github.com/Siddarthb07/Anima](https://github.com/Siddarthb07/Anima)
+- **Hero model:** TinyLlama (switch in dropdown; tiny-random-gpt2 default on free CPU for reliability)
 
-1. **Hero model:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (best prompt separation). Fallback: `hf-internal-testing/tiny-random-gpt2` for low RAM.
-2. **Probe weights:** `python scripts/download_zoo.py --skip-existing` at build time.
-3. **Public mode (required on Space):** `ANIMA_PUBLIC_MODE=1`
-4. **Stack:** Standalone **Gradio** (`app.py`) — not the full FastAPI+React Docker stack on free CPU tier.
-5. **Limits:** [USAGE_AND_LIMITATIONS.md](https://github.com/Siddarthb07/Anima/blob/main/docs/USAGE_AND_LIMITATIONS.md)
-
-## Local equivalent
+## Deploy from main repo
 
 ```bash
-pip install -e ".[gradio]"
-python scripts/download_zoo.py --skip-existing
-ANIMA_PUBLIC_MODE=1 python space/app.py
+pip install huggingface_hub
+# HF_TOKEN from https://huggingface.co/settings/tokens (write)
+python scripts/deploy_hf_space.py
 ```
 
-## v2 features to demo
-
-- Rolling **stability score** + `guard_mode: gate`
-- Opt-in **`intervention_mode: dampen`**
-- POC prompts: `benchmarks/fixtures/poc_emotional_prompts.json`
+Or set GitHub secret `HF_TOKEN` — pushes to `space/**` on `main` run `.github/workflows/hf-space-deploy.yml`.

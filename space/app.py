@@ -1,31 +1,91 @@
-"""Standalone Gradio demo for HF Space (college-apps v2.1).
+"""Standalone Gradio demo for Hugging Face Spaces.
 
-Embedded inference — no separate FastAPI process. Set ANIMA_PUBLIC_MODE=1 on Space.
+HF Spaces: app.py at repo root, requirements.txt installs Anima from GitHub.
+Probe weights download on first run from GitHub Release v2.0.0.
 """
 
 from __future__ import annotations
 
 import os
+import sys
+import urllib.request
+from pathlib import Path
 from typing import Any
 
-# Public demo defaults (Space secrets should set ANIMA_PUBLIC_MODE=1).
+# Public demo defaults on Space.
 os.environ.setdefault("ANIMA_PUBLIC_MODE", "1")
+os.environ.setdefault("ANIMA_FORCE_CPU", "1")
+
+_ON_HF_SPACE = bool(os.environ.get("SPACE_ID"))
+
+_RELEASE_PROBE_ASSETS = (
+    "tiny_random_gpt2_text.pt",
+    "tinyllama_1.1b_chat_v1.0_text.pt",
+    "qwen2.5_0.5b_instruct_text.pt",
+)
+_RELEASE_BASE = "https://github.com/Siddarthb07/Anima/releases/download/v2.0.0"
+
+
+def _ensure_probe_weights() -> None:
+    """Download minimal Release probes if missing (HF Space has no .pt in pip wheel)."""
+    from probes.zoo_io import ZOO_DIR
+
+    ZOO_DIR.mkdir(parents=True, exist_ok=True)
+    missing = [n for n in _RELEASE_PROBE_ASSETS if not (ZOO_DIR / n).exists()]
+    if not missing:
+        return
+    print(f"Anima: downloading {len(missing)} probe checkpoint(s)...", flush=True)
+    for name in missing:
+        dest = ZOO_DIR / name
+        url = f"{_RELEASE_BASE}/{name}"
+        try:
+            urllib.request.urlretrieve(url, dest)
+            print(f"  ok {name}", flush=True)
+        except Exception as exc:
+            print(f"  skip {name}: {exc}", flush=True)
+
+
+_ensure_probe_weights()
 
 from alignment.tribe_encoder import TRIBEv2Encoder, tribe_seed
-from core.defaults import HERO_DEMO_MODEL
+from core.defaults import DEFAULT_CAUSAL_LM, HERO_DEMO_MODEL
 from core.extractor import ActivationExtractor
 from core.limits import PUBLIC_DEMO_MODELS, assert_model_allowed, clamp_max_new_tokens, validate_prompt
 from probes.linear_probe import AffectProbe
-from probes.zoo_io import load_probe_into, probe_slug, tribe_weights_path
+from probes.zoo_io import ZOO_DIR, load_probe_into, probe_slug, tribe_weights_path
 
 HONESTY = (
     "**Instrumentation only** — valence/arousal readouts from hidden-state probes, "
-    "not proof the model feels emotions. Text-emotion probes (GoEmotions); "
-    "brain tier is synthetic_minimal where present. "
+    "not proof the model feels emotions. Text-emotion probes (GoEmotions). "
     "[Limits](https://github.com/Siddarthb07/Anima/blob/main/docs/USAGE_AND_LIMITATIONS.md)"
 )
 
 _cache: dict[str, tuple[ActivationExtractor, AffectProbe, dict[str, Any], TRIBEv2Encoder]] = {}
+
+
+def _available_models() -> list[str]:
+    """Only list models whose text probe file exists (avoid HF 400 on missing zoo)."""
+    slug_map = {
+        "hf-internal-testing/tiny-random-gpt2": "tiny_random_gpt2",
+        "TinyLlama/TinyLlama-1.1B-Chat-v1.0": "tinyllama_1.1b_chat_v1.0",
+        "Qwen/Qwen2.5-0.5B-Instruct": "qwen2.5_0.5b_instruct",
+    }
+    out = []
+    for mid in sorted(PUBLIC_DEMO_MODELS):
+        slug = slug_map.get(mid, probe_slug(mid))
+        if (ZOO_DIR / f"{slug}_text.pt").exists():
+            out.append(mid)
+    return out or [DEFAULT_CAUSAL_LM]
+
+
+def _default_model(models: list[str]) -> str:
+    if _ON_HF_SPACE:
+        # Free CPU tier: start with tiny; user can switch to TinyLlama if RAM allows.
+        if DEFAULT_CAUSAL_LM in models:
+            return DEFAULT_CAUSAL_LM
+    if HERO_DEMO_MODEL in models:
+        return HERO_DEMO_MODEL
+    return models[0]
 
 
 def _load_stack(model_name: str):
@@ -60,15 +120,20 @@ def run_readout(
     guard_mode: str,
     intervention_mode: str,
 ) -> tuple[str, dict[str, Any], str]:
+    if not prompt or not prompt.strip():
+        return "", {"error": "empty prompt"}, ""
     validate_prompt(prompt)
     max_new = clamp_max_new_tokens(int(max_new_tokens))
-    extractor, probe, meta, _tribe = _load_stack(model.strip())
-    rows = extractor.extract(
-        prompt,
-        max_new,
-        probe=probe if intervention_mode == "dampen" else None,
-        intervention_mode=intervention_mode,
-    )
+    try:
+        extractor, probe, meta, _tribe = _load_stack(model.strip())
+        rows = extractor.extract(
+            prompt,
+            max_new,
+            probe=probe if intervention_mode == "dampen" else None,
+            intervention_mode=intervention_mode,
+        )
+    except Exception as exc:
+        return "", {"error": str(exc)}, ""
     valences: list[float] = []
     arousals: list[float] = []
     trace_lines: list[str] = []
@@ -99,11 +164,17 @@ def run_readout(
 def build_ui():
     import gradio as gr
 
-    model_choices = sorted(PUBLIC_DEMO_MODELS)
-    default_model = HERO_DEMO_MODEL if HERO_DEMO_MODEL in PUBLIC_DEMO_MODELS else model_choices[0]
+    model_choices = _available_models()
+    default_model = _default_model(model_choices)
+    space_note = (
+        "\n\n*HF Space: default is **tiny-random-gpt2** for free CPU RAM. "
+        "Switch to **TinyLlama** for hero readouts if the Space stays up.*"
+        if _ON_HF_SPACE
+        else ""
+    )
 
-    with gr.Blocks(title="Anima — LLM affect readouts") as demo:
-        gr.Markdown(f"# Anima readout demo\n\n{HONESTY}")
+    with gr.Blocks(title="Anima — LLM affect readouts") as ui:
+        gr.Markdown(f"# Anima readout demo\n\n{HONESTY}{space_note}")
         with gr.Row():
             prompt = gr.Textbox(
                 label="Prompt",
@@ -111,8 +182,8 @@ def build_ui():
                 lines=3,
             )
         with gr.Row():
-            model = gr.Dropdown(model_choices, value=default_model, label="Model (public allowlist)")
-            max_tok = gr.Slider(4, 128, value=24, step=1, label="Max new tokens")
+            model = gr.Dropdown(model_choices, value=default_model, label="Model")
+            max_tok = gr.Slider(4, 64, value=16, step=1, label="Max new tokens")
         with gr.Row():
             guard_mode = gr.Radio(["observe", "gate"], value="observe", label="Guard mode")
             intervention = gr.Radio(["none", "dampen"], value="none", label="Intervention")
@@ -127,12 +198,14 @@ def build_ui():
             outputs=[out_text, out_summary, out_trace],
         )
         gr.Markdown(
-            "Repo: [github.com/Siddarthb07/Anima](https://github.com/Siddarthb07/Anima) · "
-            "Space: [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima) · "
-            "Hero model: **TinyLlama** (council 94, best prompt separation)."
+            "[GitHub](https://github.com/Siddarthb07/Anima) · "
+            "Hero: **TinyLlama** (council 94) · Demo Space: **sidb078/Anima**"
         )
-    return demo
+    return ui
 
+
+# HF Gradio SDK loads this symbol.
+demo = build_ui()
 
 if __name__ == "__main__":
-    build_ui().launch()
+    demo.launch()
