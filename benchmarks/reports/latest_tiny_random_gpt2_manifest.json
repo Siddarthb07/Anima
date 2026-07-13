@@ -1,8 +1,8 @@
 {
   "manifest_schema_version": 1,
   "model": "hf-internal-testing/tiny-random-gpt2",
-  "git_sha": "7aad842",
-  "generated_at": "2026-07-12T17:08:29.674433+00:00",
+  "git_sha": "55c7f00",
+  "generated_at": "2026-07-12T17:37:30.344536+00:00",
   "entries": [
     {
       "tier": "internal",

@@ -20,9 +20,14 @@ jobs:
       - name: Upload Space files
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
         run: |
           if [ -z "$HF_TOKEN" ]; then
-            echo "HF_TOKEN secret not configured — skipping Space deploy"
+            echo "::warning::HF_TOKEN secret not configured — Space not deployed"
+            if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+              echo "::error::Add repo secret HF_TOKEN (write token from https://huggingface.co/settings/tokens)"
+              exit 1
+            fi
             exit 0
           fi
           python scripts/deploy_hf_space.py

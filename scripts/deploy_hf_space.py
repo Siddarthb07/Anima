@@ -9,6 +9,9 @@ Usage:
   export HF_TOKEN=hf_...       # Linux/macOS
   python scripts/deploy_hf_space.py
 
+GitHub Actions: add repo secret HF_TOKEN (write token from huggingface.co/settings/tokens)
+to enable auto-deploy on push to space/ via .github/workflows/hf-space-deploy.yml.
+
 Or: huggingface-cli login, then run without HF_TOKEN (uses cached token).
 """
 
