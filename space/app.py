@@ -79,19 +79,9 @@ def _serve_uvicorn() -> None:
 
 
 def _launch(*args, **kwargs):
-    """HF / ZeroGPU call launch(); fall back to uvicorn if Gradio localhost check fails."""
-    kwargs["server_name"] = "0.0.0.0"
-    kwargs["server_port"] = int(os.environ.get("PORT") or "7860")
-    kwargs["ssr_mode"] = False
-    kwargs["share"] = False
-    kwargs["inline"] = False
-    try:
-        return gr.blocks.Blocks.launch(demo, *args, **kwargs)
-    except ValueError as exc:
-        if "shareable link" not in str(exc).lower() and "localhost" not in str(exc).lower():
-            raise
-        print(f"Anima: Gradio launch blocked ({exc}); serving dashboard via uvicorn", flush=True)
-        _serve_uvicorn()
+    """HF calls demo.launch(); always serve the Anima FastAPI dashboard host."""
+    _ = args, kwargs
+    _serve_uvicorn()
 
 
 demo.launch = _launch  # type: ignore[method-assign]
