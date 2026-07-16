@@ -33,11 +33,19 @@ for _name in (
     except Exception as exc:
         print(f"skip {_name}: {exc}", flush=True)
 
+# ZeroGPU Gradio launch probes localhost and can false-fail on Spaces.
+try:
+    from gradio import networking as _gradio_networking
+
+    _gradio_networking.url_ok = lambda *args, **kwargs: True  # type: ignore[misc]
+except Exception as _exc:
+    print(f"Anima: could not patch gradio.networking.url_ok: {_exc}", flush=True)
+
 import gradio as gr
 import spaces
 from gradio import routes as gr_routes
 
-from api.server import app as anima_api  # mounts dashboard_dist when env set
+from api.server import app as anima_api
 
 
 @spaces.GPU(duration=120)
@@ -56,7 +64,6 @@ _ORIG_CREATE = gr_routes.App.create_app
 
 
 def _create_app(demo_obj, **kwargs):
-    """Build Gradio's internal app, mount it under Anima FastAPI, return Anima."""
     gr_app = _ORIG_CREATE(demo_obj, **kwargs)
     already = any(getattr(r, "path", None) == "/gradio" for r in anima_api.router.routes)
     if not already:
@@ -70,20 +77,14 @@ gr_routes.App.create_app = staticmethod(_create_app)  # type: ignore[method-assi
 demo.queue(default_concurrency_limit=2)
 
 
-def _serve_uvicorn() -> None:
-    import uvicorn
-
-    port = int(os.environ.get("PORT") or os.environ.get("GRADIO_SERVER_PORT") or "7860")
-    print(f"Anima: uvicorn fallback on 0.0.0.0:{port}", flush=True)
-    uvicorn.run(anima_api, host="0.0.0.0", port=port, log_level="info")
-
-
 def _launch(*args, **kwargs):
-    """HF calls demo.launch(); always serve the Anima FastAPI dashboard host."""
-    _ = args, kwargs
-    _serve_uvicorn()
+    kwargs["server_name"] = "0.0.0.0"
+    kwargs["server_port"] = int(os.environ.get("PORT") or "7860")
+    kwargs["ssr_mode"] = False
+    kwargs["share"] = False
+    kwargs["inline"] = False
+    print("Anima: Gradio launch → FastAPI dashboard host", flush=True)
+    return gr.blocks.Blocks.launch(demo, *args, **kwargs)
 
 
 demo.launch = _launch  # type: ignore[method-assign]
-
-# Do not auto-call launch here — HF Spaces invokes demo.launch().
