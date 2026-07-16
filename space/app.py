@@ -68,5 +68,19 @@ with gr.Blocks(title="Anima GPU bridge") as demo:
 # Public ASGI app: dashboard + API at /, Gradio bridge at /gradio
 app = gr.mount_gradio_app(fastapi_app, demo, path="/gradio")
 
+
+def _launch_asgi(*_a, **_k):
+    """HF Gradio SDK calls demo.launch(); serve FastAPI+dashboard instead."""
+    import uvicorn
+
+    port = int(os.environ.get("GRADIO_SERVER_PORT") or os.environ.get("PORT") or "7860")
+    uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
+
+
+demo.launch = _launch_asgi  # type: ignore[method-assign]
+
 # HF Gradio SDK also looks for `demo`.
 __all__ = ["app", "demo"]
+
+if __name__ == "__main__":
+    _launch_asgi()
