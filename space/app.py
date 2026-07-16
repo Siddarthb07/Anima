@@ -1,7 +1,7 @@
-"""HF Space: original Anima React dashboard (ZeroGPU-safe Gradio launch).
+"""HF Space: original Anima React dashboard (ZeroGPU-safe).
 
-``demo.launch()`` stays normal so ZeroGPU sees ``@spaces.GPU``. Gradio is mounted
-under ``/gradio``; the Space root is the real dashboard + FastAPI API.
+Normal ``demo.launch()`` so ZeroGPU detects ``@spaces.GPU``. After Gradio builds
+its FastAPI app, we attach Anima API routes and serve ``dashboard_dist`` at ``/``.
 """
 
 from __future__ import annotations
@@ -37,10 +37,15 @@ for _name in (
 
 import gradio as gr
 import spaces
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from gradio import routes as gr_routes
 
-# Import after ANIMA_SERVE_DASHBOARD so API mounts dashboard_dist at /.
-from api.server import app as anima_api  # noqa: E402
+# Dashboard mount happens in api.server when ANIMA_SERVE_DASHBOARD is set — but that
+# would own ``/`` on a separate app. Here we graft routes onto Gradio's app instead.
+os.environ.pop("ANIMA_SERVE_DASHBOARD", None)
+
+from api import server as anima_server  # noqa: E402
 
 
 @spaces.GPU(duration=120)
@@ -48,9 +53,13 @@ def _zero_gpu_ping(x: str) -> str:
     return f"ok:{x[:32]}"
 
 
-with gr.Blocks(title="Anima GPU bridge") as demo:
-    gr.Markdown("ZeroGPU bridge only — use the Space **root URL** for the Anima dashboard.")
-    _in = gr.Textbox(value="ping", label="ping")
+with gr.Blocks(title="Anima") as demo:
+    gr.Markdown(
+        "### Anima\n\n"
+        "If you still see this Gradio shell, hard-refresh — the React dashboard "
+        "should replace `/`. Default model **Qwen2.5-0.5B**; also try **TinyLlama**."
+    )
+    _in = gr.Textbox(value="ping", label="ZeroGPU bridge")
     _out = gr.Textbox(label="status")
     _in.submit(_zero_gpu_ping, _in, _out)
 
@@ -59,9 +68,26 @@ _ORIG_CREATE = gr_routes.App.create_app
 
 
 def _create_app(demo_obj, **kwargs):
-    """Use Anima FastAPI (dashboard + API) as the host; Gradio under /gradio."""
-    print("Anima: create_app → mount Gradio at /gradio on FastAPI dashboard app", flush=True)
-    return gr.mount_gradio_app(anima_api, demo_obj, path="/gradio")
+    app = _ORIG_CREATE(demo_obj, **kwargs)
+
+    # Anima API routes (HTTP + WebSocket). Lifespan/middleware stay on Gradio host.
+    for route in list(anima_server.app.routes):
+        app.routes.insert(0, route)
+
+    if _DIST.is_dir():
+        assets = _DIST / "assets"
+        if assets.is_dir():
+            app.mount("/assets", StaticFiles(directory=str(assets)), name="anima-dash-assets")
+
+        async def dashboard_root():
+            return FileResponse(_DIST / "index.html")
+
+        # Insert ahead of Gradio's UI route.
+        app.add_api_route("/", dashboard_root, methods=["GET"])
+        app.add_api_route("/index.html", dashboard_root, methods=["GET"])
+
+    print("Anima: Gradio host + original dashboard assets + API routes", flush=True)
+    return app
 
 
 gr_routes.App.create_app = staticmethod(_create_app)  # type: ignore[method-assign]
