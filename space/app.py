@@ -103,12 +103,129 @@ body, .app, .gradio-container {
 
 .anima-tagline {
   margin: 0.85rem 0 0;
-  max-width: 36rem;
-  font-size: 1.05rem;
-  line-height: 1.55;
+  max-width: 42rem;
+  font-size: 1.08rem;
+  line-height: 1.6;
   color: var(--fog);
   animation: fadeUp 0.8s 0.12s ease-out both;
 }
+
+.anima-explain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin: 1.15rem 0 0.35rem;
+  animation: fadeUp 0.8s 0.18s ease-out both;
+}
+
+@media (max-width: 720px) {
+  .anima-explain { grid-template-columns: 1fr; }
+}
+
+.explain-card {
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(21, 27, 39, 0.75);
+}
+
+.explain-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.explain-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #c5d0e0;
+}
+
+.explain-card.rose h3 { color: var(--rose); }
+.explain-card.amber h3 { color: var(--amber); }
+
+.model-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin: 0.85rem 0 1.1rem;
+  animation: fadeUp 0.8s 0.22s ease-out both;
+}
+
+@media (max-width: 720px) {
+  .model-cards { grid-template-columns: 1fr; }
+}
+
+.model-card {
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(30, 39, 56, 0.95), rgba(12, 16, 24, 0.9));
+}
+
+.model-card.hero {
+  border-color: rgba(45, 226, 230, 0.35);
+  box-shadow: 0 0 0 1px rgba(45, 226, 230, 0.08), 0 12px 32px rgba(0,0,0,0.25);
+}
+
+.model-card .badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: 0.45rem;
+}
+
+.model-card.hero .badge {
+  background: rgba(45, 226, 230, 0.15);
+  color: var(--cyan);
+}
+
+.model-card.council .badge {
+  background: rgba(245, 197, 66, 0.12);
+  color: var(--amber);
+}
+
+.model-card h3 {
+  margin: 0 0 0.35rem;
+  font-family: "Syne", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--paper);
+}
+
+.model-card p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--fog);
+}
+
+.how-steps {
+  margin: 0.5rem 0 1.1rem;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(12, 16, 24, 0.65);
+  animation: fadeUp 0.8s 0.26s ease-out both;
+}
+
+.how-steps ol {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  color: #c5d0e0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.how-steps strong { color: var(--paper); }
 
 .anima-limit {
   margin-top: 0.85rem;
@@ -328,7 +445,7 @@ def _ensure_probe_weights() -> None:
 _ensure_probe_weights()
 
 from alignment.tribe_encoder import TRIBEv2Encoder, tribe_seed
-from core.defaults import DEFAULT_CAUSAL_LM, HERO_DEMO_MODEL
+from core.defaults import COUNCIL_BEST_MODEL, DEFAULT_CAUSAL_LM, HERO_DEMO_MODEL
 from core.extractor import ActivationExtractor
 from core.limits import PUBLIC_DEMO_MODELS, assert_model_allowed, clamp_max_new_tokens, validate_prompt
 from probes.linear_probe import AffectProbe
@@ -343,16 +460,28 @@ EXAMPLE_PROMPTS = [
     ["Honestly? I'm fine. Totally fine. Don't worry about it."],
 ]
 
+QWEN_ID = "Qwen/Qwen2.5-0.5B-Instruct"
+TINYLLAMA_ID = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+
 
 def _available_models() -> list[str]:
-    """Only list models whose text probe file exists (avoid HF 400 on missing zoo)."""
+    """Prefer Qwen + TinyLlama first; only list models with probe weights on disk."""
     slug_map = {
         "hf-internal-testing/tiny-random-gpt2": "tiny_random_gpt2",
-        "TinyLlama/TinyLlama-1.1B-Chat-v1.0": "tinyllama_1.1b_chat_v1.0",
-        "Qwen/Qwen2.5-0.5B-Instruct": "qwen2.5_0.5b_instruct",
+        TINYLLAMA_ID: "tinyllama_1.1b_chat_v1.0",
+        QWEN_ID: "qwen2.5_0.5b_instruct",
     }
-    out = []
+    preferred = [QWEN_ID, TINYLLAMA_ID, "hf-internal-testing/tiny-random-gpt2"]
+    out: list[str] = []
+    for mid in preferred:
+        if mid not in PUBLIC_DEMO_MODELS:
+            continue
+        slug = slug_map.get(mid, probe_slug(mid))
+        if (ZOO_DIR / f"{slug}_text.pt").exists():
+            out.append(mid)
     for mid in sorted(PUBLIC_DEMO_MODELS):
+        if mid in out:
+            continue
         slug = slug_map.get(mid, probe_slug(mid))
         if (ZOO_DIR / f"{slug}_text.pt").exists():
             out.append(mid)
@@ -360,19 +489,18 @@ def _available_models() -> list[str]:
 
 
 def _default_model(models: list[str]) -> str:
-    if _ON_HF_SPACE:
-        if DEFAULT_CAUSAL_LM in models:
-            return DEFAULT_CAUSAL_LM
-    if HERO_DEMO_MODEL in models:
-        return HERO_DEMO_MODEL
+    """Default = Qwen hero; then TinyLlama (council best); then anything available."""
+    for mid in (HERO_DEMO_MODEL, COUNCIL_BEST_MODEL, QWEN_ID, TINYLLAMA_ID):
+        if mid in models:
+            return mid
     return models[0]
 
 
 def _short_model_label(mid: str) -> str:
     aliases = {
-        "hf-internal-testing/tiny-random-gpt2": "tiny-gpt2 (fast)",
-        "TinyLlama/TinyLlama-1.1B-Chat-v1.0": "TinyLlama · hero",
-        "Qwen/Qwen2.5-0.5B-Instruct": "Qwen2.5-0.5B",
+        "hf-internal-testing/tiny-random-gpt2": "tiny-gpt2 · smoke test only",
+        TINYLLAMA_ID: "TinyLlama · best council score (94)",
+        QWEN_ID: "Qwen2.5-0.5B · demo hero",
     }
     return aliases.get(mid, mid)
 
@@ -446,17 +574,17 @@ def _meter_html(
     return f"""
 <div class="meter-board">
   <div class="meter">
-    <div class="meter-label"><span>Valence</span><span class="meter-value">{mean_v:+.3f}</span></div>
+    <div class="meter-label"><span>Valence (pleasant ↔ unpleasant)</span><span class="meter-value">{mean_v:+.3f}</span></div>
     <div class="meter-track"><div class="meter-fill valence" style="width:{pct(mean_v):.1f}%"></div></div>
-    <div class="meter-hint">{_valence_word(mean_v)}</div>
+    <div class="meter-hint">{_valence_word(mean_v)} · negative ← 0 → positive</div>
   </div>
   <div class="meter">
-    <div class="meter-label"><span>Arousal</span><span class="meter-value">{mean_a:+.3f}</span></div>
+    <div class="meter-label"><span>Arousal (calm ↔ activated)</span><span class="meter-value">{mean_a:+.3f}</span></div>
     <div class="meter-track"><div class="meter-fill arousal" style="width:{pct(mean_a):.1f}%"></div></div>
-    <div class="meter-hint">{_arousal_word(mean_a)}</div>
+    <div class="meter-hint">{_arousal_word(mean_a)} · how “charged” the internal state looks</div>
   </div>
 </div>
-<div class="meter-label" style="margin-bottom:0.35rem">Token trail</div>
+<div class="meter-label" style="margin-bottom:0.35rem">Token trail — each chip is one generated token (hover for v / a)</div>
 <div class="token-strip">{strip}</div>
 """
 
@@ -571,16 +699,73 @@ def build_ui():
 
     hero = """
 <div class="anima-hero">
-  <div class="anima-kicker">Hidden-state instrumentation</div>
+  <div class="anima-kicker">What is this?</div>
   <h1 class="anima-brand">ANIMA</h1>
   <p class="anima-tagline">
-    Watch valence and arousal emerge token-by-token from a language model's
-    activations — linear probes on GoEmotions geometry, not claims the model feels.
+    <strong style="color:#e8eef7">Anima is not a chatbot that “has feelings.”</strong>
+    It is a research instrument: while a language model generates text, we attach tiny
+    linear probes to its hidden states and read two continuous scores —
+    <strong style="color:#2de2e6">valence</strong> and
+    <strong style="color:#ff6b8a">arousal</strong> —
+    mapped from emotion-label data (GoEmotions). Think oscilloscope for internal geometry,
+    not a claim about consciousness.
   </p>
+
+  <div class="anima-explain">
+    <div class="explain-card">
+      <h3>Valence</h3>
+      <p>
+        Pleasant ↔ unpleasant axis. Positive means the probe reads the activation pattern
+        as closer to “good / affirming” labels; negative as closer to “bad / aversive.”
+        Scale is roughly −1 to +1 (instrument units, not human ratings).
+      </p>
+    </div>
+    <div class="explain-card rose">
+      <h3>Arousal</h3>
+      <p>
+        Calm ↔ activated axis. High arousal is the probe’s estimate of intensity /
+        activation in the same geometry (excited, tense, alarmed territory), not heart rate.
+        Low arousal looks quieter / flatter.
+      </p>
+    </div>
+  </div>
+
+  <div class="how-steps">
+    <h3 style="margin:0;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#f5c542;font-weight:700">
+      How to use this demo
+    </h3>
+    <ol>
+      <li><strong>Pick a model</strong> — default is <strong>Qwen2.5-0.5B</strong> (demo hero). Also try <strong>TinyLlama</strong> (highest council score).</li>
+      <li><strong>Enter a prompt</strong> with emotional charge (or use an example below).</li>
+      <li>Hit <strong>Run readout</strong> — the model generates tokens; meters update from probe readouts on each token’s hidden state.</li>
+      <li><strong>Guard / Intervention</strong> are optional reliability knobs (observe vs gate abstention; optional dampen steering) — advanced, not required to understand the meters.</li>
+    </ol>
+  </div>
+
+  <div class="model-cards">
+    <div class="model-card hero">
+      <span class="badge">Demo hero · default</span>
+      <h3>Qwen2.5-0.5B-Instruct</h3>
+      <p>
+        Compact instruct model — default on this Space so visitors land on a real
+        checkpoint (not a random smoke toy). Good for seeing clear valence / arousal
+        movement on everyday emotional prompts.
+      </p>
+    </div>
+    <div class="model-card council">
+      <span class="badge">Council best · score 94</span>
+      <h3>TinyLlama-1.1B-Chat</h3>
+      <p>
+        Strongest Anima council score in our CPU-tier rollup (best prompt separation).
+        Switch to it in the dropdown to compare the same prompt on the benchmark leader.
+      </p>
+    </div>
+  </div>
+
   <div class="anima-limit">
-    Research readout only.
-    <a href="https://github.com/Siddarthb07/Anima/blob/main/docs/USAGE_AND_LIMITATIONS.md" target="_blank" rel="noopener">Limits &amp; honest framing</a>
-    · Hero model: TinyLlama (council 94)
+    Honest limit: these are <strong>constructed measurements</strong> from trained probes —
+    not proof the model “feels” anything.
+    <a href="https://github.com/Siddarthb07/Anima/blob/main/docs/USAGE_AND_LIMITATIONS.md" target="_blank" rel="noopener">Read usage &amp; limitations</a>
   </div>
 </div>
 """
@@ -591,42 +776,60 @@ def build_ui():
             with gr.Column(scale=5):
                 with gr.Group(elem_classes=["anima-panel"]):
                     prompt = gr.Textbox(
-                        label="Prompt",
+                        label="Your prompt (the text the model continues from)",
                         value=EXAMPLE_PROMPTS[0][0],
                         lines=4,
-                        placeholder="Type something charged…",
+                        placeholder="Type something emotionally charged…",
                     )
                     gr.Examples(
                         examples=EXAMPLE_PROMPTS,
                         inputs=prompt,
-                        label="Try a charge",
+                        label="Example prompts (different emotional charges)",
                     )
                     with gr.Row():
                         model = gr.Dropdown(
                             choices=model_labels,
                             value=default_label,
-                            label="Model",
+                            label="Which model to instrument",
+                            info="Qwen = demo default · TinyLlama = best council score",
                         )
-                        max_tok = gr.Slider(4, 64, value=20, step=1, label="Max tokens")
+                        max_tok = gr.Slider(
+                            4,
+                            64,
+                            value=24,
+                            step=1,
+                            label="How many new tokens to generate",
+                        )
                     with gr.Row():
                         guard_mode = gr.Radio(
                             ["observe", "gate"],
                             value="observe",
-                            label="Guard",
+                            label="Guard (observe = always show labels; gate = hide when unstable)",
                         )
                         intervention = gr.Radio(
                             ["none", "dampen"],
                             value="none",
-                            label="Intervention",
+                            label="Intervention (optional steering if valence swings)",
                         )
                     run_btn = gr.Button("Run readout →", variant="primary", size="lg")
             with gr.Column(scale=6):
                 with gr.Group(elem_classes=["anima-panel"]):
+                    gr.HTML(
+                        "<p style='margin:0 0 0.75rem;color:#9aa8bc;font-size:0.9rem;line-height:1.45'>"
+                        "<strong style='color:#e8eef7'>Live readout</strong> — after you run, "
+                        "bars show mean valence &amp; arousal across generated tokens; "
+                        "chips below are individual tokens."
+                        "</p>"
+                    )
                     meters = gr.HTML(value=_empty_meters(), label="Affect meters")
-                    out_text = gr.Textbox(label="Generation", lines=3)
-                    with gr.Accordion("Raw summary & token log", open=False):
-                        out_summary = gr.JSON(label="Summary")
-                        out_trace = gr.Textbox(label="Per-token log", lines=8)
+                    out_text = gr.Textbox(
+                        label="What the model generated",
+                        lines=3,
+                        info="Plain continuation text from the chosen LM",
+                    )
+                    with gr.Accordion("Advanced: JSON summary & per-token numbers", open=False):
+                        out_summary = gr.JSON(label="Machine-readable summary")
+                        out_trace = gr.Textbox(label="Per-token valence / arousal log", lines=8)
 
         run_btn.click(
             fn=run_readout,
@@ -637,9 +840,9 @@ def build_ui():
         gr.HTML(
             """
 <div class="anima-foot">
-  <a href="https://github.com/Siddarthb07/Anima" target="_blank" rel="noopener">GitHub</a>
-  <span>Open-source probes · FastAPI · dashboard</span>
-  <span>Default on Space: tiny-gpt2 for RAM · switch to TinyLlama for hero</span>
+  <a href="https://github.com/Siddarthb07/Anima" target="_blank" rel="noopener">Source on GitHub</a>
+  <span>Probes · FastAPI · React dashboard</span>
+  <span>Default model: Qwen2.5-0.5B · Compare with TinyLlama (council 94)</span>
 </div>
 """
         )

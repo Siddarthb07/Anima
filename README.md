@@ -8,7 +8,7 @@
 
 **Keywords:** LLM emotions · emotion readouts · valence/arousal probing · Hugging Face interpretability · fMRI-aligned brain probes (optional) · FastAPI streaming dashboard.
 
-**v2.1.0** — public demo on [Hugging Face Spaces](https://huggingface.co/spaces/sidb078/Anima) (TinyLlama hero). **v2.0.0** — multi-model council benchmarks, stability gating, intervention mode, Docker stack. See [v2 release notes](docs/V2_RELEASE.md).
+**v2.1.0** — public demo on [Hugging Face Spaces](https://huggingface.co/spaces/sidb078/Anima) (Qwen demo hero + TinyLlama council best). **v2.0.0** — multi-model council benchmarks, stability gating, intervention mode, Docker stack. See [v2 release notes](docs/V2_RELEASE.md).
 
 **Hero model for demos:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (council 94, strongest prompt separation). Lead with **text-emotion probes** and council validation — not “brain-aligned” claims (synthetic brain holdout for distilgpt2 is negative; see benchmark table).
 
@@ -129,7 +129,7 @@ curl -X POST http://127.0.0.1:8010/generate \
 
 Default model for low RAM: `hf-internal-testing/tiny-random-gpt2` (decoded text is intentionally noisy; pipeline still runs).
 
-**Public demo:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima) (TinyLlama hero, Gradio).
+**Public demo:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima) (default **Qwen2.5-0.5B**; switch to **TinyLlama** for council-best).
 
 ![Live emotion readouts on the dashboard](docs/images/dashboard-readout-example.png)
 
@@ -215,7 +215,7 @@ python scripts/generate_benchmark_charts.py
 
 \*Placeholder council score (missing manifest — model not run without `huggingface-cli login`).
 
-**Takeaways:** **TinyLlama** is the **demo hero** (council 94, strongest prompt gap 0.49, negative prompts reach −0.18 valence). **Qwen** is a strong backup instruct demo (GoE r≈0.24) but weak negative separation. **distilgpt2** text probe is OK; **do not lead with brain** (synthetic holdout r negative). **SmolLM2** fails the publication bar — honest failure case only. Guard AUROC 1.0 is **fixture-policy smoke**, not hallucination detection.
+**Takeaways:** **Qwen2.5-0.5B** is the **Space demo hero** (default). **TinyLlama** stays the **council leader** (94, strongest prompt gap 0.49, negative prompts reach −0.18 valence). **Qwen** is a strong instruct demo (GoE r≈0.24) but weaker negative separation. **distilgpt2** text probe is OK; **do not lead with brain** (synthetic holdout r negative). **SmolLM2** fails the publication bar — honest failure case only. Guard AUROC 1.0 is **fixture-policy smoke**, not hallucination detection.
 
 **Live demo:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima)
 
