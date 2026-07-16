@@ -8,6 +8,8 @@ from pathlib import Path
 
 _DIST = Path(__file__).resolve().parent / "dashboard_dist"
 
+# HF ignores launch(ssr_mode=False); env must be set before Gradio import.
+os.environ["GRADIO_SSR_MODE"] = "false"
 os.environ.setdefault("ANIMA_PUBLIC_MODE", "1")
 os.environ.setdefault("ANIMA_FORCE_CPU", "1")
 os.environ.setdefault("ANIMA_WARMUP_MODEL", "")
@@ -43,7 +45,7 @@ except Exception as _exc:
 
 import gradio as gr
 import spaces
-from gradio import routes as gr_routes
+import uvicorn
 
 from api.server import app as anima_api
 
@@ -59,47 +61,30 @@ with gr.Blocks(title="Anima GPU bridge") as demo:
     _out = gr.Textbox()
     _in.submit(_zero_gpu_ping, _in, _out)
 
-
-_ORIG_CREATE = gr_routes.App.create_app
-
-
-def _create_app(demo_obj, **kwargs):
-    gr_app = _ORIG_CREATE(demo_obj, **kwargs)
-    already = any(getattr(r, "path", None) == "/gradio" for r in anima_api.router.routes)
-    if not already:
-        anima_api.mount("/gradio", gr_app)
-    print("Anima: host=FastAPI dashboard+API; Gradio bridge at /gradio", flush=True)
-    return anima_api
-
-
-gr_routes.App.create_app = staticmethod(_create_app)  # type: ignore[method-assign]
-
 demo.queue(default_concurrency_limit=2)
 
-
-def _launch(*args, **kwargs):
-    kwargs["server_name"] = "0.0.0.0"
-    kwargs["server_port"] = int(os.environ.get("PORT") or "7860")
-    kwargs["ssr_mode"] = False
-    kwargs["share"] = False
-    kwargs["inline"] = False
-    kwargs["prevent_thread_lock"] = True
-    print("Anima: Gradio launch → FastAPI dashboard host", flush=True)
-    try:
-        gr.blocks.Blocks.launch(demo, *args, **kwargs)
-    except ValueError as exc:
-        print(f"Anima: Gradio launch ValueError ({exc}); uvicorn fallback", flush=True)
-        import uvicorn
-
-        port = int(os.environ.get("PORT") or "7860")
-        uvicorn.run(anima_api, host="0.0.0.0", port=port, log_level="info")
-        return
-    # Gradio often returns immediately with prevent_thread_lock — keep the process alive.
-    print("Anima: server thread running; blocking main", flush=True)
-    import time
-
-    while True:
-        time.sleep(3600)
+# FastAPI hosts the React dashboard + API; Gradio is only the ZeroGPU bridge.
+app = gr.mount_gradio_app(anima_api, demo, path="/gradio")
+print("Anima: host=FastAPI dashboard+API; Gradio bridge at /gradio", flush=True)
 
 
-demo.launch = _launch  # type: ignore[method-assign]
+def _serve(*_args, **_kwargs) -> None:
+    port = int(os.environ.get("PORT") or os.environ.get("GRADIO_SERVER_PORT") or "7860")
+    print(f"Anima: uvicorn serving dashboard on 0.0.0.0:{port}", flush=True)
+    uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
+
+
+# HF Spaces often calls Blocks.launch on the class, not the instance attribute.
+_ORIG_BLOCKS_LAUNCH = gr.Blocks.launch
+
+
+def _blocks_launch(self, *args, **kwargs):
+    print("Anima: Blocks.launch → blocking uvicorn", flush=True)
+    _serve()
+
+
+gr.Blocks.launch = _blocks_launch  # type: ignore[method-assign]
+demo.launch = _serve  # type: ignore[method-assign]
+
+if __name__ == "__main__":
+    _serve()
