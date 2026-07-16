@@ -1,3 +1,2 @@
 git+https://github.com/Siddarthb07/Anima.git
-gradio==4.44.1
-huggingface_hub>=0.23.2,<0.28.0
+gradio>=5.9.0,<6

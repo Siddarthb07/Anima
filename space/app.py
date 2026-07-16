@@ -233,4 +233,8 @@ except Exception as exc:
     )
 
 if __name__ == "__main__":
-    demo.launch()
+    # HF Spaces / ZeroGPU run this as __main__; bind all interfaces.
+    demo.launch(
+        server_name="0.0.0.0",
+        server_port=int(os.environ.get("GRADIO_SERVER_PORT", os.environ.get("PORT", "7860"))),
+    )
