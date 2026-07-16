@@ -204,8 +204,22 @@ def build_ui():
     return ui
 
 
-# HF Gradio SDK loads this symbol.
-demo = build_ui()
+# HF Gradio SDK loads this symbol — build lazily so import errors surface clearly.
+try:
+    demo = build_ui()
+except Exception as exc:
+    import traceback
+
+    print("Anima Space UI failed to build:", flush=True)
+    traceback.print_exc()
+    import gradio as gr
+
+    demo = gr.Interface(
+        fn=lambda: f"UI build failed: {exc}",
+        inputs=[],
+        outputs="text",
+        title="Anima (error)",
+    )
 
 if __name__ == "__main__":
     demo.launch()
