@@ -8,7 +8,7 @@ sdk_version: 5.9.1
 app_file: app.py
 pinned: false
 license: mit
-short_description: Token-level valence & arousal readouts from LLM hidden states
+short_description: Token-level valence & arousal from LLM hidden states
 ---
 
 # Anima
