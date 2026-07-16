@@ -70,5 +70,18 @@ gr_routes.App.create_app = staticmethod(_create_app)  # type: ignore[method-assi
 
 demo.queue(default_concurrency_limit=2)
 
+_orig_launch = demo.launch
+
+
+def _launch(*args, **kwargs):
+    kwargs.setdefault("server_name", "0.0.0.0")
+    kwargs.setdefault("server_port", int(os.environ.get("PORT", "7860")))
+    kwargs["ssr_mode"] = False
+    kwargs["share"] = False
+    return _orig_launch(*args, **kwargs)
+
+
+demo.launch = _launch  # type: ignore[method-assign]
+
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=7860)
+    _launch()
