@@ -104,7 +104,13 @@ export default function App() {
           <div>
             <h1 className="text-xl font-bold tracking-tight text-white">anima</h1>
             <p className="text-sm text-slate-400">
-              Dimensional readout dashboard — not claims that the model &quot;feels&quot; anything.
+              Dimensional readout dashboard — valence (pleasant↔unpleasant) and arousal (calm↔activated)
+              from hidden-state probes. Not claims that the model &quot;feels&quot; anything.
+            </p>
+            <p className="mt-1 text-xs text-slate-500">
+              Default model: <span className="text-accent-cyan">Qwen2.5-0.5B</span> (demo hero). Also try{" "}
+              <span className="text-amber-300">TinyLlama</span> (best council score 94). Avoid tiny-gpt2 —
+              smoke test only (nonsense text).
             </p>
           </div>
           <div className="font-mono text-xs text-slate-500">WS {wsUrl}</div>

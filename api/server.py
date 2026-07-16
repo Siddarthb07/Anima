@@ -547,7 +547,10 @@ def _mount_dashboard_if_configured() -> None:
 
     @app.get("/{full_path:path}")
     async def dashboard_spa(full_path: str):
-        # API routes (/health, /models, /generate, /ws, …) are registered above and win.
+        # Leave Gradio ZeroGPU bridge and OpenAPI alone.
+        head = full_path.split("/", 1)[0]
+        if head in {"gradio", "docs", "redoc", "openapi.json"}:
+            raise HTTPException(status_code=404, detail="not_found")
         candidate = dist / full_path
         if full_path and candidate.is_file():
             return FileResponse(candidate)
