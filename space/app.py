@@ -14,9 +14,10 @@ from typing import Any
 
 # Public demo defaults on Space.
 os.environ.setdefault("ANIMA_PUBLIC_MODE", "1")
-os.environ.setdefault("ANIMA_FORCE_CPU", "1")
-
 _ON_HF_SPACE = bool(os.environ.get("SPACE_ID"))
+# Local / CPU Spaces only — ZeroGPU allocates CUDA inside @spaces.GPU.
+if not _ON_HF_SPACE:
+    os.environ.setdefault("ANIMA_FORCE_CPU", "1")
 
 _RELEASE_PROBE_ASSETS = (
     "tiny_random_gpt2_text.pt",
@@ -159,6 +160,16 @@ def run_readout(
     if len(trace_lines) > 40:
         trace += f"\n... ({len(trace_lines) - 40} more tokens)"
     return text, summary, trace
+
+
+# ZeroGPU Spaces require at least one @spaces.GPU entrypoint at import time.
+if _ON_HF_SPACE:
+    try:
+        import spaces
+
+        run_readout = spaces.GPU(duration=120)(run_readout)  # type: ignore[misc]
+    except Exception as exc:
+        print(f"Anima: spaces.GPU wrap skipped: {exc}", flush=True)
 
 
 def build_ui():
