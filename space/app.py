@@ -83,8 +83,23 @@ def _launch(*args, **kwargs):
     kwargs["ssr_mode"] = False
     kwargs["share"] = False
     kwargs["inline"] = False
+    kwargs["prevent_thread_lock"] = True
     print("Anima: Gradio launch → FastAPI dashboard host", flush=True)
-    return gr.blocks.Blocks.launch(demo, *args, **kwargs)
+    try:
+        gr.blocks.Blocks.launch(demo, *args, **kwargs)
+    except ValueError as exc:
+        print(f"Anima: Gradio launch ValueError ({exc}); uvicorn fallback", flush=True)
+        import uvicorn
+
+        port = int(os.environ.get("PORT") or "7860")
+        uvicorn.run(anima_api, host="0.0.0.0", port=port, log_level="info")
+        return
+    # Gradio often returns immediately with prevent_thread_lock — keep the process alive.
+    print("Anima: server thread running; blocking main", flush=True)
+    import time
+
+    while True:
+        time.sleep(3600)
 
 
 demo.launch = _launch  # type: ignore[method-assign]
