@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import time
 import urllib.request
 from pathlib import Path
 
@@ -45,7 +46,7 @@ except Exception as _exc:
 
 import gradio as gr
 import spaces
-import uvicorn
+from gradio import routes as gr_routes
 
 from api.server import app as anima_api
 
@@ -63,28 +64,51 @@ with gr.Blocks(title="Anima GPU bridge") as demo:
 
 demo.queue(default_concurrency_limit=2)
 
-# FastAPI hosts the React dashboard + API; Gradio is only the ZeroGPU bridge.
-app = gr.mount_gradio_app(anima_api, demo, path="/gradio")
-print("Anima: host=FastAPI dashboard+API; Gradio bridge at /gradio", flush=True)
+# Gradio's ZeroGPU startup path must call create_app so @spaces.GPU is detected.
+# We return the FastAPI dashboard host with Gradio mounted under /gradio.
+_ORIG_CREATE = gr_routes.App.create_app
 
 
-def _serve(*_args, **_kwargs) -> None:
-    port = int(os.environ.get("PORT") or os.environ.get("GRADIO_SERVER_PORT") or "7860")
-    print(f"Anima: uvicorn serving dashboard on 0.0.0.0:{port}", flush=True)
-    uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
+def _create_app(demo_obj, **kwargs):
+    gr_app = _ORIG_CREATE(demo_obj, **kwargs)
+    already = any(getattr(r, "path", None) == "/gradio" for r in anima_api.router.routes)
+    if not already:
+        anima_api.mount("/gradio", gr_app)
+    print("Anima: host=FastAPI dashboard+API; Gradio bridge at /gradio", flush=True)
+    return anima_api
 
 
-# HF Spaces often calls Blocks.launch on the class, not the instance attribute.
+gr_routes.App.create_app = staticmethod(_create_app)  # type: ignore[method-assign]
+
 _ORIG_BLOCKS_LAUNCH = gr.Blocks.launch
 
 
 def _blocks_launch(self, *args, **kwargs):
-    print("Anima: Blocks.launch → blocking uvicorn", flush=True)
-    _serve()
+    """HF calls class-level Blocks.launch; keep ZeroGPU detection + stay alive."""
+    kwargs["server_name"] = "0.0.0.0"
+    kwargs["server_port"] = int(os.environ.get("PORT") or "7860")
+    kwargs["ssr_mode"] = False
+    kwargs["share"] = False
+    kwargs["inline"] = False
+    # Must block (or sleep after) — prevent_thread_lock=True exits the Space with code 0.
+    kwargs["prevent_thread_lock"] = False
+    print("Anima: Gradio Blocks.launch (blocking, ZeroGPU-safe)", flush=True)
+    try:
+        return _ORIG_BLOCKS_LAUNCH(self, *args, **kwargs)
+    except ValueError as exc:
+        print(f"Anima: Gradio launch ValueError ({exc}); uvicorn fallback", flush=True)
+        import uvicorn
+
+        uvicorn.run(anima_api, host="0.0.0.0", port=int(os.environ.get("PORT") or "7860"))
+        return None
+    # If Gradio still returns, never exit.
+    print("Anima: launch returned; keeping process alive", flush=True)
+    while True:
+        time.sleep(3600)
 
 
 gr.Blocks.launch = _blocks_launch  # type: ignore[method-assign]
-demo.launch = _serve  # type: ignore[method-assign]
+demo.launch = lambda *a, **k: _blocks_launch(demo, *a, **k)  # type: ignore[method-assign]
 
 if __name__ == "__main__":
-    _serve()
+    _blocks_launch(demo)
