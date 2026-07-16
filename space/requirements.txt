@@ -1,2 +1,0 @@
-git+https://github.com/Siddarthb07/Anima.git
-gradio>=5.9.0,<6

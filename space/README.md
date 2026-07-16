@@ -3,19 +3,20 @@ title: Anima
 emoji: ⚡
 colorFrom: blue
 colorTo: pink
-sdk: gradio
-sdk_version: 5.9.1
-app_file: app.py
+sdk: docker
+app_port: 7860
 pinned: false
 license: mit
-short_description: Explain valence & arousal probes on Qwen + TinyLlama
+short_description: Original Anima dashboard — Qwen + TinyLlama probes
 ---
 
-# Anima
+# Anima (original dashboard)
 
-**What it is:** token-level **valence** (pleasant↔unpleasant) and **arousal** (calm↔activated) readouts from LLM hidden states via linear probes — not claims that models feel.
+This Space runs the **real Anima stack**: FastAPI + the React dashboard from
+[`Siddarthb07/Anima`](https://github.com/Siddarthb07/Anima) (`dashboard/`).
 
-**Demo hero (default):** `Qwen/Qwen2.5-0.5B-Instruct`  
-**Council best:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (score 94) — switch in the dropdown.
+**Default model:** `Qwen/Qwen2.5-0.5B-Instruct`  
+**Also available:** TinyLlama (best council score), tiny-gpt2 (smoke only — nonsense text).
 
-**Repo:** [github.com/Siddarthb07/Anima](https://github.com/Siddarthb07/Anima)
+Not a claim that models feel emotions — see
+[USAGE_AND_LIMITATIONS](https://github.com/Siddarthb07/Anima/blob/main/docs/USAGE_AND_LIMITATIONS.md).

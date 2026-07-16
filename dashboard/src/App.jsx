@@ -27,10 +27,18 @@ function httpTargetToWsBase(http) {
 }
 
 function wsBaseUrl() {
-  if (import.meta.env.DEV) {
-    const forceDirect =
-      import.meta.env.VITE_WS_DIRECT === "1" || import.meta.env.VITE_WS_DIRECT === "true";
-    if (!forceDirect) {
+  const sameOrigin =
+    import.meta.env.VITE_SAME_ORIGIN === "1" || import.meta.env.VITE_SAME_ORIGIN === "true";
+
+  if (import.meta.env.DEV || sameOrigin) {
+    if (import.meta.env.DEV) {
+      const forceDirect =
+        import.meta.env.VITE_WS_DIRECT === "1" || import.meta.env.VITE_WS_DIRECT === "true";
+      if (!forceDirect) {
+        const proto = window.location.protocol === "https:" ? "wss" : "ws";
+        return `${proto}://${window.location.host}`;
+      }
+    } else {
       const proto = window.location.protocol === "https:" ? "wss" : "ws";
       return `${proto}://${window.location.host}`;
     }

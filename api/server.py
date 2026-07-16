@@ -523,3 +523,35 @@ async def ws_generate(websocket: WebSocket):
             await websocket.close(code=1011)
         return
     await websocket.close()
+
+
+def _mount_dashboard_if_configured() -> None:
+    """Serve the React dashboard from the same origin (HF Space / single-container)."""
+    raw = os.environ.get("ANIMA_SERVE_DASHBOARD", "").strip()
+    if not raw:
+        return
+    dist = Path(raw)
+    if not dist.is_dir():
+        print(f"ANIMA_SERVE_DASHBOARD missing: {dist}")
+        return
+    from fastapi.responses import FileResponse
+    from fastapi.staticfiles import StaticFiles
+
+    assets = dist / "assets"
+    if assets.is_dir():
+        app.mount("/assets", StaticFiles(directory=str(assets)), name="dashboard-assets")
+
+    @app.get("/")
+    async def dashboard_index():
+        return FileResponse(dist / "index.html")
+
+    @app.get("/{full_path:path}")
+    async def dashboard_spa(full_path: str):
+        # API routes (/health, /models, /generate, /ws, …) are registered above and win.
+        candidate = dist / full_path
+        if full_path and candidate.is_file():
+            return FileResponse(candidate)
+        return FileResponse(dist / "index.html")
+
+
+_mount_dashboard_if_configured()
