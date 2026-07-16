@@ -13,7 +13,7 @@ from pathlib import Path
 os.environ.setdefault("ANIMA_PUBLIC_MODE", "1")
 # ZeroGPU only wraps @spaces.GPU Gradio fns — dashboard API runs on CPU.
 os.environ.setdefault("ANIMA_FORCE_CPU", "1")
-os.environ.setdefault("ANIMA_WARMUP_MODEL", "Qwen/Qwen2.5-0.5B-Instruct")
+os.environ.setdefault("ANIMA_WARMUP_MODEL", "")  # load Qwen on first request (faster boot)
 os.environ.setdefault("ANIMA_MAX_NEW_TOKENS", "64")
 
 _DIST = Path(__file__).resolve().parent / "dashboard_dist"
@@ -70,10 +70,12 @@ app = gr.mount_gradio_app(fastapi_app, demo, path="/gradio")
 
 
 def _launch_asgi(*_a, **_k):
-    """HF Gradio SDK calls demo.launch(); serve FastAPI+dashboard instead."""
+    """HF Gradio SDK calls demo.launch(); serve FastAPI+dashboard on the public port."""
     import uvicorn
 
-    port = int(os.environ.get("GRADIO_SERVER_PORT") or os.environ.get("PORT") or "7860")
+    # HF Spaces expose 7860; ignore Gradio's internal 7861 default when already bound.
+    port = int(os.environ.get("PORT") or "7860")
+    print(f"Anima: serving dashboard+API on 0.0.0.0:{port}", flush=True)
     uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
 
 
