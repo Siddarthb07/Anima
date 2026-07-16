@@ -2,7 +2,7 @@
 title: Anima Readout Demo
 emoji: 🧠
 colorFrom: blue
-colorTo: cyan
+colorTo: indigo
 sdk: gradio
 sdk_version: 4.44.1
 app_file: app.py
