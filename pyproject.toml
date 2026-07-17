@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "anima"
-version = "2.0.0"
+version = "2.1.0"
 description = "Read emotion-style valence/arousal readouts from Hugging Face LLMs per token — probes, benchmarks, FastAPI, and dashboard (research tooling, not clinical)."
 readme = "README.md"
 license = "MIT"

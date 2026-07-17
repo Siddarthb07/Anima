@@ -1,4 +1,27 @@
-# Anima v2.0.0 — Release notes
+# Anima v2 — Release notes
+
+## v2.1.0 — Public demo release
+
+**Release date:** 2026-07-17  
+**Previous stable tag:** [v2.0.0](https://github.com/Siddarthb07/Anima/releases/tag/v2.0.0)
+
+v2.1.0 is the adoption release: Anima now runs as a public, zero-install demo on Hugging Face Spaces, with the full React dashboard, FastAPI backend, and streaming readouts hosted on ZeroGPU hardware. No probe weights or readout semantics changed — v2.0.0 checkpoints remain current.
+
+### Highlights
+
+- **Live public demo:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima) — the original dashboard (circumplex, token stream, uncertainty decomposition, stability, layer disagreement, fMRI surrogate sketch) served from a single Space.
+- **Space architecture** (`space/app.py`): FastAPI hosts the built dashboard and API routes; Gradio is mounted under `/gradio` so ZeroGPU detects the `@spaces.GPU` entrypoint. Launch sequencing is hardened for ZeroGPU (blocking launch, SSR disabled, uvicorn fallback).
+- **Demo models:** Qwen2.5-0.5B-Instruct (default Space hero), TinyLlama-1.1B-Chat (council best, 94.0), tiny-random-gpt2 (plumbing tier).
+- **Public-mode security:** `ANIMA_PUBLIC_MODE` request limits, model allowlist, API-key support, and path sanitization (`core/limits.py`); public demo prefers text checkpoints.
+- **Deploy pipeline:** `scripts/deploy_hf_space.py` + `deploy-hf-space` workflow (fails fast on missing `HF_TOKEN`).
+- **Benchmarks/docs:** refreshed TinyLlama manifest and POC demo report; README leads with the TinyLlama hero path and live Space link.
+- **Dependencies:** dashboard on React 19 + Tailwind 4 + recharts 3; CI actions bumped; `accelerate` added for `device_map` loading.
+
+Readouts remain **instrumentation** — guard AUROC on fixtures is policy smoke, not hallucination detection, and brain probes stay on the synthetic-minimal tier (real ds002345 is v3.0.0+).
+
+---
+
+## v2.0.0
 
 **Release date:** 2026-07-06  
 **Previous stable tag:** [v1.1.0](https://github.com/Siddarthb07/Anima/releases/tag/v1.1.0)

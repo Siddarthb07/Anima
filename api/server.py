@@ -54,7 +54,7 @@ from probes.zoo_io import (
     tribe_weights_path,
 )
 
-APP_VERSION = "2.0.0"
+APP_VERSION = "2.1.0"
 
 
 @asynccontextmanager
