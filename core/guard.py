@@ -4,11 +4,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass, asdict
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Optional, Sequence
 
 import torch
 
 from probes.validate import hedge_score
+
+# Signals that can be disabled for ablation studies.
+ABLATION_SIGNALS = (
+    "fused",
+    "probe_uncertainty",
+    "hedging",
+)
 
 
 @dataclass
@@ -43,8 +50,16 @@ def evaluate_guard(
     token_text: str = "",
     calibrator: Optional[Any] = None,
     abstain_regions: bool = True,
+    disabled_signals: Optional[Sequence[str]] = None,
 ) -> GuardDecision:
+    """
+    Multi-signal abstain policy.
+
+    ``disabled_signals`` (ablation): any of ``fused``, ``probe_uncertainty``, ``hedging``
+    are ignored when listed — composite and reasons recompute without them.
+    """
     th = _load_thresholds()
+    disabled = {s.strip().lower() for s in (disabled_signals or ()) if s}
     fused = float(uncertainty_signals.get("fused", 0.5))
     probe_u = float(affect.get("uncertainty", 0.5))
     reasons: list[str] = []
@@ -56,17 +71,31 @@ def evaluate_guard(
     else:
         fused_cal = fused
 
-    composite = round(0.55 * fused_cal + 0.45 * probe_u, 4)
-    hedge = hedge_score(token_text)
+    use_fused = "fused" not in disabled
+    use_probe = "probe_uncertainty" not in disabled
+    use_hedge = "hedging" not in disabled
 
-    if fused_cal >= th.get("fused_abstain", 0.82):
+    # Reweight composite when ablating so remaining signals stay on [0,1].
+    if use_fused and use_probe:
+        composite = round(0.55 * fused_cal + 0.45 * probe_u, 4)
+    elif use_fused:
+        composite = round(fused_cal, 4)
+    elif use_probe:
+        composite = round(probe_u, 4)
+    else:
+        composite = 0.0
+
+    hedge = hedge_score(token_text) if use_hedge else 0
+
+    if use_fused and fused_cal >= th.get("fused_abstain", 0.82):
         reasons.append("high_fused_uncertainty")
-    if probe_u >= th.get("probe_uncertainty_abstain", 0.78):
+    if use_probe and probe_u >= th.get("probe_uncertainty_abstain", 0.78):
         reasons.append("high_probe_uncertainty")
-    if hedge >= th.get("hedge_words_threshold", 2):
+    if use_hedge and hedge >= th.get("hedge_words_threshold", 2):
         reasons.append("lexical_hedging")
 
-    abstain = len(reasons) >= 2 or fused_cal >= th.get("fused_abstain", 0.82)
+    abstain_fused = use_fused and fused_cal >= th.get("fused_abstain", 0.82)
+    abstain = len(reasons) >= 2 or abstain_fused
 
     if composite < 0.4:
         tier = "HIGH"

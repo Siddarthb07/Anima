@@ -16,18 +16,21 @@ LAYER_CONFIG = {
         "hidden_dim": 2048,
         "has_sae": False,
         "family": "llama",
+        "use_chat_template": True,
     },
     "Qwen/Qwen2.5-0.5B-Instruct": {
         "layers": [6, 12, 18],
         "hidden_dim": 896,
         "has_sae": False,
         "family": "qwen",
+        "use_chat_template": True,
     },
     "HuggingFaceTB/SmolLM2-1.7B-Instruct": {
         "layers": [6, 12, 18],
         "hidden_dim": 2048,
         "has_sae": False,
         "family": "mistral",
+        "use_chat_template": True,
     },
     # Gated on HF — use after: huggingface-cli login
     "meta-llama/Llama-3.2-1B-Instruct": {
@@ -36,6 +39,7 @@ LAYER_CONFIG = {
         "has_sae": False,
         "family": "llama",
         "gated": True,
+        "use_chat_template": True,
     },
     "google/gemma-2-2b-it": {
         "layers": [6, 13, 20],
@@ -43,6 +47,7 @@ LAYER_CONFIG = {
         "has_sae": False,
         "family": "gemma",
         "gated": True,
+        "use_chat_template": True,
     },
     "meta-llama/Meta-Llama-3-8B": {
         "layers": [8, 16, 24, 28],
@@ -59,6 +64,7 @@ LAYER_CONFIG = {
         "sae_release": "llama_scope_lxr_8x",
         "family": "llama",
         "requires_gpu": True,
+        "use_chat_template": True,
     },
     "mistralai/Mistral-7B-v0.1": {
         "layers": [8, 16, 24],
@@ -73,6 +79,7 @@ LAYER_CONFIG = {
         "has_sae": False,
         "family": "mistral",
         "requires_gpu": True,
+        "use_chat_template": True,
     },
     "Qwen/Qwen2-7B": {
         "layers": [7, 14, 22],
@@ -87,6 +94,7 @@ LAYER_CONFIG = {
         "has_sae": False,
         "family": "qwen",
         "requires_gpu": True,
+        "use_chat_template": True,
     },
     "google/gemma-2-9b": {
         "layers": [9, 18, 28],
@@ -103,5 +111,6 @@ LAYER_CONFIG = {
         "sae_release": "gemma-scope-9b-pt-res",
         "family": "gemma",
         "requires_gpu": True,
+        "use_chat_template": True,
     },
 }

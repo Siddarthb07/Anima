@@ -1,0 +1,215 @@
+{
+  "status": "ok",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "generated_at": "2026-07-18T12:09:30.674486+00:00",
+  "available_ablation_signals": [
+    "fused",
+    "probe_uncertainty",
+    "hedging"
+  ],
+  "halueval": {
+    "label_key": "is_hallucination",
+    "ablations": {
+      "full": {
+        "disabled_signals": [],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.2469,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "no_fused": {
+        "disabled_signals": [
+          "fused"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5228,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "no_probe_uncertainty": {
+        "disabled_signals": [
+          "probe_uncertainty"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.2487,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "no_hedging": {
+        "disabled_signals": [
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.2469,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "fused_only": {
+        "disabled_signals": [
+          "probe_uncertainty",
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.2487,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "probe_only": {
+        "disabled_signals": [
+          "fused",
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5228,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "hedging_only": {
+        "disabled_signals": [
+          "fused",
+          "probe_uncertainty"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      }
+    },
+    "source": "live_cached",
+    "n_rows": 80
+  },
+  "truthfulqa": {
+    "label_key": "should_abstain",
+    "ablations": {
+      "full": {
+        "disabled_signals": [],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.4587,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "no_fused": {
+        "disabled_signals": [
+          "fused"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.6569,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "no_probe_uncertainty": {
+        "disabled_signals": [
+          "probe_uncertainty"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.4391,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "no_hedging": {
+        "disabled_signals": [
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.4587,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "fused_only": {
+        "disabled_signals": [
+          "probe_uncertainty",
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.4391,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "probe_only": {
+        "disabled_signals": [
+          "fused",
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.6569,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      },
+      "hedging_only": {
+        "disabled_signals": [
+          "fused",
+          "probe_uncertainty"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40
+      }
+    },
+    "source": "live_cached",
+    "n_rows": 80
+  },
+  "baselines": {
+    "n": 80,
+    "auroc_anima_composite": 0.2469,
+    "auroc_fused_only": 0.2487,
+    "auroc_entropy_only": 0.1491,
+    "abstain_full": {
+      "abstain_accuracy": 0.5,
+      "auroc_composite": 0.2469,
+      "n_samples": 80,
+      "tp": 0,
+      "fp": 0,
+      "tn": 40,
+      "fn": 40
+    },
+    "source": "live_cached"
+  },
+  "semantic_entropy_summary": {
+    "n_questions": 12,
+    "mean_semantic_entropy": 0.8545,
+    "note": "Mean SE over free generations; no per-question hallucination label, so AUROC is not claimed. Claim-level AUROCs are under baselines/ablations."
+  }
+}

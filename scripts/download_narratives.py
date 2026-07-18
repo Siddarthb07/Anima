@@ -1,4 +1,4 @@
-"""Pointer script for OpenNeuro ds002345 (Narratives) layout expected by alignment/narratives_loader.py."""
+"""Pointer + layout verifier for OpenNeuro ds002345 (Narratives)."""
 
 from __future__ import annotations
 
@@ -6,38 +6,55 @@ import argparse
 from pathlib import Path
 
 EXPECTED = """
-Narratives (ds002345) — minimal dev subset
-==========================================
+Narratives (ds002345) — layout expected by alignment/narratives_loader.py
+=======================================================================
 
-1. Install OpenNeuro CLI or download from https://openneuro.org/datasets/ds002345
-2. Point NARRATIVES_ROOT at the dataset root containing per-story folders.
+Download: https://openneuro.org/datasets/ds002345
+Docs:     scripts/download_narratives.md
+Validate: python scripts/validate_narratives_root.py --root <path>
 
-Expected layout (see alignment/narratives_loader.py):
-  {NARRATIVES_ROOT}/pieman/...
-  {NARRATIVES_ROOT}/tunnel/...
-  {NARRATIVES_ROOT}/lucy/...
+Expected layout:
+  {NARRATIVES_ROOT}/
+    stimuli/
+      pieman.txt
+      pieman_words.json
+      tunnel.txt
+      tunnel_words.json
+      lucy.txt
+      lucy_words.json
+    sub-XXX/
+      func/
+        sub-XXX_task-pieman_*_bold.nii.gz
+        ...
 
-Train:
-  set NARRATIVES_ROOT=C:\\path\\to\\ds002345
+NOT valid: top-level per-story folders like {root}/pieman/... (older docs were wrong).
+
+Train (after validate layout_ok=true and NOT synthetic):
+  set NARRATIVES_ROOT=C:\\path\\to\\ds002345_subset
   anima train --narratives-root %NARRATIVES_ROOT% --model distilgpt2
 
-Full download is large (~100GB+). Use OpenNeuro selective download for story subsets only.
-See also: scripts/download_narratives.md
+Disk: laptop subset ~15–40 GB; full OpenNeuro dump ~100GB+.
 """
 
 
 def main() -> None:
     p = argparse.ArgumentParser(description="Narratives dataset setup helper")
-    p.add_argument("--root", type=Path, default=None, help="Verify this path exists")
+    p.add_argument("--root", type=Path, default=None, help="Validate this path")
     args = p.parse_args()
     print(EXPECTED)
     if args.root:
-        root = args.root.expanduser()
-        if root.is_dir():
-            stories = [d.name for d in root.iterdir() if d.is_dir()]
-            print(f"Found root {root} with subdirs: {', '.join(sorted(stories)[:12])}")
-        else:
-            print(f"Path not found: {root}")
+        import importlib.util
+
+        vpath = Path(__file__).resolve().parent / "validate_narratives_root.py"
+        spec = importlib.util.spec_from_file_location("validate_narratives_root", vpath)
+        mod = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(mod)
+        report = mod.validate_root(args.root.expanduser())
+        print(f"layout_ok={report['layout_ok']} subjects={report['n_subjects']}")
+        print(f"probe_origin={report['recommended_probe_origin']}")
+        for issue in report["issues"]:
+            print(f"  - {issue}")
 
 
 if __name__ == "__main__":

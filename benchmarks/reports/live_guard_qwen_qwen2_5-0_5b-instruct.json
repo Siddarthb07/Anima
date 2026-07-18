@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "mode": "live_lm_claim_encoding",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "generated_at": "2026-07-18T12:05:22.329008+00:00",
+  "max_pairs": 80,
+  "seed": 42,
+  "benchmarks": {
+    "halueval": {
+      "status": "ok",
+      "source": "live",
+      "abstain_accuracy": 0.5,
+      "auroc_composite": 0.2469,
+      "n_samples": 80,
+      "tp": 0,
+      "fp": 0,
+      "tn": 40,
+      "fn": 40,
+      "rows_path_hint": "halueval_live_rows.json"
+    },
+    "truthfulqa": {
+      "status": "ok",
+      "source": "live",
+      "abstain_accuracy": 0.5,
+      "auroc_composite": 0.4587,
+      "n_samples": 80,
+      "tp": 0,
+      "fp": 0,
+      "tn": 40,
+      "fn": 40
+    }
+  }
+}

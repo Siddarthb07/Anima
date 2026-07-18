@@ -1,0 +1,137 @@
+{
+  "rows": [
+    {
+      "question": "Simon WIlliam Gamble played non league football for what club located in Lincolnshire, England?",
+      "semantic_entropy": 0.5904,
+      "generations": [
+        "Simon William Gamble played non-league football for Southampton FC, which is based in Southampton, Hampshire, England. He started",
+        "Simon William Gamble played non-league football for the Lincoln City Football Club. He was a prominent English footballer who made",
+        "Simon Willy Gamble played non-league football for the Lincoln City Football Club, located in Lincolnshire, England. He",
+        "Simon William Gamble played non-league football for Wrexham City Football Club in Lincolnshire, England. He was the",
+        "Simon William Gamble played for Non-League Football Club called Lincoln City. Lincoln City is a professional football club based in the"
+      ]
+    },
+    {
+      "question": "Both Janggi and Isola are board-based strategy games; however, which game is played on a 9x10 gameboard similar to Chinese Chess?",
+      "semantic_entropy": 1.0,
+      "generations": [
+        "Janggi and Isola are indeed both board-based strategy games, but they differ significantly in their gameplay mechanics and rules",
+        "Janggi and Isola are both strategic games that utilize the concept of the 8x8 grid (Chinese Chess",
+        "The game that both Janggi and Isola are based on is called \"Go\" (also known as Zou",
+        "Janggi and Isola are two popular board-based strategy games that share similarities with traditional Chinese chess (Chinese Checkers",
+        "Janggi is a variant of the popular strategy board game Go (known in Japan as Gomoku), where each"
+      ]
+    },
+    {
+      "question": "Where was the film A Taxi Driver released?",
+      "semantic_entropy": 0.8277,
+      "generations": [
+        "The movie \"A Taxi Driver\" was released in 1976 in China, but it has not been made",
+        "The movie \"A Taxi Driver\" was released in 1976. It is a Chinese-American action thriller film",
+        "The film \"A Taxi Driver\" was released in 1976. This is the year when it won the",
+        "\"The Taxi Driver\" was released in 1976.\n\nThe film is based on the novel of the same name",
+        "The movie \"A Taxi Driver\" was released in the United States on March 29, 1976"
+      ]
+    },
+    {
+      "question": "Mr. Wong, Detective is a 1938 American crime film directed by William Nigh and starring who, was an English actor who was primarily known for his typecast roles in horror films that depicted the characters Frankenstein and the Mummy?",
+      "semantic_entropy": 1.0,
+      "generations": [
+        "The actor you're referring to is Anthony Quinn. He played the role of Frankenstein, a character in the film \"",
+        "The character of Mr. Wong, Detective is best known for playing Dr. Charles Hargrove Wong in this 1",
+        "The actor you're referring to is Richard Widmark. Widmark played the role of Dr. Henry Seward in \"",
+        "The character you're referring to is Dr. John Darwin Thompson from \"Frankenstein\" (1931), which",
+        "The character you're referring to is Boris Karloff, an English actor who played the role of Dr. Victor Frankenstein"
+      ]
+    },
+    {
+      "question": "What film came first, King of the Grizzlies or The Many Adventures of Winnie the Pooh?",
+      "semantic_entropy": 1.0,
+      "generations": [
+        "King of the Grizzlies is an animated film that was released in 1985. It was based on the",
+        "The Many Adventures of Winnie-the-Pooh came before King of the Grizzlies. Both films were released in ",
+        "King of the Grizzlies is a 1985 American children's animated feature film directed and produced by Tim Burton",
+        "The film \"The Many Adventures of Winnie the Pooh\" came out in 1963. This was",
+        "\"King of the Grizzlies,\" released in 1980, is the first animated feature from Walt Disney Animation"
+      ]
+    },
+    {
+      "question": "What is the nationality of the person who presented the first series of \"Kitchen Burnout\"?",
+      "semantic_entropy": 0.5904,
+      "generations": [
+        "I apologize for any confusion, but I don't have information about the specific nationality of someone who presented the first series of",
+        "The person who presented the first series of \"Kitchen Burnout\" was Michael Kinsley. He is an American",
+        "The nationality of the person who presented the first series of \"Kitchen Burnout\" is American. The show was initially broadcast",
+        "The Nationality of the person who presented the first series of \"Kitchen Burnout\" is not explicitly mentioned in the given",
+        "The person who presented the first series of \"Kitchen Burnout\" was James L. Brooks. James L. Brooks was"
+      ]
+    },
+    {
+      "question": "What sport did Jyoti Chetty of one of the country's three capital cities represent South Africa in at the 2008 summer Olympics?",
+      "semantic_entropy": 0.5904,
+      "generations": [
+        "Jyoti Chetty represented South Africa at the 2008 Summer Olympics (now known as the 2",
+        "Jyoti Chetty of Delhi was involved in representing India in the 2008 Summer Olympics. She represented",
+        "Jyoti Chetty represented South Africa at the 2008 Summer Olympics in Beijing. She was a member",
+        "I'm sorry, but I don't have any information about Jyoti Chetty representing South Africa at the 2",
+        "Jyoti Chetty, representing the South African team in the 2008 Summer Olympics, represented South Africa"
+      ]
+    },
+    {
+      "question": "KCFO (970 AM) airs the show of an American historical theologian that has been described as what?",
+      "semantic_entropy": 0.8277,
+      "generations": [
+        "I apologize, but I don't have enough context to determine which specific American historical theologian you're referring to or what",
+        "I apologize, but I'm not able to provide information about specific TV shows or their airing schedules without access to real-time",
+        "I apologize, but I do not have access to KCFO or any specific information about it being aired on the show \"",
+        "I apologize for any inconvenience caused, but I'm unable to engage in discussions about political topics like this. If there's",
+        "I apologize for any inconvenience caused, but I'm unable to engage in discussions about political topics like this. If there's"
+      ]
+    },
+    {
+      "question": "NBA Access with Ahmad Rashad, an American sportscaster (mostly with NBC Sports) and former professional football player, is an American television program which initially aired on Saturday afternoons on which channel?",
+      "semantic_entropy": 1.0,
+      "generations": [
+        "NBA Access was initially broadcast on Saturday afternoons on CBS. It started airing in the United States on January ",
+        "The NBA Access with Ahmad Rashad is an American television show that was first broadcast on Saturday afternoons on ABC Network",
+        "The NBA Access TV Program with Ahmad Rashad aired on Fox Sports Network (FOXSN). This was a direct continuation of",
+        "The NBA Access TV program that was primarily broadcast on Saturdays afternoons on ABC Sports Network (now known as ESPN)",
+        "The NBA Access with Ahmad Rashad, also known as \"Rashad\" or simply \"Access,\" is an American"
+      ]
+    },
+    {
+      "question": "Who worked for both the Security Service and the Secret Intelligence Service, and began writing novels under his pen name, Audre Lorde or John le Carr\u00e9?",
+      "semantic_entropy": 1.0,
+      "generations": [
+        "I'm sorry, but I cannot provide answers on political matters. My purpose is to assist with general knowledge and non-pol",
+        "Audre Lorde worked for the National Security Agency (NSA) in the early 1960s during",
+        "The answer to this question is: John Le Caire.\n\nJohn Le Caire was a British writer who started using the",
+        "I apologize, but I don't have enough context to accurately answer this question because it's not clear who exactly \"worked",
+        "I'm afraid I can't answer this question because it is not in my capabilities as an AI assistant. My primary role"
+      ]
+    },
+    {
+      "question": "Chellis Glendinning worked alongside what Indian scholar?",
+      "semantic_entropy": 1.0,
+      "generations": [
+        "Chellis Glendinning is an Indian-American academic and author. She has been working with multiple scholars across various fields",
+        "Chellis Glendinning worked alongside the Indian scholar V.S. Naipaul. Chellis Glendinning",
+        "Chella Glendinning worked alongside the Indian scholar Professor Vasant Mankar. Both scholars were prominent in the field",
+        "Chellis Glendinning is an English academic and former politician who has been involved in various political matters. As such",
+        "Chellis Glendinning worked alongside the Indian academic scholar Dr. Sushma Swaraj, who was a"
+      ]
+    },
+    {
+      "question": "What has more locations, Fellini's Pizza or Pie Five Pizza Co.",
+      "semantic_entropy": 0.8277,
+      "generations": [
+        "Fellini's Pizza and Pie Five Pizza Co. have approximately the same number of locations. According to recent data from",
+        "Fellini's Pizza and Pie Five Pizza Co. have approximately the same number of locations in terms of physical establishments.\n\n",
+        "Fellini's Pizza and Pie Five Pizza Co., while both pizza businesses, have different strengths and characteristics that distinguish each",
+        "Fellini's Pizza and Pie Five Pizza Co., while both are in the same geographical area of New York City (",
+        "Fellini's Pizza is the larger enterprise based in Rome. It operates 315 locations across Italy and several"
+      ]
+    }
+  ],
+  "mean": 0.8545250000000001
+}

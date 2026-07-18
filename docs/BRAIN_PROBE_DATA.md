@@ -17,12 +17,20 @@
 
 **Do not** describe this tier as OpenNeuro ds002345 or real fMRI.
 
-## Real ds002345 (v1.2 target — fill when downloaded)
+## Real ds002345 (v3.0+ — fill when downloaded)
+
+**Gate before any real-fMRI claim:**
+
+```powershell
+python scripts/validate_narratives_root.py --root $env:NARRATIVES_ROOT
+# require layout_ok=true AND recommended_probe_origin=narratives_fMRI
+# (not narratives_fMRI_synthetic_minimal)
+```
 
 When you train on real data, update this section:
 
 ```markdown
-### Real subset (v1.2.0)
+### Real subset (v3.0.0)
 - OpenNeuro dataset: ds002345 (Nastase et al., Narratives)
 - Download date: YYYY-MM-DD
 - Tool: openneuro-py / DataLad / CLI (command: ...)
@@ -31,6 +39,7 @@ When you train on real data, update this section:
 - Subjects included: ...
 - Preprocessing: *space-MNI152NLin2009cAsym_desc-preproc_bold* (or note if different)
 - Excluded runs/subjects: ...
+- validate_narratives_root.py: layout_ok=true
 ```
 
 ### Recommended laptop subset

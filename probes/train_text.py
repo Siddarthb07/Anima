@@ -18,6 +18,7 @@ from core.extractor import ActivationExtractor
 from probes.emotion_va_map import labels_to_va
 from probes.linear_probe import AffectProbe
 from probes.zoo_io import probe_slug, save_probe_bundle
+from core.prompt_format import uses_chat_template
 
 
 def _pearson(x: np.ndarray, y: np.ndarray) -> float:
@@ -95,6 +96,7 @@ def build_goemotions_samples(
         "split": split,
         "n_samples": len(acts),
         "probe_origin": "text_emotion",
+        "use_chat_template": uses_chat_template(extractor.model_name),
     }
     return acts, targets, meta
 

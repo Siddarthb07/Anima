@@ -108,11 +108,23 @@ class ActivationExtractor:
     def cleanup(self):
         self.hook.remove()
 
-    def encode_sequence(self, text: str, max_length: Optional[int] = None) -> list:
+    def encode_sequence(
+        self,
+        text: str,
+        max_length: Optional[int] = None,
+        *,
+        apply_chat_template: bool = True,
+    ) -> list:
         """
         Single forward pass over tokenized text (stimulus encoding path).
         Returns one entry per input token position with layer activations and uncertainty at that step.
+        Instruct models receive chat-template wrapping when configured in LAYER_CONFIG
+        unless ``apply_chat_template=False`` (caller already formatted).
         """
+        from core.prompt_format import format_user_text
+
+        if apply_chat_template:
+            text = format_user_text(self.tokenizer, text, model_name=self.model_name)
         max_len = max_length or getattr(self.tokenizer, "model_max_length", 1024)
         inputs = self.tokenizer(
             text,
@@ -175,7 +187,9 @@ class ActivationExtractor:
     ):
         """Yield one result dict per generated token (for WebSocket streaming)."""
         from core.intervention import dampen_residual_step, should_dampen
+        from core.prompt_format import format_user_text
 
+        prompt = format_user_text(self.tokenizer, prompt, model_name=self.model_name)
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
         past_key_values = None
         recent_valences: list[float] = []
