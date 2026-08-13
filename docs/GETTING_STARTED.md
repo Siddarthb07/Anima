@@ -111,7 +111,7 @@ Omitting `model` uses the default tiny checkpoint.
 
 ---
 
-## Hero demo — 2 minutes (college-apps path)
+## Hero demo — 2 minutes
 
 Uses **TinyLlama** text probe. **Live demo:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima)
 
