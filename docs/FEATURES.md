@@ -348,6 +348,6 @@ Legacy aliases: some scripts still accept `LLM_AFFECT_*`.
 ## Related docs
 
 - [ANIMA_TECHNICAL_OVERVIEW.md](ANIMA_TECHNICAL_OVERVIEW.md) — methodology narrative  
-- [V2_RELEASE.md](V2_RELEASE.md) — what shipped in v2 / v2.1  
+- [BENCHMARK_REPORT.md](BENCHMARK_REPORT.md) — council tables and reproducibility  
 - [BENCHMARKS.md](BENCHMARKS.md) — how to run / publish numbers  
 - [RESEARCH_GRADE.md](RESEARCH_GRADE.md) — claim gates  

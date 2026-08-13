@@ -8,9 +8,9 @@
 
 **Keywords:** LLM emotions · emotion readouts · valence/arousal probing · Hugging Face interpretability · fMRI-aligned brain probes (optional) · FastAPI streaming dashboard.
 
-**v2.1.0** — public demo on [Hugging Face Spaces](https://huggingface.co/spaces/sidb078/Anima) (Qwen demo hero + TinyLlama council best). **v2.0.0** — multi-model council benchmarks, stability gating, intervention mode, Docker stack. See [v2 release notes](docs/V2_RELEASE.md).
+**v2.1.0** — public demo on [Hugging Face Spaces](https://huggingface.co/spaces/sidb078/Anima) (Qwen demo hero + TinyLlama council best). **v2.0.0** — multi-model council benchmarks, stability gating, intervention mode, Docker stack. See [benchmark report](docs/BENCHMARK_REPORT.md).
 
-**Hero model for demos:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (council 94, strongest prompt separation). Lead with **text-emotion probes** and council validation — not “brain-aligned” claims (synthetic brain holdout for distilgpt2 is negative; see benchmark table).
+**Hero model for demos:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (council 94; Llama-3.2-1B has the strongest live prompt gap). Lead with **text-emotion probes** and council validation — not “brain-aligned” claims (real Narratives brain holdout for distilgpt2 is weak; see benchmark table).
 
 Anima does **not** use Ollama. Use a [supported Hugging Face model id](core/layer_config.py) (e.g. `distilgpt2`) with matching weights in `probes/zoo/`.
 
@@ -52,7 +52,7 @@ Given a prompt and a Hugging Face model id (e.g. `distilgpt2`):
 | **Text** (primary for portfolio) | [GoEmotions](https://huggingface.co/datasets/google-research-datasets/go_emotions) labels → valence/arousal mapping | `probes/zoo/{slug}_text.pt` | `text_emotion` |
 | **Brain-aligned** (experimental; synthetic tier today) | Story text + fMRI (Narratives layout; OpenNeuro [ds002345](https://openneuro.org/datasets/ds002345) or dev subset) | `probes/zoo/{slug}_narratives_pca.pt` | `narratives_fMRI` or `narratives_fMRI_synthetic_minimal` |
 
-The API prefers the **brain** checkpoint when present, then text, then an uninitialized probe (**random** readouts—fine for wiring tests only). For **college-app demos**, use **text** probes (TinyLlama or Qwen) and cite council scores — do not headline brain alignment until real fMRI holdout passes (target v3.0.0+).
+The API prefers the **brain** checkpoint when present, then text, then an uninitialized probe (**random** readouts—fine for wiring tests only). For demos, use **text** probes (TinyLlama, Qwen, or Llama-3.2-1B) and cite council scores — do not headline brain alignment until real fMRI holdout passes (target v3.0.0+).
 
 **Published weights (CPU tier):** [GitHub Release v2.0.0](https://github.com/Siddarthb07/Anima/releases/tag/v2.0.0) — `distilgpt2`, `tiny-random-gpt2`, **Qwen2.5-0.5B**, **TinyLlama-1.1B**, **SmolLM2-1.7B** text probes (+ brain/narratives where listed). Brain probes use **synthetic minimal** BOLD ([`data/narratives_minimal/`](data/narratives_minimal/)), not full real fMRI. Details: [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
 
@@ -78,7 +78,7 @@ Example fields from `POST /generate` (see [`api/schemas.py`](api/schemas.py)):
 | `summary.stability_score` | Run-level rolling readout stability (v2; lower = choppier stream) |
 | `summary.guard_mode` / `summary.intervention_mode` | Echo of request knobs (`observe`/`gate`, `none`/`dampen`) |
 
-`POST /generate` accepts **`guard_mode`** (`observe` | `gate`) and **`intervention_mode`** (`none` | `dampen`) for v2 stability gating. See [v2 release notes](docs/V2_RELEASE.md).
+`POST /generate` accepts **`guard_mode`** (`observe` | `gate`) and **`intervention_mode`** (`none` | `dampen`) for v2 stability gating. See [benchmark report](docs/BENCHMARK_REPORT.md).
 
 `GET /models` lists each supported HF id with `brain_data_tier` (`none` | `synthetic_minimal` | `real_fMRI`), holdout stories, and validation metrics when meta exists.
 
@@ -353,7 +353,7 @@ anima benchmark --model <hf_id> --tiers internal,external,external_text,external
 | Doc | When to read |
 |-----|----------------|
 | [Live demo (HF Space)](https://huggingface.co/spaces/sidb078/Anima) | Try TinyLlama readouts in browser |
-| [v2 release notes](docs/V2_RELEASE.md) | v1→v2 changelog, upgrade path, limits |
+| [Benchmark report](docs/BENCHMARK_REPORT.md) | Council tables, manifests, reproducibility |
 | [Technical overview (PDF)](docs/ANIMA_TECHNICAL_OVERVIEW.pdf) | Methodology, architecture, training, limitations |
 | [Technical overview (Markdown)](docs/ANIMA_TECHNICAL_OVERVIEW.md) | Same content, editable source |
 | [Getting started](docs/GETTING_STARTED.md) | Install, Docker, troubleshooting |
