@@ -1,14 +1,17 @@
 [
   {
-    "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
-    "path": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\smollm2_1.7b_instruct_text.pt",
+    "model": "meta-llama/Llama-3.2-1B-Instruct",
+    "path": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\llama_3.2_1b_instruct_text.pt",
     "dataset": "go_emotions",
     "split": "train",
-    "n_samples": 500,
+    "n_samples": 800,
     "probe_origin": "text_emotion",
-    "val_loss": 1.012886,
-    "val_pearson_valence": 0.0,
-    "val_pearson_arousal": 0.1606,
+    "use_chat_template": true,
+    "val_loss": 0.26422,
+    "val_pearson_valence": 0.4075,
+    "val_pearson_arousal": 0.2882,
+    "max_length": 128,
+    "train_seed": 42,
     "hidden_dim": 2048,
     "n_layers": 3,
     "status": "ok"

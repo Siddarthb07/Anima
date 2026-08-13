@@ -1,0 +1,15 @@
+{
+  "dataset": "go_emotions",
+  "split": "train",
+  "n_samples": 1000,
+  "probe_origin": "text_emotion",
+  "use_chat_template": false,
+  "val_loss": 0.45222,
+  "val_pearson_valence": 0.2467,
+  "val_pearson_arousal": 0.2789,
+  "max_length": 128,
+  "train_seed": 42,
+  "model": "EleutherAI/pythia-410m",
+  "hidden_dim": 1024,
+  "n_layers": 3
+}

@@ -1,0 +1,15 @@
+{
+  "dataset": "go_emotions",
+  "split": "train",
+  "n_samples": 1000,
+  "probe_origin": "text_emotion",
+  "use_chat_template": false,
+  "val_loss": 0.578483,
+  "val_pearson_valence": 0.1125,
+  "val_pearson_arousal": 0.1972,
+  "max_length": 128,
+  "train_seed": 42,
+  "model": "facebook/opt-350m",
+  "hidden_dim": 1024,
+  "n_layers": 3
+}

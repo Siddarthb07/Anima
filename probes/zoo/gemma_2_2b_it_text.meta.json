@@ -1,0 +1,15 @@
+{
+  "dataset": "go_emotions",
+  "split": "train",
+  "n_samples": 800,
+  "probe_origin": "text_emotion",
+  "use_chat_template": true,
+  "val_loss": 1.170244,
+  "val_pearson_valence": 0.0,
+  "val_pearson_arousal": 0.0463,
+  "max_length": 128,
+  "train_seed": 42,
+  "model": "google/gemma-2-2b-it",
+  "hidden_dim": 2304,
+  "n_layers": 3
+}
