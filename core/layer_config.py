@@ -32,6 +32,19 @@ LAYER_CONFIG = {
         "family": "mistral",
         "use_chat_template": True,
     },
+    # Cross-family CPU replication (ungated) — GPTNeoX + OPT layouts
+    "EleutherAI/pythia-410m": {
+        "layers": [6, 12, 18],
+        "hidden_dim": 1024,
+        "has_sae": False,
+        "family": "gpt_neox",
+    },
+    "facebook/opt-350m": {
+        "layers": [6, 12, 18],
+        "hidden_dim": 1024,
+        "has_sae": False,
+        "family": "opt",
+    },
     # Gated on HF — use after: huggingface-cli login
     "meta-llama/Llama-3.2-1B-Instruct": {
         "layers": [4, 8, 12],

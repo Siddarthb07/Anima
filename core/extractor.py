@@ -57,6 +57,8 @@ class ActivationExtractor:
             "device_map": device_map,
             "low_cpu_mem_usage": True,
             "attn_implementation": "eager",
+            # Prefer safetensors so older torch (<2.6) can load Hub weights without CVE-2025-32434 block
+            "use_safetensors": True,
         }
         if os.environ.get("ANIMA_LOAD_8BIT") == "1" and cuda_ok and config["hidden_dim"] >= 2048:
             try:
@@ -68,7 +70,11 @@ class ActivationExtractor:
             except ImportError:
                 pass
 
-        self.model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+        try:
+            self.model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+        except Exception:
+            load_kwargs.pop("use_safetensors", None)
+            self.model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
         if os.environ.get("ANIMA_LOAD_DYNAMIC_INT8") == "1" and on_cpu:
             self.model = torch.quantization.quantize_dynamic(
                 self.model, {torch.nn.Linear}, dtype=torch.qint8

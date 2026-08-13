@@ -128,17 +128,27 @@ def main() -> int:
             rollup.append({"model": model, "status": "deferred", "reason": "requires_gpu"})
             continue
         if cfg.get("gated"):
-            print("  (gated HF repo — deferred pending access approval)", flush=True)
-            rollup.append(
-                {
-                    "model": model,
-                    "status": "deferred",
-                    "reason": "gated_hf_repo",
-                    "manifest": None,
-                    "prompt_examples": [],
-                }
-            )
-            continue
+            token = os.environ.get("HF_TOKEN") or os.environ.get("HUGGING_FACE_HUB_TOKEN")
+            if not token:
+                try:
+                    from huggingface_hub import get_token
+
+                    token = get_token()
+                except Exception:
+                    token = None
+            if not token:
+                print("  (gated HF repo — deferred pending access approval)", flush=True)
+                rollup.append(
+                    {
+                        "model": model,
+                        "status": "deferred",
+                        "reason": "gated_hf_repo",
+                        "manifest": None,
+                        "prompt_examples": [],
+                    }
+                )
+                continue
+            os.environ.setdefault("HF_TOKEN", token)
         tiers = _tiers_for(model)
         manifest = _run_benchmark(model, tiers)
         examples: list[dict] = []

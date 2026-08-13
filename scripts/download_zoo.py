@@ -15,7 +15,7 @@ DEFAULT_TAG = "v2.0.0"
 V111_TAG = "v1.1.1"
 V200_TAG = "v2.0.0"
 
-# Base CPU-tier assets (v1.1.0+)
+# Base CPU-tier assets (v1.1.0+) — brain restored after real ds002345 / FCP-INDI retrain
 _BASE_ASSETS = [
     "distilgpt2_text.pt",
     "distilgpt2_narratives_pca.pt",
@@ -23,9 +23,13 @@ _BASE_ASSETS = [
     "distilgpt2_tribe_proj.npz",
     "tiny_random_gpt2.pt",
     "tiny_random_gpt2_text.pt",
+    "tiny_random_gpt2_tribe_proj.npz",
+]
+
+# Optional extra brain siblings (tiny-random) — still opt-in; synthetic tier only
+_BRAIN_ASSETS = [
     "tiny_random_gpt2_narratives_pca.pt",
     "tiny_random_gpt2_narratives_pca.calib.pt",
-    "tiny_random_gpt2_tribe_proj.npz",
 ]
 
 # v1.1.1 adds Qwen text probe; v2.0.0 adds TinyLlama + SmolLM2 text probes
@@ -49,9 +53,16 @@ def _asset_url(name: str, tag: str | None = None) -> str:
     return f"https://github.com/{REPO}/releases/download/{t}/{name}"
 
 
-def _populate_assets(tag: str | None = None) -> dict[str, str]:
+def _include_brain() -> bool:
+    """Include tiny-random brain siblings (still synthetic). distilgpt2 brain is default again after real retrain."""
+    return os.environ.get("ANIMA_INCLUDE_BRAIN", "").strip() in ("1", "true", "yes")
+
+
+def _populate_assets(tag: str | None = None, *, include_brain: bool = False) -> dict[str, str]:
     t = tag or _tag()
     names = list(_BASE_ASSETS)
+    if include_brain:
+        names.extend(_BRAIN_ASSETS)
     if t in (V200_TAG, "v2.0.0"):
         names.extend(_V200_EXTRA)
     elif t in (V111_TAG, "v1.1.1"):
@@ -71,10 +82,21 @@ def main() -> int:
     p.add_argument("--list", action="store_true", help="List release asset URLs")
     p.add_argument("--tag", default=None, help=f"Release tag (default {DEFAULT_TAG})")
     p.add_argument("--skip-existing", action="store_true", help="Skip files already in probes/zoo/")
+    p.add_argument(
+        "--include-brain",
+        action="store_true",
+        help="Also download tiny-random narratives_pca siblings (synthetic_minimal)",
+    )
     args = p.parse_args()
 
     tag = args.tag or _tag()
-    assets = _populate_assets(tag)
+    include_brain = bool(args.include_brain or _include_brain())
+    assets = _populate_assets(tag, include_brain=include_brain)
+    if not include_brain:
+        print(
+            "Default zoo includes distilgpt2 narratives_pca (real_fMRI retrain). "
+            "Pass --include-brain for tiny-random brain siblings."
+        )
 
     if args.list:
         for name, url in assets.items():

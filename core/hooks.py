@@ -4,8 +4,20 @@ from typing import Dict, List
 
 def get_decoder_layers(model: torch.nn.Module):
     """Resolve transformer block list for common HF causal LM layouts."""
+    # Llama / Qwen / Mistral / Gemma — model.model.layers
     if hasattr(model, "model") and hasattr(model.model, "layers"):
         return model.model.layers
+    # OPT — model.model.decoder.layers
+    if (
+        hasattr(model, "model")
+        and hasattr(model.model, "decoder")
+        and hasattr(model.model.decoder, "layers")
+    ):
+        return model.model.decoder.layers
+    # GPT-NeoX / Pythia — model.gpt_neox.layers
+    if hasattr(model, "gpt_neox") and hasattr(model.gpt_neox, "layers"):
+        return model.gpt_neox.layers
+    # GPT-2 / DistilGPT2 — model.transformer.h
     if hasattr(model, "transformer") and hasattr(model.transformer, "h"):
         return model.transformer.h
     raise ValueError("Unsupported model layout for ActivationHook — add mapping in hooks.py")

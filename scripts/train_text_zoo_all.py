@@ -35,7 +35,11 @@ CPU_MODELS = [
     "distilgpt2",
     "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
     "Qwen/Qwen2.5-0.5B-Instruct",
+    "EleutherAI/pythia-410m",
+    "facebook/opt-350m",
     "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+    "google/gemma-2-2b-it",
+    "meta-llama/Llama-3.2-1B-Instruct",
 ]
 
 LARGE_MODELS = [
@@ -105,10 +109,20 @@ def main() -> None:
             print(f"Skip {model} (requires_gpu; set ANIMA_TRAIN_LARGE=1 on a GPU machine)")
             results.append({"model": model, "status": "skipped", "reason": "requires_gpu"})
             continue
-        if cfg.get("gated") and not os.environ.get("HF_TOKEN") and not os.environ.get("HUGGING_FACE_HUB_TOKEN"):
-            print(f"Skip {model} (gated — run huggingface-cli login or set HF_TOKEN)")
-            results.append({"model": model, "status": "skipped", "reason": "gated_hf"})
-            continue
+        if cfg.get("gated"):
+            token = os.environ.get("HF_TOKEN") or os.environ.get("HUGGING_FACE_HUB_TOKEN")
+            if not token:
+                try:
+                    from huggingface_hub import get_token
+
+                    token = get_token()
+                except Exception:
+                    token = None
+            if not token:
+                print(f"Skip {model} (gated — run huggingface-cli login or set HF_TOKEN)")
+                results.append({"model": model, "status": "skipped", "reason": "gated_hf"})
+                continue
+            os.environ.setdefault("HF_TOKEN", token)
         max_s = args.max_samples
         if max_s is None:
             # Scale by model size; Qwen 0.5B / distilgpt2 tolerate 1.5–2k on 16 GB CPU.
