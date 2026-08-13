@@ -1,0 +1,88 @@
+{
+  "manifest_schema_version": 1,
+  "model": "EleutherAI/pythia-410m",
+  "git_sha": "b3c8154",
+  "generated_at": "2026-08-13T08:57:25.844271+00:00",
+  "entries": [
+    {
+      "tier": "internal",
+      "benchmark": "smoke_extract",
+      "n_tokens": 4,
+      "probe_origin": "text_emotion",
+      "status": "ok"
+    },
+    {
+      "benchmark": "narratives_dev",
+      "tier": "internal",
+      "status": "skipped",
+      "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
+      "model": "EleutherAI/pythia-410m",
+      "narratives_root": "data/ds002345"
+    },
+    {
+      "tier": "external",
+      "benchmark": "narratives_holdout",
+      "status": "error",
+      "message": "int too big to convert"
+    },
+    {
+      "tier": "external",
+      "benchmark": "litcoder_style_ridge",
+      "status": "error",
+      "message": "int too big to convert",
+      "holdout_word_rate_mean_r": null
+    },
+    {
+      "benchmark": "tribe_reference",
+      "tier": "external",
+      "status": "skipped",
+      "model": "EleutherAI/pythia-410m",
+      "anima_tribe_mode": "surrogate",
+      "runtime_available": false,
+      "runtime_roi_scores": null,
+      "reason": "tribev2 not installed \u2014 surrogate-only CI path"
+    },
+    {
+      "tier": "external",
+      "benchmark": "brainscore_language",
+      "status": "skipped"
+    },
+    {
+      "tier": "external_text",
+      "benchmark": "go_emotions",
+      "status": "ok",
+      "pearson_valence": 0.2393,
+      "pearson_arousal": 0.3929,
+      "probe_origin": "text_emotion"
+    },
+    {
+      "tier": "external_guard",
+      "benchmark": "halueval",
+      "status": "ok",
+      "model": "EleutherAI/pythia-410m",
+      "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0
+    },
+    {
+      "benchmark": "truthfulqa_guard",
+      "tier": "external_guard",
+      "status": "ok",
+      "model": "EleutherAI/pythia-410m",
+      "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+      "note": "Scores guard policy on supplied readout rows, not LM factuality",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0
+    }
+  ]
+}

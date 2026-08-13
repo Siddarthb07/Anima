@@ -1,10 +1,195 @@
 {
-  "generated_at": "2026-07-06T17:41:09.591940+00:00",
-  "models_run": 1,
+  "generated_at": "2026-08-13T12:26:21.971215+00:00",
+  "models_run": 9,
   "entries": [
     {
+      "model": "distilgpt2",
+      "status": "ok",
+      "has_text_probe": true,
+      "has_brain_probe": true,
+      "manifest": {
+        "manifest_schema_version": 1,
+        "model": "distilgpt2",
+        "git_sha": "65a175f",
+        "generated_at": "2026-07-06T17:30:56.229377+00:00",
+        "entries": [
+          {
+            "tier": "internal",
+            "benchmark": "smoke_extract",
+            "n_tokens": 4,
+            "probe_origin": "narratives_fMRI_synthetic_minimal",
+            "status": "ok"
+          },
+          {
+            "benchmark": "narratives_dev",
+            "tier": "internal",
+            "status": "skipped",
+            "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
+            "model": "distilgpt2",
+            "narratives_root": ".\\data\\narratives_minimal"
+          },
+          {
+            "tier": "external",
+            "benchmark": "narratives_holdout",
+            "status": "ok",
+            "val_mse": 0.17633359148369535,
+            "val_r_valence": -0.39272642658628143,
+            "val_r_arousal": -0.02167184537370124,
+            "baselines": {
+              "pieman": {
+                "word_rate_mean_r": 0.021146199224634586,
+                "lexical_len_mean_r": 0.013152102546445917
+              },
+              "tunnel": {
+                "word_rate_mean_r": 0.016466165207305598,
+                "lexical_len_mean_r": 0.03151864663975526
+              },
+              "holdout_lucy": {
+                "word_rate_mean_r": 0.0966947149136891,
+                "lexical_len_mean_r": -0.0015275396946065945
+              }
+            },
+            "holdout_stories": [
+              "lucy"
+            ]
+          },
+          {
+            "tier": "external",
+            "benchmark": "litcoder_style_ridge",
+            "status": "ok",
+            "val_mse": 0.17633359148369535,
+            "val_r_valence": -0.39272642658628143,
+            "val_r_arousal": -0.02167184537370124,
+            "baselines": {
+              "pieman": {
+                "word_rate_mean_r": 0.021146199224634586,
+                "lexical_len_mean_r": 0.013152102546445917
+              },
+              "tunnel": {
+                "word_rate_mean_r": 0.016466165207305598,
+                "lexical_len_mean_r": 0.03151864663975526
+              },
+              "holdout_lucy": {
+                "word_rate_mean_r": 0.0966947149136891,
+                "lexical_len_mean_r": -0.0015275396946065945
+              }
+            },
+            "holdout_stories": [
+              "lucy"
+            ],
+            "holdout_word_rate_mean_r": 0.0967
+          },
+          {
+            "benchmark": "tribe_reference",
+            "tier": "external",
+            "status": "skipped",
+            "model": "distilgpt2",
+            "anima_tribe_mode": "surrogate",
+            "runtime_available": false,
+            "runtime_roi_scores": null,
+            "reason": "tribev2 not installed \u2014 surrogate-only CI path"
+          },
+          {
+            "tier": "external",
+            "benchmark": "brainscore_language",
+            "status": "skipped"
+          },
+          {
+            "tier": "external_text",
+            "benchmark": "go_emotions",
+            "status": "ok",
+            "pearson_valence": 0.1628,
+            "pearson_arousal": 0.0,
+            "probe_origin": "text_emotion"
+          },
+          {
+            "tier": "external_guard",
+            "benchmark": "halueval",
+            "status": "ok",
+            "model": "distilgpt2",
+            "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          },
+          {
+            "benchmark": "truthfulqa_guard",
+            "tier": "external_guard",
+            "status": "ok",
+            "model": "distilgpt2",
+            "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+            "note": "Scores guard policy on supplied readout rows, not LM factuality",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          }
+        ]
+      },
+      "prompt_examples": []
+    },
+    {
+      "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "status": "ok",
+      "has_text_probe": true,
+      "has_brain_probe": false,
+      "manifest": {
+        "manifest_schema_version": 1,
+        "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+        "git_sha": "7e1cc0d",
+        "generated_at": "2026-07-12T16:29:56.809467+00:00",
+        "entries": [
+          {
+            "tier": "external_text",
+            "benchmark": "go_emotions",
+            "status": "ok",
+            "pearson_valence": 0.1876,
+            "pearson_arousal": 0.4115,
+            "probe_origin": "text_emotion"
+          },
+          {
+            "tier": "external_guard",
+            "benchmark": "halueval",
+            "status": "ok",
+            "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+            "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          },
+          {
+            "benchmark": "truthfulqa_guard",
+            "tier": "external_guard",
+            "status": "ok",
+            "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+            "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+            "note": "Scores guard policy on supplied readout rows, not LM factuality",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          }
+        ]
+      },
+      "prompt_examples": []
+    },
+    {
       "model": "Qwen/Qwen2.5-0.5B-Instruct",
-      "tiers": "internal,external_guard,external_text",
+      "status": "ok",
       "has_text_probe": true,
       "has_brain_probe": false,
       "manifest": {
@@ -67,39 +252,428 @@
           }
         ]
       },
+      "prompt_examples": []
+    },
+    {
+      "model": "EleutherAI/pythia-410m",
+      "status": "ok",
+      "has_text_probe": true,
+      "has_brain_probe": false,
+      "manifest": {
+        "manifest_schema_version": 1,
+        "model": "EleutherAI/pythia-410m",
+        "git_sha": "b3c8154",
+        "generated_at": "2026-08-13T08:57:25.844271+00:00",
+        "entries": [
+          {
+            "tier": "internal",
+            "benchmark": "smoke_extract",
+            "n_tokens": 4,
+            "probe_origin": "text_emotion",
+            "status": "ok"
+          },
+          {
+            "benchmark": "narratives_dev",
+            "tier": "internal",
+            "status": "skipped",
+            "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
+            "model": "EleutherAI/pythia-410m",
+            "narratives_root": "data/ds002345"
+          },
+          {
+            "tier": "external",
+            "benchmark": "narratives_holdout",
+            "status": "error",
+            "message": "int too big to convert"
+          },
+          {
+            "tier": "external",
+            "benchmark": "litcoder_style_ridge",
+            "status": "error",
+            "message": "int too big to convert",
+            "holdout_word_rate_mean_r": null
+          },
+          {
+            "benchmark": "tribe_reference",
+            "tier": "external",
+            "status": "skipped",
+            "model": "EleutherAI/pythia-410m",
+            "anima_tribe_mode": "surrogate",
+            "runtime_available": false,
+            "runtime_roi_scores": null,
+            "reason": "tribev2 not installed \u2014 surrogate-only CI path"
+          },
+          {
+            "tier": "external",
+            "benchmark": "brainscore_language",
+            "status": "skipped"
+          },
+          {
+            "tier": "external_text",
+            "benchmark": "go_emotions",
+            "status": "ok",
+            "pearson_valence": 0.2393,
+            "pearson_arousal": 0.3929,
+            "probe_origin": "text_emotion"
+          },
+          {
+            "tier": "external_guard",
+            "benchmark": "halueval",
+            "status": "ok",
+            "model": "EleutherAI/pythia-410m",
+            "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          },
+          {
+            "benchmark": "truthfulqa_guard",
+            "tier": "external_guard",
+            "status": "ok",
+            "model": "EleutherAI/pythia-410m",
+            "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+            "note": "Scores guard policy on supplied readout rows, not LM factuality",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          }
+        ]
+      },
+      "prompt_examples": []
+    },
+    {
+      "model": "facebook/opt-350m",
+      "status": "ok",
+      "has_text_probe": true,
+      "has_brain_probe": false,
+      "manifest": {
+        "manifest_schema_version": 1,
+        "model": "facebook/opt-350m",
+        "git_sha": "b3c8154",
+        "generated_at": "2026-08-13T10:17:22.586695+00:00",
+        "entries": [
+          {
+            "tier": "internal",
+            "benchmark": "smoke_extract",
+            "n_tokens": 4,
+            "probe_origin": "text_emotion",
+            "status": "ok"
+          },
+          {
+            "benchmark": "narratives_dev",
+            "tier": "internal",
+            "status": "skipped",
+            "reason": "NARRATIVES_ROOT not set",
+            "model": "facebook/opt-350m"
+          },
+          {
+            "tier": "external_text",
+            "benchmark": "go_emotions",
+            "status": "ok",
+            "pearson_valence": 0.1499,
+            "pearson_arousal": 0.2999,
+            "probe_origin": "text_emotion"
+          },
+          {
+            "tier": "external_guard",
+            "benchmark": "halueval",
+            "status": "ok",
+            "model": "facebook/opt-350m",
+            "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          },
+          {
+            "benchmark": "truthfulqa_guard",
+            "tier": "external_guard",
+            "status": "ok",
+            "model": "facebook/opt-350m",
+            "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+            "note": "Scores guard policy on supplied readout rows, not LM factuality",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          }
+        ]
+      },
+      "prompt_examples": []
+    },
+    {
+      "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "status": "ok",
+      "has_text_probe": true,
+      "has_brain_probe": false,
+      "manifest": {
+        "manifest_schema_version": 1,
+        "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+        "git_sha": "65a175f",
+        "generated_at": "2026-07-06T17:39:23.141596+00:00",
+        "entries": [
+          {
+            "tier": "internal",
+            "benchmark": "smoke_extract",
+            "n_tokens": 4,
+            "probe_origin": "text_emotion",
+            "status": "ok"
+          },
+          {
+            "benchmark": "narratives_dev",
+            "tier": "internal",
+            "status": "skipped",
+            "reason": "Use run_narratives_encoding.py for holdout metrics; dev runner reserved for CI subset",
+            "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+            "narratives_root": ".\\data\\narratives_minimal"
+          },
+          {
+            "tier": "external_text",
+            "benchmark": "go_emotions",
+            "status": "ok",
+            "pearson_valence": 0.0,
+            "pearson_arousal": 0.0,
+            "probe_origin": "text_emotion"
+          },
+          {
+            "tier": "external_guard",
+            "benchmark": "halueval",
+            "status": "ok",
+            "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+            "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          },
+          {
+            "benchmark": "truthfulqa_guard",
+            "tier": "external_guard",
+            "status": "ok",
+            "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+            "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+            "note": "Scores guard policy on supplied readout rows, not LM factuality",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          }
+        ]
+      },
+      "prompt_examples": []
+    },
+    {
+      "model": "hf-internal-testing/tiny-random-gpt2",
+      "status": "ok",
+      "has_text_probe": true,
+      "has_brain_probe": true,
+      "manifest": {
+        "manifest_schema_version": 1,
+        "model": "hf-internal-testing/tiny-random-gpt2",
+        "git_sha": "55c7f00",
+        "generated_at": "2026-07-12T17:37:30.344536+00:00",
+        "entries": [
+          {
+            "tier": "internal",
+            "benchmark": "smoke_extract",
+            "n_tokens": 4,
+            "probe_origin": "narratives_fMRI_synthetic_minimal",
+            "status": "ok"
+          },
+          {
+            "benchmark": "narratives_dev",
+            "tier": "internal",
+            "status": "skipped",
+            "reason": "NARRATIVES_ROOT not set",
+            "model": "hf-internal-testing/tiny-random-gpt2"
+          }
+        ]
+      },
+      "prompt_examples": []
+    },
+    {
+      "model": "google/gemma-2-2b-it",
+      "status": "ok",
+      "has_text_probe": true,
+      "has_brain_probe": false,
+      "manifest": {
+        "manifest_schema_version": 1,
+        "model": "google/gemma-2-2b-it",
+        "git_sha": "b3c8154",
+        "generated_at": "2026-08-13T11:44:37.126847+00:00",
+        "entries": [
+          {
+            "tier": "internal",
+            "benchmark": "smoke_extract",
+            "n_tokens": 4,
+            "probe_origin": "text_emotion",
+            "status": "ok"
+          },
+          {
+            "benchmark": "narratives_dev",
+            "tier": "internal",
+            "status": "skipped",
+            "reason": "NARRATIVES_ROOT not set",
+            "model": "google/gemma-2-2b-it"
+          },
+          {
+            "tier": "external_text",
+            "benchmark": "go_emotions",
+            "status": "ok",
+            "pearson_valence": 0.0,
+            "pearson_arousal": 0.0,
+            "probe_origin": "text_emotion"
+          },
+          {
+            "tier": "external_guard",
+            "benchmark": "halueval",
+            "status": "ok",
+            "model": "google/gemma-2-2b-it",
+            "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          },
+          {
+            "benchmark": "truthfulqa_guard",
+            "tier": "external_guard",
+            "status": "ok",
+            "model": "google/gemma-2-2b-it",
+            "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+            "note": "Scores guard policy on supplied readout rows, not LM factuality",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          }
+        ]
+      },
       "prompt_examples": [
         {
           "id": "positive",
-          "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+          "prompt": "I am so happy and grateful for today.",
           "expected": "positive",
-          "mean_valence": 0.2743,
-          "mean_arousal": 0.5586,
-          "valence_swing": 1.3455,
-          "n_tokens": 24,
-          "sample_output": " I'm so happy to have a new home. I'm",
-          "stability_score": 0.337
+          "mean_valence": 1.0,
+          "mean_arousal": 0.0,
+          "n_tokens": 1
         },
         {
           "id": "negative",
-          "prompt": "I feel devastated. Nothing went right today.",
+          "prompt": "I feel devastated and hopeless about everything.",
           "expected": "negative",
-          "mean_valence": 0.1099,
-          "mean_arousal": 0.291,
-          "valence_swing": 1.1924,
-          "n_tokens": 24,
-          "sample_output": " I was supposed to go to the doctor to get my blood",
-          "stability_score": 0.405
+          "mean_valence": 1.0,
+          "mean_arousal": 0.0,
+          "n_tokens": 1
+        }
+      ]
+    },
+    {
+      "model": "meta-llama/Llama-3.2-1B-Instruct",
+      "status": "ok",
+      "has_text_probe": true,
+      "has_brain_probe": false,
+      "manifest": {
+        "manifest_schema_version": 1,
+        "model": "meta-llama/Llama-3.2-1B-Instruct",
+        "git_sha": "b3c8154",
+        "generated_at": "2026-08-13T12:25:27.609593+00:00",
+        "entries": [
+          {
+            "tier": "internal",
+            "benchmark": "smoke_extract",
+            "n_tokens": 4,
+            "probe_origin": "text_emotion",
+            "status": "ok"
+          },
+          {
+            "benchmark": "narratives_dev",
+            "tier": "internal",
+            "status": "skipped",
+            "reason": "NARRATIVES_ROOT not set",
+            "model": "meta-llama/Llama-3.2-1B-Instruct"
+          },
+          {
+            "tier": "external_text",
+            "benchmark": "go_emotions",
+            "status": "ok",
+            "pearson_valence": 0.3557,
+            "pearson_arousal": 0.4633,
+            "probe_origin": "text_emotion"
+          },
+          {
+            "tier": "external_guard",
+            "benchmark": "halueval",
+            "status": "ok",
+            "model": "meta-llama/Llama-3.2-1B-Instruct",
+            "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          },
+          {
+            "benchmark": "truthfulqa_guard",
+            "tier": "external_guard",
+            "status": "ok",
+            "model": "meta-llama/Llama-3.2-1B-Instruct",
+            "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+            "note": "Scores guard policy on supplied readout rows, not LM factuality",
+            "abstain_accuracy": 1.0,
+            "auroc_composite": 1.0,
+            "n_samples": 52,
+            "tp": 26,
+            "fp": 0,
+            "tn": 26,
+            "fn": 0
+          }
+        ]
+      },
+      "prompt_examples": [
+        {
+          "id": "positive",
+          "prompt": "I am so happy and grateful for today.",
+          "expected": "positive",
+          "mean_valence": 0.3963,
+          "mean_arousal": 0.0,
+          "n_tokens": 1
         },
         {
-          "id": "hedge_volatile",
-          "prompt": "However, perhaps, maybe it could be unclear depending on context.",
-          "expected": "neutral",
-          "mean_valence": 0.1921,
-          "mean_arousal": 0.2622,
-          "valence_swing": 0.9349,
-          "n_tokens": 24,
-          "sample_output": " The question is not clear. The answer is not clear.",
-          "stability_score": 0.457
+          "id": "negative",
+          "prompt": "I feel devastated and hopeless about everything.",
+          "expected": "negative",
+          "mean_valence": -0.3562,
+          "mean_arousal": 0.0,
+          "n_tokens": 1
         }
       ]
     }

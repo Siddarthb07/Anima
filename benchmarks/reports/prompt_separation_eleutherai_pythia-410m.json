@@ -1,0 +1,33 @@
+{
+  "model": "EleutherAI/pythia-410m",
+  "generated_at": "2026-08-13T10:22:06.539910+00:00",
+  "positive": {
+    "n": 3,
+    "mean_valence": 0.2238,
+    "values": [
+      0.6312,
+      0.1984,
+      -0.1581
+    ],
+    "probe_origin": "text_emotion",
+    "use_chat_template": false
+  },
+  "negative": {
+    "n": 3,
+    "mean_valence": -0.4405,
+    "values": [
+      -0.5842,
+      -0.0697,
+      -0.6676
+    ],
+    "probe_origin": "text_emotion",
+    "use_chat_template": false
+  },
+  "pos_neg_gap": 0.6643,
+  "targets": {
+    "pos_mean_ge": 0.25,
+    "neg_mean_le": 0.05,
+    "gap_ge": 0.2
+  },
+  "passed": false
+}

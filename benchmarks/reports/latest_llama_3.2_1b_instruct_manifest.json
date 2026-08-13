@@ -1,0 +1,59 @@
+{
+  "manifest_schema_version": 1,
+  "model": "meta-llama/Llama-3.2-1B-Instruct",
+  "git_sha": "b3c8154",
+  "generated_at": "2026-08-13T12:25:27.609593+00:00",
+  "entries": [
+    {
+      "tier": "internal",
+      "benchmark": "smoke_extract",
+      "n_tokens": 4,
+      "probe_origin": "text_emotion",
+      "status": "ok"
+    },
+    {
+      "benchmark": "narratives_dev",
+      "tier": "internal",
+      "status": "skipped",
+      "reason": "NARRATIVES_ROOT not set",
+      "model": "meta-llama/Llama-3.2-1B-Instruct"
+    },
+    {
+      "tier": "external_text",
+      "benchmark": "go_emotions",
+      "status": "ok",
+      "pearson_valence": 0.3557,
+      "pearson_arousal": 0.4633,
+      "probe_origin": "text_emotion"
+    },
+    {
+      "tier": "external_guard",
+      "benchmark": "halueval",
+      "status": "ok",
+      "model": "meta-llama/Llama-3.2-1B-Instruct",
+      "fixture": "benchmarks/fixtures/halueval_guard_sample.json",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0
+    },
+    {
+      "benchmark": "truthfulqa_guard",
+      "tier": "external_guard",
+      "status": "ok",
+      "model": "meta-llama/Llama-3.2-1B-Instruct",
+      "fixture": "benchmarks/fixtures/truthfulqa_guard_sample.json",
+      "note": "Scores guard policy on supplied readout rows, not LM factuality",
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0
+    }
+  ]
+}

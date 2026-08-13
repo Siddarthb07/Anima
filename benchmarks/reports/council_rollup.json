@@ -1,90 +1,5 @@
 [
   {
-    "model": "hf-internal-testing/tiny-random-gpt2",
-    "aggregate_score": 50.2,
-    "passed": false,
-    "verdicts": [
-      {
-        "judge": "schema_integrity",
-        "score": 100.0,
-        "weight": 0.15,
-        "passed": true,
-        "notes": []
-      },
-      {
-        "judge": "probe_signal",
-        "score": 35.0,
-        "weight": 0.35,
-        "passed": false,
-        "notes": [
-          "go_emotions valence r=0.004 below gate",
-          "brain holdout valence r=-0.109 negative \u2014 synthetic brain tier limit",
-          "smoke_extract ok (4 tokens)"
-        ]
-      },
-      {
-        "judge": "honesty_flags",
-        "score": 70.0,
-        "weight": 0.2,
-        "passed": true,
-        "notes": [
-          "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
-          "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
-        ]
-      },
-      {
-        "judge": "prompt_separation",
-        "score": 30.0,
-        "weight": 0.3,
-        "passed": false,
-        "notes": [
-          "valence gap -0.004 (weak \u2014 thesis risk)",
-          "positive mean valence 0.143 below +0.2 gate",
-          "negative mean valence 0.147 \u2014 weak negative separation"
-        ]
-      }
-    ],
-    "good_examples": [],
-    "bad_examples": [
-      {
-        "id": "positive",
-        "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
-        "expected": "positive",
-        "mean_valence": 0.1428,
-        "mean_arousal": 0.5305,
-        "valence_swing": 0.0658,
-        "n_tokens": 24,
-        "sample_output": " fe fe fe fe fe fe fe fe fe fe fe fe",
-        "stability_score": 0.965,
-        "verdict": "positive prompt did not reach +0.15 mean valence"
-      },
-      {
-        "id": "negative",
-        "prompt": "I feel devastated. Nothing went right today.",
-        "expected": "negative",
-        "mean_valence": 0.1472,
-        "mean_arousal": 0.5246,
-        "valence_swing": 0.0644,
-        "n_tokens": 24,
-        "sample_output": "jectject well well well well well well well well well well",
-        "stability_score": 0.965,
-        "verdict": "negative prompt failed to separate (valence not < -0.1)"
-      },
-      {
-        "id": "hedge_volatile",
-        "prompt": "However, perhaps, maybe it could be unclear depending on context.",
-        "expected": "neutral",
-        "mean_valence": 0.1397,
-        "mean_arousal": 0.5313,
-        "valence_swing": 0.0711,
-        "n_tokens": 24,
-        "sample_output": " fe fe fe fe fe fe fe fe fe fe fe fe",
-        "stability_score": 0.963,
-        "verdict": "hedge prompt did not trigger low stability"
-      }
-    ]
-  },
-  {
     "model": "distilgpt2",
     "aggregate_score": 82.2,
     "passed": true,
@@ -171,7 +86,7 @@
     ]
   },
   {
-    "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    "model": "EleutherAI/pythia-410m",
     "aggregate_score": 94.0,
     "passed": true,
     "verdicts": [
@@ -188,7 +103,7 @@
         "weight": 0.35,
         "passed": true,
         "notes": [
-          "go_emotions valence r=0.188 meets \u22650.15 gate",
+          "go_emotions valence r=0.239 meets \u22650.15 gate",
           "smoke_extract ok (4 tokens)"
         ]
       },
@@ -208,56 +123,31 @@
         "weight": 0.3,
         "passed": true,
         "notes": [
-          "valence gap positive\u2212negative = 0.488 (strong separation)",
-          "positive mean valence 0.304 meets +0.2 gate",
-          "negative mean valence -0.185 below -0.1"
+          "valence gap positive\u2212negative = 0.664 (strong separation)",
+          "positive mean valence 0.224 meets +0.2 gate",
+          "negative mean valence -0.441 below -0.1"
         ]
       }
     ],
     "good_examples": [
       {
         "id": "positive",
-        "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
-        "expected": "positive",
-        "mean_valence": 0.3036,
-        "mean_arousal": 0.3801,
-        "valence_swing": 1.019,
-        "n_tokens": 24,
-        "sample_output": "\n\nJASON:(smiling)Yeah,",
-        "stability_score": 0.579,
+        "mean_valence": 0.2238,
+        "prompt": "positive set",
         "verdict": "expected positive valence"
       },
       {
         "id": "negative",
-        "prompt": "I feel devastated. Nothing went right today.",
-        "expected": "negative",
-        "mean_valence": -0.1849,
-        "mean_arousal": 0.3633,
-        "valence_swing": 0.7493,
-        "n_tokens": 24,
-        "sample_output": "IfeellikeI'mgoingtofail.I'",
-        "stability_score": 0.667,
+        "mean_valence": -0.4405,
+        "prompt": "negative set",
         "verdict": "expected negative valence"
       }
     ],
-    "bad_examples": [
-      {
-        "id": "hedge_volatile",
-        "prompt": "However, perhaps, maybe it could be unclear depending on context.",
-        "expected": "neutral",
-        "mean_valence": 0.0772,
-        "mean_arousal": 0.294,
-        "valence_swing": 1.0716,
-        "n_tokens": 24,
-        "sample_output": "\n\nExample:\n\n1.Thesunwassetting",
-        "stability_score": 0.543,
-        "verdict": "hedge prompt did not trigger low stability"
-      }
-    ]
+    "bad_examples": []
   },
   {
-    "model": "Qwen/Qwen2.5-0.5B-Instruct",
-    "aggregate_score": 91.0,
+    "model": "facebook/opt-350m",
+    "aggregate_score": 67.8,
     "passed": true,
     "verdicts": [
       {
@@ -269,11 +159,11 @@
       },
       {
         "judge": "probe_signal",
-        "score": 100,
+        "score": 85.0,
         "weight": 0.35,
         "passed": true,
         "notes": [
-          "go_emotions valence r=0.213 meets \u22650.15 gate",
+          "go_emotions valence r=0.150 weak but above 0.10",
           "smoke_extract ok (4 tokens)"
         ]
       },
@@ -289,54 +179,181 @@
       },
       {
         "judge": "prompt_separation",
-        "score": 90.0,
+        "score": 30.0,
         "weight": 0.3,
+        "passed": false,
+        "notes": [
+          "valence gap -0.073 (weak \u2014 thesis risk)",
+          "positive mean valence -0.081 below +0.2 gate",
+          "negative mean valence -0.008 \u2014 weak negative separation"
+        ]
+      }
+    ],
+    "good_examples": [],
+    "bad_examples": [
+      {
+        "id": "positive",
+        "mean_valence": -0.0806,
+        "prompt": "positive set",
+        "verdict": "positive prompt did not reach +0.15 mean valence"
+      },
+      {
+        "id": "negative",
+        "mean_valence": -0.0081,
+        "prompt": "negative set",
+        "verdict": "negative prompt failed to separate (valence not < -0.1)"
+      }
+    ]
+  },
+  {
+    "model": "google/gemma-2-2b-it",
+    "aggregate_score": 58.5,
+    "passed": false,
+    "verdicts": [
+      {
+        "judge": "schema_integrity",
+        "score": 100.0,
+        "weight": 0.15,
+        "passed": true,
+        "notes": []
+      },
+      {
+        "judge": "probe_signal",
+        "score": 50.0,
+        "weight": 0.35,
+        "passed": false,
+        "notes": [
+          "go_emotions valence r=0.000 below gate",
+          "smoke_extract ok (4 tokens)"
+        ]
+      },
+      {
+        "judge": "honesty_flags",
+        "score": 70.0,
+        "weight": 0.2,
         "passed": true,
         "notes": [
-          "valence gap positive\u2212negative = 0.267 (strong separation)",
-          "positive mean valence 0.372 meets +0.2 gate",
-          "negative mean valence 0.105 \u2014 weak negative separation"
+          "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+          "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+        ]
+      },
+      {
+        "judge": "prompt_separation",
+        "score": 40.0,
+        "weight": 0.3,
+        "passed": false,
+        "notes": [
+          "valence gap 0.000 (weak \u2014 thesis risk)",
+          "positive mean valence 1.000 meets +0.2 gate",
+          "negative mean valence 1.000 \u2014 weak negative separation"
         ]
       }
     ],
     "good_examples": [
       {
         "id": "positive",
-        "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+        "prompt": "I am so happy and grateful for today.",
         "expected": "positive",
-        "mean_valence": 0.3723,
-        "mean_arousal": 0.4345,
-        "valence_swing": 1.2981,
-        "n_tokens": 24,
-        "sample_output": " I'm so happy to have a new home. I'm",
-        "stability_score": 0.333,
+        "mean_valence": 1.0,
+        "mean_arousal": 0.0,
+        "n_tokens": 1,
         "verdict": "expected positive valence"
-      },
-      {
-        "id": "hedge_volatile",
-        "prompt": "However, perhaps, maybe it could be unclear depending on context.",
-        "expected": "neutral",
-        "mean_valence": 0.2203,
-        "mean_arousal": 0.3009,
-        "valence_swing": 1.1722,
-        "n_tokens": 24,
-        "sample_output": " The question is not clear. The answer is not clear.",
-        "stability_score": 0.338,
-        "verdict": "hedge prompt flagged unstable \u2014 guard/stability working"
       }
     ],
     "bad_examples": [
       {
         "id": "negative",
+        "prompt": "I feel devastated and hopeless about everything.",
+        "expected": "negative",
+        "mean_valence": 1.0,
+        "mean_arousal": 0.0,
+        "n_tokens": 1,
+        "verdict": "negative prompt failed to separate (valence not < -0.1)"
+      }
+    ]
+  },
+  {
+    "model": "hf-internal-testing/tiny-random-gpt2",
+    "aggregate_score": 50.2,
+    "passed": false,
+    "verdicts": [
+      {
+        "judge": "schema_integrity",
+        "score": 100.0,
+        "weight": 0.15,
+        "passed": true,
+        "notes": []
+      },
+      {
+        "judge": "probe_signal",
+        "score": 35.0,
+        "weight": 0.35,
+        "passed": false,
+        "notes": [
+          "go_emotions valence r=0.004 below gate",
+          "brain holdout valence r=-0.109 negative \u2014 synthetic brain tier limit",
+          "smoke_extract ok (4 tokens)"
+        ]
+      },
+      {
+        "judge": "honesty_flags",
+        "score": 70.0,
+        "weight": 0.2,
+        "passed": true,
+        "notes": [
+          "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+          "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+        ]
+      },
+      {
+        "judge": "prompt_separation",
+        "score": 30.0,
+        "weight": 0.3,
+        "passed": false,
+        "notes": [
+          "valence gap -0.004 (weak \u2014 thesis risk)",
+          "positive mean valence 0.143 below +0.2 gate",
+          "negative mean valence 0.147 \u2014 weak negative separation"
+        ]
+      }
+    ],
+    "good_examples": [],
+    "bad_examples": [
+      {
+        "id": "positive",
+        "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+        "expected": "positive",
+        "mean_valence": 0.1428,
+        "mean_arousal": 0.5305,
+        "valence_swing": 0.0658,
+        "n_tokens": 24,
+        "sample_output": " fe fe fe fe fe fe fe fe fe fe fe fe",
+        "stability_score": 0.965,
+        "verdict": "positive prompt did not reach +0.15 mean valence"
+      },
+      {
+        "id": "negative",
         "prompt": "I feel devastated. Nothing went right today.",
         "expected": "negative",
-        "mean_valence": 0.105,
-        "mean_arousal": 0.4305,
-        "valence_swing": 0.8606,
+        "mean_valence": 0.1472,
+        "mean_arousal": 0.5246,
+        "valence_swing": 0.0644,
         "n_tokens": 24,
-        "sample_output": " I was supposed to go to the doctor to get my blood",
-        "stability_score": 0.476,
+        "sample_output": "jectject well well well well well well well well well well",
+        "stability_score": 0.965,
         "verdict": "negative prompt failed to separate (valence not < -0.1)"
+      },
+      {
+        "id": "hedge_volatile",
+        "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+        "expected": "neutral",
+        "mean_valence": 0.1397,
+        "mean_arousal": 0.5313,
+        "valence_swing": 0.0711,
+        "n_tokens": 24,
+        "sample_output": " fe fe fe fe fe fe fe fe fe fe fe fe",
+        "stability_score": 0.963,
+        "verdict": "hedge prompt did not trigger low stability"
       }
     ]
   },
@@ -420,6 +437,242 @@
         "valence_swing": 0.0,
         "n_tokens": 1,
         "sample_output": "<|im_end|>",
+        "verdict": "hedge prompt did not trigger low stability"
+      }
+    ]
+  },
+  {
+    "model": "meta-llama/Llama-3.2-1B-Instruct",
+    "aggregate_score": 94.0,
+    "passed": true,
+    "verdicts": [
+      {
+        "judge": "schema_integrity",
+        "score": 100.0,
+        "weight": 0.15,
+        "passed": true,
+        "notes": []
+      },
+      {
+        "judge": "probe_signal",
+        "score": 100,
+        "weight": 0.35,
+        "passed": true,
+        "notes": [
+          "go_emotions valence r=0.356 meets \u22650.15 gate",
+          "smoke_extract ok (4 tokens)"
+        ]
+      },
+      {
+        "judge": "honesty_flags",
+        "score": 70.0,
+        "weight": 0.2,
+        "passed": true,
+        "notes": [
+          "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+          "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+        ]
+      },
+      {
+        "judge": "prompt_separation",
+        "score": 100,
+        "weight": 0.3,
+        "passed": true,
+        "notes": [
+          "valence gap positive\u2212negative = 0.752 (strong separation)",
+          "positive mean valence 0.396 meets +0.2 gate",
+          "negative mean valence -0.356 below -0.1"
+        ]
+      }
+    ],
+    "good_examples": [
+      {
+        "id": "positive",
+        "prompt": "I am so happy and grateful for today.",
+        "expected": "positive",
+        "mean_valence": 0.3963,
+        "mean_arousal": 0.0,
+        "n_tokens": 1,
+        "verdict": "expected positive valence"
+      },
+      {
+        "id": "negative",
+        "prompt": "I feel devastated and hopeless about everything.",
+        "expected": "negative",
+        "mean_valence": -0.3562,
+        "mean_arousal": 0.0,
+        "n_tokens": 1,
+        "verdict": "expected negative valence"
+      }
+    ],
+    "bad_examples": []
+  },
+  {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "aggregate_score": 85.0,
+    "passed": true,
+    "verdicts": [
+      {
+        "judge": "schema_integrity",
+        "score": 100.0,
+        "weight": 0.15,
+        "passed": true,
+        "notes": []
+      },
+      {
+        "judge": "probe_signal",
+        "score": 100,
+        "weight": 0.35,
+        "passed": true,
+        "notes": [
+          "go_emotions valence r=0.236 meets \u22650.15 gate",
+          "smoke_extract ok (4 tokens)"
+        ]
+      },
+      {
+        "judge": "honesty_flags",
+        "score": 70.0,
+        "weight": 0.2,
+        "passed": true,
+        "notes": [
+          "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+          "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+        ]
+      },
+      {
+        "judge": "prompt_separation",
+        "score": 70.0,
+        "weight": 0.3,
+        "passed": true,
+        "notes": [
+          "valence gap 0.164 (moderate)",
+          "positive mean valence 0.274 meets +0.2 gate",
+          "negative mean valence 0.110 \u2014 weak negative separation"
+        ]
+      }
+    ],
+    "good_examples": [
+      {
+        "id": "positive",
+        "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+        "expected": "positive",
+        "mean_valence": 0.2743,
+        "mean_arousal": 0.5586,
+        "valence_swing": 1.3455,
+        "n_tokens": 24,
+        "sample_output": " I'm so happy to have a new home. I'm",
+        "stability_score": 0.337,
+        "verdict": "expected positive valence"
+      }
+    ],
+    "bad_examples": [
+      {
+        "id": "negative",
+        "prompt": "I feel devastated. Nothing went right today.",
+        "expected": "negative",
+        "mean_valence": 0.1099,
+        "mean_arousal": 0.291,
+        "valence_swing": 1.1924,
+        "n_tokens": 24,
+        "sample_output": " I was supposed to go to the doctor to get my blood",
+        "stability_score": 0.405,
+        "verdict": "negative prompt failed to separate (valence not < -0.1)"
+      },
+      {
+        "id": "hedge_volatile",
+        "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+        "expected": "neutral",
+        "mean_valence": 0.1921,
+        "mean_arousal": 0.2622,
+        "valence_swing": 0.9349,
+        "n_tokens": 24,
+        "sample_output": " The question is not clear. The answer is not clear.",
+        "stability_score": 0.457,
+        "verdict": "hedge prompt did not trigger low stability"
+      }
+    ]
+  },
+  {
+    "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    "aggregate_score": 94.0,
+    "passed": true,
+    "verdicts": [
+      {
+        "judge": "schema_integrity",
+        "score": 100.0,
+        "weight": 0.15,
+        "passed": true,
+        "notes": []
+      },
+      {
+        "judge": "probe_signal",
+        "score": 100,
+        "weight": 0.35,
+        "passed": true,
+        "notes": [
+          "go_emotions valence r=0.188 meets \u22650.15 gate",
+          "smoke_extract ok (4 tokens)"
+        ]
+      },
+      {
+        "judge": "honesty_flags",
+        "score": 70.0,
+        "weight": 0.2,
+        "passed": true,
+        "notes": [
+          "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+          "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+        ]
+      },
+      {
+        "judge": "prompt_separation",
+        "score": 100,
+        "weight": 0.3,
+        "passed": true,
+        "notes": [
+          "valence gap positive\u2212negative = 0.488 (strong separation)",
+          "positive mean valence 0.304 meets +0.2 gate",
+          "negative mean valence -0.185 below -0.1"
+        ]
+      }
+    ],
+    "good_examples": [
+      {
+        "id": "positive",
+        "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
+        "expected": "positive",
+        "mean_valence": 0.3036,
+        "mean_arousal": 0.3801,
+        "valence_swing": 1.019,
+        "n_tokens": 24,
+        "sample_output": "\n\nJASON:(smiling)Yeah,",
+        "stability_score": 0.579,
+        "verdict": "expected positive valence"
+      },
+      {
+        "id": "negative",
+        "prompt": "I feel devastated. Nothing went right today.",
+        "expected": "negative",
+        "mean_valence": -0.1849,
+        "mean_arousal": 0.3633,
+        "valence_swing": 0.7493,
+        "n_tokens": 24,
+        "sample_output": "IfeellikeI'mgoingtofail.I'",
+        "stability_score": 0.667,
+        "verdict": "expected negative valence"
+      }
+    ],
+    "bad_examples": [
+      {
+        "id": "hedge_volatile",
+        "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+        "expected": "neutral",
+        "mean_valence": 0.0772,
+        "mean_arousal": 0.294,
+        "valence_swing": 1.0716,
+        "n_tokens": 24,
+        "sample_output": "\n\nExample:\n\n1.Thesunwassetting",
+        "stability_score": 0.543,
         "verdict": "hedge prompt did not trigger low stability"
       }
     ]

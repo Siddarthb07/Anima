@@ -1,0 +1,33 @@
+{
+  "model": "meta-llama/Llama-3.2-1B-Instruct",
+  "generated_at": "2026-08-13T12:26:01.874648+00:00",
+  "positive": {
+    "n": 3,
+    "mean_valence": 0.3963,
+    "values": [
+      0.3837,
+      0.4523,
+      0.353
+    ],
+    "probe_origin": "text_emotion",
+    "use_chat_template": true
+  },
+  "negative": {
+    "n": 3,
+    "mean_valence": -0.3562,
+    "values": [
+      -0.3867,
+      -0.3085,
+      -0.3733
+    ],
+    "probe_origin": "text_emotion",
+    "use_chat_template": true
+  },
+  "pos_neg_gap": 0.7525,
+  "targets": {
+    "pos_mean_ge": 0.25,
+    "neg_mean_le": 0.05,
+    "gap_ge": 0.2
+  },
+  "passed": true
+}

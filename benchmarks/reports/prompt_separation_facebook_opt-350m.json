@@ -1,0 +1,33 @@
+{
+  "model": "facebook/opt-350m",
+  "generated_at": "2026-08-13T10:22:32.421202+00:00",
+  "positive": {
+    "n": 3,
+    "mean_valence": -0.0806,
+    "values": [
+      -0.0718,
+      -0.0982,
+      -0.0719
+    ],
+    "probe_origin": "text_emotion",
+    "use_chat_template": false
+  },
+  "negative": {
+    "n": 3,
+    "mean_valence": -0.0081,
+    "values": [
+      0.024,
+      -0.106,
+      0.0577
+    ],
+    "probe_origin": "text_emotion",
+    "use_chat_template": false
+  },
+  "pos_neg_gap": -0.0725,
+  "targets": {
+    "pos_mean_ge": 0.25,
+    "neg_mean_le": 0.05,
+    "gap_ge": 0.2
+  },
+  "passed": false
+}

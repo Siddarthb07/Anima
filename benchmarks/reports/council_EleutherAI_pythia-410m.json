@@ -1,0 +1,60 @@
+{
+  "model": "EleutherAI/pythia-410m",
+  "aggregate_score": 94.0,
+  "passed": true,
+  "verdicts": [
+    {
+      "judge": "schema_integrity",
+      "score": 100.0,
+      "weight": 0.15,
+      "passed": true,
+      "notes": []
+    },
+    {
+      "judge": "probe_signal",
+      "score": 100,
+      "weight": 0.35,
+      "passed": true,
+      "notes": [
+        "go_emotions valence r=0.239 meets \u22650.15 gate",
+        "smoke_extract ok (4 tokens)"
+      ]
+    },
+    {
+      "judge": "honesty_flags",
+      "score": 70.0,
+      "weight": 0.2,
+      "passed": true,
+      "notes": [
+        "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+        "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+      ]
+    },
+    {
+      "judge": "prompt_separation",
+      "score": 100,
+      "weight": 0.3,
+      "passed": true,
+      "notes": [
+        "valence gap positive\u2212negative = 0.664 (strong separation)",
+        "positive mean valence 0.224 meets +0.2 gate",
+        "negative mean valence -0.441 below -0.1"
+      ]
+    }
+  ],
+  "good_examples": [
+    {
+      "id": "positive",
+      "mean_valence": 0.2238,
+      "prompt": "positive set",
+      "verdict": "expected positive valence"
+    },
+    {
+      "id": "negative",
+      "mean_valence": -0.4405,
+      "prompt": "negative set",
+      "verdict": "expected negative valence"
+    }
+  ],
+  "bad_examples": []
+}

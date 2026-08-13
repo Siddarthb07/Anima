@@ -1,0 +1,33 @@
+{
+  "model": "google/gemma-2-2b-it",
+  "generated_at": "2026-08-13T11:45:49.259880+00:00",
+  "positive": {
+    "n": 3,
+    "mean_valence": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "probe_origin": "text_emotion",
+    "use_chat_template": true
+  },
+  "negative": {
+    "n": 3,
+    "mean_valence": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "probe_origin": "text_emotion",
+    "use_chat_template": true
+  },
+  "pos_neg_gap": 0.0,
+  "targets": {
+    "pos_mean_ge": 0.25,
+    "neg_mean_le": 0.05,
+    "gap_ge": 0.2
+  },
+  "passed": false
+}

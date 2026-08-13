@@ -1,6 +1,6 @@
 {
   "model": "Qwen/Qwen2.5-0.5B-Instruct",
-  "aggregate_score": 91.0,
+  "aggregate_score": 85.0,
   "passed": true,
   "verdicts": [
     {
@@ -16,7 +16,7 @@
       "weight": 0.35,
       "passed": true,
       "notes": [
-        "go_emotions valence r=0.213 meets \u22650.15 gate",
+        "go_emotions valence r=0.236 meets \u22650.15 gate",
         "smoke_extract ok (4 tokens)"
       ]
     },
@@ -32,13 +32,13 @@
     },
     {
       "judge": "prompt_separation",
-      "score": 90.0,
+      "score": 70.0,
       "weight": 0.3,
       "passed": true,
       "notes": [
-        "valence gap positive\u2212negative = 0.267 (strong separation)",
-        "positive mean valence 0.372 meets +0.2 gate",
-        "negative mean valence 0.105 \u2014 weak negative separation"
+        "valence gap 0.164 (moderate)",
+        "positive mean valence 0.274 meets +0.2 gate",
+        "negative mean valence 0.110 \u2014 weak negative separation"
       ]
     }
   ],
@@ -47,25 +47,13 @@
       "id": "positive",
       "prompt": "I'm thrilled \u2014 we finally shipped it and everything worked.",
       "expected": "positive",
-      "mean_valence": 0.3723,
-      "mean_arousal": 0.4345,
-      "valence_swing": 1.2981,
+      "mean_valence": 0.2743,
+      "mean_arousal": 0.5586,
+      "valence_swing": 1.3455,
       "n_tokens": 24,
       "sample_output": " I'm so happy to have a new home. I'm",
-      "stability_score": 0.333,
+      "stability_score": 0.337,
       "verdict": "expected positive valence"
-    },
-    {
-      "id": "hedge_volatile",
-      "prompt": "However, perhaps, maybe it could be unclear depending on context.",
-      "expected": "neutral",
-      "mean_valence": 0.2203,
-      "mean_arousal": 0.3009,
-      "valence_swing": 1.1722,
-      "n_tokens": 24,
-      "sample_output": " The question is not clear. The answer is not clear.",
-      "stability_score": 0.338,
-      "verdict": "hedge prompt flagged unstable \u2014 guard/stability working"
     }
   ],
   "bad_examples": [
@@ -73,13 +61,25 @@
       "id": "negative",
       "prompt": "I feel devastated. Nothing went right today.",
       "expected": "negative",
-      "mean_valence": 0.105,
-      "mean_arousal": 0.4305,
-      "valence_swing": 0.8606,
+      "mean_valence": 0.1099,
+      "mean_arousal": 0.291,
+      "valence_swing": 1.1924,
       "n_tokens": 24,
       "sample_output": " I was supposed to go to the doctor to get my blood",
-      "stability_score": 0.476,
+      "stability_score": 0.405,
       "verdict": "negative prompt failed to separate (valence not < -0.1)"
+    },
+    {
+      "id": "hedge_volatile",
+      "prompt": "However, perhaps, maybe it could be unclear depending on context.",
+      "expected": "neutral",
+      "mean_valence": 0.1921,
+      "mean_arousal": 0.2622,
+      "valence_swing": 0.9349,
+      "n_tokens": 24,
+      "sample_output": " The question is not clear. The answer is not clear.",
+      "stability_score": 0.457,
+      "verdict": "hedge prompt did not trigger low stability"
     }
   ]
 }

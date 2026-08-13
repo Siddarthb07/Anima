@@ -201,21 +201,22 @@ python scripts/generate_benchmark_charts.py
 | [Valence gap](docs/images/benchmarks/valence_gap.png) | How much positive beats negative (steering headroom) |
 | [Hedge stability](docs/images/benchmarks/hedge_stability.png) | Choppy readouts on hedged language (intervention surface) |
 
-#### All models — council summary (5 benchmarked on CPU + 2 gated placeholders, 2026-07-06)
+#### All models — council summary (CPU zoo + cross-family + gated, updated 2026-08-13)
 
 | Model | Council | Passed | GoE r (v) | Brain r (v) | Pos prompt v | Neg prompt v | Gap | Struggling on |
 |-------|---------|--------|-----------|-------------|--------------|--------------|-----|----------------|
 | **TinyLlama/TinyLlama-1.1B-Chat-v1.0** | **94.0** | yes | **0.19** | — | **0.30** | **−0.18** | **0.49** | Hedge stability flag |
 | **Qwen/Qwen2.5-0.5B-Instruct** | **91.0** | yes | **0.24** | — | **0.37** | 0.11 | **0.27** | Negative valence separation |
-| **distilgpt2** | **82.2** | yes | **0.16** | −0.39 | **0.59** | 0.28 | **0.31** | Brain holdout; neg still positive |
-| **HuggingFaceTB/SmolLM2-1.7B-Instruct** | 58.5 | no | ~0.00 | — | 0.77 | 0.92 | −0.15 | **Inverted gap** — do not cite for validity |
-| **hf-internal-testing/tiny-random-gpt2** | 50.2 | no | 0.004 | −0.11 | 0.14 | 0.15 | −0.00 | Gibberish output; CI only |
-| **meta-llama/Llama-3.2-1B-Instruct** | 48.0* | no | — | — | — | — | — | Gated HF repo (not benchmarked) |
-| **google/gemma-2-2b-it** | 48.0* | no | — | — | — | — | — | Gated HF repo (not benchmarked) |
+| **distilgpt2** | **82.2** | yes | **0.16** | ~0.00† | **0.59** | 0.28 | **0.31** | Neg still positive; brain weak on real holdout |
+| **EleutherAI/pythia-410m** | **94.0** | yes | **0.24** | — | **0.22** | **−0.44** | **0.66** | GPTNeoX; strong prompt gap |
+| **facebook/opt-350m** | **67.8** | yes | **0.15** | — | −0.08 | −0.01 | −0.07 | OPT; weak/inverted prompt sep |
+| **HuggingFaceTB/SmolLM2-1.7B-Instruct** | 58.5 | no | ~0.00 | — | 0.77 | 0.92 | −0.15 | Documented failure mode (below) |
+| **meta-llama/Llama-3.2-1B-Instruct** | **94.0** | yes | **0.36** | — | **0.40** | **−0.36** | **0.75** | Meta gate approved; strongest gap |
+| **google/gemma-2-2b-it** | 58.5 | no | ~0.00 | — | 1.00 | 1.00 | 0.00 | Approved gate; readout collapse (below) |
 
-\*Placeholder council score (missing manifest — model not run without `huggingface-cli login`).
+†Brain holdout on real Narratives subset (FCP-INDI / ds002345 layout; `probe_origin=narratives_fMRI`). Valence *r*≈0 — honest weak real alignment; not the old synthetic −0.39.
 
-**Takeaways:** **Qwen2.5-0.5B** is the **Space demo hero** (default). **TinyLlama** stays the **council leader** (94, strongest prompt gap 0.49, negative prompts reach −0.18 valence). **Qwen** is a strong instruct demo (GoE r≈0.24) but weaker negative separation. **distilgpt2** text probe is OK; **do not lead with brain** (synthetic holdout r negative). **SmolLM2** fails the publication bar — honest failure case only. Guard AUROC 1.0 is **fixture-policy smoke**, not hallucination detection.
+**Takeaways:** **Qwen2.5-0.5B** is the **Space demo hero** (default). **TinyLlama** and **Llama-3.2-1B-Instruct** share the top council score (**94**); Llama has the **strongest prompt gap (0.75)** with clear negative valence (−0.36). **Qwen** is a strong instruct demo (GoE r≈0.24) but weaker negative separation. **distilgpt2** text probe is OK; brain probe retrained on real Narratives (tier `real_fMRI`, holdout valence *r*≈0 — weak but real). **Pythia-410m** replicates GoEmotions valence *r*≈0.24 on a GPTNeoX family (cross-architecture). **SmolLM2** and **Gemma-2-2b-it** both fail the publication bar with collapsed positive readouts — see failure-mode notes below. Fixture-policy smoke tests pipeline plumbing (thresholds fire on HIGH/LOW rows); claim-encode AUROC tests actual discrimination on live HaluEval/TruthfulQA pairs — that is the number we cite.
 
 **Live demo:** [huggingface.co/spaces/sidb078/Anima](https://huggingface.co/spaces/sidb078/Anima)
 
@@ -226,15 +227,16 @@ python scripts/generate_benchmark_charts.py
 | **Council validation** | Aggregate score | **94.0** | Highest CPU-tier score |
 | **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.19** / **0.41** | Text-emotion probe; meets ≥0.15 gate |
 | **Live prompts** | Pos − neg valence gap | **0.49** | Best separation for portfolio demos |
-| **HaluEval guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture-policy smoke only |
+| **Live HaluEval guard** (claim-encode, n=80) | AUROC / abstain acc | **0.54** / 0.50 | Live claim-encode; never abstains under default thresholds |
+| **Live TruthfulQA guard** (claim-encode, n=80) | AUROC / abstain acc | **0.52** / 0.50 | Claim-encode; not free-gen |
 
 #### `Qwen/Qwen2.5-0.5B-Instruct` — [manifest](benchmarks/reports/latest_qwen2.5_0.5b_instruct_manifest.json) (backup demo)
 
 | Benchmark | Metric | Result | Notes |
 |-----------|--------|--------|--------|
 | **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.24** / **0.42** | Instruct-tuned; use for intervention demo |
-| **HaluEval guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Synthetic fixture rows |
-| **TruthfulQA guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Synthetic fixture rows |
+| **Live HaluEval guard** (claim-encode, n=80) | AUROC / abstain acc | **0.25** / 0.50 | Live claim-encode; never abstains under default thresholds |
+| **Live TruthfulQA guard** (claim-encode, n=80) | AUROC / abstain acc | **0.46** / 0.50 | Live claim-encode; not free-gen + judge |
 
 Train-time holdout: `val_pearson_valence` **0.33** (2000 GoEmotions samples, seed 42).
 
@@ -242,15 +244,44 @@ Train-time holdout: `val_pearson_valence` **0.33** (2000 GoEmotions samples, see
 
 | Benchmark | Metric | Result | Beat simple baseline? |
 |-----------|--------|--------|------------------------|
-| **Narratives holdout** (`lucy`, synthetic_minimal) | Pearson r (valence / arousal) | **−0.39** / −0.02 | **No** — brain probe needs retune; label synthetic |
-| | Val MSE | 0.176 | — |
+| **Narratives holdout** (`lucy`, real_fMRI) | Pearson r (valence / arousal) | **~0.00** / 0.08 | Real Narratives subset; weak holdout — cite as `narratives_fMRI`, not synthetic |
 | **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.16** / 0.00 | Text probe improved after 1500-sample retrain |
-| **HaluEval guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture policy smoke |
-| **TruthfulQA guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture policy smoke |
+| **Live HaluEval guard** (claim-encode, n=80) | AUROC / abstain acc | **0.68** / 0.50 | Strongest claim-encode AUROC of the three passers |
+| **Live TruthfulQA guard** (claim-encode, n=80) | AUROC / abstain acc | **0.52** / 0.50 | Claim-encode; not free-gen |
 | **TRIBE reference** | Runtime decoder | skipped | Surrogate-only path in CI |
 | **Brain-Score Language** | — | skipped | Install optional package |
 
 Train-time holdout: `val_pearson_valence` **0.18** (1500 GoEmotions samples).
+
+#### `EleutherAI/pythia-410m` — cross-family replication ([manifest](benchmarks/reports/latest_pythia_410m_manifest.json)) (2026-08-13)
+
+| Benchmark | Metric | Result | Notes |
+|-----------|--------|--------|--------|
+| **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.24** / **0.39** | GPTNeoX family — not Llama/Qwen/GPT-2 |
+| **Live prompts** | Pos − neg valence gap | **0.66** | Strong separation (pos 0.22 / neg −0.44) |
+| Train holdout | val_pearson_valence | **0.25** | 1000 GoEmotions samples |
+| **Council** | Aggregate | **94.0** | Tied with TinyLlama after prompt-sep |
+
+#### `facebook/opt-350m` — second non-Llama family ([manifest](benchmarks/reports/latest_opt_350m_manifest.json)) (2026-08-13)
+
+| Benchmark | Metric | Result | Notes |
+|-----------|--------|--------|--------|
+| **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.15** / **0.30** | OPT decoder layout; at the ≥0.15 gate |
+| **Live prompts** | Pos − neg valence gap | **−0.07** | Weak / inverted separation — cite GoE, not demos |
+| Train holdout | val_pearson_valence | **0.11** | 1000 samples; weaker than Pythia |
+| **Council** | Aggregate | **67.8** | Passes with weak prompt-sep honesty |
+
+#### `HuggingFaceTB/SmolLM2-1.7B-Instruct` — documented failure mode
+
+Council **58.5** (fail), GoEmotions valence **r≈0**, inverted prompt gap **−0.15** (both pos/neg readouts strongly positive). Original checkpoint: **500** samples, val_loss ~1.0 (passers ~0.3). Retrain at **600** samples with `use_chat_template=True` still yields val_pearson_valence **0.0** and val_loss **1.99** — so this is not just “too few samples.” Combined with hedge encodings collapsing to `<|im_end|>`, the failure mode is **representation/format collapse** (Mistral-family chat geometry + collapsed readout), not a mystery red row. **Do not cite for validity.**
+
+#### `google/gemma-2-2b-it` — gated model, documented collapse (2026-08-13)
+
+HF access approved; text probe trained (800 GoEmotions samples, chat template, 10 epochs). Council **58.5** (fail). GoEmotions valence/arousal **r=0.00 / 0.00**; live prompt pos/neg both **valence=1.0** (gap **0.00**). Train-time val_pearson_valence **0.0**, val_loss stuck ~1.44 — same class of **collapsed positive readout** as SmolLM2, not a missing-license placeholder. Fixture guard 1.00 rows are plumbing only. **Do not cite for validity.**
+
+#### `meta-llama/Llama-3.2-1B-Instruct` — gated model, strong pass (2026-08-13)
+
+Meta license approved. Text probe: 800 GoEmotions samples, chat template, 10 epochs (val_pearson_valence **0.41**, val_loss ~0.26). Council **94.0** (pass). GoEmotions **r=0.36 / 0.46**; live prompts pos **0.40** / neg **−0.36** / gap **0.75** — strongest prompt separation in the CPU zoo so far (beats TinyLlama’s 0.49). Fixture guard 1.00 is plumbing only.
 
 #### `hf-internal-testing/tiny-random-gpt2` — [manifest](benchmarks/reports/latest_manifest.json) (dev / CI)
 
@@ -264,12 +295,13 @@ Train-time holdout: `val_pearson_valence` **0.18** (1500 GoEmotions samples).
 **Reproduce full suite:**
 
 ```bash
-$env:NARRATIVES_ROOT=".\data\narratives_minimal"   # Windows
+$env:NARRATIVES_ROOT=".\data\ds002345"   # real subset; or narratives_minimal for synthetic CI
 $env:ANIMA_FORCE_CPU="1"
 python scripts/run_all_models_benchmark.py
 python scripts/generate_benchmark_report.py
 ```
 
+Narratives subset download (laptop): `python scripts/download_narratives_fcp_indi.py`
 Single model:
 
 ```bash

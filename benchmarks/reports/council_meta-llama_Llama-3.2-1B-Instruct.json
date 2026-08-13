@@ -1,43 +1,66 @@
 {
   "model": "meta-llama/Llama-3.2-1B-Instruct",
-  "aggregate_score": 48.0,
-  "passed": false,
+  "aggregate_score": 94.0,
+  "passed": true,
   "verdicts": [
     {
       "judge": "schema_integrity",
-      "score": 30.0,
-      "weight": 0.15,
-      "passed": false,
-      "notes": [
-        "missing or wrong manifest_schema_version",
-        "missing generated_at",
-        "no benchmark entries"
-      ]
-    },
-    {
-      "judge": "probe_signal",
-      "score": 50.0,
-      "weight": 0.35,
-      "passed": false,
-      "notes": []
-    },
-    {
-      "judge": "honesty_flags",
       "score": 100.0,
-      "weight": 0.2,
+      "weight": 0.15,
       "passed": true,
       "notes": []
     },
     {
-      "judge": "prompt_separation",
-      "score": 20.0,
-      "weight": 0.3,
-      "passed": false,
+      "judge": "probe_signal",
+      "score": 100,
+      "weight": 0.35,
+      "passed": true,
       "notes": [
-        "missing positive/negative prompt runs"
+        "go_emotions valence r=0.356 meets \u22650.15 gate",
+        "smoke_extract ok (4 tokens)"
+      ]
+    },
+    {
+      "judge": "honesty_flags",
+      "score": 70.0,
+      "weight": 0.2,
+      "passed": true,
+      "notes": [
+        "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+        "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+      ]
+    },
+    {
+      "judge": "prompt_separation",
+      "score": 100,
+      "weight": 0.3,
+      "passed": true,
+      "notes": [
+        "valence gap positive\u2212negative = 0.752 (strong separation)",
+        "positive mean valence 0.396 meets +0.2 gate",
+        "negative mean valence -0.356 below -0.1"
       ]
     }
   ],
-  "good_examples": [],
+  "good_examples": [
+    {
+      "id": "positive",
+      "prompt": "I am so happy and grateful for today.",
+      "expected": "positive",
+      "mean_valence": 0.3963,
+      "mean_arousal": 0.0,
+      "n_tokens": 1,
+      "verdict": "expected positive valence"
+    },
+    {
+      "id": "negative",
+      "prompt": "I feel devastated and hopeless about everything.",
+      "expected": "negative",
+      "mean_valence": -0.3562,
+      "mean_arousal": 0.0,
+      "n_tokens": 1,
+      "verdict": "expected negative valence"
+    }
+  ],
   "bad_examples": []
 }

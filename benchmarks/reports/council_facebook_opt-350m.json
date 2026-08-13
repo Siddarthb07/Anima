@@ -1,0 +1,60 @@
+{
+  "model": "facebook/opt-350m",
+  "aggregate_score": 67.8,
+  "passed": true,
+  "verdicts": [
+    {
+      "judge": "schema_integrity",
+      "score": 100.0,
+      "weight": 0.15,
+      "passed": true,
+      "notes": []
+    },
+    {
+      "judge": "probe_signal",
+      "score": 85.0,
+      "weight": 0.35,
+      "passed": true,
+      "notes": [
+        "go_emotions valence r=0.150 weak but above 0.10",
+        "smoke_extract ok (4 tokens)"
+      ]
+    },
+    {
+      "judge": "honesty_flags",
+      "score": 70.0,
+      "weight": 0.2,
+      "passed": true,
+      "notes": [
+        "halueval: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only",
+        "truthfulqa_guard: perfect AUROC/accuracy \u2014 label as fixture-policy smoke only"
+      ]
+    },
+    {
+      "judge": "prompt_separation",
+      "score": 30.0,
+      "weight": 0.3,
+      "passed": false,
+      "notes": [
+        "valence gap -0.073 (weak \u2014 thesis risk)",
+        "positive mean valence -0.081 below +0.2 gate",
+        "negative mean valence -0.008 \u2014 weak negative separation"
+      ]
+    }
+  ],
+  "good_examples": [],
+  "bad_examples": [
+    {
+      "id": "positive",
+      "mean_valence": -0.0806,
+      "prompt": "positive set",
+      "verdict": "positive prompt did not reach +0.15 mean valence"
+    },
+    {
+      "id": "negative",
+      "mean_valence": -0.0081,
+      "prompt": "negative set",
+      "verdict": "negative prompt failed to separate (valence not < -0.1)"
+    }
+  ]
+}

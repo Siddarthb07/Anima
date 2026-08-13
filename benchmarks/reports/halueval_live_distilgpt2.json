@@ -1,0 +1,2347 @@
+{
+  "rows": [
+    {
+      "question": "Simon WIlliam Gamble played non league football for what club located in Lincolnshire, England?",
+      "answer": "Grantham Town Football Club",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3515
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2643,
+        "logit_gap": 0.3827,
+        "attn_entropy": 0.6942,
+        "fused": 0.4347,
+        "fused_last": 0.6117,
+        "fused_full_mean": 0.5039
+      },
+      "token_text": "?\nAnswer: Grantham Town Football Club",
+      "abstain_recommended": false,
+      "composite_score": 0.3973,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Simon WIlliam Gamble played non league football for what club located in Lincolnshire, England?",
+      "answer": "Simon William Gamble played for Armthorpe Welfare.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.6223
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3281,
+        "logit_gap": 0.5385,
+        "attn_entropy": 0.7361,
+        "fused": 0.5241,
+        "fused_last": 0.5145,
+        "fused_full_mean": 0.5263
+      },
+      "token_text": " Simon William Gamble played for Armthorpe Welfare.",
+      "abstain_recommended": false,
+      "composite_score": 0.5683,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Both Janggi and Isola are board-based strategy games; however, which game is played on a 9x10 gameboard similar to Chinese Chess?",
+      "answer": "Janggi",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.03
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2591,
+        "logit_gap": 0.4434,
+        "attn_entropy": 0.6537,
+        "fused": 0.442,
+        "fused_last": 0.6149,
+        "fused_full_mean": 0.5361
+      },
+      "token_text": " gameboard similar to Chinese Chess?\nAnswer: Janggi",
+      "abstain_recommended": false,
+      "composite_score": 0.2566,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Both Janggi and Isola are board-based strategy games; however, which game is played on a 9x10 gameboard similar to Chinese Chess?",
+      "answer": "Isola is played on a 9x10 gameboard similar to Chinese Chess.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2415
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1685,
+        "logit_gap": 0.3052,
+        "attn_entropy": 0.708,
+        "fused": 0.3782,
+        "fused_last": 0.5286,
+        "fused_full_mean": 0.5053
+      },
+      "token_text": ": Isola is played on a 9x10 gameboard similar to Chinese Chess.",
+      "abstain_recommended": false,
+      "composite_score": 0.3167,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Where was the film A Taxi Driver released?",
+      "answer": "South Korea",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.1235
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2673,
+        "logit_gap": 0.5309,
+        "attn_entropy": 0.5185,
+        "fused": 0.4349,
+        "fused_last": 0.6237,
+        "fused_full_mean": 0.5054
+      },
+      "token_text": "\nAnswer: South Korea",
+      "abstain_recommended": false,
+      "composite_score": 0.2948,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Where was the film A Taxi Driver released?",
+      "answer": "The film A Taxi Driver was released in North Korea.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.5989
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2404,
+        "logit_gap": 0.5232,
+        "attn_entropy": 0.6946,
+        "fused": 0.4756,
+        "fused_last": 0.5751,
+        "fused_full_mean": 0.5117
+      },
+      "token_text": " Taxi Driver was released in North Korea.",
+      "abstain_recommended": false,
+      "composite_score": 0.5311,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Mr. Wong, Detective is a 1938 American crime film directed by William Nigh and starring who, was an English actor who was primarily known for his typecast roles in horror films that depicted the characters Frankenstein and the Mummy?",
+      "answer": "Boris Karloff",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.0847
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3418,
+        "logit_gap": 0.5077,
+        "attn_entropy": 0.6252,
+        "fused": 0.4848,
+        "fused_last": 0.4154,
+        "fused_full_mean": 0.5325
+      },
+      "token_text": " horror films that depicted the characters Frankenstein and the Mummy?\nAnswer: Boris Karloff",
+      "abstain_recommended": false,
+      "composite_score": 0.3047,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Mr. Wong, Detective is a 1938 American crime film directed by William Nigh and starring who, was an English actor who was primarily known for his typecast roles in horror films that depicted the characters Frankenstein and the Mummy?",
+      "answer": "The 1938 American crime film Mr. Wong, Detective was directed by William Nigh and starred Boris Karloff, who was a master of horror films.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4863
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1929,
+        "logit_gap": 0.3926,
+        "attn_entropy": 0.7166,
+        "fused": 0.4199,
+        "fused_last": 0.5425,
+        "fused_full_mean": 0.5133
+      },
+      "token_text": " crime film Mr. Wong, Detective was directed by William Nigh and starred Boris Karloff, who was a master of horror films.",
+      "abstain_recommended": false,
+      "composite_score": 0.4498,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What film came first, King of the Grizzlies or The Many Adventures of Winnie the Pooh?",
+      "answer": "King of the Grizzlies",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.0542
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1997,
+        "logit_gap": 0.3223,
+        "attn_entropy": 0.6205,
+        "fused": 0.3689,
+        "fused_last": 0.466,
+        "fused_full_mean": 0.4406
+      },
+      "token_text": "oh?\nAnswer: King of the Grizzlies",
+      "abstain_recommended": false,
+      "composite_score": 0.2273,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What film came first, King of the Grizzlies or The Many Adventures of Winnie the Pooh?",
+      "answer": "The Many Adventures of Winnie the Pooh came before King of the Grizzlies.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.5087
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1379,
+        "logit_gap": 0.2798,
+        "attn_entropy": 0.6603,
+        "fused": 0.3443,
+        "fused_last": 0.5291,
+        "fused_full_mean": 0.4213
+      },
+      "token_text": " of Winnie the Pooh came before King of the Grizzlies.",
+      "abstain_recommended": false,
+      "composite_score": 0.4183,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What is the nationality of the person who presented the first series of \"Kitchen Burnout\"?",
+      "answer": "British",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.0038
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3328,
+        "logit_gap": 0.4237,
+        "attn_entropy": 0.5553,
+        "fused": 0.4313,
+        "fused_last": 0.5559,
+        "fused_full_mean": 0.4917
+      },
+      "token_text": "chen Burnout\"?\nAnswer: British",
+      "abstain_recommended": false,
+      "composite_score": 0.2389,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What is the nationality of the person who presented the first series of \"Kitchen Burnout\"?",
+      "answer": "Italian",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.0047
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3404,
+        "logit_gap": 0.4196,
+        "attn_entropy": 0.5896,
+        "fused": 0.4429,
+        "fused_last": 0.5759,
+        "fused_full_mean": 0.5024
+      },
+      "token_text": "chen Burnout\"?\nAnswer: Italian",
+      "abstain_recommended": false,
+      "composite_score": 0.2457,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What sport did Jyoti Chetty of one of the country's three capital cities represent South Africa in at the 2008 summer Olympics?",
+      "answer": "sabre",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.7522
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2694,
+        "logit_gap": 0.4537,
+        "attn_entropy": 0.3601,
+        "fused": 0.3611,
+        "fused_last": 0.4402,
+        "fused_full_mean": 0.4106
+      },
+      "token_text": " at the 2008 summer Olympics?\nAnswer: sabre",
+      "abstain_recommended": false,
+      "composite_score": 0.5371,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What sport did Jyoti Chetty of one of the country's three capital cities represent South Africa in at the 2008 summer Olympics?",
+      "answer": "Jyoti Chetty represented South Africa in cycling.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3919
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1756,
+        "logit_gap": 0.3655,
+        "attn_entropy": 0.7001,
+        "fused": 0.3994,
+        "fused_last": 0.5002,
+        "fused_full_mean": 0.478
+      },
+      "token_text": "\nAnswer: Jyoti Chetty represented South Africa in cycling.",
+      "abstain_recommended": false,
+      "composite_score": 0.396,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "KCFO (970 AM) airs the show of an American historical theologian that has been described as what?",
+      "answer": "one of America's most influential evangelicals",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2194
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2685,
+        "logit_gap": 0.4594,
+        "attn_entropy": 0.5701,
+        "fused": 0.4258,
+        "fused_last": 0.4786,
+        "fused_full_mean": 0.5048
+      },
+      "token_text": "?\nAnswer: one of America's most influential evangelicals",
+      "abstain_recommended": false,
+      "composite_score": 0.3329,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "KCFO (970 AM) airs the show of an American historical theologian that has been described as what?",
+      "answer": "The American historical theologian whose show is aired on KCFO (970 AM) has been described as \"a theological genius\".",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.5663
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2467,
+        "logit_gap": 0.4419,
+        "attn_entropy": 0.714,
+        "fused": 0.4552,
+        "fused_last": 0.578,
+        "fused_full_mean": 0.5212
+      },
+      "token_text": " aired on KCFO (970 AM) has been described as \"a theological genius\".",
+      "abstain_recommended": false,
+      "composite_score": 0.5052,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "NBA Access with Ahmad Rashad, an American sportscaster (mostly with NBC Sports) and former professional football player, is an American television program which initially aired on Saturday afternoons on which channel?",
+      "answer": "ABC",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.025
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2942,
+        "logit_gap": 0.4885,
+        "attn_entropy": 0.5839,
+        "fused": 0.4491,
+        "fused_last": 0.4842,
+        "fused_full_mean": 0.519
+      },
+      "token_text": " initially aired on Saturday afternoons on which channel?\nAnswer: ABC",
+      "abstain_recommended": false,
+      "composite_score": 0.2582,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "NBA Access with Ahmad Rashad, an American sportscaster (mostly with NBC Sports) and former professional football player, is an American television program which initially aired on Saturday afternoons on which channel?",
+      "answer": "NBA Access with Ahmad Rashad initially aired on Saturday afternoons, but the channel has been changed.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.6159
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2176,
+        "logit_gap": 0.4089,
+        "attn_entropy": 0.7556,
+        "fused": 0.446,
+        "fused_last": 0.463,
+        "fused_full_mean": 0.5298
+      },
+      "token_text": ": NBA Access with Ahmad Rashad initially aired on Saturday afternoons, but the channel has been changed.",
+      "abstain_recommended": false,
+      "composite_score": 0.5224,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Who worked for both the Security Service and the Secret Intelligence Service, and began writing novels under his pen name, Audre Lorde or John le Carr\u00e9?",
+      "answer": "David John Moore Cornwell",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4005
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3735,
+        "logit_gap": 0.5464,
+        "attn_entropy": 0.653,
+        "fused": 0.5178,
+        "fused_last": 0.5902,
+        "fused_full_mean": 0.5252
+      },
+      "token_text": " or John le Carr\u00e9?\nAnswer: David John Moore Cornwell",
+      "abstain_recommended": false,
+      "composite_score": 0.465,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Who worked for both the Security Service and the Secret Intelligence Service, and began writing novels under his pen name, Audre Lorde or John le Carr\u00e9?",
+      "answer": "Both Audre Lorde and John le Carr\u00e9 worked for both the Security Service and the Secret Intelligence Service, and began writing novels under his pen name.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.6089
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0644,
+        "logit_gap": 0.2522,
+        "attn_entropy": 0.7082,
+        "fused": 0.3233,
+        "fused_last": 0.5467,
+        "fused_full_mean": 0.439
+      },
+      "token_text": "\u00e9 worked for both the Security Service and the Secret Intelligence Service, and began writing novels under his pen name.",
+      "abstain_recommended": false,
+      "composite_score": 0.4518,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Chellis Glendinning worked alongside what Indian scholar?",
+      "answer": "Vandana Shiva",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.9804
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3512,
+        "logit_gap": 0.4317,
+        "attn_entropy": 0.669,
+        "fused": 0.4747,
+        "fused_last": 0.5409,
+        "fused_full_mean": 0.5782
+      },
+      "token_text": "\nAnswer: Vandana Shiva",
+      "abstain_recommended": false,
+      "composite_score": 0.7022,
+      "reasons": [
+        "high_probe_uncertainty"
+      ],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Chellis Glendinning worked alongside what Indian scholar?",
+      "answer": "Chellis Glendinning did not work with any Indian scholar.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.5727
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3326,
+        "logit_gap": 0.5201,
+        "attn_entropy": 0.7317,
+        "fused": 0.518,
+        "fused_last": 0.5622,
+        "fused_full_mean": 0.5319
+      },
+      "token_text": "endinning did not work with any Indian scholar.",
+      "abstain_recommended": false,
+      "composite_score": 0.5426,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What has more locations, Fellini's Pizza or Pie Five Pizza Co.",
+      "answer": "Pie Five Pizza Co.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3074
+      },
+      "uncertainty_signals": {
+        "entropy": 0.226,
+        "logit_gap": 0.3655,
+        "attn_entropy": 0.6781,
+        "fused": 0.4105,
+        "fused_last": 0.507,
+        "fused_full_mean": 0.529
+      },
+      "token_text": "\nAnswer: Pie Five Pizza Co.",
+      "abstain_recommended": false,
+      "composite_score": 0.3641,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What has more locations, Fellini's Pizza or Pie Five Pizza Co.",
+      "answer": "Fellini's Pizza has more locations.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3431
+      },
+      "uncertainty_signals": {
+        "entropy": 0.257,
+        "logit_gap": 0.3994,
+        "attn_entropy": 0.7533,
+        "fused": 0.4557,
+        "fused_last": 0.4966,
+        "fused_full_mean": 0.5361
+      },
+      "token_text": ": Fellini's Pizza has more locations.",
+      "abstain_recommended": false,
+      "composite_score": 0.405,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Where is the company that purchased Aixam based in?",
+      "answer": "Roseau, Minnesota, USA",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.0525
+      },
+      "uncertainty_signals": {
+        "entropy": 0.4783,
+        "logit_gap": 0.7238,
+        "attn_entropy": 0.5983,
+        "fused": 0.6002,
+        "fused_last": 0.4973,
+        "fused_full_mean": 0.548
+      },
+      "token_text": ": Roseau, Minnesota, USA",
+      "abstain_recommended": false,
+      "composite_score": 0.3537,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Where is the company that purchased Aixam based in?",
+      "answer": "Polaris Industries is based in Alaska.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4798
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3669,
+        "logit_gap": 0.6331,
+        "attn_entropy": 0.7169,
+        "fused": 0.5651,
+        "fused_last": 0.6148,
+        "fused_full_mean": 0.5622
+      },
+      "token_text": ": Polaris Industries is based in Alaska.",
+      "abstain_recommended": false,
+      "composite_score": 0.5267,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What did Philip Bertie's father style from 1642 to 1666",
+      "answer": "Lord Willoughby de Eresby",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3478
+      },
+      "uncertainty_signals": {
+        "entropy": 0.4528,
+        "logit_gap": 0.6305,
+        "attn_entropy": 0.6574,
+        "fused": 0.5764,
+        "fused_last": 0.6437,
+        "fused_full_mean": 0.5552
+      },
+      "token_text": ": Lord Willoughby de Eresby",
+      "abstain_recommended": false,
+      "composite_score": 0.4735,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What did Philip Bertie's father style from 1642 to 1666",
+      "answer": "Robert Bertie did not have a title from 1642 to 1666.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2462
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2829,
+        "logit_gap": 0.5206,
+        "attn_entropy": 0.6884,
+        "fused": 0.4877,
+        "fused_last": 0.5601,
+        "fused_full_mean": 0.5148
+      },
+      "token_text": " not have a title from 1642 to 1666.",
+      "abstain_recommended": false,
+      "composite_score": 0.379,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Where is the men's professional club basketball based on in which Gustavo Nicol\u00e1s Aguirre currently plays?",
+      "answer": "Buenos Aires, Argentina",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.1881
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2369,
+        "logit_gap": 0.3928,
+        "attn_entropy": 0.6243,
+        "fused": 0.4077,
+        "fused_last": 0.5611,
+        "fused_full_mean": 0.4975
+      },
+      "token_text": " currently plays?\nAnswer: Buenos Aires, Argentina",
+      "abstain_recommended": false,
+      "composite_score": 0.3089,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Where is the men's professional club basketball based on in which Gustavo Nicol\u00e1s Aguirre currently plays?",
+      "answer": "Gustavo Nicol\u00e1s Aguirre plays basketball in Argentina.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4009
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2096,
+        "logit_gap": 0.4171,
+        "attn_entropy": 0.7133,
+        "fused": 0.4333,
+        "fused_last": 0.693,
+        "fused_full_mean": 0.5008
+      },
+      "token_text": ": Gustavo Nicol\u00e1s Aguirre plays basketball in Argentina.",
+      "abstain_recommended": false,
+      "composite_score": 0.4187,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What generic medication is a non-selective betablocker used to treat congestive heart failure?",
+      "answer": "Carvedilol",
+      "affect": {
+        "valence": -1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.0547
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2936,
+        "logit_gap": 0.3775,
+        "attn_entropy": 0.5873,
+        "fused": 0.4111,
+        "fused_last": 0.5147,
+        "fused_full_mean": 0.4736
+      },
+      "token_text": " heart failure?\nAnswer: Carvedilol",
+      "abstain_recommended": false,
+      "composite_score": 0.2507,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What generic medication is a non-selective betablocker used to treat congestive heart failure?",
+      "answer": "Metoprolol is a non-selective betablocker used to treat congestive heart failure.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3956
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0706,
+        "logit_gap": 0.2122,
+        "attn_entropy": 0.6973,
+        "fused": 0.3082,
+        "fused_last": 0.5796,
+        "fused_full_mean": 0.4377
+      },
+      "token_text": " non-selective betablocker used to treat congestive heart failure.",
+      "abstain_recommended": false,
+      "composite_score": 0.3475,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What 2005 film by Tim Fywell saw an appearance by the actress from \"Thank You for Smoking\" and \"Stuart Little?\"",
+      "answer": "Ice Princess",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.8351
+      },
+      "uncertainty_signals": {
+        "entropy": 0.4104,
+        "logit_gap": 0.5377,
+        "attn_entropy": 0.6654,
+        "fused": 0.5314,
+        "fused_last": 0.6261,
+        "fused_full_mean": 0.5728
+      },
+      "token_text": " and \"Stuart Little?\"\nAnswer: Ice Princess",
+      "abstain_recommended": false,
+      "composite_score": 0.6681,
+      "reasons": [
+        "high_probe_uncertainty"
+      ],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What 2005 film by Tim Fywell saw an appearance by the actress from \"Thank You for Smoking\" and \"Stuart Little?\"",
+      "answer": "The film where Connie Ray starred in 2005 is \"Frozen Dreams.\"",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2146
+      },
+      "uncertainty_signals": {
+        "entropy": 0.4253,
+        "logit_gap": 0.7141,
+        "attn_entropy": 0.7501,
+        "fused": 0.6238,
+        "fused_last": 0.5492,
+        "fused_full_mean": 0.6017
+      },
+      "token_text": ": The film where Connie Ray starred in 2005 is \"Frozen Dreams.\"",
+      "abstain_recommended": false,
+      "composite_score": 0.4397,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Ray Winstone appeared in what 2005 French-British computer-animated adventure fantasy that was based on a TV series?",
+      "answer": "The Magic Roundabout",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2324
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3024,
+        "logit_gap": 0.5022,
+        "attn_entropy": 0.6779,
+        "fused": 0.485,
+        "fused_last": 0.6374,
+        "fused_full_mean": 0.5422
+      },
+      "token_text": " a TV series?\nAnswer: The Magic Roundabout",
+      "abstain_recommended": false,
+      "composite_score": 0.3713,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Ray Winstone appeared in what 2005 French-British computer-animated adventure fantasy that was based on a TV series?",
+      "answer": "Ray Winstone did not appear in that film.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.491
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2283,
+        "logit_gap": 0.4012,
+        "attn_entropy": 0.7065,
+        "fused": 0.4323,
+        "fused_last": 0.5552,
+        "fused_full_mean": 0.5264
+      },
+      "token_text": "\nAnswer: Ray Winstone did not appear in that film.",
+      "abstain_recommended": false,
+      "composite_score": 0.4587,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Millet is a French-based company, specializing in outdoor equipment such as backpacks and sleeping bags, owned by which organization, their earning comparisons to United States-based companies such as Columbia Sportswear and Timberland LLC,",
+      "answer": "Lafuma",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.8159
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3428,
+        "logit_gap": 0.5537,
+        "attn_entropy": 0.5778,
+        "fused": 0.4871,
+        "fused_last": 0.5226,
+        "fused_full_mean": 0.5114
+      },
+      "token_text": " LLC, an American manufacturer and retailer of outdoors wear, with a focus on footwear?\nAnswer: Lafuma",
+      "abstain_recommended": false,
+      "composite_score": 0.635,
+      "reasons": [
+        "high_probe_uncertainty"
+      ],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Millet is a French-based company, specializing in outdoor equipment such as backpacks and sleeping bags, owned by which organization, their earning comparisons to United States-based companies such as Columbia Sportswear and Timberland LLC,",
+      "answer": "Millet is owned by Columbia Sportswear.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4578
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2714,
+        "logit_gap": 0.4585,
+        "attn_entropy": 0.7275,
+        "fused": 0.4737,
+        "fused_last": 0.5419,
+        "fused_full_mean": 0.5373
+      },
+      "token_text": " and retailer of outdoors wear, with a focus on footwear?\nAnswer: Millet is owned by Columbia Sportswear.",
+      "abstain_recommended": false,
+      "composite_score": 0.4665,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Joan Jett & the Blackhearts covered a song by the first westerner to achieve pop start status in Japan.  When was that song first recorded?",
+      "answer": "1975",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.1325
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3684,
+        "logit_gap": 0.648,
+        "attn_entropy": 0.5881,
+        "fused": 0.5322,
+        "fused_last": 0.5368,
+        "fused_full_mean": 0.5567
+      },
+      "token_text": "  When was that song first recorded?\nAnswer: 1975",
+      "abstain_recommended": false,
+      "composite_score": 0.3523,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Joan Jett & the Blackhearts covered a song by the first westerner to achieve pop start status in Japan.  When was that song first recorded?",
+      "answer": "\"I Love Rock 'n' Roll\" was first recorded in 1975.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.5043
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3053,
+        "logit_gap": 0.5514,
+        "attn_entropy": 0.7458,
+        "fused": 0.5236,
+        "fused_last": 0.6083,
+        "fused_full_mean": 0.5811
+      },
+      "token_text": "Answer: \"I Love Rock 'n' Roll\" was first recorded in 1975.",
+      "abstain_recommended": false,
+      "composite_score": 0.5149,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which film director is also a sound designer, Serge de Poligny or Ric Viers?",
+      "answer": "Ric Viers",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.9425
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2525,
+        "logit_gap": 0.3711,
+        "attn_entropy": 0.5726,
+        "fused": 0.39,
+        "fused_last": 0.4426,
+        "fused_full_mean": 0.5044
+      },
+      "token_text": " Viers?\nAnswer: Ric Viers",
+      "abstain_recommended": false,
+      "composite_score": 0.6386,
+      "reasons": [
+        "high_probe_uncertainty"
+      ],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which film director is also a sound designer, Serge de Poligny or Ric Viers?",
+      "answer": "Serge de Poligny is also a sound designer.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4589
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1303,
+        "logit_gap": 0.2998,
+        "attn_entropy": 0.6755,
+        "fused": 0.3532,
+        "fused_last": 0.3803,
+        "fused_full_mean": 0.4939
+      },
+      "token_text": " Serge de Poligny is also a sound designer.",
+      "abstain_recommended": false,
+      "composite_score": 0.4008,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which actor who appeared in 47 films since 1976 starred appeared in The Phantom Menace?",
+      "answer": "Ian McDiarmid",
+      "affect": {
+        "valence": 0.4128,
+        "arousal": 0.0,
+        "uncertainty": 0.1489
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2258,
+        "logit_gap": 0.3524,
+        "attn_entropy": 0.5625,
+        "fused": 0.3711,
+        "fused_last": 0.4974,
+        "fused_full_mean": 0.4558
+      },
+      "token_text": "?\nAnswer: Ian McDiarmid",
+      "abstain_recommended": false,
+      "composite_score": 0.2711,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which actor who appeared in 47 films since 1976 starred appeared in The Phantom Menace?",
+      "answer": "Liam Neeson starred in The Phantom Menace.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4355
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1819,
+        "logit_gap": 0.4252,
+        "attn_entropy": 0.6663,
+        "fused": 0.4124,
+        "fused_last": 0.5323,
+        "fused_full_mean": 0.4732
+      },
+      "token_text": " Liam Neeson starred in The Phantom Menace.",
+      "abstain_recommended": false,
+      "composite_score": 0.4228,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Robert Lepage and Jean Genet, are of which nationality?",
+      "answer": "French",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.0031
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3338,
+        "logit_gap": 0.48,
+        "attn_entropy": 0.5134,
+        "fused": 0.4388,
+        "fused_last": 0.503,
+        "fused_full_mean": 0.5173
+      },
+      "token_text": " nationality?\nAnswer: French",
+      "abstain_recommended": false,
+      "composite_score": 0.2427,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Robert Lepage and Jean Genet, are of which nationality?",
+      "answer": "Robert Lepage is French Canadian, whereas Jean Genet is French.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3896
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2274,
+        "logit_gap": 0.453,
+        "attn_entropy": 0.7632,
+        "fused": 0.4671,
+        "fused_last": 0.4625,
+        "fused_full_mean": 0.5347
+      },
+      "token_text": " French Canadian, whereas Jean Genet is French.",
+      "abstain_recommended": false,
+      "composite_score": 0.4322,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What criminal case which convicted Brock Allen Turner of three counts of felony sexual assault did Michele Landis Dauber work as attorney on?",
+      "answer": "People v. Turner",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.9262
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2701,
+        "logit_gap": 0.4262,
+        "attn_entropy": 0.6405,
+        "fused": 0.4359,
+        "fused_last": 0.4821,
+        "fused_full_mean": 0.5213
+      },
+      "token_text": " work as attorney on?\nAnswer: People v. Turner",
+      "abstain_recommended": false,
+      "composite_score": 0.6566,
+      "reasons": [
+        "high_probe_uncertainty"
+      ],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What criminal case which convicted Brock Allen Turner of three counts of felony sexual assault did Michele Landis Dauber work as attorney on?",
+      "answer": "Michele Landis Dauber did not work as attorney on this case.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4699
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2207,
+        "logit_gap": 0.4224,
+        "attn_entropy": 0.7082,
+        "fused": 0.4375,
+        "fused_last": 0.5537,
+        "fused_full_mean": 0.512
+      },
+      "token_text": " Michele Landis Dauber did not work as attorney on this case.",
+      "abstain_recommended": false,
+      "composite_score": 0.4521,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Pay the Ghost starred which actress who had a role in Prison Break?",
+      "answer": "Sarah Wayne Callies",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2644
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3144,
+        "logit_gap": 0.563,
+        "attn_entropy": 0.5667,
+        "fused": 0.4771,
+        "fused_last": 0.6575,
+        "fused_full_mean": 0.5295
+      },
+      "token_text": "\nAnswer: Sarah Wayne Callies",
+      "abstain_recommended": false,
+      "composite_score": 0.3814,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Pay the Ghost starred which actress who had a role in Prison Break?",
+      "answer": "The actress who starred in Pay the Ghost and featured in Prison Break is Sarah Wayne Callies, a well-known American actress.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4951
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3368,
+        "logit_gap": 0.6196,
+        "attn_entropy": 0.7275,
+        "fused": 0.553,
+        "fused_last": 0.6404,
+        "fused_full_mean": 0.5447
+      },
+      "token_text": " Prison Break is Sarah Wayne Callies, a well-known American actress.",
+      "abstain_recommended": false,
+      "composite_score": 0.527,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "For which car bombing in Northern Ireland did Tim Hegarty and Ross Graham release a support album?",
+      "answer": "Omagh bombing",
+      "affect": {
+        "valence": 0.9918,
+        "arousal": 0.0,
+        "uncertainty": 0.5094
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3039,
+        "logit_gap": 0.4166,
+        "attn_entropy": 0.6496,
+        "fused": 0.4471,
+        "fused_last": 0.5444,
+        "fused_full_mean": 0.5412
+      },
+      "token_text": " support album?\nAnswer: Omagh bombing",
+      "abstain_recommended": false,
+      "composite_score": 0.4752,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "For which car bombing in Northern Ireland did Tim Hegarty and Ross Graham release a support album?",
+      "answer": "Tim Hegarty and Ross Graham released a support album for the Belfast bombing.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2694
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2997,
+        "logit_gap": 0.5085,
+        "attn_entropy": 0.7456,
+        "fused": 0.5065,
+        "fused_last": 0.4901,
+        "fused_full_mean": 0.5304
+      },
+      "token_text": "arty and Ross Graham released a support album for the Belfast bombing.",
+      "abstain_recommended": false,
+      "composite_score": 0.3998,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "The garden city movement is a method of urban planning in which self-contained communities are surrounded by \"greenbelts\", containing proportionate areas of residences, industry, and agriculture, the idea was initiated in 1898 by Sir Ebenez",
+      "answer": "1898",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2548
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3147,
+        "logit_gap": 0.5667,
+        "attn_entropy": 0.6479,
+        "fused": 0.5029,
+        "fused_last": 0.6056,
+        "fused_full_mean": 0.5349
+      },
+      "token_text": " 1 May 1928), the English founder of the garden city movement, is known for his publication, in which year?\nAnswer: 1898",
+      "abstain_recommended": false,
+      "composite_score": 0.3913,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "The garden city movement is a method of urban planning in which self-contained communities are surrounded by \"greenbelts\", containing proportionate areas of residences, industry, and agriculture, the idea was initiated in 1898 by Sir Ebenez",
+      "answer": "Sir Ebenezer Howard initiated the garden city movement in 1998.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.5824
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2681,
+        "logit_gap": 0.4707,
+        "attn_entropy": 0.7479,
+        "fused": 0.4829,
+        "fused_last": 0.6482,
+        "fused_full_mean": 0.5475
+      },
+      "token_text": " the garden city movement, is known for his publication, in which year?\nAnswer: Sir Ebenezer Howard initiated the garden city movement in 1998.",
+      "abstain_recommended": false,
+      "composite_score": 0.5277,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Craig Serling and Jeff Celentano, are of which nationality?",
+      "answer": "American",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.009
+      },
+      "uncertainty_signals": {
+        "entropy": 0.298,
+        "logit_gap": 0.5401,
+        "attn_entropy": 0.4564,
+        "fused": 0.4303,
+        "fused_last": 0.6118,
+        "fused_full_mean": 0.5461
+      },
+      "token_text": " nationality?\nAnswer: American",
+      "abstain_recommended": false,
+      "composite_score": 0.2407,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Craig Serling and Jeff Celentano, are of which nationality?",
+      "answer": "Craig Serling and Jeff Celentano are of different nationalities.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.5204
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1064,
+        "logit_gap": 0.245,
+        "attn_entropy": 0.725,
+        "fused": 0.3405,
+        "fused_last": 0.4787,
+        "fused_full_mean": 0.5088
+      },
+      "token_text": " and Jeff Celentano are of different nationalities.",
+      "abstain_recommended": false,
+      "composite_score": 0.4215,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which board game is designed by Serge Laget, Shadows Over Camelot or Lords of Waterdeep?",
+      "answer": "Shadows Over Camelot",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2203
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1833,
+        "logit_gap": 0.3668,
+        "attn_entropy": 0.6337,
+        "fused": 0.3827,
+        "fused_last": 0.6002,
+        "fused_full_mean": 0.4702
+      },
+      "token_text": "deep?\nAnswer: Shadows Over Camelot",
+      "abstain_recommended": false,
+      "composite_score": 0.3096,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which board game is designed by Serge Laget, Shadows Over Camelot or Lords of Waterdeep?",
+      "answer": "Lords of Waterdeep is also designed by Serge Laget.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.7279
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1887,
+        "logit_gap": 0.3272,
+        "attn_entropy": 0.7312,
+        "fused": 0.3999,
+        "fused_last": 0.5216,
+        "fused_full_mean": 0.4811
+      },
+      "token_text": " Lords of Waterdeep is also designed by Serge Laget.",
+      "abstain_recommended": false,
+      "composite_score": 0.5475,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What is known as the Kingdom and the National Route 13 stretches towards the border?",
+      "answer": "Cambodia",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.0299
+      },
+      "uncertainty_signals": {
+        "entropy": 0.294,
+        "logit_gap": 0.4668,
+        "attn_entropy": 0.55,
+        "fused": 0.4313,
+        "fused_last": 0.5139,
+        "fused_full_mean": 0.4805
+      },
+      "token_text": " the border?\nAnswer: Cambodia",
+      "abstain_recommended": false,
+      "composite_score": 0.2507,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What is known as the Kingdom and the National Route 13 stretches towards the border?",
+      "answer": "National Route 13 stretches from the Kingdom towards the border.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.5859
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2772,
+        "logit_gap": 0.4695,
+        "attn_entropy": 0.7387,
+        "fused": 0.483,
+        "fused_last": 0.5369,
+        "fused_full_mean": 0.5124
+      },
+      "token_text": " Route 13 stretches from the Kingdom towards the border.",
+      "abstain_recommended": false,
+      "composite_score": 0.5293,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What is the name of the series starring Park Bo-gum that has music created by Second Moon?",
+      "answer": "Love in the Moonlight",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3934
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3812,
+        "logit_gap": 0.4743,
+        "attn_entropy": 0.5977,
+        "fused": 0.4787,
+        "fused_last": 0.5712,
+        "fused_full_mean": 0.5177
+      },
+      "token_text": " Second Moon?\nAnswer: Love in the Moonlight",
+      "abstain_recommended": false,
+      "composite_score": 0.4403,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What is the name of the series starring Park Bo-gum that has music created by Second Moon?",
+      "answer": "Second Moon created music for a South Korean TV series.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4401
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3294,
+        "logit_gap": 0.5831,
+        "attn_entropy": 0.7621,
+        "fused": 0.548,
+        "fused_last": 0.6559,
+        "fused_full_mean": 0.5533
+      },
+      "token_text": ": Second Moon created music for a South Korean TV series.",
+      "abstain_recommended": false,
+      "composite_score": 0.4994,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Clan Henderson has a historical seat at what 16th-century tower house?",
+      "answer": "Fordell Castle",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.9306
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3744,
+        "logit_gap": 0.495,
+        "attn_entropy": 0.6244,
+        "fused": 0.4916,
+        "fused_last": 0.6575,
+        "fused_full_mean": 0.5299
+      },
+      "token_text": "?\nAnswer: Fordell Castle",
+      "abstain_recommended": false,
+      "composite_score": 0.6892,
+      "reasons": [
+        "high_probe_uncertainty"
+      ],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Clan Henderson has a historical seat at what 16th-century tower house?",
+      "answer": "Clan Henderson's seat is at a 16th-century tower house in Fife, Scotland.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.524
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2683,
+        "logit_gap": 0.4438,
+        "attn_entropy": 0.7057,
+        "fused": 0.4609,
+        "fused_last": 0.4994,
+        "fused_full_mean": 0.5184
+      },
+      "token_text": " a 16th-century tower house in Fife, Scotland.",
+      "abstain_recommended": false,
+      "composite_score": 0.4893,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Aaj Ka Hindustan stars an Indian dancer who is proficient in what style?",
+      "answer": "classical Kathak",
+      "affect": {
+        "valence": -0.9998,
+        "arousal": 0.0,
+        "uncertainty": 0.3966
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3444,
+        "logit_gap": 0.4496,
+        "attn_entropy": 0.3928,
+        "fused": 0.3957,
+        "fused_last": 0.5433,
+        "fused_full_mean": 0.488
+      },
+      "token_text": " style?\nAnswer: classical Kathak",
+      "abstain_recommended": false,
+      "composite_score": 0.3961,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Aaj Ka Hindustan stars an Indian dancer who is proficient in what style?",
+      "answer": "Aaj Ka Hindustan stars a dancer who is an expert in jazz.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3813
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0927,
+        "logit_gap": 0.2606,
+        "attn_entropy": 0.7073,
+        "fused": 0.3358,
+        "fused_last": 0.4567,
+        "fused_full_mean": 0.4737
+      },
+      "token_text": "ustan stars a dancer who is an expert in jazz.",
+      "abstain_recommended": false,
+      "composite_score": 0.3563,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "\u00c9cole secondaire publique Louis-Riel is named after a founder of which province?",
+      "answer": "Manitoba",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2062
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2981,
+        "logit_gap": 0.3954,
+        "attn_entropy": 0.6322,
+        "fused": 0.4324,
+        "fused_last": 0.5623,
+        "fused_full_mean": 0.5131
+      },
+      "token_text": " of which province?\nAnswer: Manitoba",
+      "abstain_recommended": false,
+      "composite_score": 0.3306,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "\u00c9cole secondaire publique Louis-Riel is named after a founder of which province?",
+      "answer": "\u00c9cole secondaire publique Louis-Riel is named after the founder of the Confederation.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.669
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0667,
+        "logit_gap": 0.1799,
+        "attn_entropy": 0.6529,
+        "fused": 0.2822,
+        "fused_last": 0.444,
+        "fused_full_mean": 0.4147
+      },
+      "token_text": " publique Louis-Riel is named after the founder of the Confederation.",
+      "abstain_recommended": false,
+      "composite_score": 0.4563,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which National Basketball Association team in Phoenix, Arizona did Kyle Robert Macy play for?",
+      "answer": "The Phoenix Suns",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.1876
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2619,
+        "logit_gap": 0.4281,
+        "attn_entropy": 0.5548,
+        "fused": 0.4079,
+        "fused_last": 0.6436,
+        "fused_full_mean": 0.4754
+      },
+      "token_text": " for?\nAnswer: The Phoenix Suns",
+      "abstain_recommended": false,
+      "composite_score": 0.3087,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which National Basketball Association team in Phoenix, Arizona did Kyle Robert Macy play for?",
+      "answer": "Kyle Robert Macy played for the Arizona Diamondbacks of Major League Baseball.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3689
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1877,
+        "logit_gap": 0.4363,
+        "attn_entropy": 0.6404,
+        "fused": 0.4105,
+        "fused_last": 0.5991,
+        "fused_full_mean": 0.462
+      },
+      "token_text": " played for the Arizona Diamondbacks of Major League Baseball.",
+      "abstain_recommended": false,
+      "composite_score": 0.3918,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which show that Michael Wandmacher composed for shares a name with its creator?",
+      "answer": "The Goldbergs",
+      "affect": {
+        "valence": -0.9957,
+        "arousal": 0.0,
+        "uncertainty": 0.2702
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3368,
+        "logit_gap": 0.4442,
+        "attn_entropy": 0.6109,
+        "fused": 0.4566,
+        "fused_last": 0.5243,
+        "fused_full_mean": 0.5525
+      },
+      "token_text": " creator?\nAnswer: The Goldbergs",
+      "abstain_recommended": false,
+      "composite_score": 0.3727,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Which show that Michael Wandmacher composed for shares a name with its creator?",
+      "answer": "Michael Wandmacher composed for \"Bloodborne\".",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4737
+      },
+      "uncertainty_signals": {
+        "entropy": 0.278,
+        "logit_gap": 0.3695,
+        "attn_entropy": 0.7113,
+        "fused": 0.44,
+        "fused_last": 0.5039,
+        "fused_full_mean": 0.5364
+      },
+      "token_text": " Michael Wandmacher composed for \"Bloodborne\".",
+      "abstain_recommended": false,
+      "composite_score": 0.4552,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What British rock band is responsible for bolstering Quiet Riot's hit \"Mental Health?\"",
+      "answer": "Slade",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.8746
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3774,
+        "logit_gap": 0.495,
+        "attn_entropy": 0.4644,
+        "fused": 0.4447,
+        "fused_last": 0.6788,
+        "fused_full_mean": 0.4807
+      },
+      "token_text": "ental Health?\"\nAnswer: Slade",
+      "abstain_recommended": false,
+      "composite_score": 0.6381,
+      "reasons": [
+        "high_probe_uncertainty"
+      ],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "What British rock band is responsible for bolstering Quiet Riot's hit \"Mental Health?\"",
+      "answer": "Van Halen is responsible for bolstering Quiet Riot's hit \"Metal Health.\"",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.3692
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1707,
+        "logit_gap": 0.2978,
+        "attn_entropy": 0.6987,
+        "fused": 0.3736,
+        "fused_last": 0.5005,
+        "fused_full_mean": 0.4811
+      },
+      "token_text": " is responsible for bolstering Quiet Riot's hit \"Metal Health.\"",
+      "abstain_recommended": false,
+      "composite_score": 0.3716,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Structure & Dynamics of the Psyche is Volume 8 in a book series edited and translated by whom?",
+      "answer": "Gerhard Adler and R.F.C. Hull",
+      "affect": {
+        "valence": 0.4199,
+        "arousal": 0.0,
+        "uncertainty": 0.5694
+      },
+      "uncertainty_signals": {
+        "entropy": 0.421,
+        "logit_gap": 0.6362,
+        "attn_entropy": 0.4711,
+        "fused": 0.5113,
+        "fused_last": 0.6093,
+        "fused_full_mean": 0.4909
+      },
+      "token_text": " Gerhard Adler and R.F.C. Hull",
+      "abstain_recommended": false,
+      "composite_score": 0.5374,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "Structure & Dynamics of the Psyche is Volume 8 in a book series edited and translated by whom?",
+      "answer": "Volume 8 of \"The Collected Works of C. G. Jung\" was edited and translated by a team of renowned psychologists.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.6062
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3321,
+        "logit_gap": 0.5718,
+        "attn_entropy": 0.7609,
+        "fused": 0.5446,
+        "fused_last": 0.6299,
+        "fused_full_mean": 0.5411
+      },
+      "token_text": " C. G. Jung\" was edited and translated by a team of renowned psychologists.",
+      "abstain_recommended": false,
+      "composite_score": 0.5723,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "When did Dale Dye work on the miniseries for HBO called The Pacific?",
+      "answer": "a 2010 American television series produced by HBO",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.0774
+      },
+      "uncertainty_signals": {
+        "entropy": 0.3457,
+        "logit_gap": 0.5483,
+        "attn_entropy": 0.4842,
+        "fused": 0.4582,
+        "fused_last": 0.5893,
+        "fused_full_mean": 0.4802
+      },
+      "token_text": "Answer: a 2010 American television series produced by HBO",
+      "abstain_recommended": false,
+      "composite_score": 0.2869,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "When did Dale Dye work on the miniseries for HBO called The Pacific?",
+      "answer": "Dale Dye worked on The Pacific in 2010.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4006
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2328,
+        "logit_gap": 0.4213,
+        "attn_entropy": 0.7176,
+        "fused": 0.4442,
+        "fused_last": 0.6784,
+        "fused_full_mean": 0.5161
+      },
+      "token_text": " Dale Dye worked on The Pacific in 2010.",
+      "abstain_recommended": false,
+      "composite_score": 0.4246,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "For which band is American musician Warren Klein who studied Indian classical music as an art music tradition and was accepted as a disciple of Ravi Shankar, best known?",
+      "answer": "The Stooges",
+      "affect": {
+        "valence": -0.3291,
+        "arousal": 0.0,
+        "uncertainty": 0.0952
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2217,
+        "logit_gap": 0.4402,
+        "attn_entropy": 0.6141,
+        "fused": 0.4159,
+        "fused_last": 0.6338,
+        "fused_full_mean": 0.4761
+      },
+      "token_text": "avi Shankar, best known?\nAnswer: The Stooges",
+      "abstain_recommended": false,
+      "composite_score": 0.2716,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    },
+    {
+      "question": "For which band is American musician Warren Klein who studied Indian classical music as an art music tradition and was accepted as a disciple of Ravi Shankar, best known?",
+      "answer": "Warren Klein studied and performed Indian classical music as an art music tradition and was accepted as a disciple of Ravi Shankar, but he is best known for his stint with The Doors.",
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.4038
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1737,
+        "logit_gap": 0.3109,
+        "attn_entropy": 0.7047,
+        "fused": 0.381,
+        "fused_last": 0.5348,
+        "fused_full_mean": 0.4423
+      },
+      "token_text": " tradition and was accepted as a disciple of Ravi Shankar, but he is best known for his stint with The Doors.",
+      "abstain_recommended": false,
+      "composite_score": 0.3913,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\OneDrive\\Desktop\\llm_emotions_tribev2\\probes\\zoo\\distilgpt2_text.pt",
+          "val_pearson_valence": 0.1831
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "abstain_accuracy": 0.5,
+    "auroc_composite": 0.6791,
+    "n_samples": 80,
+    "tp": 0,
+    "fp": 0,
+    "tn": 40,
+    "fn": 40
+  }
+}

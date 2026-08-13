@@ -9,6 +9,7 @@ Screenshots embedded in the root README live under [`images/`](images/) (`dashbo
 | [Live demo (HF Space)](https://huggingface.co/spaces/sidb078/Anima) | Try readouts in browser |
 | [GETTING_STARTED.md](GETTING_STARTED.md) | Anyone installing and running API + dashboard |
 | [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md) | Developers mapping modules, probes, TRIBE surrogate |
+| [FEATURES.md](FEATURES.md) | Deep feature inventory — thresholds, env vars, easy-to-miss details |
 | [USAGE_AND_LIMITATIONS.md](USAGE_AND_LIMITATIONS.md) | Researchers, reviewers — allowed uses and hard boundaries |
 | [RUN_AND_TEST_COMMANDS.txt](RUN_AND_TEST_COMMANDS.txt) | Commands for pytest, CLI, optional Playwright demo |
 | [MODELS_AND_ZOO.md](MODELS_AND_ZOO.md) | Hugging Face models, Ollama clarification, probe files |
