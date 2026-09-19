@@ -72,3 +72,5 @@ Dataset (when using real tier): OpenNeuro ds002345 (Nastase et al.).
 ## Limits
 
 Read [`USAGE_AND_LIMITATIONS.md`](USAGE_AND_LIMITATIONS.md) before citing metrics in a paper or application.
+
+For a 20-minute stranger replication path (gold signs, no author on the call), use [`EXTERNAL_REPLICATION.md`](EXTERNAL_REPLICATION.md).

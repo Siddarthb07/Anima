@@ -52,4 +52,4 @@ I wrote this so nobody mistakes **Anima** for something it isn’t. Read it befo
 
 ## If you cite or demo Anima
 
-Use language like **readout**, **internal state**, **population-level analogy** — see root **README** and [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md). Avoid anthropomorphic certainty.
+Use language like **readout**, **internal state**, **population-level analogy** — see root **README** and [ANIMA_TECHNICAL_OVERVIEW.md](ANIMA_TECHNICAL_OVERVIEW.md). Avoid anthropomorphic certainty.

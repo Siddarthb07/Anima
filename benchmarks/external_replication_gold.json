@@ -1,0 +1,63 @@
+{
+  "schema_ver": 1,
+  "purpose": "Mechanical PASS/FAIL for an independent 20-minute Anima replication. Text-emotion only. Not brain-aligned. Fixture guard AUROC is not a gate.",
+  "tolerance": {
+    "goemotions_pearson_valence_abs": 0.05,
+    "prompt_gap_abs": 0.10
+  },
+  "prompts": [
+    {
+      "id": "positive",
+      "text": "I'm thrilled — we finally shipped it and everything worked.",
+      "expected_sign": "+"
+    },
+    {
+      "id": "negative",
+      "text": "I feel devastated. Nothing went right today.",
+      "expected_sign": "-"
+    },
+    {
+      "id": "hedge",
+      "text": "However, perhaps, maybe it could be unclear depending on context.",
+      "expected_sign": "any",
+      "note": "Not a sign gate. Record mean valence only."
+    }
+  ],
+  "models": {
+    "TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
+      "required": true,
+      "council_score": 94.0,
+      "goemotions_pearson_valence": 0.1876,
+      "goemotions_pearson_arousal": 0.4115,
+      "prompt_gap_pos_minus_neg": 0.4885,
+      "positive_mean_valence": 0.3036,
+      "negative_mean_valence": -0.1849,
+      "sign_gates": {
+        "positive": "+",
+        "negative": "-"
+      },
+      "manifest": "benchmarks/reports/latest_tinyllama_1.1b_chat_v1.0_manifest.json",
+      "manifest_sha256": "f3f0c73a7620c5776b3ef76f1416b47c8d20d258eb283122c6c7c8b740cb1c36"
+    },
+    "Qwen/Qwen2.5-0.5B-Instruct": {
+      "required": false,
+      "council_score": 91.0,
+      "goemotions_pearson_valence": 0.2358,
+      "goemotions_pearson_arousal": 0.4183,
+      "prompt_gap_pos_minus_neg": 0.2673,
+      "positive_mean_valence": 0.3723,
+      "negative_mean_valence": 0.105,
+      "sign_gates": {
+        "positive": "+",
+        "negative": "not_gated",
+        "note": "Published council run: negative prompt mean valence 0.105 (did not go below 0). Do not require negative sign."
+      },
+      "manifest": "benchmarks/reports/latest_qwen2.5_0.5b_instruct_manifest.json",
+      "manifest_sha256": "bd16bf936f9210ea89ba147b6d55d18efd6b23093bc2d46a142071380967fd94"
+    }
+  },
+  "council_rollup": {
+    "path": "benchmarks/reports/council_rollup.json",
+    "sha256": "ef83fc488c9ad61fb97d47aa777edb68c23b5b55c13a9b7b01eac0e3f7017b74"
+  }
+}

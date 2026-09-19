@@ -16,16 +16,16 @@
 
 | Dimension       | Range    | Interpretation                                                  |
 | --------------- | -------- | --------------------------------------------------------------- |
-| **Valence**     | −1 to +1 | Pleasant ↔ unpleasant axis (Russell circumplex)                 |
-| **Arousal**     | 0 to 1   | Activated ↔ calm axis                                           |
+| **Valence**     | âˆ’1 to +1 | Pleasant â†” unpleasant axis (Russell circumplex)                 |
+| **Arousal**     | 0 to 1   | Activated â†” calm axis                                           |
 | **Uncertainty** | 0 to 1   | Model confidence / epistemic spread (probe + auxiliary signals) |
 
 
-These numbers are **constructed measurements** from learned linear probes and logits diagnostics — not claims about machine consciousness, clinical affect, or subjective experience.
+These numbers are **constructed measurements** from learned linear probes and logits diagnostics â€” not claims about machine consciousness, clinical affect, or subjective experience.
 
 ### 1.1 What Anima is
 
-- A **measurement harness**: forward hooks → probe heads → REST/WebSocket API → optional live dashboard.
+- A **measurement harness**: forward hooks â†’ probe heads â†’ REST/WebSocket API â†’ optional live dashboard.
 - A **training toolkit** for aligning probes with (a) text-emotion labels (GoEmotions) or (b) narrative fMRI time series (Narratives-style encoding models).
 - A **benchmark runner** with manifest output for reproducibility.
 
@@ -33,7 +33,7 @@ These numbers are **constructed measurements** from learned linear probes and lo
 
 - Not a chat product, not an Ollama integration, not a feelings detector.
 - Not clinical, diagnostic, or high-stakes decision tooling.
-- Not a voxel-level fMRI decoder — the TRIBEv2 pathway is a **surrogate visualization** from the same activations.
+- Not a voxel-level fMRI decoder â€” the TRIBEv2 pathway is a **surrogate visualization** from the same activations.
 
 **Approved language:** *readout*, *internal geometry*, *population-level analogy*.  
 **Avoid:** *"the model feels anxious/happy"* stated as fact.
@@ -42,13 +42,13 @@ These numbers are **constructed measurements** from learned linear probes and lo
 
 ## 2. Problem Statement & Design Goals
 
-Large language models produce fluent text, but text alone is an incomplete window into internal computation. Researchers studying interpretability often want **continuous, per-token signals** that track how internal representations evolve during generation — especially along affective and epistemic axes that correlate (imperfectly) with human annotation and, optionally, neural data.
+Large language models produce fluent text, but text alone is an incomplete window into internal computation. Researchers studying interpretability often want **continuous, per-token signals** that track how internal representations evolve during generation â€” especially along affective and epistemic axes that correlate (imperfectly) with human annotation and, optionally, neural data.
 
 Anima separates three objects that are often conflated:
 
-1. **Observed text** — the tokens the user reads.
-2. **Hidden activations** — residual-stream tensors inside the transformer.
-3. **Brain BOLD signals** — slow, noisy population-level neural measurements (optional training target).
+1. **Observed text** â€” the tokens the user reads.
+2. **Hidden activations** â€” residual-stream tensors inside the transformer.
+3. **Brain BOLD signals** â€” slow, noisy population-level neural measurements (optional training target).
 
 The system is designed to bridge (1) and (2) at inference time, and optionally align (2) with (3) during probe training using encoding-model methodology inspired by narrative fMRI literature.
 
@@ -71,32 +71,32 @@ The system is designed to bridge (1) and (2) at inference time, and optionally a
 ### 3.1 High-level data flow
 
 ```
-┌─────────────┐     ┌──────────────────────┐     ┌─────────────────┐
-│ User prompt │────▶│ ActivationExtractor  │────▶│ Forward hooks   │
-│  (text)     │     │ (HF causal LM)       │     │ on N layers     │
-└─────────────┘     └──────────────────────┘     └────────┬────────┘
-                                                          │
-                        ┌─────────────────────────────────┼──────────────────────────┐
-                        ▼                                 ▼                          ▼
-                 ┌─────────────┐                  ┌──────────────┐           ┌──────────────┐
-                 │ AffectProbe │                  │ Uncertainty  │           │ TRIBEv2      │
-                 │ (3 heads)   │                  │ from logits  │           │ surrogate    │
-                 └──────┬──────┘                  │ + attention  │           │ (optional)   │
-                        │                          └──────┬───────┘           └──────┬───────┘
-                        └──────────────┬───────────────────┘                          │
-                                       ▼                                                │
-                              ┌─────────────────┐                                       │
-                              │ Guard + region  │◀──────────────────────────────────────┘
-                              │ + suppression   │
-                              └────────┬────────┘
-                                       ▼
-                    ┌──────────────────────────────────────┐
-                    │ FastAPI: /encode, /generate, WS stream │
-                    └──────────────────┬───────────────────┘
-                                       ▼
-                    ┌──────────────────────────────────────┐
-                    │ React dashboard (circumplex, bars)   │
-                    └──────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”     â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ User prompt â”‚â”€â”€â”€â”€â–¶â”‚ ActivationExtractor  â”‚â”€â”€â”€â”€â–¶â”‚ Forward hooks   â”‚
+â”‚  (text)     â”‚     â”‚ (HF causal LM)       â”‚     â”‚ on N layers     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜     â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                                          â”‚
+                        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+                        â–¼                                 â–¼                          â–¼
+                 â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”           â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+                 â”‚ AffectProbe â”‚                  â”‚ Uncertainty  â”‚           â”‚ TRIBEv2      â”‚
+                 â”‚ (3 heads)   â”‚                  â”‚ from logits  â”‚           â”‚ surrogate    â”‚
+                 â””â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”˜                  â”‚ + attention  â”‚           â”‚ (optional)   â”‚
+                        â”‚                          â””â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”˜           â””â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”˜
+                        â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                          â”‚
+                                       â–¼                                                â”‚
+                              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                                       â”‚
+                              â”‚ Guard + region  â”‚â—€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                              â”‚ + suppression   â”‚
+                              â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                       â–¼
+                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+                    â”‚ FastAPI: /encode, /generate, WS stream â”‚
+                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                       â–¼
+                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+                    â”‚ React dashboard (circumplex, bars)   â”‚
+                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### 3.2 Component map
@@ -107,7 +107,7 @@ The system is designed to bridge (1) and (2) at inference time, and optionally a
 | **Runtime**   | PyTorch + `transformers` | Load HF causal LM, register hooks, run encode/generate                           |
 | **Core**      | `core/`                  | Layer config, hooks, extraction, region labels, guard, suppression               |
 | **Probes**    | `probes/`                | `AffectProbe` network, training, zoo I/O, calibration                            |
-| **Alignment** | `alignment/`             | Narratives loader, word→token align, TR binning, ridge encoding, TRIBE surrogate |
+| **Alignment** | `alignment/`             | Narratives loader, wordâ†’token align, TR binning, ridge encoding, TRIBE surrogate |
 | **API**       | FastAPI + Uvicorn        | REST + WebSocket on port 8010                                                    |
 | **Dashboard** | Vite + React + Recharts  | Live circumplex plot, uncertainty bars, token stream                             |
 | **CLI**       | `anima` entry point      | `api`, `train`, `train-text`, `train-zoo`, `benchmark`, `bootstrap`              |
@@ -117,14 +117,14 @@ The system is designed to bridge (1) and (2) at inference time, and optionally a
 
 Two configurations are kept separate:
 
-- `**core/layer_config.py`** — which transformer layers to hook, `hidden_dim`, GPU/gated flags (shipped in git).
-- `**probes/zoo/*.pt`** — trained probe weights (binary checkpoints gitignored; `.meta.json` sidecars in git).
+- `**core/layer_config.py`** â€” which transformer layers to hook, `hidden_dim`, GPU/gated flags (shipped in git).
+- `**probes/zoo/*.pt`** â€” trained probe weights (binary checkpoints gitignored; `.meta.json` sidecars in git).
 
 Checkpoint resolution order (`probes/zoo_io.py`):
 
-1. `{slug}_narratives_pca.pt` — brain-aligned (preferred)
-2. `{slug}_text.pt` — GoEmotions text training
-3. `{slug}.pt` — base fallback
+1. `{slug}_narratives_pca.pt` â€” brain-aligned (preferred)
+2. `{slug}_text.pt` â€” GoEmotions text training
+3. `{slug}.pt` â€” base fallback
 
 If no checkpoint exists, the probe is **randomly initialized**. The pipeline runs end-to-end, but readouts are uncalibrated.
 
@@ -139,7 +139,7 @@ Anima does **not** integrate with Ollama. Use the equivalent Hugging Face model 
 
 ## 4. Measurement Methodology
 
-This section describes *how* readouts are computed — the core scientific/engineering contribution.
+This section describes *how* readouts are computed â€” the core scientific/engineering contribution.
 
 ### 4.1 Activation capture via forward hooks
 
@@ -149,7 +149,7 @@ This section describes *how* readouts are computed — the core scientific/engin
 2. Buffers are cleared before each pass to avoid stale activations.
 3. Hooks are removed on API shutdown (`lifespan` cleanup in `api/server.py`).
 
-`core/extractor.py` — `ActivationExtractor` exposes two paths:
+`core/extractor.py` â€” `ActivationExtractor` exposes two paths:
 
 
 | Path         | Method                  | Use case                                                           |
@@ -160,26 +160,26 @@ This section describes *how* readouts are computed — the core scientific/engin
 
 ### 4.2 The AffectProbe network
 
-`probes/linear_probe.py` — `AffectProbe` is a small `nn.Module`:
+`probes/linear_probe.py` â€” `AffectProbe` is a small `nn.Module`:
 
-**Step 1 — Layer fusion.** Activations from `N` probed layers are stacked and combined via **learned softmax weights**:
+**Step 1 â€” Layer fusion.** Activations from `N` probed layers are stacked and combined via **learned softmax weights**:
 
 ```
 weights = softmax(layer_weights)
-fused = Σᵢ weights[i] · activation[layer_i]
+fused = Î£áµ¢ weights[i] Â· activation[layer_i]
 ```
 
-**Step 2 — Three linear heads** on the fused vector:
+**Step 2 â€” Three linear heads** on the fused vector:
 
 
 | Head          | Activation | Output range |
 | ------------- | ---------- | ------------ |
-| `valence`     | `tanh`     | [−1, +1]     |
+| `valence`     | `tanh`     | [âˆ’1, +1]     |
 | `arousal`     | `sigmoid`  | [0, 1]       |
 | `uncertainty` | `sigmoid`  | [0, 1]       |
 
 
-`heads_from_hidden()` applies the same head weights to a single layer's hidden state — used for suppression detection (early vs late layer comparison).
+`heads_from_hidden()` applies the same head weights to a single layer's hidden state â€” used for suppression detection (early vs late layer comparison).
 
 ### 4.3 Auxiliary uncertainty signals
 
@@ -188,25 +188,25 @@ Independent of the probe's uncertainty head, `core/extractor.py` computes three 
 
 | Signal                | Definition                                                       | Intuition                             |
 | --------------------- | ---------------------------------------------------------------- | ------------------------------------- |
-| **Entropy**           | Normalized softmax entropy: `H / log(V)`                         | Flat distribution → high uncertainty  |
-| **Logit gap**         | `1 / (1 + max(top1 − top2, 0))`                                  | Close top-2 logits → high uncertainty |
-| **Attention entropy** | Mean head entropy of last-layer attention (final query position) | Diffuse attention → high uncertainty  |
+| **Entropy**           | Normalized softmax entropy: `H / log(V)`                         | Flat distribution â†’ high uncertainty  |
+| **Logit gap**         | `1 / (1 + max(top1 âˆ’ top2, 0))`                                  | Close top-2 logits â†’ high uncertainty |
+| **Attention entropy** | Mean head entropy of last-layer attention (final query position) | Diffuse attention â†’ high uncertainty  |
 
 
 **Fused uncertainty:**
 
 ```
-fused = 0.35 · entropy + 0.35 · logit_gap + 0.30 · attn_entropy
+fused = 0.35 Â· entropy + 0.35 Â· logit_gap + 0.30 Â· attn_entropy
 ```
 
 The fused signal supervises brain-path probe training and feeds the guard policy. Optional **Platt scaling** (`probes/calibration.py`) calibrates fused scores on held-out data.
 
 ### 4.4 Region labeling (Russell circumplex)
 
-`core/regions.py` — `label_region(valence, arousal, uncertainty)` maps scalars to named quadrants:
+`core/regions.py` â€” `label_region(valence, arousal, uncertainty)` maps scalars to named quadrants:
 
-- If `uncertainty > 0.75` → `"high-uncertainty"` (no human emotion analog assigned).
-- Otherwise, 2×2 valence × arousal grid: excitement, calm, anxiety, sadness, neutral.
+- If `uncertainty > 0.75` â†’ `"high-uncertainty"` (no human emotion analog assigned).
+- Otherwise, 2Ã—2 valence Ã— arousal grid: excitement, calm, anxiety, sadness, neutral.
 - `region_analog` strings include mandated psychology disclaimers.
 
 Confidence tiers (HIGH / MEDIUM / LOW) derive from fused uncertainty thresholds.
@@ -218,25 +218,25 @@ Confidence tiers (HIGH / MEDIUM / LOW) derive from fused uncertainty thresholds.
 
 | Flag                    | Condition                                    | Framing                                 |
 | ----------------------- | -------------------------------------------- | --------------------------------------- |
-| `valence_suppression`   | late valence − early valence > 0.35          | Internal inconsistency, not "deception" |
-| `uncertainty_overclaim` | late uncertainty − early uncertainty < −0.30 | Late layers under-report spread         |
+| `valence_suppression`   | late valence âˆ’ early valence > 0.35          | Internal inconsistency, not "deception" |
+| `uncertainty_overclaim` | late uncertainty âˆ’ early uncertainty < âˆ’0.30 | Late layers under-report spread         |
 
 
 Enabled by default on `/generate` and WebSocket streams (`detect_suppression: true`).
 
 ### 4.6 Guard policy (reliability gating)
 
-`core/guard.py` — `evaluate_guard()` combines signals before surfacing a readout:
+`core/guard.py` â€” `evaluate_guard()` combines signals before surfacing a readout:
 
 ```
-composite = 0.55 · fused_calibrated + 0.45 · probe_uncertainty
+composite = 0.55 Â· fused_calibrated + 0.45 Â· probe_uncertainty
 ```
 
-**Abstain** if ≥2 reasons fire or fused ≥ threshold. Reasons include:
+**Abstain** if â‰¥2 reasons fire or fused â‰¥ threshold. Reasons include:
 
 - `high_fused_uncertainty`
 - `high_probe_uncertainty`
-- `lexical_hedging` — hedge-word count from `probes/validate.py` ("maybe", "perhaps", "I think", etc.)
+- `lexical_hedging` â€” hedge-word count from `probes/validate.py` ("maybe", "perhaps", "I think", etc.)
 
 When abstaining, the guard can override the region label to high-uncertainty.
 
@@ -249,11 +249,11 @@ When abstaining, the guard can override the region label to high-uncertainty.
 Derived valence/arousal sketch:
 
 ```
-valence ≈ vmpfc − amygdala
-arousal ≈ acc
+valence â‰ˆ vmpfc âˆ’ amygdala
+arousal â‰ˆ acc
 ```
 
-Weights are either seeded random or trained ridge projections saved as `{slug}_tribe_proj.npz`. This block exists for **dashboard visualization** — it is not voxel-level fMRI decoding and should not be cited as neuroscience evidence.
+Weights are either seeded random or trained ridge projections saved as `{slug}_tribe_proj.npz`. This block exists for **dashboard visualization** â€” it is not voxel-level fMRI decoding and should not be cited as neuroscience evidence.
 
 ---
 
@@ -270,7 +270,7 @@ Probes must be trained before readouts carry semantic meaning. Anima ships two t
 | Step          | Detail                                                                         |
 | ------------- | ------------------------------------------------------------------------------ |
 | Dataset       | GoEmotions (`google-research-datasets/go_emotions`)                            |
-| Label mapping | `probes/emotion_va_map.py` — Russell circumplex coordinates per emotion        |
+| Label mapping | `probes/emotion_va_map.py` â€” Russell circumplex coordinates per emotion        |
 | Multi-label   | Mean valence/arousal across active labels; uncertainty scales with label count |
 | Features      | Last-token activation of encoded text (max_length 64)                          |
 | Loss          | MSE on valence, arousal, uncertainty                                           |
@@ -287,12 +287,12 @@ Probes must be trained before readouts carry semantic meaning. Anima ships two t
 | Step       | Detail                                                                                                                      |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Data       | OpenNeuro ds002345 (full) or synthetic minimal corpus in `data/narratives_minimal/`                                         |
-| Alignment  | Word→token mapping via HF offset mappings (`alignment/word_token_align.py`)                                                 |
+| Alignment  | Wordâ†’token mapping via HF offset mappings (`alignment/word_token_align.py`)                                                 |
 | Encoding   | Per-token activations + fused uncertainty during story encode                                                               |
 | TR binning | Average hidden states per 2s TR from word onsets (`alignment/encoding_pipeline.py`)                                         |
 | HRF lag    | Shift fMRI by 3 TRs                                                                                                         |
 | Confounds  | Partial out word rate + drift (`alignment/confound_control.py`)                                                             |
-| Targets    | **PCA mode** (default): 2-component PCA on training BOLD → valence/arousal proxies; or **atlas mode** with user ROI indices |
+| Targets    | **PCA mode** (default): 2-component PCA on training BOLD â†’ valence/arousal proxies; or **atlas mode** with user ROI indices |
 | Holdout    | Stories in `benchmarks/splits/narratives_holdout.json` (train: pieman, tunnel; holdout: lucy)                               |
 | Outputs    | `{slug}_narratives_pca.pt`, `.calib.pt`, `{slug}_tribe_proj.npz`                                                            |
 
@@ -360,16 +360,16 @@ Each token returns:
 
 Vite + React app (`dashboard/`) on port 5173:
 
-- **Circumplex plot** — valence × arousal trajectory during generation
-- **Uncertainty bars** — probe vs fused vs component breakdown
-- **Token stream** — live text with per-token color coding
-- **Brain alignment panel** — TRIBEv2 surrogate ROI bars (labeled as sketch)
+- **Circumplex plot** â€” valence Ã— arousal trajectory during generation
+- **Uncertainty bars** â€” probe vs fused vs component breakdown
+- **Token stream** â€” live text with per-token color coding
+- **Brain alignment panel** â€” TRIBEv2 surrogate ROI bars (labeled as sketch)
 
 WebSocket client: `dashboard/src/hooks/useAffectStream.js`
 
 ### 6.4 Benchmark results (published)
 
-`**distilgpt2` — live run 2026-05-24:**
+`**distilgpt2` â€” live run 2026-05-24:**
 
 
 | Benchmark               | Metric                        | Value         |
@@ -383,7 +383,7 @@ WebSocket client: `dashboard/src/hooks/useAffectStream.js`
 
 Reproduce: `anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard`
 
-**Caveats:** Narratives numbers use the **synthetic minimal** corpus, not full ds002345 (~100 GB). GoEmotions benchmark uses ≤200 validation samples. Guard AUROC on 4 fixtures is smoke-test only.
+**Caveats:** Narratives numbers use the **synthetic minimal** corpus, not full ds002345 (~100 GB). GoEmotions benchmark uses â‰¤200 validation samples. Guard AUROC on 4 fixtures is smoke-test only.
 
 ---
 
@@ -391,11 +391,11 @@ Reproduce: `anima benchmark --model distilgpt2 --tiers internal,external,externa
 
 ### 7.1 Scientific limitations
 
-- **Uncalibrated by default** — without `probes/zoo/*.pt`, probes are random; region labels rarely fire meaningfully.
-- **Weak correlations** — even trained distilgpt2 probes show modest GoEmotions alignment (r ≈ 0.06 valence).
-- **Synthetic fMRI** — default brain training uses minimal synthetic Narratives, not real ds002345.
-- **TRIBEv2 is a sketch** — not real neural decoding; do not cite as brain imaging.
-- **Tiny default model** — `hf-internal-testing/tiny-random-gpt2` produces nonsense text; for CI/plumbing only.
+- **Uncalibrated by default** â€” without `probes/zoo/*.pt`, probes are random; region labels rarely fire meaningfully.
+- **Weak correlations** â€” even trained distilgpt2 probes show modest GoEmotions alignment (r â‰ˆ 0.06 valence).
+- **Synthetic fMRI** â€” default brain training uses minimal synthetic Narratives, not real ds002345.
+- **TRIBEv2 is a sketch** â€” not real neural decoding; do not cite as brain imaging.
+- **Tiny default model** â€” `hf-internal-testing/tiny-random-gpt2` produces nonsense text; for CI/plumbing only.
 
 ### 7.2 Ethical boundaries
 
@@ -408,15 +408,16 @@ Reproduce: `anima benchmark --model distilgpt2 --tiers internal,external,externa
 | Label surrogate ROI as visualization             | Sell ROI plots as real neuroscience              |
 
 
-### 7.3 Roadmap (from `docs/BUILD_PLAN.md`)
+### 7.3 Roadmap
 
 
 | Phase | Scope                                         | Status                                |
 | ----- | --------------------------------------------- | ------------------------------------- |
 | v1.0  | Hooks, probes, API, dashboard, benchmarks, CI | **Shipped**                           |
-| v1.1  | Release probe assets + `download_zoo.py`      | **Partial** (script + Release v1.1.0) |
-| v1.2  | Expanded guard fixtures, real Narratives tier | Planned                               |
-| v2.0  | HF Space / Gradio demo, SAE integration flags | Planned                               |
+| v1.1  | Release probe assets + `download_zoo.py`      | **Shipped**                           |
+| v2.0  | Multi-model council, gating, Docker stack     | **Shipped**                           |
+| v2.1  | HF Space / Gradio demo (package 2.1.0)        | **Shipped**                           |
+| v3.0+ | Real Narratives fMRI tier                     | Planned                               |
 
 
 ---
@@ -448,8 +449,8 @@ cd dashboard && npm install && npm run dev   # http://127.0.0.1:5173
 
 ### 30-second pitch
 
-> Anima hooks into a Hugging Face causal LM, captures hidden states at selected layers, and maps them to valence, arousal, and uncertainty readouts per token. Probes are trainable linear heads — optionally aligned to text emotions or narrative fMRI. It exposes a streaming API and dashboard for research instrumentation, not anthropomorphic claims.
+> Anima hooks into a Hugging Face causal LM, captures hidden states at selected layers, and maps them to valence, arousal, and uncertainty readouts per token. Probes are trainable linear heads â€” optionally aligned to text emotions or narrative fMRI. It exposes a streaming API and dashboard for research instrumentation, not anthropomorphic claims.
 
 ---
 
-*For usage boundaries see [USAGE_AND_LIMITATIONS.md](USAGE_AND_LIMITATIONS.md). For training commands see [TRAINING.md](TRAINING.md). For architecture details see [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md).*
+*For usage boundaries see [USAGE_AND_LIMITATIONS.md](USAGE_AND_LIMITATIONS.md). For training commands see [TRAINING.md](TRAINING.md). For architecture details see [ANIMA_TECHNICAL_OVERVIEW.md](ANIMA_TECHNICAL_OVERVIEW.md).*

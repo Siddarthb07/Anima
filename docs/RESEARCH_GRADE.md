@@ -2,7 +2,7 @@
 
 Anima is **research-grade** when every row below is satisfied. This is the living checklist for releases and external claims.
 
-**Version map** (must match [BUILD_PLAN.md](BUILD_PLAN.md)):
+**Version map**:
 
 | Tag | Tier |
 |-----|------|
@@ -11,9 +11,9 @@ Anima is **research-grade** when every row below is satisfied. This is the livin
 | **v2.1.0** | **Public demo** — Gradio HF Space, TinyLlama hero ([live demo](https://huggingface.co/spaces/sidb078/Anima)) |
 | **v3.0.0+** | Optional **real brain** — OpenNeuro [ds002345](https://openneuro.org/datasets/ds002345) holdout (`probe_origin: narratives_fMRI`); post-RD |
 
-**Current shipped tier (v2.0.0):** synthetic brain on `data/narratives_minimal/` plus council-validated **text-emotion** probes. Usable for pipeline, dashboard, and portfolio demos; **not** a claim about real human fMRI.
+**Current shipped tier (v2.1.0):** synthetic brain on `data/narratives_minimal/` plus council-validated **text-emotion** probes. Usable for pipeline, dashboard, and portfolio demos; **not** a claim about real human fMRI.
 
-**Next milestone (v2.1.0):** public demo URL + essay-ready hero narrative — still synthetic brain unless noted.
+**Next milestone (v3.0.0+ real fMRI):** public demo URL + essay-ready hero narrative — still synthetic brain unless noted.
 
 **Research milestone (v3.0.0+):** real ds002345 holdout numbers (R6–R7 below).
 

@@ -176,7 +176,7 @@ Integration tests that download Hub models:
 $env:RUN_HF_TESTS="1"; python -m pytest -q
 ```
 
-More detail: [`RUN_AND_TEST_COMMANDS.txt`](RUN_AND_TEST_COMMANDS.txt).
+More detail: [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ---
 
@@ -186,6 +186,6 @@ More detail: [`RUN_AND_TEST_COMMANDS.txt`](RUN_AND_TEST_COMMANDS.txt).
 |--------|-------------------|
 | WebSocket errors in the UI | API running? Port matches `VITE_API_HTTP_TARGET`? Restart Vite after `.env` edits. |
 | Windows crash / access violation loading Torch | Smaller model, updated CPU wheel, paging file / RAM. |
-| Everything reads “neutral” in the UI | With **no** `probes/zoo/<slug>.pt`, the probe is **random** — train one or expect weak quadrant labels. See [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md). |
+| Everything reads “neutral” in the UI | With **no** `probes/zoo/<slug>.pt`, the probe is **random** — train one or expect weak quadrant labels. See [ANIMA_TECHNICAL_OVERVIEW.md](ANIMA_TECHNICAL_OVERVIEW.md). |
 
 For ethics and product boundaries, see [USAGE_AND_LIMITATIONS.md](USAGE_AND_LIMITATIONS.md).
