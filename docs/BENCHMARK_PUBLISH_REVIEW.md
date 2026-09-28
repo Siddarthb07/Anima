@@ -32,7 +32,7 @@ production hallucination detection performance.
 ## Validation rubric (four dimensions)
 
 Scores are weighted 0–100 per dimension; aggregate ≥60 with core dimensions passing
-indicates the model is suitable to cite in portfolio materials with stated limits.
+indicates the model is suitable to cite in write-ups with stated limits.
 
 | Dimension | Weight | What it checks |
 |-----------|--------|----------------|

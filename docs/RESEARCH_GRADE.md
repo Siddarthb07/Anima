@@ -11,7 +11,7 @@ Anima is **research-grade** when every row below is satisfied. This is the livin
 | **v2.1.0** | **Public demo** — Gradio HF Space, TinyLlama hero ([live demo](https://huggingface.co/spaces/sidb078/Anima)) |
 | **v3.0.0+** | Optional **real brain** — OpenNeuro [ds002345](https://openneuro.org/datasets/ds002345) holdout (`probe_origin: narratives_fMRI`); post-RD |
 
-**Current shipped tier (v2.1.0):** synthetic brain on `data/narratives_minimal/` plus council-validated **text-emotion** probes. Usable for pipeline, dashboard, and portfolio demos; **not** a claim about real human fMRI.
+**Current shipped tier (v2.1.0):** synthetic brain on `data/narratives_minimal/` plus council-validated **text-emotion** probes. Usable for pipeline and dashboard demos; **not** a claim about real human fMRI.
 
 **Next milestone (v3.0.0+ real fMRI):** public demo URL + essay-ready hero narrative — still synthetic brain unless noted.
 
@@ -28,7 +28,7 @@ Anima is **research-grade** when every row below is satisfied. This is the livin
 | R7 | Optional one 7B–8B real brain probe | Not started — target **v3.0.0+** |
 | R8 | distilgpt2 text probe quality (val + benchmark r) | **Done** — GoE validation r≈0.16; train holdout ≈0.18 |
 | R9 | Guard benchmarks n>50 before citing AUROC | **Done** (n=52) — cite as **fixture-policy smoke only**, not hallucination detection |
-| R10 | Council rubric + multi-model rollup for portfolio | **Done** — `benchmarks/reports/council_rollup.json` |
+| R10 | Council rubric + multi-model rollup | **Done** — `benchmarks/reports/council_rollup.json` |
 | R11 | Public demo with API bounds + model allowlist | **Done** — [HF Space](https://huggingface.co/spaces/sidb078/Anima) |
 
 ## What you may claim externally (today)

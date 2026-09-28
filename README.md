@@ -10,7 +10,7 @@
 
 **v2.1.0** — public demo on [Hugging Face Spaces](https://huggingface.co/spaces/sidb078/Anima) (Qwen Space default + TinyLlama council best). **v2.0.0** — multi-model council benchmarks, stability gating, intervention mode, Docker stack. See [research-grade / version map](docs/RESEARCH_GRADE.md).
 
-**Space default:** `Qwen/Qwen2.5-0.5B-Instruct`. **Council best / demo narrative:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (council 94, strongest prompt separation). Lead with **text-emotion probes** and council validation — not “brain-aligned” claims (synthetic brain holdout for distilgpt2 is negative; see benchmark table).
+**Space default:** `Qwen/Qwen2.5-0.5B-Instruct`. **Best council score:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (94/100 on the weighted validity rubric, strongest prompt separation). Text-emotion probes are the validated path; brain-aligned probes are experimental (the synthetic brain holdout for distilgpt2 is negative; see benchmark table).
 
 Anima does **not** use Ollama. Use a [supported Hugging Face model id](core/layer_config.py) (e.g. `distilgpt2`) with matching weights in `probes/zoo/`.
 
@@ -49,10 +49,10 @@ Given a prompt and a Hugging Face model id (e.g. `distilgpt2`):
 
 | Path | Training data | Checkpoint | `probe_origin` (typical) |
 |------|----------------|------------|---------------------------|
-| **Text** (primary for portfolio) | [GoEmotions](https://huggingface.co/datasets/google-research-datasets/go_emotions) labels → valence/arousal mapping | `probes/zoo/{slug}_text.pt` | `text_emotion` |
+| **Text** (primary) | [GoEmotions](https://huggingface.co/datasets/google-research-datasets/go_emotions) labels → valence/arousal mapping | `probes/zoo/{slug}_text.pt` | `text_emotion` |
 | **Brain-aligned** (experimental; synthetic tier today) | Story text + fMRI (Narratives layout; OpenNeuro [ds002345](https://openneuro.org/datasets/ds002345) or dev subset) | `probes/zoo/{slug}_narratives_pca.pt` | `narratives_fMRI` or `narratives_fMRI_synthetic_minimal` |
 
-The API prefers the **brain** checkpoint when present, then text, then an uninitialized probe (**random** readouts—fine for wiring tests only). For **college-app demos**, use **text** probes (TinyLlama or Qwen) and cite council scores — do not headline brain alignment until real fMRI holdout passes (target v3.0.0+).
+The API prefers the **brain** checkpoint when present, then text, then an uninitialized probe (**random** readouts—fine for wiring tests only). For demos, use **text** probes (TinyLlama or Qwen) and cite the council scores. Brain alignment stays experimental until a real fMRI holdout passes (target v3.0.0+).
 
 **Published weights (CPU tier):** [GitHub Release v2.0.0](https://github.com/Siddarthb07/Anima/releases/tag/v2.0.0) — `distilgpt2`, `tiny-random-gpt2`, **Qwen2.5-0.5B**, **TinyLlama-1.1B**, **SmolLM2-1.7B** text probes (+ brain/narratives where listed). Brain probes use **synthetic minimal** BOLD ([`data/narratives_minimal/`](data/narratives_minimal/)), not full real fMRI. Details: [`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md).
 
@@ -225,7 +225,7 @@ python scripts/generate_benchmark_charts.py
 |-----------|--------|--------|--------|
 | **Council validation** | Aggregate score | **94.0** | Highest CPU-tier score |
 | **GoEmotions** (validation) | Pearson r (valence / arousal) | **0.19** / **0.41** | Text-emotion probe; meets ≥0.15 gate |
-| **Live prompts** | Pos − neg valence gap | **0.49** | Best separation for portfolio demos |
+| **Live prompts** | Pos − neg valence gap | **0.49** | Best separation across benchmarked models |
 | **HaluEval guard** (n=52) | Abstain accuracy / AUROC | 1.00 / 1.00 | Fixture-policy smoke only |
 
 #### `Qwen/Qwen2.5-0.5B-Instruct` — [manifest](benchmarks/reports/latest_qwen2.5_0.5b_instruct_manifest.json) (backup demo)

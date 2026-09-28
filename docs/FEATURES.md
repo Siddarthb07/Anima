@@ -140,7 +140,7 @@ Flags: `high_uncertainty`, `negative_valence`, `high_arousal`, `likely_hedging` 
 
 ## 4. Probe training & zoo
 
-### Text path (portfolio-primary)
+### Text path (primary)
 
 - Dataset: GoEmotions simplified → hand-mapped Russell-style VA table (`probes/emotion_va_map.py`).
 - Multi-label → mean V/A; uncertainty rises with label count: `min(0.95, 0.45 + 0.08·(n_labels−1))`.
