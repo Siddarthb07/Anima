@@ -21,7 +21,7 @@ from typing import Any, Optional
 
 import torch
 
-from benchmarks.guard_metrics import auroc_from_scores, score_abstain_accuracy
+from benchmarks.guard_metrics import score_abstain_accuracy
 from core.extractor import ActivationExtractor
 from core.guard import evaluate_guard
 from core.prompt_format import format_qa_claim
@@ -266,36 +266,56 @@ def run_live(
         print(f"[live] HaluEval pairs (max={max_pairs}) on {model_name}")
         pairs = load_halueval_pairs(max_pairs=max_pairs, seed=seed)
         rows = evaluate_pairs(model_name, pairs, label_key="is_hallucination", device=device)
-        metrics = score_abstain_accuracy(rows, label_key="is_hallucination")
+        metrics = score_abstain_accuracy(
+            rows, label_key="is_hallucination", with_ci=True, ci_B=2000, ci_seed=seed
+        )
         report["benchmarks"]["halueval"] = {
             "status": "ok",
             "source": "live",
+            "protocol": "L",
             **metrics,
             "rows_path_hint": "halueval_live_rows.json",
         }
         REPORTS.mkdir(parents=True, exist_ok=True)
         slug = model_name.replace("/", "_").replace(".", "_").lower()
         (REPORTS / f"halueval_live_{slug}.json").write_text(
-            json.dumps({"rows": rows, "metrics": metrics}, indent=2), encoding="utf-8"
+            json.dumps({"rows": rows, "metrics": metrics, "protocol": "L", "seed": seed}, indent=2),
+            encoding="utf-8",
         )
-        print(f"  HaluEval AUROC={metrics['auroc_composite']} acc={metrics['abstain_accuracy']} n={metrics['n_samples']}")
+        ci = metrics.get("auroc_ci95") or {}
+        print(
+            f"  HaluEval AUROC={metrics['auroc_composite']} "
+            f"CI=[{ci.get('lo')}, {ci.get('hi')}] "
+            f"acc={metrics['abstain_accuracy']} n={metrics['n_samples']} "
+            f"never_abstains={metrics.get('never_abstains')}"
+        )
 
     if benchmark in ("truthfulqa", "both"):
         print(f"[live] TruthfulQA pairs (max={max_pairs}) on {model_name}")
         pairs = load_truthfulqa_pairs(max_pairs=max_pairs, seed=seed)
         rows = evaluate_pairs(model_name, pairs, label_key="should_abstain", device=device)
-        metrics = score_abstain_accuracy(rows, label_key="should_abstain")
+        metrics = score_abstain_accuracy(
+            rows, label_key="should_abstain", with_ci=True, ci_B=2000, ci_seed=seed
+        )
         report["benchmarks"]["truthfulqa"] = {
             "status": "ok",
             "source": "live",
+            "protocol": "L",
             **metrics,
         }
         REPORTS.mkdir(parents=True, exist_ok=True)
         slug = model_name.replace("/", "_").replace(".", "_").lower()
         (REPORTS / f"truthfulqa_live_{slug}.json").write_text(
-            json.dumps({"rows": rows, "metrics": metrics}, indent=2), encoding="utf-8"
+            json.dumps({"rows": rows, "metrics": metrics, "protocol": "L", "seed": seed}, indent=2),
+            encoding="utf-8",
         )
-        print(f"  TruthfulQA AUROC={metrics['auroc_composite']} acc={metrics['abstain_accuracy']} n={metrics['n_samples']}")
+        ci = metrics.get("auroc_ci95") or {}
+        print(
+            f"  TruthfulQA AUROC={metrics['auroc_composite']} "
+            f"CI=[{ci.get('lo')}, {ci.get('hi')}] "
+            f"acc={metrics['abstain_accuracy']} n={metrics['n_samples']} "
+            f"never_abstains={metrics.get('never_abstains')}"
+        )
 
     out = REPORTS / f"live_guard_{model_name.replace('/', '_').replace('.', '_').lower()}.json"
     REPORTS.mkdir(parents=True, exist_ok=True)
