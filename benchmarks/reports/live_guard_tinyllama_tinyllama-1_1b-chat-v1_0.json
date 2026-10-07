@@ -9,6 +9,7 @@
     "halueval": {
       "status": "ok",
       "source": "live",
+      "protocol": "L",
       "abstain_accuracy": 0.5,
       "auroc_composite": 0.5387,
       "n_samples": 80,
@@ -16,18 +17,38 @@
       "fp": 0,
       "tn": 40,
       "fn": 40,
-      "rows_path_hint": "halueval_live_rows.json"
+      "never_abstains": true,
+      "auroc_ci95": {
+        "point": 0.5387,
+        "lo": 0.4153,
+        "hi": 0.6707,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      }
     },
     "truthfulqa": {
       "status": "ok",
       "source": "live",
+      "protocol": "L",
       "abstain_accuracy": 0.5,
       "auroc_composite": 0.5188,
       "n_samples": 80,
       "tp": 0,
       "fp": 0,
       "tn": 40,
-      "fn": 40
+      "fn": 40,
+      "never_abstains": true,
+      "auroc_ci95": {
+        "point": 0.5188,
+        "lo": 0.3803,
+        "hi": 0.6523,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      }
     }
   }
 }

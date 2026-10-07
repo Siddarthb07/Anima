@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "protocol": "F",
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "note": "Fixture smoke; model-agnostic pre-baked rows",
+  "suites": {
+    "halueval": {
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0,
+      "never_abstains": false,
+      "auroc_ci95": {
+        "point": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "B": 2000,
+        "seed": 42,
+        "n": 52,
+        "method": "bootstrap_mann_whitney"
+      }
+    },
+    "truthfulqa": {
+      "abstain_accuracy": 1.0,
+      "auroc_composite": 1.0,
+      "n_samples": 52,
+      "tp": 26,
+      "fp": 0,
+      "tn": 26,
+      "fn": 0,
+      "never_abstains": false,
+      "auroc_ci95": {
+        "point": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "B": 2000,
+        "seed": 42,
+        "n": 52,
+        "method": "bootstrap_mann_whitney"
+      }
+    }
+  }
+}
