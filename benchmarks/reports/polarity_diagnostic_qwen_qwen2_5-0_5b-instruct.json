@@ -1,0 +1,83 @@
+{
+  "status": "ok",
+  "generated_at": "2026-10-23T11:18:55.975858+00:00",
+  "model_slug": "qwen_qwen2_5-0_5b-instruct",
+  "seed": 42,
+  "B": 2000,
+  "suites": {
+    "halueval": {
+      "label_key": "is_hallucination",
+      "score_key": "composite_score",
+      "n": 80,
+      "n_pos": 40,
+      "n_neg": 40,
+      "auroc_original": 0.2472,
+      "auroc_flipped": 0.7528,
+      "expected_flip_if_anti_aligned": 0.7528,
+      "abs_delta_flip_vs_one_minus_original": 0.0,
+      "mean_score_label_1": 0.4399,
+      "mean_score_label_0": 0.4584,
+      "auroc_ci95_original": {
+        "point": 0.2472,
+        "lo": 0.1445,
+        "hi": 0.363,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "auroc_ci95_flipped": {
+        "point": 0.7528,
+        "lo": 0.6371,
+        "hi": 0.8557,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "verdict": "anti_aligned_ranking",
+      "note": "AUROC=0.2472 < 0.45 and flipped\u22481\u2212original (0.7528): score ranks opposite the intended positive class; not a label-wire bug.",
+      "protocol": "A0_polarity_diagnostic",
+      "integrity": "production_labels_unchanged",
+      "source_path": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-0_5b-instruct.json",
+      "status": "ok"
+    },
+    "truthfulqa": {
+      "label_key": "should_abstain",
+      "score_key": "composite_score",
+      "n": 80,
+      "n_pos": 40,
+      "n_neg": 40,
+      "auroc_original": 0.4587,
+      "auroc_flipped": 0.5413,
+      "expected_flip_if_anti_aligned": 0.5413,
+      "abs_delta_flip_vs_one_minus_original": 0.0,
+      "mean_score_label_1": 0.4405,
+      "mean_score_label_0": 0.4438,
+      "auroc_ci95_original": {
+        "point": 0.4587,
+        "lo": 0.3277,
+        "hi": 0.5917,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "auroc_ci95_flipped": {
+        "point": 0.5413,
+        "lo": 0.409,
+        "hi": 0.6724,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "verdict": "near_chance_coherent",
+      "note": "AUROC=0.4587 near chance; flip\u22481\u2212original confirms coherent ranking (not a label bug), but not usable for trust UI.",
+      "protocol": "A0_polarity_diagnostic",
+      "integrity": "production_labels_unchanged",
+      "source_path": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\truthfulqa_live_qwen_qwen2_5-0_5b-instruct.json",
+      "status": "ok"
+    }
+  }
+}

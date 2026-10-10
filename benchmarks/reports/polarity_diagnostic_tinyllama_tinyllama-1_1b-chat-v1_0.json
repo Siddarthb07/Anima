@@ -1,0 +1,83 @@
+{
+  "status": "ok",
+  "generated_at": "2026-10-23T11:18:52.008688+00:00",
+  "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+  "seed": 42,
+  "B": 2000,
+  "suites": {
+    "halueval": {
+      "label_key": "is_hallucination",
+      "score_key": "composite_score",
+      "n": 80,
+      "n_pos": 40,
+      "n_neg": 40,
+      "auroc_original": 0.5391,
+      "auroc_flipped": 0.4609,
+      "expected_flip_if_anti_aligned": 0.4609,
+      "abs_delta_flip_vs_one_minus_original": 0.0,
+      "mean_score_label_1": 0.3397,
+      "mean_score_label_0": 0.3386,
+      "auroc_ci95_original": {
+        "point": 0.5391,
+        "lo": 0.4155,
+        "hi": 0.6707,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "auroc_ci95_flipped": {
+        "point": 0.4609,
+        "lo": 0.3293,
+        "hi": 0.5846,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "verdict": "near_chance_coherent",
+      "note": "AUROC=0.5391 near chance; flip\u22481\u2212original confirms coherent ranking (not a label bug), but not usable for trust UI.",
+      "protocol": "A0_polarity_diagnostic",
+      "integrity": "production_labels_unchanged",
+      "source_path": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+      "status": "ok"
+    },
+    "truthfulqa": {
+      "label_key": "should_abstain",
+      "score_key": "composite_score",
+      "n": 80,
+      "n_pos": 40,
+      "n_neg": 40,
+      "auroc_original": 0.5188,
+      "auroc_flipped": 0.4813,
+      "expected_flip_if_anti_aligned": 0.4812,
+      "abs_delta_flip_vs_one_minus_original": 0.0001,
+      "mean_score_label_1": 0.3284,
+      "mean_score_label_0": 0.3271,
+      "auroc_ci95_original": {
+        "point": 0.5188,
+        "lo": 0.38,
+        "hi": 0.6515,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "auroc_ci95_flipped": {
+        "point": 0.4813,
+        "lo": 0.3488,
+        "hi": 0.6203,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "verdict": "near_chance_coherent",
+      "note": "AUROC=0.5188 near chance; flip\u22481\u2212original confirms coherent ranking (not a label bug), but not usable for trust UI.",
+      "protocol": "A0_polarity_diagnostic",
+      "integrity": "production_labels_unchanged",
+      "source_path": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\truthfulqa_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+      "status": "ok"
+    }
+  }
+}
