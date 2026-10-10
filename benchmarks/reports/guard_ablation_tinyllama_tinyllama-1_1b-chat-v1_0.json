@@ -1,0 +1,225 @@
+{
+  "status": "ok",
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "generated_at": "2026-10-23T10:05:47.213160+00:00",
+  "available_ablation_signals": [
+    "fused",
+    "probe_uncertainty",
+    "hedging"
+  ],
+  "halueval": {
+    "label_key": "is_hallucination",
+    "ablations": {
+      "full": {
+        "disabled_signals": [],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5387,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "no_fused": {
+        "disabled_signals": [
+          "fused"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.4831,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "no_probe_uncertainty": {
+        "disabled_signals": [
+          "probe_uncertainty"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5337,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "no_hedging": {
+        "disabled_signals": [
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5387,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "fused_only": {
+        "disabled_signals": [
+          "probe_uncertainty",
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5337,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "probe_only": {
+        "disabled_signals": [
+          "fused",
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.4831,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "hedging_only": {
+        "disabled_signals": [
+          "fused",
+          "probe_uncertainty"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      }
+    },
+    "source": "live_cached",
+    "n_rows": 80
+  },
+  "truthfulqa": {
+    "label_key": "should_abstain",
+    "ablations": {
+      "full": {
+        "disabled_signals": [],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5188,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "no_fused": {
+        "disabled_signals": [
+          "fused"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.4888,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "no_probe_uncertainty": {
+        "disabled_signals": [
+          "probe_uncertainty"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5284,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "no_hedging": {
+        "disabled_signals": [
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5188,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "fused_only": {
+        "disabled_signals": [
+          "probe_uncertainty",
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5284,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "probe_only": {
+        "disabled_signals": [
+          "fused",
+          "hedging"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.4888,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      },
+      "hedging_only": {
+        "disabled_signals": [
+          "fused",
+          "probe_uncertainty"
+        ],
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.5,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true
+      }
+    },
+    "source": "live_cached",
+    "n_rows": 80
+  },
+  "baselines": {
+    "n": 80,
+    "auroc_anima_composite": 0.5387,
+    "auroc_fused_only": 0.5337,
+    "auroc_entropy_only": 0.5134,
+    "abstain_full": {
+      "abstain_accuracy": 0.5,
+      "auroc_composite": 0.5387,
+      "n_samples": 80,
+      "tp": 0,
+      "fp": 0,
+      "tn": 40,
+      "fn": 40,
+      "never_abstains": true
+    },
+    "source": "live_cached"
+  }
+}

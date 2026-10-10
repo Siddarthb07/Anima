@@ -9,14 +9,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 import os
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
 from benchmarks.guard_metrics import auroc_from_scores, load_fixture, score_abstain_accuracy
+from benchmarks.semantic_entropy import cluster_entropy as _cluster_entropy
 from core.guard import ABLATION_SIGNALS, evaluate_guard
 
 REPORTS = Path(__file__).resolve().parent / "reports"
@@ -39,42 +38,6 @@ def run_signal_ablations(rows: list[dict[str, Any]], *, label_key: str) -> dict[
         out["ablations"][name] = {"disabled_signals": list(disabled), **metrics}
     return out
 
-
-def _normalize_answer(text: str) -> str:
-    t = text.lower().strip()
-    t = re.sub(r"[^a-z0-9\s]", " ", t)
-    return re.sub(r"\s+", " ", t).strip()
-
-
-def _token_jaccard(a: str, b: str) -> float:
-    sa, sb = set(a.split()), set(b.split())
-    if not sa and not sb:
-        return 1.0
-    if not sa or not sb:
-        return 0.0
-    return len(sa & sb) / len(sa | sb)
-
-
-def _cluster_entropy(texts: list[str], *, sim_threshold: float = 0.5) -> float:
-    norms = [_normalize_answer(t) for t in texts]
-    clusters: list[list[str]] = []
-    for n in norms:
-        placed = False
-        for c in clusters:
-            if _token_jaccard(n, c[0]) >= sim_threshold:
-                c.append(n)
-                placed = True
-                break
-        if not placed:
-            clusters.append([n])
-    total = max(1, sum(len(c) for c in clusters))
-    ent = 0.0
-    for c in clusters:
-        p = len(c) / total
-        if p > 0:
-            ent -= p * math.log(p + 1e-12)
-    max_ent = math.log(max(2, len(texts)))
-    return round(ent / max_ent, 4) if max_ent > 0 else 0.0
 
 
 def semantic_entropy_for_questions(
