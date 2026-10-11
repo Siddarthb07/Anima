@@ -1,0 +1,94 @@
+{
+  "schema": "anima.trust_integrity.v1",
+  "generated_at": "2026-10-23T11:35:35.081392+00:00",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_slug": "qwen_qwen2_5-0_5b-instruct",
+  "trust_ui_claim_allowed": false,
+  "lab_verified": true,
+  "failed_gates": [
+    "halueval:live_auroc=0.2469<0.55",
+    "halueval:transfer_gap=0.7531>0.35",
+    "halueval:never_abstains_on_live",
+    "halueval:anti_aligned_ranking",
+    "halueval:channel_sign_conflict",
+    "truthfulqa:live_auroc=0.4587<0.55",
+    "truthfulqa:transfer_gap=0.5413>0.35",
+    "truthfulqa:never_abstains_on_live",
+    "truthfulqa:channel_sign_conflict"
+  ],
+  "passed_gates": [
+    "halueval:n_live_ok",
+    "truthfulqa:n_live_ok",
+    "truthfulqa:polarity_ok"
+  ],
+  "criteria": {
+    "min_live_auroc": 0.55,
+    "max_transfer_gap": 0.35,
+    "require_polarity_not_anti_aligned": true,
+    "max_never_abstain_fraction": 0.95,
+    "min_models": 1,
+    "require_both_suites": true,
+    "min_n_live": 40,
+    "require_channel_sign_agree": true,
+    "operating_point": "protocol_L_baseline"
+  },
+  "suites": {
+    "halueval": {
+      "suite": "halueval",
+      "protocol_f_auroc": 1.0,
+      "protocol_l_auroc": 0.2469,
+      "transfer_gap": 0.7531,
+      "auroc_ci95": {
+        "point": 0.2469,
+        "lo": 0.1444,
+        "hi": 0.363,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "never_abstains": true,
+      "n_live": 80,
+      "polarity_verdict": "anti_aligned_ranking",
+      "probe_only_auroc": 0.5228,
+      "fused_only_auroc": 0.2487,
+      "channel_sign_conflict": true,
+      "misleading_green_rate": null
+    },
+    "truthfulqa": {
+      "suite": "truthfulqa",
+      "protocol_f_auroc": 1.0,
+      "protocol_l_auroc": 0.4587,
+      "transfer_gap": 0.5413,
+      "auroc_ci95": {
+        "point": 0.4587,
+        "lo": 0.3278,
+        "hi": 0.5917,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "never_abstains": true,
+      "n_live": 80,
+      "polarity_verdict": "near_chance_coherent",
+      "probe_only_auroc": 0.6569,
+      "fused_only_auroc": 0.4391,
+      "channel_sign_conflict": true,
+      "misleading_green_rate": null
+    }
+  },
+  "transfer_gap_max": 0.7531,
+  "polarity_worst": "anti_aligned_ranking",
+  "seal_sha256": "2b6936abf5b34a78bbdcdf8e17459563a63b2ba1a11e7b210b3f2964ee365fda",
+  "sources": [
+    "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-0_5b-instruct.json",
+    "polarity_diagnostic_qwen_qwen2_5-0_5b-instruct.json:halueval",
+    "guard_ablation_qwen_qwen2_5-0_5b-instruct.json:halueval",
+    "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\truthfulqa_live_qwen_qwen2_5-0_5b-instruct.json",
+    "polarity_diagnostic_qwen_qwen2_5-0_5b-instruct.json:truthfulqa",
+    "guard_ablation_qwen_qwen2_5-0_5b-instruct.json:truthfulqa"
+  ],
+  "operating_point": "protocol_L_baseline",
+  "innovation_note": "Green-shield claim lock: fixture AUROC alone cannot unlock trust UI. Baseline L uses default composite scores."
+}

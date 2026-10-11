@@ -1,0 +1,54 @@
+{
+  "status": "ok",
+  "operating_point": "protocol_L_baseline",
+  "receipts": {
+    "qwen_qwen2_5-0_5b-instruct": {
+      "path": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\trust_integrity_qwen_qwen2_5-0_5b-instruct.json",
+      "trust_ui_claim_allowed": false,
+      "failed_gates": [
+        "halueval:live_auroc=0.2469<0.55",
+        "halueval:transfer_gap=0.7531>0.35",
+        "halueval:never_abstains_on_live",
+        "halueval:anti_aligned_ranking",
+        "halueval:channel_sign_conflict",
+        "truthfulqa:live_auroc=0.4587<0.55",
+        "truthfulqa:transfer_gap=0.5413>0.35",
+        "truthfulqa:never_abstains_on_live",
+        "truthfulqa:channel_sign_conflict"
+      ],
+      "passed_gates": [
+        "halueval:n_live_ok",
+        "truthfulqa:n_live_ok",
+        "truthfulqa:polarity_ok"
+      ],
+      "transfer_gap_max": 0.7531,
+      "seal_sha256": "a175907f89357a216bbba1e218b3e24bef8188e907482e58f4fd44e4b574ed01",
+      "operating_point": "protocol_L_baseline"
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0": {
+      "path": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\trust_integrity_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+      "trust_ui_claim_allowed": false,
+      "failed_gates": [
+        "halueval:live_auroc=0.5387<0.55",
+        "halueval:transfer_gap=0.4613>0.35",
+        "halueval:never_abstains_on_live",
+        "halueval:channel_sign_conflict",
+        "truthfulqa:live_auroc=0.5188<0.55",
+        "truthfulqa:transfer_gap=0.4812>0.35",
+        "truthfulqa:never_abstains_on_live",
+        "truthfulqa:channel_sign_conflict"
+      ],
+      "passed_gates": [
+        "halueval:n_live_ok",
+        "halueval:polarity_ok",
+        "truthfulqa:n_live_ok",
+        "truthfulqa:polarity_ok"
+      ],
+      "transfer_gap_max": 0.4812,
+      "seal_sha256": "66077eb90263da8c283f5ee0640bc54ec8629cf92c117c43a3843ea47b172e23",
+      "operating_point": "protocol_L_baseline"
+    }
+  },
+  "any_trust_ui_claim_allowed": false,
+  "innovation": "Trust Integrity Gate: fixture-perfect green shields stay locked until live criteria pass (baseline L or adapted L\u2032)."
+}
