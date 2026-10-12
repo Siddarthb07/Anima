@@ -27,6 +27,7 @@ from api.schemas import (
 )
 from core.extractor import ActivationExtractor
 from core.guard import evaluate_guard, region_under_guard
+from core.trust_integrity import enforce_trust_language, load_receipt
 from core.layer_config import LAYER_CONFIG
 from core.limits import (
     assert_model_allowed,
@@ -89,6 +90,18 @@ app.add_middleware(
 @app.get("/health")
 def health():
     return {"status": "ok", "version": APP_VERSION}
+
+
+@app.get("/trust-badge")
+def trust_badge_console(slug: Optional[str] = None):
+    """Operator Trust Badge Console — TIG + GreenShieldBench (no green from fixture alone)."""
+    from benchmarks.trust_badge_console import LOCKED_MODELS, load_console_state, write_console
+
+    reports = _repo_root() / "benchmarks" / "reports"
+    if slug:
+        return load_console_state(slug, reports)
+    out = write_console(reports, [s for s, _ in LOCKED_MODELS])
+    return out["rollup"]
 
 
 _registry: dict[str, tuple[ActivationExtractor, AffectProbe]] = {}
@@ -294,6 +307,37 @@ def _readouts_from_raw(
     ]
 
 
+def _trust_receipt_for_model(model_name: str) -> Optional[dict[str, Any]]:
+    """Load sealed Trust Integrity Gate receipt if present (ANIMA_TRUST_GATE=1).
+
+    Prefers Protocol L′ adapted receipt when present; baseline collapse receipt
+    remains on disk for honesty/audit.
+    """
+    if os.environ.get("ANIMA_TRUST_GATE", "0") not in ("1", "true", "TRUE", "yes"):
+        return None
+    slug = probe_slug(model_name)
+    root = Path(__file__).resolve().parent.parent / "benchmarks" / "reports"
+    adapted = root / f"trust_integrity_adapted_{slug}.json"
+    baseline = root / f"trust_integrity_{slug}.json"
+    path = adapted if adapted.is_file() else baseline
+    if not path.is_file():
+        return {
+            "trust_ui_claim_allowed": False,
+            "badge": "locked",
+            "ui_message": "Trust Integrity Gate: no sealed receipt for this model; claim denied.",
+            "receipt_path": str(baseline),
+        }
+    rec = load_receipt(path)
+    return {
+        "trust_ui_claim_allowed": bool(rec.get("trust_ui_claim_allowed")),
+        "operating_point": rec.get("operating_point"),
+        "seal_sha256": rec.get("seal_sha256"),
+        "failed_gates": rec.get("failed_gates"),
+        "receipt_path": str(path),
+        "baseline_receipt_path": str(baseline) if baseline.is_file() else None,
+    }
+
+
 def _finalize_readouts(
     readouts: list[AffectReadout],
     suppression_events: list[SuppressionEvent],
@@ -301,6 +345,7 @@ def _finalize_readouts(
     *,
     guard_mode: str = "observe",
     intervention_mode: str = "none",
+    model_name: Optional[str] = None,
 ) -> dict[str, Any]:
     per_token, stability_summary = analyze_readout_stability(readouts)
     merge_stability_flags(readouts, per_token)
@@ -310,6 +355,19 @@ def _finalize_readouts(
     summary["guard_gated_token_count"] = gated_count
     summary["guard_mode"] = guard_mode
     summary["intervention_mode"] = intervention_mode
+    if model_name:
+        tig = _trust_receipt_for_model(model_name)
+        if tig is not None:
+            policy = enforce_trust_language(
+                claim_allowed=bool(tig.get("trust_ui_claim_allowed")),
+                proposed_tier="HIGH",
+                abstain_recommended=False,
+            )
+            summary["trust_integrity"] = {**tig, **policy}
+            if not tig.get("trust_ui_claim_allowed"):
+                # Force UI-facing honesty: no green trust badge when gate fails.
+                summary["trust_badge"] = "locked"
+                summary["dominant_region"] = "high-uncertainty"
     return summary
 
 
@@ -415,7 +473,15 @@ async def encode_stimulus(req: EncodeRequest):
     readouts = _readouts_from_raw(
         raw, probe, tribe, model_name=req.model, prompt=req.text, probe_meta=meta
     )
-    return EncodeResponse(model=req.model, text=req.text, tokens=readouts, summary=_summary(readouts, [], meta))
+    summary = _finalize_readouts(
+        readouts,
+        [],
+        meta,
+        guard_mode="observe",
+        intervention_mode="none",
+        model_name=req.model,
+    )
+    return EncodeResponse(model=req.model, text=req.text, tokens=readouts, summary=summary)
 
 
 @app.post("/generate", response_model=GenerateResponse, dependencies=[Depends(_require_api_key_header)])
@@ -441,6 +507,7 @@ async def generate(req: GenerateRequest):
         meta,
         guard_mode=req.guard_mode,
         intervention_mode=req.intervention_mode,
+        model_name=req.model,
     )
     return GenerateResponse(
         model=req.model,
@@ -502,6 +569,7 @@ async def ws_generate(websocket: WebSocket):
             meta,
             guard_mode=guard_mode,
             intervention_mode=intervention_mode,
+            model_name=model_name,
         )
         done = StreamDoneMessage(suppression_events=suppression_events, summary=summary)
         await websocket.send_text(done.model_dump_json())
