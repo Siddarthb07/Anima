@@ -1,0 +1,126 @@
+{
+  "schema": "anima.greenshield_bench.v2",
+  "generated_at": "2026-10-23T11:34:13.300077+00:00",
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+  "mode": "baseline",
+  "bench_pass_criteria": {
+    "min_live_auroc": 0.55,
+    "max_transfer_gap": 0.35,
+    "max_misleading_green_rate": 0.4,
+    "require_tig_claim_allowed": true,
+    "mode": "baseline"
+  },
+  "passed": false,
+  "failed_checks": [
+    "halueval:live_auroc",
+    "halueval:transfer_gap",
+    "halueval:misleading_green",
+    "truthfulqa:live_auroc",
+    "truthfulqa:transfer_gap",
+    "truthfulqa:misleading_green",
+    "tig_claim_allowed"
+  ],
+  "passed_checks": [],
+  "suites": {
+    "halueval": {
+      "protocol_f_auroc": 1.0,
+      "protocol_l_auroc": 0.5387,
+      "transfer_gap": 0.4613,
+      "never_abstains": true,
+      "n_live": 80,
+      "polarity_verdict": "near_chance_coherent",
+      "misleading_green": {
+        "policy": "fixture_thresholds",
+        "construct": "simulated_badge_replay_not_user_study",
+        "n": 80,
+        "n_green": 80,
+        "n_abstain": 0,
+        "n_misleading_green": 40,
+        "misleading_green_rate": 0.5,
+        "green_rate": 1.0,
+        "abstain_rate": 0.0,
+        "error_among_green": 0.5,
+        "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+      },
+      "auroc_ci95": {
+        "point": 0.5387,
+        "lo": 0.4153,
+        "hi": 0.6707,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      }
+    },
+    "truthfulqa": {
+      "protocol_f_auroc": 1.0,
+      "protocol_l_auroc": 0.5188,
+      "transfer_gap": 0.4812,
+      "never_abstains": true,
+      "n_live": 80,
+      "polarity_verdict": "near_chance_coherent",
+      "misleading_green": {
+        "policy": "fixture_thresholds",
+        "construct": "simulated_badge_replay_not_user_study",
+        "n": 80,
+        "n_green": 80,
+        "n_abstain": 0,
+        "n_misleading_green": 40,
+        "misleading_green_rate": 0.5,
+        "green_rate": 1.0,
+        "abstain_rate": 0.0,
+        "error_among_green": 0.5,
+        "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+      },
+      "auroc_ci95": {
+        "point": 0.5188,
+        "lo": 0.3803,
+        "hi": 0.6523,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      }
+    }
+  },
+  "trust_integrity": {
+    "trust_ui_claim_allowed": false,
+    "failed_gates": [
+      "halueval:live_auroc=0.5387<0.55",
+      "halueval:transfer_gap=0.4613>0.35",
+      "halueval:never_abstains_on_live",
+      "halueval:channel_sign_conflict",
+      "truthfulqa:live_auroc=0.5188<0.55",
+      "truthfulqa:transfer_gap=0.4812>0.35",
+      "truthfulqa:never_abstains_on_live",
+      "truthfulqa:channel_sign_conflict"
+    ],
+    "passed_gates": [
+      "halueval:n_live_ok",
+      "halueval:polarity_ok",
+      "truthfulqa:n_live_ok",
+      "truthfulqa:polarity_ok"
+    ],
+    "transfer_gap_max": 0.4812,
+    "seal_sha256": "e824aec1804abe33264a809359571e2932d0ffec41e8db9bc3358ff8cca9a5ae",
+    "operating_point": "protocol_L_baseline"
+  },
+  "sources": [
+    "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+    "polarity_diagnostic_tinyllama_tinyllama-1_1b-chat-v1_0.json:halueval",
+    "guard_ablation_tinyllama_tinyllama-1_1b-chat-v1_0.json:halueval",
+    "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\truthfulqa_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+    "polarity_diagnostic_tinyllama_tinyllama-1_1b-chat-v1_0.json:truthfulqa",
+    "guard_ablation_tinyllama_tinyllama-1_1b-chat-v1_0.json:truthfulqa"
+  ],
+  "honesty": {
+    "not_hallucination_sota": true,
+    "not_user_study": true,
+    "claim_encode_not_free_gen_judge": true,
+    "lab_public_benchmarks_only": true,
+    "fixture_auroc_not_production_trust": true,
+    "baseline_collapse_preserved": false,
+    "note": "Baseline mode scores default composite \u2014 expected fail on locked models."
+  }
+}

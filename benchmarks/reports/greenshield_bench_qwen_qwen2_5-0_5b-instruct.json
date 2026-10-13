@@ -1,0 +1,126 @@
+{
+  "schema": "anima.greenshield_bench.v2",
+  "generated_at": "2026-10-23T11:34:11.572558+00:00",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_slug": "qwen_qwen2_5-0_5b-instruct",
+  "mode": "baseline",
+  "bench_pass_criteria": {
+    "min_live_auroc": 0.55,
+    "max_transfer_gap": 0.35,
+    "max_misleading_green_rate": 0.4,
+    "require_tig_claim_allowed": true,
+    "mode": "baseline"
+  },
+  "passed": false,
+  "failed_checks": [
+    "halueval:live_auroc",
+    "halueval:transfer_gap",
+    "halueval:misleading_green",
+    "truthfulqa:live_auroc",
+    "truthfulqa:transfer_gap",
+    "truthfulqa:misleading_green",
+    "tig_claim_allowed"
+  ],
+  "passed_checks": [],
+  "suites": {
+    "halueval": {
+      "protocol_f_auroc": 1.0,
+      "protocol_l_auroc": 0.2469,
+      "transfer_gap": 0.7531,
+      "never_abstains": true,
+      "n_live": 80,
+      "polarity_verdict": "anti_aligned_ranking",
+      "misleading_green": {
+        "policy": "fixture_thresholds",
+        "construct": "simulated_badge_replay_not_user_study",
+        "n": 80,
+        "n_green": 80,
+        "n_abstain": 0,
+        "n_misleading_green": 40,
+        "misleading_green_rate": 0.5,
+        "green_rate": 1.0,
+        "abstain_rate": 0.0,
+        "error_among_green": 0.5,
+        "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+      },
+      "auroc_ci95": {
+        "point": 0.2469,
+        "lo": 0.1444,
+        "hi": 0.363,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      }
+    },
+    "truthfulqa": {
+      "protocol_f_auroc": 1.0,
+      "protocol_l_auroc": 0.4587,
+      "transfer_gap": 0.5413,
+      "never_abstains": true,
+      "n_live": 80,
+      "polarity_verdict": "near_chance_coherent",
+      "misleading_green": {
+        "policy": "fixture_thresholds",
+        "construct": "simulated_badge_replay_not_user_study",
+        "n": 80,
+        "n_green": 80,
+        "n_abstain": 0,
+        "n_misleading_green": 40,
+        "misleading_green_rate": 0.5,
+        "green_rate": 1.0,
+        "abstain_rate": 0.0,
+        "error_among_green": 0.5,
+        "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+      },
+      "auroc_ci95": {
+        "point": 0.4587,
+        "lo": 0.3278,
+        "hi": 0.5917,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      }
+    }
+  },
+  "trust_integrity": {
+    "trust_ui_claim_allowed": false,
+    "failed_gates": [
+      "halueval:live_auroc=0.2469<0.55",
+      "halueval:transfer_gap=0.7531>0.35",
+      "halueval:never_abstains_on_live",
+      "halueval:anti_aligned_ranking",
+      "halueval:channel_sign_conflict",
+      "truthfulqa:live_auroc=0.4587<0.55",
+      "truthfulqa:transfer_gap=0.5413>0.35",
+      "truthfulqa:never_abstains_on_live",
+      "truthfulqa:channel_sign_conflict"
+    ],
+    "passed_gates": [
+      "halueval:n_live_ok",
+      "truthfulqa:n_live_ok",
+      "truthfulqa:polarity_ok"
+    ],
+    "transfer_gap_max": 0.7531,
+    "seal_sha256": "a7cb17777e591c9d4e8e7411a7687bcedb3638c99ae791e48fe0e21753d53247",
+    "operating_point": "protocol_L_baseline"
+  },
+  "sources": [
+    "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-0_5b-instruct.json",
+    "polarity_diagnostic_qwen_qwen2_5-0_5b-instruct.json:halueval",
+    "guard_ablation_qwen_qwen2_5-0_5b-instruct.json:halueval",
+    "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\truthfulqa_live_qwen_qwen2_5-0_5b-instruct.json",
+    "polarity_diagnostic_qwen_qwen2_5-0_5b-instruct.json:truthfulqa",
+    "guard_ablation_qwen_qwen2_5-0_5b-instruct.json:truthfulqa"
+  ],
+  "honesty": {
+    "not_hallucination_sota": true,
+    "not_user_study": true,
+    "claim_encode_not_free_gen_judge": true,
+    "lab_public_benchmarks_only": true,
+    "fixture_auroc_not_production_trust": true,
+    "baseline_collapse_preserved": false,
+    "note": "Baseline mode scores default composite \u2014 expected fail on locked models."
+  }
+}
