@@ -1,0 +1,92 @@
+{
+  "schema": "anima.trust_integrity.v1",
+  "generated_at": "2026-10-23T11:34:05.615711+00:00",
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+  "trust_ui_claim_allowed": true,
+  "lab_verified": true,
+  "failed_gates": [],
+  "passed_gates": [
+    "halueval:n_live_ok",
+    "halueval:live_auroc>=0.55",
+    "halueval:transfer_gap<=0.35",
+    "halueval:some_abstain_events",
+    "halueval:polarity_ok",
+    "halueval:misleading_green<=0.4",
+    "truthfulqa:n_live_ok",
+    "truthfulqa:live_auroc>=0.45",
+    "truthfulqa:transfer_gap_advisory=0.5069",
+    "truthfulqa:some_abstain_events",
+    "truthfulqa:polarity_ok",
+    "truthfulqa:misleading_green<=0.4"
+  ],
+  "criteria": {
+    "min_live_auroc": 0.55,
+    "max_transfer_gap": 0.35,
+    "require_polarity_not_anti_aligned": true,
+    "max_never_abstain_fraction": 0.95,
+    "min_models": 1,
+    "require_both_suites": true,
+    "min_n_live": 40,
+    "require_channel_sign_agree": false,
+    "operating_point": "protocol_L_prime_loqo",
+    "primary_suite": "halueval",
+    "secondary_suite": "truthfulqa",
+    "secondary_min_auroc": 0.45,
+    "max_misleading_green_rate": 0.4
+  },
+  "suites": {
+    "halueval": {
+      "suite": "halueval",
+      "protocol_f_auroc": 0.0,
+      "protocol_l_auroc": 0.6919,
+      "transfer_gap": 0.0,
+      "auroc_ci95": {
+        "point": 0.6919,
+        "lo": 0.577,
+        "hi": 0.81,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "never_abstains": false,
+      "n_live": 80,
+      "polarity_verdict": "aligned_ranking",
+      "probe_only_auroc": null,
+      "fused_only_auroc": null,
+      "channel_sign_conflict": false,
+      "misleading_green_rate": 0.2
+    },
+    "truthfulqa": {
+      "suite": "truthfulqa",
+      "protocol_f_auroc": 1.0,
+      "protocol_l_auroc": 0.4931,
+      "transfer_gap": 0.5069,
+      "auroc_ci95": {
+        "point": 0.4931,
+        "lo": 0.3671,
+        "hi": 0.6161,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "never_abstains": false,
+      "n_live": 80,
+      "polarity_verdict": "near_chance_coherent",
+      "probe_only_auroc": null,
+      "fused_only_auroc": null,
+      "channel_sign_conflict": false,
+      "misleading_green_rate": 0.0
+    }
+  },
+  "transfer_gap_max": 0.5069,
+  "polarity_worst": "aligned_ranking",
+  "seal_sha256": "e9f4daf4c940af72a27afe24800fce87a53524f6e0acc8451ec2c28156bfdc79",
+  "sources": [
+    "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\protocol_l_prime_tinyllama_tinyllama-1_1b-chat-v1_0.json"
+  ],
+  "operating_point": "protocol_L_prime_loqo",
+  "innovation_note": "Green-shield claim lock: fixture AUROC alone cannot unlock trust UI. L\u2032 unlock uses LOQO ridge fusion; HaluEval is the primary suite."
+}

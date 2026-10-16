@@ -1,0 +1,133 @@
+{
+  "schema": "anima.greenshield_bench.v2",
+  "generated_at": "2026-10-23T11:34:16.968761+00:00",
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+  "mode": "adapted",
+  "bench_pass_criteria": {
+    "min_live_auroc_primary": 0.55,
+    "secondary_min_auroc": 0.45,
+    "max_transfer_gap_primary": 0.35,
+    "max_misleading_green_rate": 0.4,
+    "require_tig_claim_allowed": true,
+    "primary_suite": "halueval",
+    "secondary_suite": "truthfulqa",
+    "mode": "adapted_L_prime"
+  },
+  "passed": true,
+  "failed_checks": [],
+  "passed_checks": [
+    "halueval:live_auroc",
+    "halueval:transfer_gap",
+    "halueval:misleading_green",
+    "halueval:some_abstain",
+    "truthfulqa:live_auroc_secondary",
+    "truthfulqa:not_anti_aligned",
+    "truthfulqa:misleading_green",
+    "truthfulqa:some_abstain",
+    "tig_claim_allowed"
+  ],
+  "suites": {
+    "halueval": {
+      "protocol_f_auroc": 0.0,
+      "protocol_l_auroc": 0.6919,
+      "auroc_holdout_seed42": 0.6775,
+      "transfer_gap": 0.0,
+      "transfer_gap_vs_fixture_default": 0.3081,
+      "never_abstains": false,
+      "n_live": 80,
+      "polarity_verdict": "aligned_ranking",
+      "misleading_green": {
+        "policy": "l_prime_loqo_ridge",
+        "construct": "simulated_badge_replay_not_user_study",
+        "n": 80,
+        "n_green": 44,
+        "n_abstain": 36,
+        "n_misleading_green": 16,
+        "misleading_green_rate": 0.2,
+        "green_rate": 0.55,
+        "abstain_rate": 0.45,
+        "error_among_green": 0.3636,
+        "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+      },
+      "auroc_ci95": {
+        "point": 0.6919,
+        "lo": 0.577,
+        "hi": 0.81,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "l2": 0.0001,
+      "abstain_threshold": 0.545381595484909
+    },
+    "truthfulqa": {
+      "protocol_f_auroc": 1.0,
+      "protocol_l_auroc": 0.4931,
+      "auroc_holdout_seed42": 0.575,
+      "transfer_gap": 0.5069,
+      "transfer_gap_vs_fixture_default": 0.5069,
+      "never_abstains": false,
+      "n_live": 80,
+      "polarity_verdict": "near_chance_coherent",
+      "misleading_green": {
+        "policy": "l_prime_loqo_ridge",
+        "construct": "simulated_badge_replay_not_user_study",
+        "n": 80,
+        "n_green": 0,
+        "n_abstain": 80,
+        "n_misleading_green": 0,
+        "misleading_green_rate": 0.0,
+        "green_rate": 0.0,
+        "abstain_rate": 1.0,
+        "error_among_green": null,
+        "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+      },
+      "auroc_ci95": {
+        "point": 0.4931,
+        "lo": 0.3671,
+        "hi": 0.6161,
+        "B": 2000,
+        "seed": 42,
+        "n": 80,
+        "method": "bootstrap_mann_whitney"
+      },
+      "l2": 10.0,
+      "abstain_threshold": 0.4624339870833989
+    }
+  },
+  "trust_integrity": {
+    "trust_ui_claim_allowed": true,
+    "failed_gates": [],
+    "passed_gates": [
+      "halueval:n_live_ok",
+      "halueval:live_auroc>=0.55",
+      "halueval:transfer_gap<=0.35",
+      "halueval:some_abstain_events",
+      "halueval:polarity_ok",
+      "halueval:misleading_green<=0.4",
+      "truthfulqa:n_live_ok",
+      "truthfulqa:live_auroc>=0.45",
+      "truthfulqa:transfer_gap_advisory=0.5069",
+      "truthfulqa:some_abstain_events",
+      "truthfulqa:polarity_ok",
+      "truthfulqa:misleading_green<=0.4"
+    ],
+    "transfer_gap_max": 0.5069,
+    "seal_sha256": "49c4597f411275e93384738265cde54ff31fe0f436ffaa2c1b0e47eb8db4a385",
+    "operating_point": "protocol_L_prime_loqo"
+  },
+  "sources": [
+    "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\protocol_l_prime_tinyllama_tinyllama-1_1b-chat-v1_0.json"
+  ],
+  "honesty": {
+    "not_hallucination_sota": true,
+    "not_user_study": true,
+    "claim_encode_not_free_gen_judge": true,
+    "lab_public_benchmarks_only": true,
+    "fixture_auroc_not_production_trust": true,
+    "baseline_collapse_preserved": true,
+    "note": "Adapted mode unlocks via Protocol L\u2032 LOQO ridge; baseline Protocol L receipts remain the collapse evidence."
+  }
+}
