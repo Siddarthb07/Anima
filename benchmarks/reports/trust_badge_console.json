@@ -1,0 +1,95 @@
+{
+  "schema": "anima.trust_badge_console_rollup.v1",
+  "generated_at": "2026-10-23T11:35:31.710325+00:00",
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct": {
+      "schema": "anima.trust_badge_console.v2",
+      "generated_at": "2026-10-23T11:35:31.703289+00:00",
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "badge": "UNLOCKED",
+      "badge_color": "#2e7d32",
+      "operating_point": "protocol_L_prime_loqo",
+      "trust_ui_claim_allowed": true,
+      "baseline_claim_allowed": false,
+      "adapted_claim_allowed": true,
+      "failed_gates": [],
+      "seal_sha256": "26885e61df6be91999ca6667a59ff1ecdaa1d93b76797e7cc459252f20bfcbc4",
+      "greenshield_passed": true,
+      "greenshield_failed_checks": [],
+      "suites": {
+        "halueval": {
+          "baseline_live_auroc": 0.2469,
+          "l_prime_loqo_auroc": 0.9163,
+          "fixture_auroc": 0.0,
+          "transfer_gap_same_scorer": 0.0,
+          "misleading_green_rate": 0.15,
+          "polarity_verdict_baseline": "anti_aligned_ranking",
+          "polarity_verdict_l_prime": "aligned_ranking",
+          "never_abstains_baseline": true
+        },
+        "truthfulqa": {
+          "baseline_live_auroc": 0.4587,
+          "l_prime_loqo_auroc": 0.6644,
+          "fixture_auroc": 1.0,
+          "transfer_gap_same_scorer": 0.3356,
+          "misleading_green_rate": 0.15,
+          "polarity_verdict_baseline": "near_chance_coherent",
+          "polarity_verdict_l_prime": "aligned_ranking",
+          "never_abstains_baseline": true
+        }
+      },
+      "honesty": {
+        "fixture_auroc_cannot_unlock": true,
+        "not_user_study": true,
+        "not_hallucination_sota": true,
+        "baseline_collapse_preserved": true,
+        "message": "Badge follows Protocol L\u2032 TIG when present. Baseline Protocol L remains locked on these models (collapse finding). Fixture AUROC alone never unlocks."
+      }
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0": {
+      "schema": "anima.trust_badge_console.v2",
+      "generated_at": "2026-10-23T11:35:31.709296+00:00",
+      "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+      "badge": "UNLOCKED",
+      "badge_color": "#2e7d32",
+      "operating_point": "protocol_L_prime_loqo",
+      "trust_ui_claim_allowed": true,
+      "baseline_claim_allowed": false,
+      "adapted_claim_allowed": true,
+      "failed_gates": [],
+      "seal_sha256": "e9f4daf4c940af72a27afe24800fce87a53524f6e0acc8451ec2c28156bfdc79",
+      "greenshield_passed": true,
+      "greenshield_failed_checks": [],
+      "suites": {
+        "halueval": {
+          "baseline_live_auroc": 0.5387,
+          "l_prime_loqo_auroc": 0.6919,
+          "fixture_auroc": 0.0,
+          "transfer_gap_same_scorer": 0.0,
+          "misleading_green_rate": 0.2,
+          "polarity_verdict_baseline": "near_chance_coherent",
+          "polarity_verdict_l_prime": "aligned_ranking",
+          "never_abstains_baseline": true
+        },
+        "truthfulqa": {
+          "baseline_live_auroc": 0.5188,
+          "l_prime_loqo_auroc": 0.4931,
+          "fixture_auroc": 1.0,
+          "transfer_gap_same_scorer": 0.5069,
+          "misleading_green_rate": 0.0,
+          "polarity_verdict_baseline": "near_chance_coherent",
+          "polarity_verdict_l_prime": "near_chance_coherent",
+          "never_abstains_baseline": true
+        }
+      },
+      "honesty": {
+        "fixture_auroc_cannot_unlock": true,
+        "not_user_study": true,
+        "not_hallucination_sota": true,
+        "baseline_collapse_preserved": true,
+        "message": "Badge follows Protocol L\u2032 TIG when present. Baseline Protocol L remains locked on these models (collapse finding). Fixture AUROC alone never unlocks."
+      }
+    }
+  },
+  "any_unlocked": true
+}

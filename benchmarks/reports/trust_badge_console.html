@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Anima Trust Badge Console</title>
+<style>
+  body { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; background:#0f1218; color:#e8eaed; margin:0; padding:2rem; }
+  h1 { font-weight:600; letter-spacing:.02em; }
+  .sub { color:#9aa0a6; max-width:52rem; }
+  .card { background:#1a1f2a; margin:1.5rem 0; padding:1.25rem 1.5rem; border-radius:4px; }
+  .badge { font-size:1.75rem; font-weight:700; margin:.25rem 0 1rem; }
+  table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.9rem; }
+  th, td { text-align:left; padding:.4rem .5rem; border-bottom:1px solid #2a3140; }
+  .note, .fails { color:#bdc1c6; font-size:.85rem; }
+  code { background:#0f1218; padding:.1rem .35rem; border-radius:3px; }
+</style>
+</head>
+<body>
+  <h1>Anima Trust Badge Console</h1>
+  <p class="sub">Operator view of Trust Integrity Gate + GreenShieldBench.
+  Fixture AUROC alone cannot unlock a green badge. Not a user study; not hallucination SOTA.</p>
+  
+<section class="card" style="border-left:6px solid #2e7d32">
+  <h2>qwen_qwen2_5-0_5b-instruct</h2>
+  <p class="badge" style="color:#2e7d32">UNLOCKED</p>
+  <p>op=<code>protocol_L_prime_loqo</code>
+     · adapted claim=<code>True</code>
+     · baseline claim=<code>False</code>
+     · GSB=<code>True</code></p>
+  <p class="fails">Failed gates: (none)</p>
+  <table>
+    <thead><tr><th>Suite</th><th>Baseline L</th><th>L′ LOQO</th><th>Δ F′−L′</th><th>MGR</th><th>Polarity</th></tr></thead>
+    <tbody><tr><td>halueval</td><td>0.2469</td><td>0.9163</td><td>0.0</td><td>0.15</td><td>aligned_ranking</td></tr><tr><td>truthfulqa</td><td>0.4587</td><td>0.6644</td><td>0.3356</td><td>0.15</td><td>aligned_ranking</td></tr></tbody>
+  </table>
+  <p class="note">Badge follows Protocol L′ TIG when present. Baseline Protocol L remains locked on these models (collapse finding). Fixture AUROC alone never unlocks.</p>
+</section>
+
+
+<section class="card" style="border-left:6px solid #2e7d32">
+  <h2>tinyllama_tinyllama-1_1b-chat-v1_0</h2>
+  <p class="badge" style="color:#2e7d32">UNLOCKED</p>
+  <p>op=<code>protocol_L_prime_loqo</code>
+     · adapted claim=<code>True</code>
+     · baseline claim=<code>False</code>
+     · GSB=<code>True</code></p>
+  <p class="fails">Failed gates: (none)</p>
+  <table>
+    <thead><tr><th>Suite</th><th>Baseline L</th><th>L′ LOQO</th><th>Δ F′−L′</th><th>MGR</th><th>Polarity</th></tr></thead>
+    <tbody><tr><td>halueval</td><td>0.5387</td><td>0.6919</td><td>0.0</td><td>0.2</td><td>aligned_ranking</td></tr><tr><td>truthfulqa</td><td>0.5188</td><td>0.4931</td><td>0.5069</td><td>0.0</td><td>near_chance_coherent</td></tr></tbody>
+  </table>
+  <p class="note">Badge follows Protocol L′ TIG when present. Baseline Protocol L remains locked on these models (collapse finding). Fixture AUROC alone never unlocks.</p>
+</section>
+
+  <p class="sub">Generated 2026-10-23T11:35:31.712555+00:00</p>
+</body>
+</html>
