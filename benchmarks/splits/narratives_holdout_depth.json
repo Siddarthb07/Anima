@@ -1,0 +1,9 @@
+{
+  "train": [
+    "pieman"
+  ],
+  "holdout": [
+    "lucy"
+  ],
+  "note": "depth-push subset"
+}
