@@ -66,13 +66,50 @@ def list_keys(prefix: str, max_keys: int = 1000) -> list[tuple[str, int]]:
 
 
 def download_key(key: str, dest: Path) -> None:
+    import subprocess
+
     dest.parent.mkdir(parents=True, exist_ok=True)
-    if dest.is_file() and dest.stat().st_size > 0:
+    if dest.is_file() and dest.stat().st_size > 1_000_000:
         print(f"skip {dest.relative_to(TARGET)} ({dest.stat().st_size} B)", flush=True)
         return
+    # drop incomplete stubs
+    if dest.is_file() and dest.stat().st_size < 1_000_000:
+        dest.unlink(missing_ok=True)
     url = f"https://{BUCKET}.s3.amazonaws.com/{urllib.parse.quote(key)}"
     print(f"GET {dest.relative_to(TARGET)}", flush=True)
-    urllib.request.urlretrieve(url, dest)
+    # curl is more reliable than urlretrieve on long Windows transfers
+    tmp = dest.with_suffix(dest.suffix + ".part")
+    cmd = [
+        "curl",
+        "-L",
+        "--fail",
+        "--retry",
+        "5",
+        "--retry-delay",
+        "2",
+        "--connect-timeout",
+        "30",
+        "--max-time",
+        "1800",
+        "-o",
+        str(tmp),
+        url,
+    ]
+    try:
+        subprocess.run(cmd, check=True)
+        tmp.replace(dest)
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        # fallback: streaming urlopen with timeout
+        if tmp.exists():
+            tmp.unlink(missing_ok=True)
+        req = urllib.request.Request(url)
+        with urllib.request.urlopen(req, timeout=120) as resp, open(tmp, "wb") as f:
+            while True:
+                chunk = resp.read(1024 * 1024)
+                if not chunk:
+                    break
+                f.write(chunk)
+        tmp.replace(dest)
     print(f"  -> {dest.stat().st_size} bytes", flush=True)
 
 
