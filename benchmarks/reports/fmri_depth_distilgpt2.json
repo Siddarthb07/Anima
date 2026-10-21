@@ -1,0 +1,114 @@
+{
+  "schema": "anima.fmri_depth.v1",
+  "generated_at": "2026-10-23T12:11:50.543431+00:00",
+  "narratives_root": "data/ds002345",
+  "model": "distilgpt2",
+  "split_path": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\splits\\narratives_holdout_depth.json",
+  "train_stories": [
+    "pieman"
+  ],
+  "holdout_stories": [
+    "lucy"
+  ],
+  "stories": {
+    "pieman": {
+      "status": "ok",
+      "story": "pieman",
+      "n_subjects": 3,
+      "n_trs": 297,
+      "n_voxels_full": 110592,
+      "n_voxels_scored": 7876,
+      "word_rate_mean_r": -0.03590468222410783,
+      "word_rate_max_r": 0.5227772474819954,
+      "word_rate_p95_r": 0.2604974557458922,
+      "word_rate_frac_r_gt_0_1": 0.1941340782122905,
+      "construct": "stimulus_feature_to_BOLD_encoding_baseline"
+    },
+    "lucy": {
+      "status": "ok",
+      "story": "lucy",
+      "n_subjects": 3,
+      "n_trs": 367,
+      "n_voxels_full": 110592,
+      "n_voxels_scored": 7876,
+      "word_rate_mean_r": -0.057859328633766034,
+      "word_rate_max_r": 0.6672851373402202,
+      "word_rate_p95_r": 0.35022045553732706,
+      "word_rate_frac_r_gt_0_1": 0.2218131030980193,
+      "construct": "stimulus_feature_to_BOLD_encoding_baseline"
+    }
+  },
+  "anima_va_probe": {
+    "status": "ok",
+    "construct": "Anima_PCA_BOLD_to_valence_arousal_probe",
+    "model": "distilgpt2",
+    "slug": "distilgpt2",
+    "val_r_valence": 0.022482922616132002,
+    "val_r_arousal": NaN,
+    "val_mse": 0.8588032884223828,
+    "baselines": {
+      "pieman": {
+        "word_rate_mean_r": NaN,
+        "lexical_len_mean_r": NaN
+      },
+      "holdout_lucy": {
+        "word_rate_mean_r": NaN,
+        "lexical_len_mean_r": NaN
+      }
+    },
+    "probe_origin": "narratives_fMRI",
+    "n_train": 297,
+    "n_val": 367,
+    "honesty": {
+      "PCA_components_are_not_emotion_labels": true,
+      "holdout_is_story_lucy": true
+    }
+  },
+  "ridge_encoding": {
+    "status": "ok",
+    "construct": "LM_features_to_BOLD_PCA_encoding",
+    "model": "distilgpt2",
+    "n_components": 20,
+    "explained_var_ratio_sum": 0.6023571960162962,
+    "train_stories": [
+      "pieman"
+    ],
+    "holdout": {
+      "lucy": {
+        "status": "ok",
+        "n_trs": 367,
+        "mean_r_across_pcs": -0.04912589198961315,
+        "max_r_across_pcs": 0.4222913502238913,
+        "pc_rs": [
+          -0.7949,
+          0.348,
+          -0.0578,
+          0.3048,
+          0.219,
+          0.4223,
+          -0.3884,
+          -0.3948,
+          -0.521,
+          -0.012,
+          -0.1579,
+          0.0238,
+          0.0303,
+          -0.0647,
+          0.0098,
+          -0.1498,
+          0.1008,
+          -0.1362,
+          0.1302,
+          0.1061
+        ]
+      }
+    },
+    "honesty": {
+      "not_valence_arousal_labels": true,
+      "not_voxel_wise_whole_brain_SOTA": true,
+      "note": "Predicts low-D BOLD PCA scores from mid-layer LM TR features on held-out story."
+    }
+  },
+  "validate_stdout": "root: C:\\Users\\siddu\\projects\\Anima\\data\\ds002345\nlayout_ok: False  subjects: 3\nprobe_origin: narratives_fMRI\nmarker: fcp_indi_narratives\n  pieman: text=True words=True bold_subjects=3\n  tunnel: text=True words=True bold_subjects=0\n  lucy: text=True words=True bold_subjects=3\nissues:\n  - no BOLD files for story tunnel\n",
+  "validate_ok": false
+}
