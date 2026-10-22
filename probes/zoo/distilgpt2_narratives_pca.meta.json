@@ -4,30 +4,25 @@
       "word_rate_mean_r": NaN,
       "lexical_len_mean_r": NaN
     },
-    "tunnel": {
-      "word_rate_mean_r": NaN,
-      "lexical_len_mean_r": NaN
-    },
     "holdout_lucy": {
       "word_rate_mean_r": NaN,
       "lexical_len_mean_r": NaN
     }
   },
   "train_stories": [
-    "pieman",
-    "tunnel"
+    "pieman"
   ],
   "holdout_stories": [
     "lucy",
     "lucy"
   ],
   "target_mode": "pca",
-  "n_train": 1334,
+  "n_train": 297,
   "n_val": 367,
   "probe_origin": "narratives_fMRI",
   "narratives_root": "data/ds002345",
-  "val_mse": 0.3854431782516699,
-  "val_r_valence": 0.0006299865235757248,
-  "val_r_arousal": 0.07633777478985698,
+  "val_mse": 0.8588032884223828,
+  "val_r_valence": 0.022482922616132002,
+  "val_r_arousal": NaN,
   "model": "distilgpt2"
 }
