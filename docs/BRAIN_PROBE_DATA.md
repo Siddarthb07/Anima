@@ -17,30 +17,28 @@
 
 **Do not** describe this tier as OpenNeuro ds002345 or real fMRI.
 
-## Real ds002345 (v3.0+ — fill when downloaded)
+## Real ds002345 (depth-push subset — 2026-10-23)
 
 **Gate before any real-fMRI claim:**
 
 ```powershell
 python scripts/validate_narratives_root.py --root $env:NARRATIVES_ROOT
-# require layout_ok=true AND recommended_probe_origin=narratives_fMRI
-# (not narratives_fMRI_synthetic_minimal)
+# full 3-story layout: layout_ok=true AND recommended_probe_origin=narratives_fMRI
 ```
 
-When you train on real data, update this section:
+### Real subset (laptop depth push)
 
-```markdown
-### Real subset (v3.0.0)
-- OpenNeuro dataset: ds002345 (Nastase et al., Narratives)
-- Download date: YYYY-MM-DD
-- Tool: openneuro-py / DataLad / CLI (command: ...)
-- NARRATIVES_ROOT: /absolute/path
-- Stories included: ...
-- Subjects included: ...
-- Preprocessing: *space-MNI152NLin2009cAsym_desc-preproc_bold* (or note if different)
-- Excluded runs/subjects: ...
-- validate_narratives_root.py: layout_ok=true
-```
+- OpenNeuro / FCP-INDI Narratives: **ds002345** (Nastase et al., 2021)
+- Download date: **2026-10-23**
+- Tool: `python scripts/download_narratives_minimal_bold.py` (curl from `s3://fcp-indi/.../narratives/`)
+- `NARRATIVES_ROOT`: `data/ds002345`
+- Stories: **pieman**, **lucy** (`tunnel` not downloaded yet — validate will flag missing BOLD)
+- Subjects: **022, 026, 041**
+- BOLD: raw `*_task-*_bold.nii.gz` from FCP-INDI (not fMRIPrep MNI preproc filenames)
+- Depth metrics: `docs/notes/FMRI_DEPTH_PUSH.md` + `benchmarks/reports/fmri_depth_distilgpt2.json`
+- **Standing claim:** word-rate encoding baselines are real; PCA→VA holdout r≈0.02 is **not** emotion alignment
+
+To complete the 3-story layout: `python scripts/download_narratives_fcp_indi.py`
 
 ### Recommended laptop subset
 
