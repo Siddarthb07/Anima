@@ -59,6 +59,29 @@ python -m benchmarks.export_meta_manifest --model distilgpt2
 
 Do not cherry-pick: failed/skipped entries include a `reason` field.
 
+## Trust-UI integrity (locked eval)
+
+| Artifact | Purpose |
+|----------|---------|
+| Protocol F / L / R / R′ | Fixture smoke vs live claim-encode vs threshold retune |
+| Trust Integrity Gate | Sealed `trust_ui_claim_allowed` bit (`core/trust_integrity.py`) |
+| GreenShieldBench | Fixture→live integrity score (`benchmarks/greenshield_bench.py`) |
+| Protocol L′ | Named LOQO ridge adaptation (recovery OP, not baseline) |
+| Number table | `benchmarks/reports/ANIMA_NUMBER_TABLE.md` |
+
+```powershell
+python -m benchmarks.run_trust_integrity_gate --all-locked
+python -m benchmarks.protocol_l_prime --all-locked
+python -m benchmarks.greenshield_bench --all-locked --adapted
+python -m scripts.verify_eval_completeness
+```
+
+Baseline Protocol L is expected to **fail** unlock on current locks (green-shield collapse). Adapted L′ receipts are a separate operating point.
+
+## Real fMRI depth (Narratives subset)
+
+Word-rate encoding vs PCA→VA ceilings: `scripts/push_fmri_depth.py` → `benchmarks/reports/fmri_depth_distilgpt2.json`. See `docs/notes/FMRI_DEPTH_PUSH.md`. VA holdout r≈0 is **not** emotion alignment; cite encoding max/p95 instead.
+
 ## TRIBE reference
 
 Compare surrogate vs optional runtime via `ANIMA_TRIBE_MODE=blend` and `alignment/tribe_runtime.py`. Full TRIBE weights are optional (`pip install anima[tribe]` when Meta package is available).
