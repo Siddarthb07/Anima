@@ -24,6 +24,25 @@ export function ModelCard({ summary }) {
           )}
         </p>
       )}
+      {(summary?.trust_badge || summary?.trust_integrity) && (
+        <p className="mt-1">
+          Trust badge:{" "}
+          <span
+            className={`font-mono ${
+              String(summary.trust_badge || "").toLowerCase() === "locked" ||
+              !summary.trust_integrity?.trust_ui_claim_allowed
+                ? "text-rose-300"
+                : "text-emerald-300"
+            }`}
+          >
+            {summary.trust_badge ||
+              (summary.trust_integrity?.trust_ui_claim_allowed ? "unlocked" : "locked")}
+          </span>
+          {summary.trust_integrity?.operating_point && (
+            <> · OP <span className="font-mono text-slate-300">{summary.trust_integrity.operating_point}</span></>
+          )}
+        </p>
+      )}
       <ul className="mt-2 max-h-32 overflow-y-auto font-mono text-[10px]">
         {models.map((m) => (
           <li key={m.model_id} className="border-b border-white/5 py-1">

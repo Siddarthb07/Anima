@@ -5,6 +5,7 @@ I wrote this so nobody mistakes **Anima** for something it isn’t. Read it befo
 ## What this project **is**
 
 - **Instrumentation** for open Hugging Face **causal language models**: hooks on hidden states, scalar **readouts** (valence, arousal, uncertainty-style probe outputs), plus auxiliary signals like entropy, attention summaries, and simple layer-disagreement heuristics.
+- A **Trust Integrity Gate** and dashboard badge that **deny** production-style trust language unless a sealed receipt allows it (baseline Protocol L is expected to fail; adapted L′ is a named recovery OP).
 - A **FastAPI** server (`api/`) and optional **Vite/React** dashboard (`dashboard/`).
 - Training helpers (`probes/train.py`, `alignment/`) so you can align probes with **public narrative / atlas-style targets you supply** — the repo doesn’t ship private clinical datasets.
 
@@ -52,4 +53,4 @@ I wrote this so nobody mistakes **Anima** for something it isn’t. Read it befo
 
 ## If you cite or demo Anima
 
-Use language like **readout**, **internal state**, **population-level analogy** — see root **README** and [ANIMA_TECHNICAL_OVERVIEW.md](ANIMA_TECHNICAL_OVERVIEW.md). Avoid anthropomorphic certainty.
+Use language like **readout**, **internal state**, **population-level analogy**, **trust-UI integrity** — see root **README**, [BENCHMARKS.md](BENCHMARKS.md), and [paper/CLAIM_SHEET.md](paper/CLAIM_SHEET.md). Avoid anthropomorphic certainty. Never cite fixture AUROC 1.00 as live detection.

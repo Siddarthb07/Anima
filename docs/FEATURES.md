@@ -1,6 +1,6 @@
 # Anima — feature inventory (deep)
 
-**Repo HEAD at write time:** `b3c8154` (`main` = `origin/main`, v2.1.0 lineage)  
+**Repo lineage:** v2.2.0 (Trust Integrity Gate + paper package)  
 **Purpose:** Features people miss when skimming the README or asking an LLM for a bullet list. Numbers and file paths are from the code, not marketing.
 
 > Readouts ≠ feelings. See [USAGE_AND_LIMITATIONS.md](USAGE_AND_LIMITATIONS.md).

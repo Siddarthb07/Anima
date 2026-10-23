@@ -1,6 +1,6 @@
 {
   "schema": "anima.trust_integrity.v1",
-  "generated_at": "2026-10-23T11:35:35.081392+00:00",
+  "generated_at": "2026-10-23T12:36:20.603322+00:00",
   "model": "Qwen/Qwen2.5-0.5B-Instruct",
   "model_slug": "qwen_qwen2_5-0_5b-instruct",
   "trust_ui_claim_allowed": false,
@@ -80,7 +80,7 @@
   },
   "transfer_gap_max": 0.7531,
   "polarity_worst": "anti_aligned_ranking",
-  "seal_sha256": "2b6936abf5b34a78bbdcdf8e17459563a63b2ba1a11e7b210b3f2964ee365fda",
+  "seal_sha256": "e1416bdd3d5c2a58a50aa596059571320ccc88f6ecffd064a63845c3f19db526",
   "sources": [
     "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-0_5b-instruct.json",
     "polarity_diagnostic_qwen_qwen2_5-0_5b-instruct.json:halueval",

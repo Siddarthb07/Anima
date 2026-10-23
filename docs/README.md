@@ -13,8 +13,9 @@ Screenshots embedded in the root README live under [`images/`](images/) (`dashbo
 | [MODELS_AND_ZOO.md](MODELS_AND_ZOO.md) | Hugging Face models, Ollama clarification, probe files |
 | [TRAINING.md](TRAINING.md) | Train text + brain probes |
 | [TRAIN_ON_YOUR_MACHINE.md](TRAIN_ON_YOUR_MACHINE.md) | RAM, GPU, gated weights |
-| [BENCHMARKS.md](BENCHMARKS.md) | Benchmark manifests |
+| [BENCHMARKS.md](BENCHMARKS.md) | Benchmark manifests + Trust Integrity / GreenShield protocols |
 | [BENCHMARK_REPORT.md](BENCHMARK_REPORT.md) | Charts and rollup notes |
+| [paper/](paper/) | **v2.2** IEEE-shaped draft, claim sheet, locked figures |
 | [RESEARCH_GRADE.md](RESEARCH_GRADE.md) | Version map; Part A exit criteria; synthetic vs real tier |
 | [BRAIN_PROBE_DATA.md](BRAIN_PROBE_DATA.md) | Data card: narratives_minimal vs ds002345 |
 | [RESEARCHER_QUICKSTART.md](RESEARCHER_QUICKSTART.md) | Download probes, API, benchmark reproduce |

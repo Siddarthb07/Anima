@@ -9,9 +9,10 @@ Anima is **research-grade** when every row below is satisfied. This is the livin
 | **v1.1.0** | Dev / **synthetic brain** — `probe_origin: narratives_fMRI_synthetic_minimal` |
 | **v2.0.0** | **Shipped adoption + validation** — multi-model council benchmarks, CPU instruct text probes on Release, dashboard v2, Docker, stability/intervention API; **brain data still synthetic_minimal** |
 | **v2.1.0** | **Public demo** — Gradio HF Space, TinyLlama hero ([live demo](https://huggingface.co/spaces/sidb078/Anima)) |
-| **v3.0.0+** | Optional **real brain** — OpenNeuro [ds002345](https://openneuro.org/datasets/ds002345) holdout (`probe_origin: narratives_fMRI`); post-RD |
+| **v2.2.0** | **Trust Integrity** — sealed Protocol F/L/L′ + TIG/GreenShieldBench, dashboard trust badge, IEEE paper spine (`docs/paper/`); real Narratives = encoding ceilings only |
+| **v3.0.0+** | Optional **real brain emotion claim** — full ds002345 holdout with positive VA story; not shipping in v2.2 |
 
-**Current shipped tier (v2.1.0):** synthetic brain on `data/narratives_minimal/` plus council-validated **text-emotion** probes. Usable for pipeline and dashboard demos; **not** a claim about real human fMRI.
+**Current shipped tier (v2.2.0):** text-emotion probes + Trust Integrity Gate (baseline L locked fail; adapted L′ named unlock) + paper package. Synthetic brain still the default zoo tier; real Narratives depth is **encoding-ceiling** evidence only — **not** emotion–fMRI alignment.
 
 **Next milestone (v3.0.0+ real fMRI):** public demo URL + essay-ready hero narrative — still synthetic brain unless noted.
 

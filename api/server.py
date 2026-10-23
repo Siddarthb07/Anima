@@ -55,7 +55,7 @@ from probes.zoo_io import (
     tribe_weights_path,
 )
 
-APP_VERSION = "2.1.0"
+APP_VERSION = "2.2.0"
 
 
 @asynccontextmanager
@@ -307,16 +307,49 @@ def _readouts_from_raw(
     ]
 
 
+# Locked TIG/GSB report filenames use org_model slugs (see trust_badge_console.LOCKED_MODELS),
+# which differ from probes.zoo_io.probe_slug (basename only).
+_TRUST_REPORT_SLUGS: dict[str, str] = {
+    "Qwen/Qwen2.5-0.5B-Instruct": "qwen_qwen2_5-0_5b-instruct",
+    "TinyLlama/TinyLlama-1.1B-Chat-v1.0": "tinyllama_tinyllama-1_1b-chat-v1_0",
+}
+
+
+def _trust_report_slug(model_name: str) -> str:
+    if model_name in _TRUST_REPORT_SLUGS:
+        return _TRUST_REPORT_SLUGS[model_name]
+    # Heuristic fallbacks for common ids
+    low = model_name.lower()
+    if "qwen2.5-0.5b" in low or "qwen2_5-0_5b" in low:
+        return "qwen_qwen2_5-0_5b-instruct"
+    if "tinyllama-1.1b" in low or "tinyllama_1.1b" in low:
+        return "tinyllama_tinyllama-1_1b-chat-v1_0"
+    return probe_slug(model_name)
+
+
+def _trust_gate_enabled(reports_root: Path, slug: str) -> bool:
+    """ANIMA_TRUST_GATE: 1/true on, 0/false off, auto (default) if sealed receipt exists."""
+    raw = os.environ.get("ANIMA_TRUST_GATE", "auto").strip().lower()
+    if raw in ("0", "false", "no", "off"):
+        return False
+    if raw in ("1", "true", "yes", "on"):
+        return True
+    # auto
+    return (reports_root / f"trust_integrity_adapted_{slug}.json").is_file() or (
+        reports_root / f"trust_integrity_{slug}.json"
+    ).is_file()
+
+
 def _trust_receipt_for_model(model_name: str) -> Optional[dict[str, Any]]:
-    """Load sealed Trust Integrity Gate receipt if present (ANIMA_TRUST_GATE=1).
+    """Load sealed Trust Integrity Gate receipt when gate is on/auto.
 
     Prefers Protocol L′ adapted receipt when present; baseline collapse receipt
     remains on disk for honesty/audit.
     """
-    if os.environ.get("ANIMA_TRUST_GATE", "0") not in ("1", "true", "TRUE", "yes"):
-        return None
-    slug = probe_slug(model_name)
+    slug = _trust_report_slug(model_name)
     root = Path(__file__).resolve().parent.parent / "benchmarks" / "reports"
+    if not _trust_gate_enabled(root, slug):
+        return None
     adapted = root / f"trust_integrity_adapted_{slug}.json"
     baseline = root / f"trust_integrity_{slug}.json"
     path = adapted if adapted.is_file() else baseline

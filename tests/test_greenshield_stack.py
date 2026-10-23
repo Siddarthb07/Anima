@@ -104,6 +104,19 @@ def test_polarity_aware_recovery_held_out_only():
     assert prim["auroc_composite"] > 0.5
 
 
+def test_api_trust_report_slug_maps_locked_models():
+    from api.server import _trust_gate_enabled, _trust_receipt_for_model, _trust_report_slug
+
+    assert _trust_report_slug("Qwen/Qwen2.5-0.5B-Instruct") == QWEN
+    assert _trust_report_slug("TinyLlama/TinyLlama-1.1B-Chat-v1.0") == TINY
+    assert _trust_gate_enabled(REPORTS, QWEN) is True
+    rec = _trust_receipt_for_model("Qwen/Qwen2.5-0.5B-Instruct")
+    assert rec is not None
+    assert rec.get("operating_point")
+    # Adapted receipt preferred when present → claim may be True; baseline file still on disk.
+    assert "trust_ui_claim_allowed" in rec
+
+
 def test_trust_badge_console_preserves_baseline_collapse():
     st = load_console_state(QWEN, REPORTS)
     assert st["honesty"]["fixture_auroc_cannot_unlock"] is True

@@ -11,6 +11,7 @@ import { StabilityPanel } from "./components/StabilityPanel.jsx";
 import { GlossaryPanel } from "./components/GlossaryPanel.jsx";
 import { TribeSurrogatePanel } from "./components/TribeSurrogatePanel.jsx";
 import { LayerDisagreementPanel } from "./components/LayerDisagreementPanel.jsx";
+import { TrustIntegrityBanner } from "./components/TrustIntegrityBanner.jsx";
 import { useRestGenerate } from "./hooks/useRestGenerate.js";
 
 function defaultModelId() {
@@ -104,13 +105,13 @@ export default function App() {
           <div>
             <h1 className="text-xl font-bold tracking-tight text-white">anima</h1>
             <p className="text-sm text-slate-400">
-              Dimensional readout dashboard — valence (pleasant↔unpleasant) and arousal (calm↔activated)
-              from hidden-state probes. Not claims that the model &quot;feels&quot; anything.
+              Hidden-state probes + trust integrity — valence/arousal/uncertainty readouts with a sealed
+              green-shield gate. Not proof the model &quot;feels&quot; anything; fixture AUROC alone never unlocks trust.
             </p>
             <p className="mt-1 text-xs text-slate-500">
-              Default model: <span className="text-accent-cyan">Qwen2.5-0.5B</span> (demo hero). Also try{" "}
-              <span className="text-amber-300">TinyLlama</span> (best council score 94). Avoid tiny-gpt2 —
-              smoke test only (nonsense text).
+              Default: <span className="text-accent-cyan">Qwen2.5-0.5B</span>. Also{" "}
+              <span className="text-amber-300">TinyLlama</span>. Baseline Protocol L collapses on live
+              claim-encode; adapted L′ is a named unlock OP — see Trust Integrity banner.
             </p>
           </div>
           <div className="font-mono text-xs text-slate-500">WS {wsUrl}</div>
@@ -118,6 +119,8 @@ export default function App() {
       </header>
 
       <main className="mx-auto max-w-7xl space-y-6 px-6 py-8">
+        <TrustIntegrityBanner modelId={model} summary={summary} />
+
         <section className="rounded-xl border border-white/10 bg-ink-900/60 p-5 shadow-xl">
           <div className="grid gap-4 md:grid-cols-[1fr_2fr_auto] md:items-end">
             <ModelSelector value={model} onChange={setModel} />

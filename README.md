@@ -2,17 +2,17 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Anima** is an open-source tool to **read emotion-style signals from large language models (LLMs)** as they generate text—**valence** (negative ↔ positive), **arousal** (calm ↔ intense), and an **uncertainty** score—using small neural **probes** on transformer hidden states. Think of it as a **live emotion meter for Hugging Face causal LMs**: hook layers → probe → numbers per token → API + dashboard.
+**Anima** instruments open Hugging Face causal LMs with **valence / arousal / uncertainty probes** on hidden states—and a **Trust Integrity Gate** that refuses to paint a production-style green “trusted” badge from fixture AUROC alone.
 
-> **Plain English:** Anima watches the model’s internal activations while it writes and outputs **emotion-like readouts** for each word/token. That helps you study **LLM affect**, **emotion probing**, and **interpretability**—not a chat app and not proof the model truly “feels” anything. See [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md).
+> **Standing claim (locked evals):** On public HaluEval / TruthfulQA **claim-encode** rows, **baseline Protocol L collapses** (transfer gap, never-abstain, polarity). A separate **Protocol L′** LOQO ridge unlocks the trust-UI operating point **by name**—not by silent label flips. Numbers: [`benchmarks/reports/ANIMA_NUMBER_TABLE.md`](benchmarks/reports/ANIMA_NUMBER_TABLE.md). Paper spine: [`docs/paper/`](docs/paper/). Limits: [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md).
 
-**Keywords:** LLM emotions · emotion readouts · valence/arousal probing · Hugging Face interpretability · fMRI-aligned brain probes (optional) · FastAPI streaming dashboard.
+**Not claimed:** hallucination SOTA · that the model “feels” · voxel TRIBE fMRI · user-study proof of misleading badges (MGR is simulated badge replay).
 
-**v2.1.0** — public demo on [Hugging Face Spaces](https://huggingface.co/spaces/sidb078/Anima) (Qwen Space default + TinyLlama council best). **v2.0.0** — multi-model council benchmarks, stability gating, intervention mode, Docker stack. See [research-grade / version map](docs/RESEARCH_GRADE.md).
+**Keywords:** trust UI integrity · green-shield collapse · valence/arousal probing · claim-encode eval · Hugging Face interpretability · FastAPI + React dashboard.
 
-**Space default:** `Qwen/Qwen2.5-0.5B-Instruct`. **Best council score:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (94/100 on the weighted validity rubric, strongest prompt separation). Text-emotion probes are the validated path; brain-aligned probes are experimental (the synthetic brain holdout for distilgpt2 is negative; see benchmark table).
+**v2.2.0** — Trust Integrity Gate in product UI + sealed live evals + IEEE-shaped paper package ([`docs/paper/`](docs/paper/)). **v2.1.0** — [HF Space demo](https://huggingface.co/spaces/sidb078/Anima) (Qwen default). Text probes remain the primary product path; real Narratives depth is **encoding-ceiling** evidence, not emotion–brain alignment ([`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md)).
 
-Anima does **not** use Ollama. Use a [supported Hugging Face model id](core/layer_config.py) (e.g. `distilgpt2`) with matching weights in `probes/zoo/`.
+Anima does **not** use Ollama. Use a [supported Hugging Face model id](core/layer_config.py) with matching weights in `probes/zoo/`.
 
 ---
 
@@ -153,9 +153,28 @@ Holdout stories are fixed in [`benchmarks/splits/narratives_holdout.json`](bench
 
 ---
 
-## Benchmarks — how well do the emotion readouts track real targets?
+## Trust Integrity Gate (product honesty)
 
-Anima ships a **benchmark suite** that scores your probes on public tasks. Each run writes a `manifest.json` you can cite or reproduce.
+| Piece | Role |
+|-------|------|
+| `core/trust_integrity.py` | Seals `trust_ui_claim_allowed` |
+| `GET /trust-badge` | Operator console JSON (baseline vs adapted) |
+| Dashboard banner | LOCKED / UNLOCKED from sealed receipts |
+| `ANIMA_TRUST_GATE` | `auto` (default): attach receipts when present; `1` force on; `0` off |
+
+```bash
+python -m benchmarks.run_trust_integrity_gate --all-locked
+python -m benchmarks.trust_badge_console
+# GreenShieldBench: baseline fail preserved; adapted L′ unlock separate
+```
+
+Full protocol map: [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md).
+
+---
+
+## Benchmarks — probes, guards, and locked live suites
+
+Anima ships a **benchmark suite** that scores probes and trust gates. Each run writes a `manifest.json` you can cite or reproduce.
 
 ```bash
 anima benchmark --model distilgpt2 --tiers internal,external,external_text,external_guard

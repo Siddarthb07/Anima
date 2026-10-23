@@ -417,7 +417,8 @@ Reproduce: `anima benchmark --model distilgpt2 --tiers internal,external,externa
 | v1.1  | Release probe assets + `download_zoo.py`      | **Shipped**                           |
 | v2.0  | Multi-model council, gating, Docker stack     | **Shipped**                           |
 | v2.1  | HF Space / Gradio demo (package 2.1.0)        | **Shipped**                           |
-| v3.0+ | Real Narratives fMRI tier                     | Planned                               |
+| v2.2  | Trust Integrity Gate, GreenShieldBench, paper | **Shipped** (package 2.2.0)           |
+| v3.0+ | Real Narratives emotion–fMRI claim tier       | Planned (encoding depth ≠ that claim) |
 
 
 ---

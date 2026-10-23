@@ -13,10 +13,11 @@ short_description: Original Anima dashboard (Qwen default)
 
 # Anima
 
-Original **React dashboard** + FastAPI from [Siddarthb07/Anima](https://github.com/Siddarthb07/Anima).
+Original **React dashboard** + FastAPI from [Siddarthb07/Anima](https://github.com/Siddarthb07/Anima) (**v2.2.0**).
 
 - **Default model:** Qwen2.5-0.5B-Instruct  
 - **Also:** TinyLlama (council best) — pick in the Model dropdown  
 - Avoid **tiny-gpt2** for demos (smoke test only; nonsense text)
+- Trust Integrity banner: green badge only with a sealed unlock receipt (baseline Protocol L is expected LOCKED)
 
-Open the Space root URL (not `/gradio`) for the real dashboard.
+Open the Space root URL (not `/gradio`) for the real dashboard. Paper: [docs/paper/](https://github.com/Siddarthb07/Anima/tree/main/docs/paper).
