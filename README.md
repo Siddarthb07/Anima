@@ -4,13 +4,13 @@
 
 **Anima** instruments open Hugging Face causal LMs with **valence / arousal / uncertainty probes** on hidden states—and a **Trust Integrity Gate** that refuses to paint a production-style green “trusted” badge from fixture AUROC alone.
 
-> **Standing claim (locked evals):** On public HaluEval / TruthfulQA **claim-encode** rows, **baseline Protocol L collapses** (transfer gap, never-abstain, polarity). A separate **Protocol L′** LOQO ridge unlocks the trust-UI operating point **by name**—not by silent label flips. Numbers: [`benchmarks/reports/ANIMA_NUMBER_TABLE.md`](benchmarks/reports/ANIMA_NUMBER_TABLE.md). Paper spine: [`docs/paper/`](docs/paper/). Limits: [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md).
+> **Standing claim (locked evals):** On public HaluEval / TruthfulQA **claim-encode** rows, **baseline Protocol L collapses** (transfer gap, never-abstain, polarity). A separate **Protocol L′** LOQO ridge unlocks the trust-UI operating point **by name**—not by silent label flips. Numbers: [`benchmarks/reports/ANIMA_NUMBER_TABLE.md`](benchmarks/reports/ANIMA_NUMBER_TABLE.md). Limits: [Usage & limitations](docs/USAGE_AND_LIMITATIONS.md).
 
 **Not claimed:** hallucination SOTA · that the model “feels” · voxel TRIBE fMRI · user-study proof of misleading badges (MGR is simulated badge replay).
 
 **Keywords:** trust UI integrity · green-shield collapse · valence/arousal probing · claim-encode eval · Hugging Face interpretability · FastAPI + React dashboard.
 
-**v2.2.0** — Trust Integrity Gate in product UI + sealed live evals + IEEE-shaped paper package ([`docs/paper/`](docs/paper/)). **v2.1.0** — [HF Space demo](https://huggingface.co/spaces/sidb078/Anima) (Qwen default). Text probes remain the primary product path; real Narratives depth is **encoding-ceiling** evidence, not emotion–brain alignment ([`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md)).
+**v2.2.0** — Trust Integrity Gate in product UI + sealed live evals. **v2.1.0** — [HF Space demo](https://huggingface.co/spaces/sidb078/Anima) (Qwen default). Text probes remain the primary product path; real Narratives depth is **encoding-ceiling** evidence, not emotion–brain alignment ([`docs/BRAIN_PROBE_DATA.md`](docs/BRAIN_PROBE_DATA.md)).
 
 Anima does **not** use Ollama. Use a [supported Hugging Face model id](core/layer_config.py) with matching weights in `probes/zoo/`.
 
