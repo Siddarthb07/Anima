@@ -1,0 +1,58 @@
+{
+  "schema": "anima.expand_n160_seed43_summary",
+  "honesty": {
+    "locked_n80_untouched": true
+  },
+  "qwen": {
+    "halueval": {
+      "n": 160,
+      "auroc": 0.2987,
+      "ci": [
+        0.2196,
+        0.3791
+      ],
+      "cluster_ci": [
+        0.2344,
+        0.3597
+      ],
+      "never_abstain": true,
+      "length_auroc": 0.9891,
+      "probe": 0.5323,
+      "resid": 0.4641
+    },
+    "truthfulqa": {
+      "n": 160,
+      "auroc": 0.5902,
+      "ci": [
+        0.5021,
+        0.6776
+      ],
+      "cluster_ci": [
+        0.5273,
+        0.6515
+      ],
+      "never_abstain": true,
+      "probe": 0.6766
+    }
+  },
+  "tinyllama": {
+    "halueval": {
+      "n": 160,
+      "auroc": 0.4905,
+      "ci": [
+        0.4031,
+        0.5813
+      ],
+      "never_abstain": true
+    },
+    "truthfulqa": {
+      "n": 160,
+      "auroc": 0.4891,
+      "ci": [
+        0.4022,
+        0.5813
+      ],
+      "never_abstain": true
+    }
+  }
+}

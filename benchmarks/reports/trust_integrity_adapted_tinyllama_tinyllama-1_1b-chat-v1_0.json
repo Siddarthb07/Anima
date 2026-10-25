@@ -1,6 +1,6 @@
 {
   "schema": "anima.trust_integrity.v1",
-  "generated_at": "2026-10-23T11:34:05.615711+00:00",
+  "generated_at": "2026-10-25T07:03:55.875453+00:00",
   "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
   "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
   "trust_ui_claim_allowed": true,
@@ -83,7 +83,7 @@
   },
   "transfer_gap_max": 0.5069,
   "polarity_worst": "aligned_ranking",
-  "seal_sha256": "e9f4daf4c940af72a27afe24800fce87a53524f6e0acc8451ec2c28156bfdc79",
+  "seal_sha256": "db5984eebfc4c284bee6a31adc0a1920aa9f92a81575a5359ddcf9b87ae7ce4e",
   "sources": [
     "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\protocol_l_prime_tinyllama_tinyllama-1_1b-chat-v1_0.json"
   ],

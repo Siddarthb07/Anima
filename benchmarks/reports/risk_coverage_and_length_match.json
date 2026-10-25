@@ -1,0 +1,2196 @@
+{
+  "schema": "anima.risk_coverage_and_length_match",
+  "status": "ok",
+  "honesty": {
+    "baseline_n80_untouched": true,
+    "additive_only": true
+  },
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct": {
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "suites": {
+        "halueval": {
+          "n": 80,
+          "risk_coverage": {
+            "composite": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5263
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5556
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5588
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5781
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.6
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5893
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.6154
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.6667
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.7045
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.675
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.6944
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.6562
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.7917
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.8
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.8333
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "probe": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.4737
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.4722
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.4559
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.4688
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.4833
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.4821
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.4808
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.5227
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.525
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.5278
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.5312
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.4583
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "fused": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5263
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5556
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5735
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5781
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.5833
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5893
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.6154
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.6458
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.6818
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.675
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.6944
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.7188
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.7857
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.7917
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.8125
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.8333
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "answer_length": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.4737
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.4444
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.4118
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.375
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.3333
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.2857
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.2308
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.1875
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.1364
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.05
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.0278
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.0312
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.0357
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.0417
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.05
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.0625
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.0833
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.0
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.0
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "minus_answer_length": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5263
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5556
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5735
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.6094
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.65
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.6964
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.8125
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.8864
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.95
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.9444
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.9688
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ]
+          },
+          "length_matched_ratio_1_5": {
+            "n": 4,
+            "status": "too_small"
+          },
+          "length_matched_ratio_1_25": {
+            "n": 2,
+            "status": "too_small"
+          }
+        },
+        "truthfulqa": {
+          "n": 80,
+          "risk_coverage": {
+            "composite": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5132
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5278
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5147
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5156
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.5333
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5179
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.5385
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.5417
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.5909
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.575
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.5833
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.5625
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.45
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.375
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.3333
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.375
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "probe": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.4868
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.4722
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.4412
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.4531
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.45
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.4464
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.4423
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.4167
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.4318
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.425
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.3611
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.3125
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.2857
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.3
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.3125
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.1667
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "fused": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5263
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5278
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5147
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.5333
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5536
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.5577
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.5417
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.5682
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.575
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.5556
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.5625
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.5357
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.5417
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.4375
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.4167
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.375
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "answer_length": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5132
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5278
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5441
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5469
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.5667
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5893
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.6346
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.625
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.6364
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.625
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.5833
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.5312
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.5357
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.5417
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.55
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.4375
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.4167
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "minus_answer_length": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5132
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5139
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5147
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.4833
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.4821
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.4808
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.4792
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.4318
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.375
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.3333
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.3125
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.3
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.3125
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ]
+          }
+        }
+      }
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0": {
+      "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+      "suites": {
+        "halueval": {
+          "n": 80,
+          "risk_coverage": {
+            "composite": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5294
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.4833
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.5208
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.4773
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.425
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.4167
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.4062
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.3929
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.4167
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.45
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.4375
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.375
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "probe": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.4861
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5156
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.5167
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.4792
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.5278
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.5312
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.5357
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.5833
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.55
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.5625
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.6667
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "fused": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5147
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.4833
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.4773
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.425
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.4444
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.4375
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.4643
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.4167
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.45
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.4167
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "answer_length": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.4737
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.4444
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.4118
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.375
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.3333
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.2857
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.2308
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.1875
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.1364
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.05
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.0278
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.0312
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.0357
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.0417
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.05
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.0625
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.0833
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.0
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.0
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "minus_answer_length": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5263
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5556
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5735
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.6094
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.65
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.6964
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.8125
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.8864
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.95
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.9444
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.9688
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 1.0
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ]
+          },
+          "length_matched_ratio_1_5": {
+            "n": 4,
+            "status": "too_small"
+          },
+          "length_matched_ratio_1_25": {
+            "n": 2,
+            "status": "too_small"
+          }
+        },
+        "truthfulqa": {
+          "n": 80,
+          "risk_coverage": {
+            "composite": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.4861
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.4706
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.4688
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5179
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.4792
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.4773
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.4722
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.4375
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.4643
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.4583
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.45
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.6667
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "probe": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.4853
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.4833
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.4643
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.525
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.5556
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.5312
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.5357
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.625
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.5833
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.625
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "fused": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5156
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.5167
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.4821
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.4792
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.4545
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.45
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.4444
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.4688
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.4286
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.4583
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.45
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.4375
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.75
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "answer_length": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5132
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5278
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5441
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5469
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.5667
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.5893
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.6346
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.625
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.6364
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.625
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.5833
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.5312
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.5357
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.5417
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.55
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.4375
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.4167
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ],
+            "minus_answer_length": [
+              {
+                "abstain_frac": 0.0,
+                "coverage": 1.0,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.05,
+                "coverage": 0.95,
+                "positive_rate_on_answered": 0.5132
+              },
+              {
+                "abstain_frac": 0.1,
+                "coverage": 0.9,
+                "positive_rate_on_answered": 0.5139
+              },
+              {
+                "abstain_frac": 0.15,
+                "coverage": 0.85,
+                "positive_rate_on_answered": 0.5147
+              },
+              {
+                "abstain_frac": 0.2,
+                "coverage": 0.8,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 0.25,
+                "coverage": 0.75,
+                "positive_rate_on_answered": 0.4833
+              },
+              {
+                "abstain_frac": 0.3,
+                "coverage": 0.7,
+                "positive_rate_on_answered": 0.4821
+              },
+              {
+                "abstain_frac": 0.35,
+                "coverage": 0.65,
+                "positive_rate_on_answered": 0.4808
+              },
+              {
+                "abstain_frac": 0.4,
+                "coverage": 0.6,
+                "positive_rate_on_answered": 0.4792
+              },
+              {
+                "abstain_frac": 0.45,
+                "coverage": 0.55,
+                "positive_rate_on_answered": 0.4318
+              },
+              {
+                "abstain_frac": 0.5,
+                "coverage": 0.5,
+                "positive_rate_on_answered": 0.375
+              },
+              {
+                "abstain_frac": 0.55,
+                "coverage": 0.45,
+                "positive_rate_on_answered": 0.3333
+              },
+              {
+                "abstain_frac": 0.6,
+                "coverage": 0.4,
+                "positive_rate_on_answered": 0.3125
+              },
+              {
+                "abstain_frac": 0.65,
+                "coverage": 0.35,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.7,
+                "coverage": 0.3,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.75,
+                "coverage": 0.25,
+                "positive_rate_on_answered": 0.3
+              },
+              {
+                "abstain_frac": 0.8,
+                "coverage": 0.2,
+                "positive_rate_on_answered": 0.3125
+              },
+              {
+                "abstain_frac": 0.85,
+                "coverage": 0.15,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.9,
+                "coverage": 0.1,
+                "positive_rate_on_answered": 0.25
+              },
+              {
+                "abstain_frac": 0.95,
+                "coverage": 0.05,
+                "positive_rate_on_answered": 0.5
+              },
+              {
+                "abstain_frac": 1.0,
+                "coverage": 0.0,
+                "error_on_answered": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

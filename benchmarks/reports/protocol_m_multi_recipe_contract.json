@@ -1,0 +1,1691 @@
+{
+  "schema": "anima.protocol_m.multi_recipe_contract.v2",
+  "generated_at": "2026-10-25T08:03:55.782396+00:00",
+  "honesty": {
+    "no_new_forward_passes": true,
+    "reuses_locked_claim_encode_rows": true,
+    "v1_issue": "v1 applied fused \u03c4=0.82 to entropy/inv-logit-gap (incommensurate). v2 splits M1 shipped System A gates from M2 fixture-p95 per-channel \u03c4.",
+    "m1": "System A commensurate shipped gates only",
+    "m2": "Per-channel \u03c4 = 95th percentile on fixture sample for that channel"
+  },
+  "rollup": {
+    "m1_n_never_abstain": 20,
+    "m1_n_silent_non_refusal": 10,
+    "m2_n_never_abstain": 22,
+    "m2_n_silent_non_refusal": 12,
+    "m1_silent_hits": [
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "system_a_recorded",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2472
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2487
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "or_fused_probe_shipped",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2472
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "system_a_recorded",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4587
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4391
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "or_fused_probe_shipped",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4587
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "probe_ge_shipped_0.78",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4831
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "probe_ge_shipped_0.78",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4888
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4759
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4481
+      }
+    ],
+    "m2_silent_hits": [
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "system_a_composite_ge_fixture_p95_0.8565",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2472
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2487
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.1491
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "system_a_composite_ge_fixture_p95_0.8565",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4587
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4391
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4859
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "probe_uncertainty_ge_fixture_p95_0.84",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4831
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "probe_uncertainty_ge_fixture_p95_0.84",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4888
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4759
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2334
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4481
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4641
+      }
+    ],
+    "m1_never_abstain_hits": [
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "system_a_recorded",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2472
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2487
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "probe_ge_shipped_0.78",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5228
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "or_fused_probe_shipped",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2472
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "system_a_recorded",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4587
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4391
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "probe_ge_shipped_0.78",
+        "abstentions": "0/80",
+        "rank_auroc": 0.6569
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "or_fused_probe_shipped",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4587
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "system_a_recorded",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5391
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5337
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "probe_ge_shipped_0.78",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4831
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "or_fused_probe_shipped",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5391
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "system_a_recorded",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5188
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5284
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "probe_ge_shipped_0.78",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4888
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "or_fused_probe_shipped",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5188
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "system_a_recorded",
+        "abstentions": "0/80",
+        "rank_auroc": 0.6791
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4759
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "system_a_recorded",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5181
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "m1_system_a_shipped_gates",
+        "gate": "fused_ge_shipped_0.82",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4481
+      }
+    ],
+    "m2_never_abstain_hits": [
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "system_a_composite_ge_fixture_p95_0.8565",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2472
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2487
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "probe_uncertainty_ge_fixture_p95_0.84",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5228
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.1491
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "system_a_composite_ge_fixture_p95_0.8565",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4587
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4391
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "probe_uncertainty_ge_fixture_p95_0.84",
+        "abstentions": "0/80",
+        "rank_auroc": 0.6569
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4859
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "system_a_composite_ge_fixture_p95_0.8565",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5391
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5337
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "probe_uncertainty_ge_fixture_p95_0.84",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4831
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5134
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "system_a_composite_ge_fixture_p95_0.8565",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5188
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5284
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "probe_uncertainty_ge_fixture_p95_0.84",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4888
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5297
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "system_a_composite_ge_fixture_p95_0.8565",
+        "abstentions": "0/80",
+        "rank_auroc": 0.6791
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4759
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.2334
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "system_a_composite_ge_fixture_p95_0.8565",
+        "abstentions": "0/80",
+        "rank_auroc": 0.5181
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "fused_channel_ge_fixture_p95_0.87",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4481
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "m2_fixture_p95_calibrated_gates",
+        "gate": "predictive_entropy_ge_fixture_p95_0.9",
+        "abstentions": "0/80",
+        "rank_auroc": 0.4641
+      }
+    ]
+  },
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct": {
+      "halueval": {
+        "status": "ok",
+        "source_live": "halueval_live_qwen_qwen2_5-0_5b-instruct.json",
+        "source_fixture": "halueval_guard_sample.json",
+        "label_key": "is_hallucination",
+        "n": 80,
+        "n_pos": 40,
+        "n_neg": 40,
+        "fixture_taus": {
+          "system_a_composite": {
+            "tau_p95": 0.8565,
+            "tau_max": 0.8565,
+            "n_fixture": 52
+          },
+          "fused_channel": {
+            "tau_p95": 0.87,
+            "tau_max": 0.87,
+            "n_fixture": 52,
+            "tau_shipped": 0.82
+          },
+          "probe_uncertainty": {
+            "tau_p95": 0.84,
+            "tau_max": 0.84,
+            "n_fixture": 52,
+            "tau_shipped": 0.78
+          },
+          "predictive_entropy": {
+            "tau_p95": 0.9,
+            "tau_max": 0.9,
+            "n_fixture": 52
+          },
+          "inv_logit_gap": {
+            "tau_p95": 0.69,
+            "tau_max": 0.69,
+            "n_fixture": 52
+          }
+        },
+        "scores": {
+          "system_a_composite": {
+            "auroc": 0.2472,
+            "auroc_ci95": {
+              "point": 0.2472,
+              "lo": 0.1445,
+              "hi": 0.363,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.3965,
+            "score_max": 0.4925,
+            "live_vs_fixture_p95": 0.575
+          },
+          "fused_channel": {
+            "auroc": 0.2487,
+            "auroc_ci95": {
+              "point": 0.2487,
+              "lo": 0.1463,
+              "hi": 0.3663,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2862,
+            "score_max": 0.4537,
+            "live_vs_fixture_p95": 0.5215
+          },
+          "probe_uncertainty": {
+            "auroc": 0.5228,
+            "auroc_ci95": {
+              "point": 0.5228,
+              "lo": 0.3846,
+              "hi": 0.6537,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.5172,
+            "score_max": 0.562,
+            "live_vs_fixture_p95": 0.669
+          },
+          "predictive_entropy": {
+            "auroc": 0.1491,
+            "auroc_ci95": {
+              "point": 0.1491,
+              "lo": 0.0717,
+              "hi": 0.2429,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.041,
+            "score_max": 0.246,
+            "live_vs_fixture_p95": 0.2733
+          },
+          "inv_logit_gap": {
+            "auroc": 0.7819,
+            "auroc_ci95": {
+              "point": 0.7819,
+              "lo": 0.6776,
+              "hi": 0.8775,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.455,
+            "score_max": 0.7642,
+            "live_vs_fixture_p95": 1.1075
+          }
+        },
+        "m1_system_a_shipped_gates": {
+          "system_a_recorded": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.2472,
+            "silent_non_refusal": true
+          },
+          "fused_ge_shipped_0.82": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.2487,
+            "silent_non_refusal": true
+          },
+          "probe_ge_shipped_0.78": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.5228,
+            "silent_non_refusal": false
+          },
+          "or_fused_probe_shipped": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.2472,
+            "silent_non_refusal": true
+          }
+        },
+        "m2_fixture_p95_calibrated_gates": {
+          "system_a_composite_ge_fixture_p95_0.8565": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.2472,
+            "silent_non_refusal": true
+          },
+          "fused_channel_ge_fixture_p95_0.87": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.2487,
+            "silent_non_refusal": true
+          },
+          "probe_uncertainty_ge_fixture_p95_0.84": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.5228,
+            "silent_non_refusal": false
+          },
+          "predictive_entropy_ge_fixture_p95_0.9": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "predictive_entropy",
+            "rank_auroc": 0.1491,
+            "silent_non_refusal": true
+          },
+          "inv_logit_gap_ge_fixture_p95_0.69": {
+            "abstentions": "14/80",
+            "n_abstain": 14,
+            "never_abstain": false,
+            "rank_score": "inv_logit_gap",
+            "rank_auroc": 0.7819,
+            "silent_non_refusal": false
+          }
+        }
+      },
+      "truthfulqa": {
+        "status": "ok",
+        "source_live": "truthfulqa_live_qwen_qwen2_5-0_5b-instruct.json",
+        "source_fixture": "truthfulqa_guard_sample.json",
+        "label_key": "should_abstain",
+        "n": 80,
+        "n_pos": 40,
+        "n_neg": 40,
+        "fixture_taus": {
+          "system_a_composite": {
+            "tau_p95": 0.8565,
+            "tau_max": 0.8565,
+            "n_fixture": 52
+          },
+          "fused_channel": {
+            "tau_p95": 0.87,
+            "tau_max": 0.87,
+            "n_fixture": 52,
+            "tau_shipped": 0.82
+          },
+          "probe_uncertainty": {
+            "tau_p95": 0.84,
+            "tau_max": 0.84,
+            "n_fixture": 52,
+            "tau_shipped": 0.78
+          },
+          "predictive_entropy": {
+            "tau_p95": 0.9,
+            "tau_max": 0.9,
+            "n_fixture": 52
+          },
+          "inv_logit_gap": {
+            "tau_p95": 0.69,
+            "tau_max": 0.69,
+            "n_fixture": 52
+          }
+        },
+        "scores": {
+          "system_a_composite": {
+            "auroc": 0.4587,
+            "auroc_ci95": {
+              "point": 0.4587,
+              "lo": 0.3277,
+              "hi": 0.5917,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.4069,
+            "score_max": 0.4837,
+            "live_vs_fixture_p95": 0.5647
+          },
+          "fused_channel": {
+            "auroc": 0.4391,
+            "auroc_ci95": {
+              "point": 0.4391,
+              "lo": 0.3092,
+              "hi": 0.5725,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2983,
+            "score_max": 0.4383,
+            "live_vs_fixture_p95": 0.5038
+          },
+          "probe_uncertainty": {
+            "auroc": 0.6569,
+            "auroc_ci95": {
+              "point": 0.6569,
+              "lo": 0.5335,
+              "hi": 0.7727,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.512,
+            "score_max": 0.5607,
+            "live_vs_fixture_p95": 0.6675
+          },
+          "predictive_entropy": {
+            "auroc": 0.4859,
+            "auroc_ci95": {
+              "point": 0.4859,
+              "lo": 0.3546,
+              "hi": 0.6173,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.053,
+            "score_max": 0.1763,
+            "live_vs_fixture_p95": 0.1959
+          },
+          "inv_logit_gap": {
+            "auroc": 0.5687,
+            "auroc_ci95": {
+              "point": 0.5687,
+              "lo": 0.44,
+              "hi": 0.6963,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.4648,
+            "score_max": 0.7437,
+            "live_vs_fixture_p95": 1.0778
+          }
+        },
+        "m1_system_a_shipped_gates": {
+          "system_a_recorded": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.4587,
+            "silent_non_refusal": true
+          },
+          "fused_ge_shipped_0.82": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.4391,
+            "silent_non_refusal": true
+          },
+          "probe_ge_shipped_0.78": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.6569,
+            "silent_non_refusal": false
+          },
+          "or_fused_probe_shipped": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.4587,
+            "silent_non_refusal": true
+          }
+        },
+        "m2_fixture_p95_calibrated_gates": {
+          "system_a_composite_ge_fixture_p95_0.8565": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.4587,
+            "silent_non_refusal": true
+          },
+          "fused_channel_ge_fixture_p95_0.87": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.4391,
+            "silent_non_refusal": true
+          },
+          "probe_uncertainty_ge_fixture_p95_0.84": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.6569,
+            "silent_non_refusal": false
+          },
+          "predictive_entropy_ge_fixture_p95_0.9": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "predictive_entropy",
+            "rank_auroc": 0.4859,
+            "silent_non_refusal": true
+          },
+          "inv_logit_gap_ge_fixture_p95_0.69": {
+            "abstentions": "21/80",
+            "n_abstain": 21,
+            "never_abstain": false,
+            "rank_score": "inv_logit_gap",
+            "rank_auroc": 0.5687,
+            "silent_non_refusal": false
+          }
+        }
+      }
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0": {
+      "halueval": {
+        "status": "ok",
+        "source_live": "halueval_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+        "source_fixture": "halueval_guard_sample.json",
+        "label_key": "is_hallucination",
+        "n": 80,
+        "n_pos": 40,
+        "n_neg": 40,
+        "fixture_taus": {
+          "system_a_composite": {
+            "tau_p95": 0.8565,
+            "tau_max": 0.8565,
+            "n_fixture": 52
+          },
+          "fused_channel": {
+            "tau_p95": 0.87,
+            "tau_max": 0.87,
+            "n_fixture": 52,
+            "tau_shipped": 0.82
+          },
+          "probe_uncertainty": {
+            "tau_p95": 0.84,
+            "tau_max": 0.84,
+            "n_fixture": 52,
+            "tau_shipped": 0.78
+          },
+          "predictive_entropy": {
+            "tau_p95": 0.9,
+            "tau_max": 0.9,
+            "n_fixture": 52
+          },
+          "inv_logit_gap": {
+            "tau_p95": 0.69,
+            "tau_max": 0.69,
+            "n_fixture": 52
+          }
+        },
+        "scores": {
+          "system_a_composite": {
+            "auroc": 0.5391,
+            "auroc_ci95": {
+              "point": 0.5391,
+              "lo": 0.4155,
+              "hi": 0.6707,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.3084,
+            "score_max": 0.3879,
+            "live_vs_fixture_p95": 0.4529
+          },
+          "fused_channel": {
+            "auroc": 0.5337,
+            "auroc_ci95": {
+              "point": 0.5337,
+              "lo": 0.4073,
+              "hi": 0.6642,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2033,
+            "score_max": 0.3423,
+            "live_vs_fixture_p95": 0.3934
+          },
+          "probe_uncertainty": {
+            "auroc": 0.4831,
+            "auroc_ci95": {
+              "point": 0.4831,
+              "lo": 0.3568,
+              "hi": 0.616,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.4179,
+            "score_max": 0.4531,
+            "live_vs_fixture_p95": 0.5394
+          },
+          "predictive_entropy": {
+            "auroc": 0.5134,
+            "auroc_ci95": {
+              "point": 0.5134,
+              "lo": 0.384,
+              "hi": 0.6384,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.0193,
+            "score_max": 0.1411,
+            "live_vs_fixture_p95": 0.1568
+          },
+          "inv_logit_gap": {
+            "auroc": 0.3881,
+            "auroc_ci95": {
+              "point": 0.3881,
+              "lo": 0.2544,
+              "hi": 0.5147,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.597,
+            "score_max": 0.8649,
+            "live_vs_fixture_p95": 1.2535
+          }
+        },
+        "m1_system_a_shipped_gates": {
+          "system_a_recorded": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.5391,
+            "silent_non_refusal": false
+          },
+          "fused_ge_shipped_0.82": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.5337,
+            "silent_non_refusal": false
+          },
+          "probe_ge_shipped_0.78": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.4831,
+            "silent_non_refusal": true
+          },
+          "or_fused_probe_shipped": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.5391,
+            "silent_non_refusal": false
+          }
+        },
+        "m2_fixture_p95_calibrated_gates": {
+          "system_a_composite_ge_fixture_p95_0.8565": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.5391,
+            "silent_non_refusal": false
+          },
+          "fused_channel_ge_fixture_p95_0.87": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.5337,
+            "silent_non_refusal": false
+          },
+          "probe_uncertainty_ge_fixture_p95_0.84": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.4831,
+            "silent_non_refusal": true
+          },
+          "predictive_entropy_ge_fixture_p95_0.9": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "predictive_entropy",
+            "rank_auroc": 0.5134,
+            "silent_non_refusal": false
+          },
+          "inv_logit_gap_ge_fixture_p95_0.69": {
+            "abstentions": "71/80",
+            "n_abstain": 71,
+            "never_abstain": false,
+            "rank_score": "inv_logit_gap",
+            "rank_auroc": 0.3881,
+            "silent_non_refusal": false
+          }
+        }
+      },
+      "truthfulqa": {
+        "status": "ok",
+        "source_live": "truthfulqa_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+        "source_fixture": "truthfulqa_guard_sample.json",
+        "label_key": "should_abstain",
+        "n": 80,
+        "n_pos": 40,
+        "n_neg": 40,
+        "fixture_taus": {
+          "system_a_composite": {
+            "tau_p95": 0.8565,
+            "tau_max": 0.8565,
+            "n_fixture": 52
+          },
+          "fused_channel": {
+            "tau_p95": 0.87,
+            "tau_max": 0.87,
+            "n_fixture": 52,
+            "tau_shipped": 0.82
+          },
+          "probe_uncertainty": {
+            "tau_p95": 0.84,
+            "tau_max": 0.84,
+            "n_fixture": 52,
+            "tau_shipped": 0.78
+          },
+          "predictive_entropy": {
+            "tau_p95": 0.9,
+            "tau_max": 0.9,
+            "n_fixture": 52
+          },
+          "inv_logit_gap": {
+            "tau_p95": 0.69,
+            "tau_max": 0.69,
+            "n_fixture": 52
+          }
+        },
+        "scores": {
+          "system_a_composite": {
+            "auroc": 0.5188,
+            "auroc_ci95": {
+              "point": 0.5188,
+              "lo": 0.38,
+              "hi": 0.6515,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2955,
+            "score_max": 0.3735,
+            "live_vs_fixture_p95": 0.4361
+          },
+          "fused_channel": {
+            "auroc": 0.5284,
+            "auroc_ci95": {
+              "point": 0.5284,
+              "lo": 0.399,
+              "hi": 0.6581,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.1836,
+            "score_max": 0.3101,
+            "live_vs_fixture_p95": 0.3564
+          },
+          "probe_uncertainty": {
+            "auroc": 0.4888,
+            "auroc_ci95": {
+              "point": 0.4888,
+              "lo": 0.3627,
+              "hi": 0.6192,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.4154,
+            "score_max": 0.4843,
+            "live_vs_fixture_p95": 0.5765
+          },
+          "predictive_entropy": {
+            "auroc": 0.5297,
+            "auroc_ci95": {
+              "point": 0.5297,
+              "lo": 0.3952,
+              "hi": 0.6592,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.0133,
+            "score_max": 0.1182,
+            "live_vs_fixture_p95": 0.1313
+          },
+          "inv_logit_gap": {
+            "auroc": 0.4809,
+            "auroc_ci95": {
+              "point": 0.4809,
+              "lo": 0.3529,
+              "hi": 0.6106,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.6394,
+            "score_max": 0.8718,
+            "live_vs_fixture_p95": 1.2635
+          }
+        },
+        "m1_system_a_shipped_gates": {
+          "system_a_recorded": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.5188,
+            "silent_non_refusal": false
+          },
+          "fused_ge_shipped_0.82": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.5284,
+            "silent_non_refusal": false
+          },
+          "probe_ge_shipped_0.78": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.4888,
+            "silent_non_refusal": true
+          },
+          "or_fused_probe_shipped": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.5188,
+            "silent_non_refusal": false
+          }
+        },
+        "m2_fixture_p95_calibrated_gates": {
+          "system_a_composite_ge_fixture_p95_0.8565": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.5188,
+            "silent_non_refusal": false
+          },
+          "fused_channel_ge_fixture_p95_0.87": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.5284,
+            "silent_non_refusal": false
+          },
+          "probe_uncertainty_ge_fixture_p95_0.84": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.4888,
+            "silent_non_refusal": true
+          },
+          "predictive_entropy_ge_fixture_p95_0.9": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "predictive_entropy",
+            "rank_auroc": 0.5297,
+            "silent_non_refusal": false
+          },
+          "inv_logit_gap_ge_fixture_p95_0.69": {
+            "abstentions": "73/80",
+            "n_abstain": 73,
+            "never_abstain": false,
+            "rank_score": "inv_logit_gap",
+            "rank_auroc": 0.4809,
+            "silent_non_refusal": false
+          }
+        }
+      }
+    },
+    "distilgpt2": {
+      "halueval": {
+        "status": "ok",
+        "source_live": "halueval_live_distilgpt2.json",
+        "source_fixture": "halueval_guard_sample.json",
+        "label_key": "is_hallucination",
+        "n": 80,
+        "n_pos": 40,
+        "n_neg": 40,
+        "fixture_taus": {
+          "system_a_composite": {
+            "tau_p95": 0.8565,
+            "tau_max": 0.8565,
+            "n_fixture": 52
+          },
+          "fused_channel": {
+            "tau_p95": 0.87,
+            "tau_max": 0.87,
+            "n_fixture": 52,
+            "tau_shipped": 0.82
+          },
+          "probe_uncertainty": {
+            "tau_p95": 0.84,
+            "tau_max": 0.84,
+            "n_fixture": 52,
+            "tau_shipped": 0.78
+          },
+          "predictive_entropy": {
+            "tau_p95": 0.9,
+            "tau_max": 0.9,
+            "n_fixture": 52
+          },
+          "inv_logit_gap": {
+            "tau_p95": 0.69,
+            "tau_max": 0.69,
+            "n_fixture": 52
+          }
+        },
+        "scores": {
+          "system_a_composite": {
+            "auroc": 0.6791,
+            "auroc_ci95": {
+              "point": 0.6791,
+              "lo": 0.5413,
+              "hi": 0.8026,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2273,
+            "score_max": 0.7022,
+            "live_vs_fixture_p95": 0.8198
+          },
+          "fused_channel": {
+            "auroc": 0.4759,
+            "auroc_ci95": {
+              "point": 0.4759,
+              "lo": 0.3476,
+              "hi": 0.6103,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2822,
+            "score_max": 0.6238,
+            "live_vs_fixture_p95": 0.717
+          },
+          "probe_uncertainty": {
+            "auroc": 0.71,
+            "auroc_ci95": {
+              "point": 0.71,
+              "lo": 0.5758,
+              "hi": 0.8352,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.0031,
+            "score_max": 0.9804,
+            "live_vs_fixture_p95": 1.1671
+          },
+          "predictive_entropy": {
+            "auroc": 0.2334,
+            "auroc_ci95": {
+              "point": 0.2334,
+              "lo": 0.137,
+              "hi": 0.3457,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.0644,
+            "score_max": 0.4783,
+            "live_vs_fixture_p95": 0.5314
+          },
+          "inv_logit_gap": {
+            "auroc": 0.6403,
+            "auroc_ci95": {
+              "point": 0.6403,
+              "lo": 0.5144,
+              "hi": 0.7554,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2762,
+            "score_max": 0.8201,
+            "live_vs_fixture_p95": 1.1886
+          }
+        },
+        "m1_system_a_shipped_gates": {
+          "system_a_recorded": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.6791,
+            "silent_non_refusal": false
+          },
+          "fused_ge_shipped_0.82": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.4759,
+            "silent_non_refusal": true
+          },
+          "probe_ge_shipped_0.78": {
+            "abstentions": "7/80",
+            "n_abstain": 7,
+            "never_abstain": false,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.71,
+            "silent_non_refusal": false
+          },
+          "or_fused_probe_shipped": {
+            "abstentions": "7/80",
+            "n_abstain": 7,
+            "never_abstain": false,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.6791,
+            "silent_non_refusal": false
+          }
+        },
+        "m2_fixture_p95_calibrated_gates": {
+          "system_a_composite_ge_fixture_p95_0.8565": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.6791,
+            "silent_non_refusal": false
+          },
+          "fused_channel_ge_fixture_p95_0.87": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.4759,
+            "silent_non_refusal": true
+          },
+          "probe_uncertainty_ge_fixture_p95_0.84": {
+            "abstentions": "5/80",
+            "n_abstain": 5,
+            "never_abstain": false,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.71,
+            "silent_non_refusal": false
+          },
+          "predictive_entropy_ge_fixture_p95_0.9": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "predictive_entropy",
+            "rank_auroc": 0.2334,
+            "silent_non_refusal": true
+          },
+          "inv_logit_gap_ge_fixture_p95_0.69": {
+            "abstentions": "9/80",
+            "n_abstain": 9,
+            "never_abstain": false,
+            "rank_score": "inv_logit_gap",
+            "rank_auroc": 0.6403,
+            "silent_non_refusal": false
+          }
+        }
+      },
+      "truthfulqa": {
+        "status": "ok",
+        "source_live": "truthfulqa_live_distilgpt2.json",
+        "source_fixture": "truthfulqa_guard_sample.json",
+        "label_key": "should_abstain",
+        "n": 80,
+        "n_pos": 40,
+        "n_neg": 40,
+        "fixture_taus": {
+          "system_a_composite": {
+            "tau_p95": 0.8565,
+            "tau_max": 0.8565,
+            "n_fixture": 52
+          },
+          "fused_channel": {
+            "tau_p95": 0.87,
+            "tau_max": 0.87,
+            "n_fixture": 52,
+            "tau_shipped": 0.82
+          },
+          "probe_uncertainty": {
+            "tau_p95": 0.84,
+            "tau_max": 0.84,
+            "n_fixture": 52,
+            "tau_shipped": 0.78
+          },
+          "predictive_entropy": {
+            "tau_p95": 0.9,
+            "tau_max": 0.9,
+            "n_fixture": 52
+          },
+          "inv_logit_gap": {
+            "tau_p95": 0.69,
+            "tau_max": 0.69,
+            "n_fixture": 52
+          }
+        },
+        "scores": {
+          "system_a_composite": {
+            "auroc": 0.5181,
+            "auroc_ci95": {
+              "point": 0.5181,
+              "lo": 0.3912,
+              "hi": 0.6498,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.1636,
+            "score_max": 0.6972,
+            "live_vs_fixture_p95": 0.814
+          },
+          "fused_channel": {
+            "auroc": 0.4481,
+            "auroc_ci95": {
+              "point": 0.4481,
+              "lo": 0.3187,
+              "hi": 0.5814,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.249,
+            "score_max": 0.5531,
+            "live_vs_fixture_p95": 0.6357
+          },
+          "probe_uncertainty": {
+            "auroc": 0.5269,
+            "auroc_ci95": {
+              "point": 0.5269,
+              "lo": 0.4006,
+              "hi": 0.6585,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.0033,
+            "score_max": 0.9966,
+            "live_vs_fixture_p95": 1.1864
+          },
+          "predictive_entropy": {
+            "auroc": 0.4641,
+            "auroc_ci95": {
+              "point": 0.4641,
+              "lo": 0.3302,
+              "hi": 0.599,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.0356,
+            "score_max": 0.416,
+            "live_vs_fixture_p95": 0.4622
+          },
+          "inv_logit_gap": {
+            "auroc": 0.5584,
+            "auroc_ci95": {
+              "point": 0.5584,
+              "lo": 0.4255,
+              "hi": 0.6942,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2361,
+            "score_max": 0.8327,
+            "live_vs_fixture_p95": 1.2068
+          }
+        },
+        "m1_system_a_shipped_gates": {
+          "system_a_recorded": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.5181,
+            "silent_non_refusal": false
+          },
+          "fused_ge_shipped_0.82": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.4481,
+            "silent_non_refusal": true
+          },
+          "probe_ge_shipped_0.78": {
+            "abstentions": "17/80",
+            "n_abstain": 17,
+            "never_abstain": false,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.5269,
+            "silent_non_refusal": false
+          },
+          "or_fused_probe_shipped": {
+            "abstentions": "17/80",
+            "n_abstain": 17,
+            "never_abstain": false,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.5181,
+            "silent_non_refusal": false
+          }
+        },
+        "m2_fixture_p95_calibrated_gates": {
+          "system_a_composite_ge_fixture_p95_0.8565": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "system_a_composite",
+            "rank_auroc": 0.5181,
+            "silent_non_refusal": false
+          },
+          "fused_channel_ge_fixture_p95_0.87": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "fused_channel",
+            "rank_auroc": 0.4481,
+            "silent_non_refusal": true
+          },
+          "probe_uncertainty_ge_fixture_p95_0.84": {
+            "abstentions": "10/80",
+            "n_abstain": 10,
+            "never_abstain": false,
+            "rank_score": "probe_uncertainty",
+            "rank_auroc": 0.5269,
+            "silent_non_refusal": false
+          },
+          "predictive_entropy_ge_fixture_p95_0.9": {
+            "abstentions": "0/80",
+            "n_abstain": 0,
+            "never_abstain": true,
+            "rank_score": "predictive_entropy",
+            "rank_auroc": 0.4641,
+            "silent_non_refusal": true
+          },
+          "inv_logit_gap_ge_fixture_p95_0.69": {
+            "abstentions": "19/80",
+            "n_abstain": 19,
+            "never_abstain": false,
+            "rank_score": "inv_logit_gap",
+            "rank_auroc": 0.5584,
+            "silent_non_refusal": false
+          }
+        }
+      }
+    }
+  }
+}

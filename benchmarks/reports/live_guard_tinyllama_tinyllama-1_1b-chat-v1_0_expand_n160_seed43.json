@@ -1,0 +1,57 @@
+{
+  "status": "ok",
+  "mode": "live_lm_claim_encoding",
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "generated_at": "2026-10-23T14:13:51.084704+00:00",
+  "max_pairs": 160,
+  "seed": 43,
+  "report_suffix": "expand_n160_seed43",
+  "length_match_ratio": null,
+  "benchmarks": {
+    "halueval": {
+      "status": "ok",
+      "source": "live",
+      "protocol": "L",
+      "abstain_accuracy": 0.5,
+      "auroc_composite": 0.4905,
+      "n_samples": 160,
+      "tp": 0,
+      "fp": 0,
+      "tn": 80,
+      "fn": 80,
+      "never_abstains": true,
+      "auroc_ci95": {
+        "point": 0.4905,
+        "lo": 0.4031,
+        "hi": 0.5813,
+        "B": 2000,
+        "seed": 43,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "rows_path_hint": "halueval_live_tinyllama_tinyllama-1_1b-chat-v1_0_expand_n160_seed43.json"
+    },
+    "truthfulqa": {
+      "status": "ok",
+      "source": "live",
+      "protocol": "L",
+      "abstain_accuracy": 0.5,
+      "auroc_composite": 0.4891,
+      "n_samples": 160,
+      "tp": 0,
+      "fp": 0,
+      "tn": 80,
+      "fn": 80,
+      "never_abstains": true,
+      "auroc_ci95": {
+        "point": 0.4891,
+        "lo": 0.4022,
+        "hi": 0.5813,
+        "B": 2000,
+        "seed": 43,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      }
+    }
+  }
+}

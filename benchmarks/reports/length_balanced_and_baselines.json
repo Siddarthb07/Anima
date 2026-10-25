@@ -1,0 +1,409 @@
+{
+  "schema": "anima.length_balanced_and_baselines",
+  "status": "ok",
+  "honesty": {
+    "locked_n80_untouched": true,
+    "additive": true
+  },
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct": {
+      "short": "Qwen2.5-0.5B",
+      "suites": {
+        "halueval": {
+          "full_locked": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.2472,
+              "probe": 0.5228,
+              "fused": 0.2487,
+              "inv_logit_gap": 0.7819,
+              "answer_length": 0.97,
+              "composite_residualized_on_length": 0.4144,
+              "random": 0.4888
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.2472,
+              "lo": 0.1569,
+              "hi": 0.335,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "length_bin_balanced": {
+            "n": 8,
+            "status": "too_small"
+          },
+          "greedy_cross_question_length_match": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.2472,
+              "probe": 0.5228,
+              "fused": 0.2487,
+              "inv_logit_gap": 0.7819,
+              "answer_length": 0.97,
+              "composite_residualized_on_length": 0.4144,
+              "random": 0.5112
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.2472,
+              "lo": 0.1625,
+              "hi": 0.3337,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          }
+        },
+        "truthfulqa": {
+          "full_locked": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.4587,
+              "probe": 0.6569,
+              "fused": 0.4391,
+              "inv_logit_gap": 0.5687,
+              "answer_length": 0.3866,
+              "composite_residualized_on_length": 0.4619,
+              "random": 0.4888
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.4587,
+              "lo": 0.3675,
+              "hi": 0.5478,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "length_bin_balanced": {
+            "n": 60,
+            "n_pos": 30,
+            "n_neg": 30,
+            "baselines": {
+              "composite": 0.4689,
+              "probe": 0.6483,
+              "fused": 0.4494,
+              "inv_logit_gap": 0.5389,
+              "answer_length": 0.5,
+              "composite_residualized_on_length": 0.4622,
+              "random": 0.4822
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.4689,
+              "lo": 0.3557,
+              "hi": 0.5842,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 38,
+              "n_rows": 60
+            }
+          },
+          "greedy_cross_question_length_match": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.4587,
+              "probe": 0.6569,
+              "fused": 0.4391,
+              "inv_logit_gap": 0.5687,
+              "answer_length": 0.3866,
+              "composite_residualized_on_length": 0.4619,
+              "random": 0.5112
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.4587,
+              "lo": 0.3666,
+              "hi": 0.55,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          }
+        }
+      }
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0": {
+      "short": "TinyLlama-1.1B",
+      "suites": {
+        "halueval": {
+          "full_locked": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.5391,
+              "probe": 0.4831,
+              "fused": 0.5337,
+              "inv_logit_gap": 0.3881,
+              "answer_length": 0.97,
+              "composite_residualized_on_length": 0.5119,
+              "random": 0.4888
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.5391,
+              "lo": 0.4375,
+              "hi": 0.6325,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "length_bin_balanced": {
+            "n": 8,
+            "status": "too_small"
+          },
+          "greedy_cross_question_length_match": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.5391,
+              "probe": 0.4831,
+              "fused": 0.5337,
+              "inv_logit_gap": 0.3881,
+              "answer_length": 0.97,
+              "composite_residualized_on_length": 0.5119,
+              "random": 0.5112
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.5391,
+              "lo": 0.4397,
+              "hi": 0.6359,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          }
+        },
+        "truthfulqa": {
+          "full_locked": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.5188,
+              "probe": 0.4888,
+              "fused": 0.5284,
+              "inv_logit_gap": 0.4809,
+              "answer_length": 0.3866,
+              "composite_residualized_on_length": 0.54,
+              "random": 0.4888
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.5188,
+              "lo": 0.4437,
+              "hi": 0.5931,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "length_bin_balanced": {
+            "n": 60,
+            "n_pos": 30,
+            "n_neg": 30,
+            "baselines": {
+              "composite": 0.5739,
+              "probe": 0.5344,
+              "fused": 0.5822,
+              "inv_logit_gap": 0.4228,
+              "answer_length": 0.5,
+              "composite_residualized_on_length": 0.5733,
+              "random": 0.4822
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.5739,
+              "lo": 0.4514,
+              "hi": 0.6846,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 38,
+              "n_rows": 60
+            }
+          },
+          "greedy_cross_question_length_match": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.5188,
+              "probe": 0.4888,
+              "fused": 0.5284,
+              "inv_logit_gap": 0.4809,
+              "answer_length": 0.3866,
+              "composite_residualized_on_length": 0.54,
+              "random": 0.5112
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.5188,
+              "lo": 0.4431,
+              "hi": 0.5991,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          }
+        }
+      }
+    },
+    "distilgpt2": {
+      "short": "DistilGPT2",
+      "suites": {
+        "halueval": {
+          "full_locked": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.6791,
+              "probe": 0.71,
+              "fused": 0.4759,
+              "inv_logit_gap": 0.6403,
+              "answer_length": 0.97,
+              "composite_residualized_on_length": 0.6219,
+              "random": 0.4888
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.6791,
+              "lo": 0.5506,
+              "hi": 0.7975,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "length_bin_balanced": {
+            "n": 8,
+            "status": "too_small"
+          },
+          "greedy_cross_question_length_match": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.6791,
+              "probe": 0.71,
+              "fused": 0.4759,
+              "inv_logit_gap": 0.6403,
+              "answer_length": 0.97,
+              "composite_residualized_on_length": 0.6219,
+              "random": 0.5112
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.6791,
+              "lo": 0.5525,
+              "hi": 0.7975,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          }
+        },
+        "truthfulqa": {
+          "full_locked": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.5181,
+              "probe": 0.5269,
+              "fused": 0.4481,
+              "inv_logit_gap": 0.5584,
+              "answer_length": 0.3866,
+              "composite_residualized_on_length": 0.5463,
+              "random": 0.4888
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.5181,
+              "lo": 0.4294,
+              "hi": 0.6131,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "length_bin_balanced": {
+            "n": 60,
+            "n_pos": 30,
+            "n_neg": 30,
+            "baselines": {
+              "composite": 0.5722,
+              "probe": 0.5689,
+              "fused": 0.4778,
+              "inv_logit_gap": 0.5322,
+              "answer_length": 0.5,
+              "composite_residualized_on_length": 0.5789,
+              "random": 0.4822
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.5722,
+              "lo": 0.4434,
+              "hi": 0.7121,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 38,
+              "n_rows": 60
+            }
+          },
+          "greedy_cross_question_length_match": {
+            "n": 80,
+            "n_pos": 40,
+            "n_neg": 40,
+            "baselines": {
+              "composite": 0.5181,
+              "probe": 0.5269,
+              "fused": 0.4481,
+              "inv_logit_gap": 0.5584,
+              "answer_length": 0.3866,
+              "composite_residualized_on_length": 0.5463,
+              "random": 0.5112
+            },
+            "cluster_bootstrap_composite": {
+              "point": 0.5181,
+              "lo": 0.4294,
+              "hi": 0.6075,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          }
+        }
+      }
+    }
+  }
+}

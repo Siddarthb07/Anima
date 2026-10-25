@@ -1,0 +1,583 @@
+{
+  "schema": "anima.protocol_g_free_gen_disagreement",
+  "protocol": "G",
+  "honesty": {
+    "not_selfcheckgpt_sota": true,
+    "claim_encode_is_different_regime": true,
+    "label_is_sample_hall_proximity_proxy": true
+  },
+  "model_name": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "n_questions": 40,
+  "n_samples": 5,
+  "max_new_tokens": 24,
+  "temperature": 0.8,
+  "seed": 7,
+  "device": "cpu",
+  "n_pos": 39,
+  "n_neg": 1,
+  "auroc_disagreement": 0.6667,
+  "mean_disagreement": 0.589,
+  "rows": [
+    {
+      "question": "Nita Kumar completed her Ph.D. from the University of Chicago in History and has taught at the University of Chicago, Brown University, and the University of Michigan among other places, she presently holds the Brown Family Chair of South A",
+      "primary": "Nita Kumar completed her Ph.D. From the University of Chicago in History and currently holds the Brown Family Chair",
+      "samples": [
+        "Nita Kumar completed her Ph.D. From the University of Chicago in History and currently holds the Brown Family Chair",
+        "Nita Kumar completed her Ph.D. From the University of Chicago, and she has taught at Brown University,",
+        "Nita Kumar completed her Ph.D. from the University of Chicago in History and has taught at the University of",
+        "Nita Kumar completed her Ph.D. From the University of Chicago in History, currently holds the Brown Family Chair",
+        "Nita Kumar completed her Ph.D. From the University of Chicago in History, and currently holds the Brown Family"
+      ],
+      "disagreement": 0.3096,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In what district of California was the writer of \"Baby ____ Go\" a congressman?",
+      "primary": "In what district of California was the writer of \"Baby ____ Go\" a congressman?\nQuestion:",
+      "samples": [
+        "In what district of California was the writer of \"Baby ____ Go\" a congressman?\nQuestion:",
+        "The writer of \"Baby ____ Go\" was a member of the U.S. House of Representatives from California",
+        "Answer the question briefly.\nQuestion: Which U.S. President signed the first congressional resolution on the",
+        "In what district of California was the writer of \"Baby ____ Go\" a congressman?\nQuestion:",
+        "The writer of \"Baby ____ Go\" was a member of the California House of Representatives.\nQuestion: Who"
+      ],
+      "disagreement": 0.4727,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In the End of Human Existence is the debut album of a Russian death metal band that is originally from where?",
+      "primary": "In the End of Human Existence is the debut album of a Russian death metal band that is originally from the city of",
+      "samples": [
+        "In the End of Human Existence is the debut album of a Russian death metal band that is originally from the city of",
+        "The End of Human Existence is the debut album of a Russian death metal band, originally from Moscow.",
+        "In the End of Human Existence is the debut album of a Russian death metal band that is originally from the city of",
+        "The End of Human Existence is the debut album of a Russian death metal band that is originally from where?\nQuestion",
+        "The End of Human Existence is the debut album of a Russian death metal band that was originally from where?\nAnswer"
+      ],
+      "disagreement": 0.1845,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Hesk Fell,a hill in the south-west of the English Lake District, has a view of a mountain located in what National Park?",
+      "primary": "Hesk Fell, a hill in the south-west of the English Lake District, is located in the Yorkshire",
+      "samples": [
+        "Hesk Fell, a hill in the south-west of the English Lake District, is located in the Yorkshire",
+        "The view is of the Cairngorms in the Scottish Highlands.",
+        "The view of the mountain is from the summit of Pen-y-Ghent, located in the Yorkshire",
+        "The National Park of the Lake District is in the west of England.",
+        "Hesk Fell is in the North York Moors National Park."
+      ],
+      "disagreement": 0.7497,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Who wrote a song based on a character from English folklore in the Victorian era?",
+      "primary": "\"Cuckoo\" is a song written by John Lennon and Paul McCartney in the 19",
+      "samples": [
+        "\"Cuckoo\" is a song written by John Lennon and Paul McCartney in the 19",
+        "\"Jane Eyre\" by Charles Dickens, which tells the story of the protagonist, a young or",
+        "J.R.R. Tolkien wrote \"The Road Goes Ever On\" in 1922",
+        "The song \"Jack and the Beanstalk\" was written by Charles Dickens and is based on a character from English",
+        "The song \"Wildwood Flower\" was written by Robert Browning in 1845, based on"
+      ],
+      "disagreement": 0.8294,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Who is older, Rohan Bopanna or Sherwood Stewart?",
+      "primary": "Sherwood Stewart is older than Rohan Bopanna.",
+      "samples": [
+        "Sherwood Stewart is older than Rohan Bopanna.",
+        "Rohan Bopanna is older than Sherwood Stewart.",
+        "Rohan Bopanna is older than Sherwood Stewart.",
+        "Sherwood Stewart is the older one, Rohan Bopanna is 32 years old.\nQuestion:",
+        "Sherwood Stewart is older than Rohan Bopanna.\nQuestion: Who is the most successful Indian in the"
+      ],
+      "disagreement": 0.5079,
+      "label": false,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In what city did Michael Gansey work during his time as the GM for the Canton Charge?",
+      "primary": "Michael Gansey worked as the General Manager for the Canton Charge during the 2008-09",
+      "samples": [
+        "Michael Gansey worked as the General Manager for the Canton Charge during the 2008-09",
+        "The GM for the Canton Charge was Michael Gansey.",
+        "Michael Gansey worked as the General Manager of the Canton Charge during the 2011-20",
+        "Michael Gansey worked as the General Manager of the Canton Charge during the 2016-17",
+        "The Canton Charge is the NBA Development League team based in Canton, Ohio. Michael Gansey worked as the"
+      ],
+      "disagreement": 0.4762,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "RNZ Concert is a radio network owned by a company headquartered in a city with what population?",
+      "primary": "RNZ Concert is a radio network owned by Radio New Zealand International, a company headquartered in A",
+      "samples": [
+        "RNZ Concert is a radio network owned by Radio New Zealand International, a company headquartered in A",
+        "The RNZ Concert radio network is owned by MediaWorks, which is based in Auckland, New",
+        "RNZ Concert is a radio network owned by a company headquartered in Auckland, New Zealand",
+        "RNZ Concert is owned by a company headquartered in Auckland, New Zealand.",
+        "The question is asking for the headquartered location of RNZ Concert. The answer is Auckland"
+      ],
+      "disagreement": 0.4761,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What former jeans model starred in the South Korean film, Always?",
+      "primary": "Kim Hyun Joong, a former member of the South Korean boy band, 2PM, starred in the",
+      "samples": [
+        "Kim Hyun Joong, a former member of the South Korean boy band, 2PM, starred in the",
+        "Actor Song Joong-ki, who is best known for his role in the \"Squid Game\" franch",
+        "Kim Hyun-joong, a former member of the popular boy band, 2PM, played the role of",
+        "Lee Min Ho, a former model and actor who has starred in numerous Korean dramas and films, starred in",
+        "Park Shin Hye is the Korean actress who starred in the South Korean film Always as Lee Yoon-mi."
+      ],
+      "disagreement": 0.7676,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What fashion label did the founder of the Faena Arts Center found in 1985?",
+      "primary": "The founder of the Faena Arts Center found the Miami-based fashion label in 1985.\nQuestion",
+      "samples": [
+        "The founder of the Faena Arts Center found the Miami-based fashion label in 1985.\nQuestion",
+        "The founder of the Faena Arts Center found the label Faena in 1985.\nQuestion: What",
+        "The founder of the Faena Arts Center found the brand of his dreams in 1985, when he",
+        "The founder of the Faena Arts Center is Faena, a name that stands for Faena Art and Culture. The",
+        "The Faena Arts Center in Miami Beach was founded by Juan de la Cierva, the first president of the Fa"
+      ],
+      "disagreement": 0.6029,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Roberto Gil Zuarth served as private secretary to which Mexican president who is a member of the PAN party?",
+      "primary": "Roberto Gil Zuarth served as private secretary to President Calder\u00f3n who is a member of the PAN party.",
+      "samples": [
+        "Roberto Gil Zuarth served as private secretary to President Calder\u00f3n who is a member of the PAN party.",
+        "Roberto Gil Zuarth served as private secretary to President Enrique Pe\u00f1a Nieto, a member of the PAN",
+        "Roberto Gil Zuarth served as private secretary to Mexican president L\u00e1zaro C\u00e1rdenas, a member of the P",
+        "Roberto Gil Zuarth served as private secretary to Mexican President Adolfo L\u00f3pez Mateos, a member of the PAN",
+        "Roberto Gil Zuarth served as private secretary to the former Mexican president, Felipe Calderon."
+      ],
+      "disagreement": 0.4287,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In how many countries did a song written by Rolf Magnus Joakim Larsson go to the number one spot?",
+      "primary": "A song written by Rolf Magnus Joakim Larsson went to the number one spot in 13 countries",
+      "samples": [
+        "A song written by Rolf Magnus Joakim Larsson went to the number one spot in 13 countries",
+        "A song written by Rolf Magnus Joakim Larsson went to the number one spot in 14 countries",
+        "The song \"Svenskfestivalen\" by Rolf Magnus Joakim Larsson went to the number",
+        "A song written by Rolf Magnus Joakim Larsson went to the number one spot in 10 countries",
+        "The song \"Livklang\" written by Rolf Magnus Joakim Larsson went to the number one"
+      ],
+      "disagreement": 0.25,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Jamie Muhoberac received credits for what synthpop duo formed in London in 1981?",
+      "primary": "Jamie Muhoberac received credits for the synthpop duo formed in London in 1981",
+      "samples": [
+        "Jamie Muhoberac received credits for the synthpop duo formed in London in 1981",
+        "Jamie Muhoberac received credits for \"The Sweetest Taboo\" and \"A Girl Called",
+        "The Human League, formed by Jamie Muhoberac.\nQuestion: Jamie Muhoberac played which",
+        "The Human League.",
+        "The Cure.\nQuestion: What was the debut album of the British synthpop duo The Cure that was"
+      ],
+      "disagreement": 0.8296,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Bombshell included the actress who gained fame in 2006 on what television show?",
+      "primary": "Jenna Jameson, a porn actress.\nQuestion: Who played the role of Michael in the movie \"The",
+      "samples": [
+        "Jenna Jameson, a porn actress.\nQuestion: Who played the role of Michael in the movie \"The",
+        "Alyssa Milano starred in the 2003 ABC sitcom \"Men in Trees.\"",
+        "Amanda Seyfried appeared on the show \"Lipstick Jungle\" in 2006.",
+        "Julianna Margulies of the TV show \"The Good Wife.\"\nQuestion: Who is the actress who plays",
+        "Ellen DeGeneres\nQuestion: Who is the author of the book \"The Sellout\" by Paul Beatty"
+      ],
+      "disagreement": 0.8524,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which judge of Strictly Come Dancing is a professional ballroom dancer?",
+      "primary": "The judge of Strictly Come Dancing is a professional ballroom dancer.\nQuestion: Who is the winner",
+      "samples": [
+        "The judge of Strictly Come Dancing is a professional ballroom dancer.\nQuestion: Who is the winner",
+        "The Strictly Come Dancing judge who is a professional ballroom dancer is Bruno Tonioli.",
+        "Mary King is a professional ballroom dancer.\nQuestion: What is the name of the actress who plays Mary'",
+        "Mike Bushell, who is a professional ballroom dancer, is a judge on the hit BBC show Strictly",
+        "The judge of Strictly Come Dancing is a professional ballroom dancer, but he is not known to be"
+      ],
+      "disagreement": 0.5315,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In which city was this rock band that released the song \"Sunday Morning\" formed in 1964?",
+      "primary": "The rock band that formed in 1964 in San Francisco, California was The Mamas & the Papas",
+      "samples": [
+        "The rock band that formed in 1964 in San Francisco, California was The Mamas & the Papas",
+        "This rock band that released the song \"Sunday Morning\" was formed in 1964 in New",
+        "The rock band that formed in 1964 in Manchester, England was The Beatles.\nQuestion: Who",
+        "This rock band that released the song \"Sunday Morning\" was formed in 1964 in London",
+        "The rock band that formed in 1964 in the city of New Orleans, Louisiana was The Dirty Do"
+      ],
+      "disagreement": 0.5995,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Where is Focus Brands, owner of Moe's Southwest Grill informally known as Moes, based?",
+      "primary": "Focus Brands, owner of Moe's Southwest Grill, is headquartered in Denver",
+      "samples": [
+        "Focus Brands, owner of Moe's Southwest Grill, is headquartered in Denver",
+        "Moe's Southwest Grill is headquartered in Atlanta, Georgia, and is part of Focus",
+        "Focus Brands is based in Columbus, Ohio.\nQuestion: What are the details of the lawsuit file",
+        "Focus Brands, owner of Moe's Southwest Grill, is based in Chicago.\nQuestion:",
+        "Focus Brands, the parent company of Moe's Southwest Grill, is based in Columbus,"
+      ],
+      "disagreement": 0.5595,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "The 32nd TCA Awards were hosted by a  Mexican actor best known for his roles as Fernando Mendiola in what?",
+      "primary": "\"El Se\u00f1or de los Anillos: The Return of the King\"\nQuestion: In which year was",
+      "samples": [
+        "\"El Se\u00f1or de los Anillos: The Return of the King\"\nQuestion: In which year was",
+        "Fernando Torres was honored as the Entertainer of the Year at the 32nd TCA Awards, which",
+        "The 32nd TCA Awards were hosted by a  Mexican actor best known for his roles as Fernando Mendi",
+        "\"Desperate Housewives\" star Eric McCormack hosted the 32nd annual Television Critics Association Awards",
+        "Fernando Lamas hosted the 32nd TCA Awards, held in Pasadena, California.\nThe"
+      ],
+      "disagreement": 0.9062,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which town was the director of the \"Red Curtain Trilogy\" born in?",
+      "primary": "The director of the \"Red Curtain Trilogy\" was born in Lviv.",
+      "samples": [
+        "The director of the \"Red Curtain Trilogy\" was born in Lviv.",
+        "In a recent interview, director Michael Haneke said that he was born in the town of Klagenfurt, Austria",
+        "The director of the \"Red Curtain Trilogy\" was born in Lodz, Poland.\nQuestion:",
+        "The director of the \"Red Curtain Trilogy\" was born in the town of Zl\u00edn, Czechoslov",
+        "The director of the \"Red Curtain Trilogy\" was born in Ufa, Russia.\nQuestion: Which"
+      ],
+      "disagreement": 0.4217,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What author has contributed to such works as \"New Statesmen\", \"The Nation\", and \"The Atlantic\", among others, while also being being associated with Dysteleology?",
+      "primary": "John Steinbeck is one of the most acclaimed writers in American literature. He is best known for his novels,",
+      "samples": [
+        "John Steinbeck is one of the most acclaimed writers in American literature. He is best known for his novels,",
+        "George Orwell, one of the most important authors of the 20th century, has contributed to various works such",
+        "Dysteleology is the name given by Stephen Dedalus to the fictional world that is created in Uly",
+        "William James is an American philosopher, psychologist, and author. He is best known for his contributions to the",
+        "The author is David Foster Wallace, who is widely known for his novels \"Infinite Jest\" and"
+      ],
+      "disagreement": 0.8229,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Robert Lepage and Jean Genet, are of which nationality?",
+      "primary": "Robert Lepage and Jean Genet are of both Canadian and French nationality.\nQuestion: Who are the actors who",
+      "samples": [
+        "Robert Lepage and Jean Genet are of both Canadian and French nationality.\nQuestion: Who are the actors who",
+        "Robert Lepage and Jean Genet are both Canadian.",
+        "Robert Lepage and Jean Genet are both Canadian.",
+        "Robert Lepage and Jean Genet are both French.\nQuestion: Which city is Robert Lepage's home base",
+        "Robert Lepage and Jean Genet are both Canadian."
+      ],
+      "disagreement": 0.581,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Sorghum \u00d7 drummondii is a type of grass harvested for what type of edible fruit?",
+      "primary": "Sorghum \u00d7 drummondii is a type of grass harvested for the edible fruit called sorghum",
+      "samples": [
+        "Sorghum \u00d7 drummondii is a type of grass harvested for the edible fruit called sorghum",
+        "Sorghum \u00d7 drummondii is a type of grass harvested for the edible fruit, a berry",
+        "Sorghum \u00d7 drummondii is a type of grass that is harvested for its edible fruit.",
+        "Sorghum \u00d7 drummondii is a type of grass that is harvested for its edible fruit.",
+        "Sorghum \u00d7 drummondii is a type of grass that is harvested for edible fruit."
+      ],
+      "disagreement": 0.3171,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What is the name of the album that was released by David Bowie that was recorded in secret?",
+      "primary": "The title of the album was \"Heroes\" and it was recorded in secret.",
+      "samples": [
+        "The title of the album was \"Heroes\" and it was recorded in secret.",
+        "The Rise and Fall of Ziggy Stardust and the Spiders from Mars.\nQuestion: Who were",
+        "The Last Shadow Puppets - A Celebration.\nQuestion: What was the reason given for the recent",
+        "The Rise and Fall of Ziggy Stardust and the Spiders from Mars\nQuestion: How did David",
+        "The Number 1 Album is the album that was recorded in secret by David Bowie. The album is often considered to"
+      ],
+      "disagreement": 0.8516,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Jon Cardella formerly owned the company that was sold to which internet retailer?",
+      "primary": "The company that was sold to eBay Inc.",
+      "samples": [
+        "The company that was sold to eBay Inc.",
+        "Jon Cardella formerly owned the company that was sold to Amazon.",
+        "The company that was sold to Amazon was acquired by Ascena Retail Group (ASNA) in 20",
+        "The answer is Zappos.com, formerly known as The Shoe Company.\nQuestion: Can you summarize",
+        "The former owner of the company that was sold to Amazon.com is now owned by Amazon.\nQuestion: Which of"
+      ],
+      "disagreement": 0.7049,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Viscount Grant, also known as Gable, who was the winner of the title of Best In Show at the Crufts dog show in 1987, was the Afghan Hound is a hound that is distinguished by its thick, fine, silky coat and its tail with a ring curl at the e",
+      "primary": "The Afghan Hound is a hound that is distinguished by its thick, fine, silky coat and its tail with",
+      "samples": [
+        "The Afghan Hound is a hound that is distinguished by its thick, fine, silky coat and its tail with",
+        "The Afghan Hound is a hound that is distinguished by its thick, fine, silky coat and its tail with",
+        "Viscount Grant, also known as Gable, was the winner of the title of Best In Show at the Cruft",
+        "Gable is an Afghan Hound.\nQuestion: In the film, \"The King's Speech\" (",
+        "Gable was the Afghan Hound."
+      ],
+      "disagreement": 0.6868,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What occupation did Anja Salomonowitz and Wendy Toye share?",
+      "primary": "Anja Salomonowitz and Wendy Toye shared the same occupation. Anja Salomonowitz was a",
+      "samples": [
+        "Anja Salomonowitz and Wendy Toye shared the same occupation. Anja Salomonowitz was a",
+        "Anja Salomonowitz and Wendy Toye shared a joint occupation of art teacher at the school.",
+        "Anja Salomonowitz and Wendy Toye shared a similar occupation: social work.\nQuestion: How many",
+        "Anja Salomonowitz and Wendy Toye shared a job as teachers at the same school.\nQuestion:",
+        "They both worked as sales representatives for a publishing company."
+      ],
+      "disagreement": 0.6468,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which film is an American science-fiction fantasy movie, Home on the Range or A Wrinkle in Time?",
+      "primary": "Home on the Range is an American science-fiction fantasy movie directed by Roger Corman and starring Tim",
+      "samples": [
+        "Home on the Range is an American science-fiction fantasy movie directed by Roger Corman and starring Tim",
+        "Home on the Range is an American science-fiction fantasy movie, directed by Kevin Costner, released on December",
+        "Both Home on the Range and A Wrinkle in Time are American science-fiction fantasy movies.",
+        "A Wrinkle in Time is a 2018 American science-fiction fantasy movie directed by",
+        "Home on the Range is an American science-fiction fantasy movie released in 1990.\nQuestion"
+      ],
+      "disagreement": 0.5931,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In what city did the band who performed \"Valleri\" form in?",
+      "primary": "The band who performed \"Valleri\" form in London, England.\nQuestion: In what year did the band",
+      "samples": [
+        "The band who performed \"Valleri\" form in London, England.\nQuestion: In what year did the band",
+        "The band who performed \"Valleri\" formed in Sydney, Australia.\nQuestion: Which country's music video",
+        "The band who performed \"Valleri\" formed in the city of New York.",
+        "The band who performed \"Valleri\" formed in Portland, Oregon.",
+        "The band who performed \"Valleri\" formed in New York City in 1994."
+      ],
+      "disagreement": 0.6521,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Raincoat is a 2004 Indian Hindi drama film which is an adaptation of a short story that was allegedly written at which tavern ?",
+      "primary": "Raincoat is a 2004 Indian Hindi drama film which is an adaptation of a short story that",
+      "samples": [
+        "Raincoat is a 2004 Indian Hindi drama film which is an adaptation of a short story that",
+        "Raincoat is a 2004 Indian Hindi drama film which is an adaptation of a short story that",
+        "Raincoat is a 2004 Indian Hindi drama film that is an adaptation of a short story that",
+        "Raincoat is a 2004 Indian Hindi drama film which is an adaptation of a short story written",
+        "Raincoat is a 2004 Indian Hindi drama film which is an adaptation of a short story that"
+      ],
+      "disagreement": 0.0479,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What is the title of the first book by this American author who wrote the 2015 novel \"Another Day?\"",
+      "primary": "The title of the first book by this American author who wrote the 2015 novel \"Another Day\"",
+      "samples": [
+        "The title of the first book by this American author who wrote the 2015 novel \"Another Day\"",
+        "The title of the first book by this American author who wrote the 2015 novel \"Another Day\"",
+        "The title of the first book by this American author who wrote the 2015 novel \"Another Day\"",
+        "\"Another Day\" by Anne Tyler.",
+        "The first book by American author Jonathan Evison is \"West of Here.\"\nQuestion: Who is the main character"
+      ],
+      "disagreement": 0.3689,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "SV Werder Bremen won its first ever German double, clinching both Bundesliga and the DFB-Pokal, Werder lost both A\u00edlton and defensive senior talisman Mladen Krstaji\u0107 to Schalke 04, Krstaji\u0107 is a former Serbian footballer who played as a cen",
+      "primary": "12th September, 1981.\nQuestion: What was the official title of the 2",
+      "samples": [
+        "12th September, 1981.\nQuestion: What was the official title of the 2",
+        "On 31st January 1983, Mladen Krstaji\u0107 turned 30 years",
+        "A\u00edlton joined Werder Bremen from Brazilian side Corinthians in 2005. He",
+        "Mladen Krstaji\u0107 (1974-2011) was a former Serbian footballer",
+        "A\u00edlton, who was born on 29th August, 1989, was a Brazil"
+      ],
+      "disagreement": 0.9736,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "An analog board was used in which third model of the Macintosh line?",
+      "primary": "The third model of the Macintosh line was the Apple IIe, which was released in 1986",
+      "samples": [
+        "The third model of the Macintosh line was the Apple IIe, which was released in 1986",
+        "The third model of the Macintosh line was the 30-pound (14.2 kg)",
+        "The third model of the Macintosh line was the Macintosh Plus.",
+        "Answer: The Macintosh III was the third model of the Macintosh line.\nQuestion: The Macint",
+        "The third model of the Macintosh line was the Macintosh II."
+      ],
+      "disagreement": 0.5573,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which comedian played in When Time Ran Out and The Karate Kid?",
+      "primary": "In When Time Ran Out, comedian and actor Robert Armstrong played the role of Captain Jameson.",
+      "samples": [
+        "In When Time Ran Out, comedian and actor Robert Armstrong played the role of Captain Jameson.",
+        "The Karate Kid star Daniel Stern played in When Time Ran Out.",
+        "The answer is: Bill Murray.",
+        "Joey Lawrence.\n\nBased on the text material above, generate the response to the following quesion or",
+        "In When Time Ran Out, Bill Murray played the role of Charlie Chaplin, while in The Karate Kid, Ralph"
+      ],
+      "disagreement": 0.8169,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which has a greater volume a Tierce or a UK Barrel ?",
+      "primary": "The UK Barrel has a greater volume as compared to a Tierce.\nQuestion: Which has a larger volume a",
+      "samples": [
+        "The UK Barrel has a greater volume as compared to a Tierce.\nQuestion: Which has a larger volume a",
+        "A Tierce has a greater volume than a UK Barrel.",
+        "The Tierce has a volume of 15 litres (12 litres for a barrel).",
+        "A Tierce has a greater volume than a UK Barrel.\nQuestion: What is the volume of a Tierce",
+        "The UK Barrel has a greater volume.\nQuestion: How does a Barrel differ from a Tierce?"
+      ],
+      "disagreement": 0.7039,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "The person William Mein Smith worked as the Surveyor General for from 1840 to 1843 was born on what date?",
+      "primary": "The person William Mein Smith worked as the Surveyor General for from 1840 to 184",
+      "samples": [
+        "The person William Mein Smith worked as the Surveyor General for from 1840 to 184",
+        "William Mein Smith was born on 28 January 1793.\nQuestion: What was the name",
+        "William Mein Smith was born on 27 April 1806 in Birmingham, England.",
+        "The person William Mein Smith worked as the Surveyor General for from 1840 to 184",
+        "The person William Mein Smith worked as the Surveyor General for from 1840 to 184"
+      ],
+      "disagreement": 0.4239,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which \"Eden\" star was born on April 10, 1983 ?",
+      "primary": "On April 10, 1983, \"Eden\" star Jason Patric was born in San",
+      "samples": [
+        "On April 10, 1983, \"Eden\" star Jason Patric was born in San",
+        "On April 10, 1983, actor Matthew Rhys was born. He is best known for",
+        "Shane West was born on April 10, 1983.",
+        "\"Eden\" star Evan Rachel Wood was born on April 10, 1983 in",
+        "Actress Emily Mortimer was born on April 10, 1983 in London, England."
+      ],
+      "disagreement": 0.6488,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Bender \"Ben\" Johnson Jr. was the chairman of the Makah during the first successful hunt of Eschrichtius robustus which is commonly known as what?",
+      "primary": "Bender \"Ben\" Johnson Jr. Was the chairman of the Makah during the first successful hunt of Esch",
+      "samples": [
+        "Bender \"Ben\" Johnson Jr. Was the chairman of the Makah during the first successful hunt of Esch",
+        "Eschrichtius robustus.\nBased on the passage above, Can you provide a summary of the Makah",
+        "The chairman of the Makah during the first successful hunt of Eschrichtius robustus which is commonly known as",
+        "Bender \"Ben\" Johnson Jr. Was the chairman of the Makah during the first successful hunt of Esch",
+        "Bender \"Ben\" Johnson Jr. Was the chairman of the Makah during the first successful hunt of Esch"
+      ],
+      "disagreement": 0.3748,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which magazine YM or Midwest Living was founded first ?",
+      "primary": "Midwest Living, a magazine based in Chicago, was founded in 1976.\nQuestion: How many",
+      "samples": [
+        "Midwest Living, a magazine based in Chicago, was founded in 1976.\nQuestion: How many",
+        "Midwest Living was founded first.\nQuestion: When was the first issue of YM published ?\nAnswer: Y",
+        "Midwest Living was founded in 1989.",
+        "YM or Midwest Living was founded first.\nQuestion: What is the name of the magazine that has a circul",
+        "YM was founded in 1887, while Midwest Living was founded in 1957."
+      ],
+      "disagreement": 0.7778,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Who played the fictional character which Luke took over his share of the Underworld factory?",
+      "primary": "In the novel, the name of the character Luke takes over the share of the Underworld factory is \"Roland",
+      "samples": [
+        "In the novel, the name of the character Luke takes over the share of the Underworld factory is \"Roland",
+        "The character Luke played over the share of the Underworld factory was Jack Thompson.\nQuestion: How long did it take",
+        "This question is in the form of a short passage.\nLuke, who took over his share of the Underworld",
+        "The character played by Danny Trejo is not a real person, but the fictional character Luke played over the character",
+        "Luke Skywalker took over the share of the Underworld factory from Darth Vader, in the original Star Wars"
+      ],
+      "disagreement": 0.7008,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Are The House of Love and Republica from the same country?",
+      "primary": "No, The House of Love and Republica are not from the same country.",
+      "samples": [
+        "No, The House of Love and Republica are not from the same country.",
+        "No, The House of Love and Republica are from different countries.\nQuestion: How long have Republica been playing",
+        "No, The House of Love and Republica are from different countries. The House of Love is an American band, and",
+        "The House of Love and Republica are two British bands, formed in 1988. The House of Love",
+        "No, The House of Love and Republica are from different countries. The House of Love is a UK based alternative rock"
+      ],
+      "disagreement": 0.5528,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    }
+  ],
+  "created_at": "2026-10-25T07:31:28.160708+00:00"
+}

@@ -1,0 +1,4667 @@
+{
+  "rows": [
+    {
+      "question": "Godspeed, was under Captain Bartholomew Gosnold, an English lawyer, explorer, and privateer who was instrumental in founding of which organization?",
+      "answer": "Virginia Company of London",
+      "affect": {
+        "valence": 0.4075,
+        "arousal": 0.2067,
+        "uncertainty": 0.4943
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1664,
+        "logit_gap": 0.4054,
+        "attn_entropy": 0.6143,
+        "fused": 0.3844,
+        "fused_last": 0.5852,
+        "fused_full_mean": 0.4357
+      },
+      "token_text": " and privateer who was instrumental in founding of which organization?\nAnswer: Virginia Company of London<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4338,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Godspeed, was under Captain Bartholomew Gosnold, an English lawyer, explorer, and privateer who was instrumental in founding of which organization?",
+      "answer": "Bartholomew Gosnold founded the East India Company.",
+      "affect": {
+        "valence": 0.5094,
+        "arousal": 0.2085,
+        "uncertainty": 0.4811
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1149,
+        "logit_gap": 0.3328,
+        "attn_entropy": 0.6152,
+        "fused": 0.3413,
+        "fused_last": 0.6113,
+        "fused_full_mean": 0.4205
+      },
+      "token_text": " in founding of which organization?\nAnswer: Bartholomew Gosnold founded the East India Company.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4042,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which movie came out first Go Further or Pumping Iron ?",
+      "answer": "Pumping Iron",
+      "affect": {
+        "valence": 0.4538,
+        "arousal": 0.1848,
+        "uncertainty": 0.4682
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1598,
+        "logit_gap": 0.3354,
+        "attn_entropy": 0.6409,
+        "fused": 0.3656,
+        "fused_last": 0.4461,
+        "fused_full_mean": 0.4324
+      },
+      "token_text": " Further or Pumping Iron ?\nAnswer: Pumping Iron<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4118,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which movie came out first Go Further or Pumping Iron ?",
+      "answer": "Woody Harrelson starred in the documentary Go Further, which was released before Pumping Iron.",
+      "affect": {
+        "valence": 0.5659,
+        "arousal": 0.2266,
+        "uncertainty": 0.4653
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1219,
+        "logit_gap": 0.3998,
+        "attn_entropy": 0.6764,
+        "fused": 0.3855,
+        "fused_last": 0.566,
+        "fused_full_mean": 0.4374
+      },
+      "token_text": "son starred in the documentary Go Further, which was released before Pumping Iron.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4214,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Hawaii v. Office of Hawaiian Affairs, 556 U.S. 163 (2009), was a United States Supreme Court case about the former crown lands of the Hawaiian monarchy, the Court, in an opinion by which Associate Justice of the Supreme Court of the United ",
+      "answer": "Samuel Anthony Alito Jr.",
+      "affect": {
+        "valence": -0.0852,
+        "arousal": 0.1976,
+        "uncertainty": 0.4362
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1405,
+        "logit_gap": 0.4442,
+        "attn_entropy": 0.5774,
+        "fused": 0.3779,
+        "fused_last": 0.4587,
+        "fused_full_mean": 0.4041
+      },
+      "token_text": " the Supreme Court of the United States, and has served on the court since January 31, 2006?\nAnswer: Samuel Anthony Alito Jr.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4041,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Hawaii v. Office of Hawaiian Affairs, 556 U.S. 163 (2009), was a United States Supreme Court case about the former crown lands of the Hawaiian monarchy, the Court, in an opinion by which Associate Justice of the Supreme Court of the United ",
+      "answer": "The Chief Justice of the United States.",
+      "affect": {
+        "valence": 0.0367,
+        "arousal": 0.1806,
+        "uncertainty": 0.443
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1291,
+        "logit_gap": 0.4092,
+        "attn_entropy": 0.6664,
+        "fused": 0.3884,
+        "fused_last": 0.3377,
+        "fused_full_mean": 0.4249
+      },
+      "token_text": " Supreme Court of the United States, and has served on the court since January 31, 2006?\nAnswer: The Chief Justice of the United States.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.413,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which publishing company has published Bizarre and a sister publication devoted to the anomalous phenomena popularised by Charles Fort?",
+      "answer": "Dennis Publishing",
+      "affect": {
+        "valence": 0.4541,
+        "arousal": 0.1932,
+        "uncertainty": 0.4672
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2143,
+        "logit_gap": 0.4151,
+        "attn_entropy": 0.6456,
+        "fused": 0.414,
+        "fused_last": 0.5028,
+        "fused_full_mean": 0.4598
+      },
+      "token_text": " the anomalous phenomena popularised by Charles Fort?\nAnswer: Dennis Publishing<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.438,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which publishing company has published Bizarre and a sister publication devoted to the anomalous phenomena popularised by Charles Fort?",
+      "answer": "John Brown Publishing has published Bizarre and a sister publication devoted to the anomalous phenomena popularised by Charles Fort.",
+      "affect": {
+        "valence": 0.4914,
+        "arousal": 0.1818,
+        "uncertainty": 0.4649
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0561,
+        "logit_gap": 0.2534,
+        "attn_entropy": 0.6166,
+        "fused": 0.2933,
+        "fused_last": 0.3613,
+        "fused_full_mean": 0.4018
+      },
+      "token_text": " Publishing has published Bizarre and a sister publication devoted to the anomalous phenomena popularised by Charles Fort.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3705,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Andreas Katsulas plays the villain Sykes in a film based on a 1960's tv series created by who?",
+      "answer": "Roy Huggins",
+      "affect": {
+        "valence": 0.5306,
+        "arousal": 0.2696,
+        "uncertainty": 0.4506
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1813,
+        "logit_gap": 0.4871,
+        "attn_entropy": 0.6026,
+        "fused": 0.4147,
+        "fused_last": 0.4148,
+        "fused_full_mean": 0.4453
+      },
+      "token_text": "960's tv series created by who?\nAnswer: Roy Huggins<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4309,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Andreas Katsulas plays the villain Sykes in a film based on a 1960's tv series created by who?",
+      "answer": "The Fugitive is based on the 1960s series Magnum P.I.",
+      "affect": {
+        "valence": 0.5803,
+        "arousal": 0.2675,
+        "uncertainty": 0.4538
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1377,
+        "logit_gap": 0.4485,
+        "attn_entropy": 0.6135,
+        "fused": 0.3892,
+        "fused_last": 0.5449,
+        "fused_full_mean": 0.4403
+      },
+      "token_text": "Answer: The Fugitive is based on the 1960s series Magnum P.I.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4183,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Are Sherwood Stewart and Ekaterina Makarova from the same country?",
+      "answer": "no",
+      "affect": {
+        "valence": 0.245,
+        "arousal": 0.2031,
+        "uncertainty": 0.4691
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1192,
+        "logit_gap": 0.3571,
+        "attn_entropy": 0.6147,
+        "fused": 0.3511,
+        "fused_last": 0.3374,
+        "fused_full_mean": 0.4309
+      },
+      "token_text": " Makarova from the same country?\nAnswer: no<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4042,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Are Sherwood Stewart and Ekaterina Makarova from the same country?",
+      "answer": "Sherwood Stewart is from the United States, while Ekaterina Makarova was born in Russia.",
+      "affect": {
+        "valence": 0.4018,
+        "arousal": 0.1866,
+        "uncertainty": 0.5017
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0706,
+        "logit_gap": 0.3156,
+        "attn_entropy": 0.6592,
+        "fused": 0.3329,
+        "fused_last": 0.5379,
+        "fused_full_mean": 0.4155
+      },
+      "token_text": " is from the United States, while Ekaterina Makarova was born in Russia.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4089,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "\"Happy Birthday to You\", more commonly known as simply \"Happy Birthday\", is a song that is traditionally sung to celebrate the anniversary of a person's birth, the melody, comes from the song \"Good Morning to All\", which has traditionally b",
+      "answer": "Mildred J. Hill",
+      "affect": {
+        "valence": 0.2157,
+        "arousal": 0.2528,
+        "uncertainty": 0.4556
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2335,
+        "logit_gap": 0.5365,
+        "attn_entropy": 0.6495,
+        "fused": 0.4644,
+        "fused_last": 0.5592,
+        "fused_full_mean": 0.4571
+      },
+      "token_text": "\", which has traditionally been attributed to American sisters Patty and who, which was an American songwriter and musicologist?\nAnswer: Mildred J. Hill<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4604,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "\"Happy Birthday to You\", more commonly known as simply \"Happy Birthday\", is a song that is traditionally sung to celebrate the anniversary of a person's birth, the melody, comes from the song \"Good Morning to All\", which has traditionally b",
+      "answer": "The melody of \"Happy Birthday to You\" comes from the song \"Good Morning to All\", which has traditionally been attributed to American sisters Patty and an unknown composer.",
+      "affect": {
+        "valence": 0.3752,
+        "arousal": 0.2116,
+        "uncertainty": 0.4521
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0993,
+        "logit_gap": 0.3516,
+        "attn_entropy": 0.6845,
+        "fused": 0.3632,
+        "fused_last": 0.4453,
+        "fused_full_mean": 0.4361
+      },
+      "token_text": "melody of \"Happy Birthday to You\" comes from the song \"Good Morning to All\", which has traditionally been attributed to American sisters Patty and an unknown composer.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4032,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Wilhelm Batz shot down 46 of one type of aircraft. How many of these aircraft were made during World War 2?",
+      "answer": "36,183",
+      "affect": {
+        "valence": 0.4508,
+        "arousal": 0.1586,
+        "uncertainty": 0.494
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1549,
+        "logit_gap": 0.5123,
+        "attn_entropy": 0.61,
+        "fused": 0.4165,
+        "fused_last": 0.4807,
+        "fused_full_mean": 0.4547
+      },
+      "token_text": " were made during World War 2?\nAnswer: 36,183<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4514,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Wilhelm Batz shot down 46 of one type of aircraft. How many of these aircraft were made during World War 2?",
+      "answer": "Approximately 40,000 were produced.",
+      "affect": {
+        "valence": 0.608,
+        "arousal": 0.152,
+        "uncertainty": 0.4768
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1207,
+        "logit_gap": 0.3752,
+        "attn_entropy": 0.6208,
+        "fused": 0.3598,
+        "fused_last": 0.4699,
+        "fused_full_mean": 0.4427
+      },
+      "token_text": " World War 2?\nAnswer: Approximately 40,000 were produced.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4124,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who hosted the event that Thai decathlete won gold at?",
+      "answer": "Bhubaneswar",
+      "affect": {
+        "valence": 0.319,
+        "arousal": 0.2252,
+        "uncertainty": 0.4825
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1757,
+        "logit_gap": 0.4712,
+        "attn_entropy": 0.629,
+        "fused": 0.4151,
+        "fused_last": 0.5518,
+        "fused_full_mean": 0.4525
+      },
+      "token_text": "athlete won gold at?\nAnswer: Bhubaneswar<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4454,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who hosted the event that Thai decathlete won gold at?",
+      "answer": "The Thai decathlete won gold at the 2017 Olympic Games.",
+      "affect": {
+        "valence": 0.4878,
+        "arousal": 0.2619,
+        "uncertainty": 0.4937
+      },
+      "uncertainty_signals": {
+        "entropy": 0.104,
+        "logit_gap": 0.3631,
+        "attn_entropy": 0.6558,
+        "fused": 0.3602,
+        "fused_last": 0.5601,
+        "fused_full_mean": 0.4377
+      },
+      "token_text": " Thai decathlete won gold at the 2017 Olympic Games.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4203,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Death of a Soldier, released in which year, an Australian film based on the life of Eddie Leonski, an American soldier and serial killer responsible for the strangling murders of three women in Melbourne, Australia?",
+      "answer": "1986",
+      "affect": {
+        "valence": 0.3611,
+        "arousal": 0.1544,
+        "uncertainty": 0.4929
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1449,
+        "logit_gap": 0.4736,
+        "attn_entropy": 0.6461,
+        "fused": 0.4103,
+        "fused_last": 0.4249,
+        "fused_full_mean": 0.4431
+      },
+      "token_text": " killer responsible for the strangling murders of three women in Melbourne, Australia?\nAnswer: 1986<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4475,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Death of a Soldier, released in which year, an Australian film based on the life of Eddie Leonski, an American soldier and serial killer responsible for the strangling murders of three women in Melbourne, Australia?",
+      "answer": "Death of a Soldier is a 1987 Australian film based on the life of Eddie Leonski, an American soldier and serial killer who strangled several women in Melbourne.",
+      "affect": {
+        "valence": 0.3032,
+        "arousal": 0.1721,
+        "uncertainty": 0.4956
+      },
+      "uncertainty_signals": {
+        "entropy": 0.053,
+        "logit_gap": 0.3165,
+        "attn_entropy": 0.6163,
+        "fused": 0.3142,
+        "fused_last": 0.566,
+        "fused_full_mean": 0.4002
+      },
+      "token_text": " a 1987 Australian film based on the life of Eddie Leonski, an American soldier and serial killer who strangled several women in Melbourne.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3958,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who directed a 1986 American science-fiction comedy starring Tommy Swerdlow?",
+      "answer": "Willard Huyck",
+      "affect": {
+        "valence": 0.4167,
+        "arousal": 0.2635,
+        "uncertainty": 0.4849
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1903,
+        "logit_gap": 0.3822,
+        "attn_entropy": 0.6273,
+        "fused": 0.3886,
+        "fused_last": 0.4777,
+        "fused_full_mean": 0.4271
+      },
+      "token_text": " starring Tommy Swerdlow?\nAnswer: Willard Huyck<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4319,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who directed a 1986 American science-fiction comedy starring Tommy Swerdlow?",
+      "answer": "Tommy Swerdlow directed a 1986 American science-fiction comedy.",
+      "affect": {
+        "valence": 0.3882,
+        "arousal": 0.2307,
+        "uncertainty": 0.4885
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0669,
+        "logit_gap": 0.2692,
+        "attn_entropy": 0.6056,
+        "fused": 0.2993,
+        "fused_last": 0.5075,
+        "fused_full_mean": 0.3901
+      },
+      "token_text": ": Tommy Swerdlow directed a 1986 American science-fiction comedy.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3844,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "In what year was the playwright, who wrote, The Assignation, made England's first Poet Laureate?",
+      "answer": "1668",
+      "affect": {
+        "valence": 0.3847,
+        "arousal": 0.1923,
+        "uncertainty": 0.4984
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1175,
+        "logit_gap": 0.3358,
+        "attn_entropy": 0.6911,
+        "fused": 0.366,
+        "fused_last": 0.3163,
+        "fused_full_mean": 0.4435
+      },
+      "token_text": " England's first Poet Laureate?\nAnswer: 1668<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4256,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "In what year was the playwright, who wrote, The Assignation, made England's first Poet Laureate?",
+      "answer": "John Dryden was made Poet Laureate in 1768.",
+      "affect": {
+        "valence": 0.3497,
+        "arousal": 0.186,
+        "uncertainty": 0.4646
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1019,
+        "logit_gap": 0.364,
+        "attn_entropy": 0.6517,
+        "fused": 0.3586,
+        "fused_last": 0.3568,
+        "fused_full_mean": 0.4201
+      },
+      "token_text": "?\nAnswer: John Dryden was made Poet Laureate in 1768.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4063,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What year was the book released that was based on the 1873 murders on one of the Isles of Shoals in Maine?",
+      "answer": "1997",
+      "affect": {
+        "valence": 0.6013,
+        "arousal": 0.2044,
+        "uncertainty": 0.4927
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1482,
+        "logit_gap": 0.437,
+        "attn_entropy": 0.6876,
+        "fused": 0.4111,
+        "fused_last": 0.4229,
+        "fused_full_mean": 0.4597
+      },
+      "token_text": " one of the Isles of Shoals in Maine?\nAnswer: 1997<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4478,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What year was the book released that was based on the 1873 murders on one of the Isles of Shoals in Maine?",
+      "answer": "The Weight of Water was published in 1997.",
+      "affect": {
+        "valence": 0.6238,
+        "arousal": 0.2146,
+        "uncertainty": 0.4807
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1391,
+        "logit_gap": 0.4669,
+        "attn_entropy": 0.6871,
+        "fused": 0.4182,
+        "fused_last": 0.4661,
+        "fused_full_mean": 0.4564
+      },
+      "token_text": "als in Maine?\nAnswer: The Weight of Water was published in 1997.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4463,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "A verse in the Billy Joel song \"The Entertainer\" references the shortening of another Joel song that was released in what year?",
+      "answer": "1973",
+      "affect": {
+        "valence": 0.5026,
+        "arousal": 0.2196,
+        "uncertainty": 0.4792
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1298,
+        "logit_gap": 0.4354,
+        "attn_entropy": 0.6657,
+        "fused": 0.3975,
+        "fused_last": 0.3498,
+        "fused_full_mean": 0.4583
+      },
+      "token_text": " another Joel song that was released in what year?\nAnswer: 1973<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4343,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "A verse in the Billy Joel song \"The Entertainer\" references the shortening of another Joel song that was released in what year?",
+      "answer": "The Billy Joel song \"The Entertainer\" references the ultra-successful 1965 Beatles song \"Help!\"",
+      "affect": {
+        "valence": 0.5396,
+        "arousal": 0.1738,
+        "uncertainty": 0.5048
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1209,
+        "logit_gap": 0.4012,
+        "attn_entropy": 0.6629,
+        "fused": 0.3816,
+        "fused_last": 0.4183,
+        "fused_full_mean": 0.4424
+      },
+      "token_text": " Joel song \"The Entertainer\" references the ultra-successful 1965 Beatles song \"Help!\"<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.437,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Approximately how far is St Cyrpian's Church from London?",
+      "answer": "128 mi",
+      "affect": {
+        "valence": 0.4174,
+        "arousal": 0.1906,
+        "uncertainty": 0.5004
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1817,
+        "logit_gap": 0.4684,
+        "attn_entropy": 0.6629,
+        "fused": 0.4264,
+        "fused_last": 0.4776,
+        "fused_full_mean": 0.4587
+      },
+      "token_text": "'s Church from London?\nAnswer: 128 mi<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4597,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Approximately how far is St Cyrpian's Church from London?",
+      "answer": "St Cyprian's Church is in Sneinton, Nottingham, so it's quite far from London.",
+      "affect": {
+        "valence": 0.5819,
+        "arousal": 0.1501,
+        "uncertainty": 0.5204
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1455,
+        "logit_gap": 0.4199,
+        "attn_entropy": 0.6755,
+        "fused": 0.4006,
+        "fused_last": 0.561,
+        "fused_full_mean": 0.4439
+      },
+      "token_text": "'s Church is in Sneinton, Nottingham, so it's quite far from London.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4545,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the Kissin U singer known for in the Guiness World Records book?",
+      "answer": "highest paid child actress",
+      "affect": {
+        "valence": 0.6068,
+        "arousal": 0.2492,
+        "uncertainty": 0.519
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2022,
+        "logit_gap": 0.4687,
+        "attn_entropy": 0.6839,
+        "fused": 0.44,
+        "fused_last": 0.5059,
+        "fused_full_mean": 0.4703
+      },
+      "token_text": " the Guiness World Records book?\nAnswer: highest paid child actress<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4756,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the Kissin U singer known for in the Guiness World Records book?",
+      "answer": "Miranda Cosgrove holds the record for the highest number of songs sung in a year.",
+      "affect": {
+        "valence": 0.7098,
+        "arousal": 0.2665,
+        "uncertainty": 0.4977
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1497,
+        "logit_gap": 0.3901,
+        "attn_entropy": 0.6444,
+        "fused": 0.3822,
+        "fused_last": 0.4949,
+        "fused_full_mean": 0.4401
+      },
+      "token_text": " Cosgrove holds the record for the highest number of songs sung in a year.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4342,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which mine in California, lasting from 1873 to 1883, became one of the most noted mercury producers in the world?",
+      "answer": "Sulphur Bank Mine",
+      "affect": {
+        "valence": 0.3781,
+        "arousal": 0.1959,
+        "uncertainty": 0.4834
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1408,
+        "logit_gap": 0.3832,
+        "attn_entropy": 0.6341,
+        "fused": 0.3736,
+        "fused_last": 0.4565,
+        "fused_full_mean": 0.429
+      },
+      "token_text": " one of the most noted mercury producers in the world?\nAnswer: Sulphur Bank Mine<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.423,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which mine in California, lasting from 1873 to 1883, became one of the most noted mercury producers in the world?",
+      "answer": "The Quicksilver Mine was one of the most noted mercury producers in the world during the 1873 to 1883 years.",
+      "affect": {
+        "valence": 0.4257,
+        "arousal": 0.1862,
+        "uncertainty": 0.4779
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0493,
+        "logit_gap": 0.2852,
+        "attn_entropy": 0.6535,
+        "fused": 0.3131,
+        "fused_last": 0.345,
+        "fused_full_mean": 0.4062
+      },
+      "token_text": " was one of the most noted mercury producers in the world during the 1873 to 1883 years.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3873,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What building in the London Docklands lays claim to being the site of the oldest riverside tavern?",
+      "answer": "Prospect of Whitby",
+      "affect": {
+        "valence": 0.5604,
+        "arousal": 0.1508,
+        "uncertainty": 0.4866
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2054,
+        "logit_gap": 0.4161,
+        "attn_entropy": 0.5958,
+        "fused": 0.3963,
+        "fused_last": 0.3524,
+        "fused_full_mean": 0.4274
+      },
+      "token_text": " site of the oldest riverside tavern?\nAnswer: Prospect of Whitby<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4369,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What building in the London Docklands lays claim to being the site of the oldest riverside tavern?",
+      "answer": "The first pub built in the entire London Docklands was the Prospect of Whitby.",
+      "affect": {
+        "valence": 0.5985,
+        "arousal": 0.2029,
+        "uncertainty": 0.4737
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1957,
+        "logit_gap": 0.4619,
+        "attn_entropy": 0.6903,
+        "fused": 0.4372,
+        "fused_last": 0.4511,
+        "fused_full_mean": 0.4595
+      },
+      "token_text": ": The first pub built in the entire London Docklands was the Prospect of Whitby.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4536,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Patrick Stewart plays which character in the film series based on the comic books created by Stan Lee and Jack Kirby?",
+      "answer": "Professor Charles Xavier",
+      "affect": {
+        "valence": 0.6301,
+        "arousal": 0.2129,
+        "uncertainty": 0.4866
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1405,
+        "logit_gap": 0.405,
+        "attn_entropy": 0.5987,
+        "fused": 0.3705,
+        "fused_last": 0.4471,
+        "fused_full_mean": 0.4275
+      },
+      "token_text": " books created by Stan Lee and Jack Kirby?\nAnswer: Professor Charles Xavier<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4227,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Patrick Stewart plays which character in the film series based on the comic books created by Stan Lee and Jack Kirby?",
+      "answer": "Patrick Stewart plays a dual role in the X-Men film series as both Professor Charles Xavier and Magneto.",
+      "affect": {
+        "valence": 0.6702,
+        "arousal": 0.1707,
+        "uncertainty": 0.4818
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1265,
+        "logit_gap": 0.3582,
+        "attn_entropy": 0.6294,
+        "fused": 0.3584,
+        "fused_last": 0.5983,
+        "fused_full_mean": 0.4137
+      },
+      "token_text": " Stewart plays a dual role in the X-Men film series as both Professor Charles Xavier and Magneto.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4139,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Outlaw was released by a brand name, that is a subsidiary of a publisher of which nationality?",
+      "answer": "French",
+      "affect": {
+        "valence": 0.4428,
+        "arousal": 0.1899,
+        "uncertainty": 0.4545
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2066,
+        "logit_gap": 0.4414,
+        "attn_entropy": 0.66,
+        "fused": 0.4248,
+        "fused_last": 0.3929,
+        "fused_full_mean": 0.4541
+      },
+      "token_text": " is a subsidiary of a publisher of which nationality?\nAnswer: French<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4382,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Outlaw was released by a brand name, that is a subsidiary of a publisher of which nationality?",
+      "answer": "Outlaw was released by a subsidiary of a French publisher.",
+      "affect": {
+        "valence": 0.5797,
+        "arousal": 0.1755,
+        "uncertainty": 0.4657
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1052,
+        "logit_gap": 0.3462,
+        "attn_entropy": 0.6889,
+        "fused": 0.3647,
+        "fused_last": 0.4742,
+        "fused_full_mean": 0.4479
+      },
+      "token_text": " nationality?\nAnswer: Outlaw was released by a subsidiary of a French publisher.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4101,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "This voice actor stared as Hanna-Barbera's cartoon character Space Ghost in its American adult animated parody talk show?",
+      "answer": "George Edward Lowe",
+      "affect": {
+        "valence": 0.5164,
+        "arousal": 0.2165,
+        "uncertainty": 0.4716
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2156,
+        "logit_gap": 0.4533,
+        "attn_entropy": 0.5778,
+        "fused": 0.4075,
+        "fused_last": 0.4468,
+        "fused_full_mean": 0.4408
+      },
+      "token_text": " in its American adult animated parody talk show?\nAnswer: George Edward Lowe<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4364,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "This voice actor stared as Hanna-Barbera's cartoon character Space Ghost in its American adult animated parody talk show?",
+      "answer": "George Lewis starred as Space Ghost.",
+      "affect": {
+        "valence": 0.5367,
+        "arousal": 0.1948,
+        "uncertainty": 0.4773
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1833,
+        "logit_gap": 0.4384,
+        "attn_entropy": 0.5802,
+        "fused": 0.3916,
+        "fused_last": 0.4557,
+        "fused_full_mean": 0.4365
+      },
+      "token_text": " American adult animated parody talk show?\nAnswer: George Lewis starred as Space Ghost.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4301,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "From which city hails the American rapper and music producer Brad Terrence Jordan who put together the American hip hop group Facemob?",
+      "answer": "Houston",
+      "affect": {
+        "valence": 0.5129,
+        "arousal": 0.194,
+        "uncertainty": 0.4878
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2011,
+        "logit_gap": 0.4006,
+        "attn_entropy": 0.5635,
+        "fused": 0.3796,
+        "fused_last": 0.4265,
+        "fused_full_mean": 0.4296
+      },
+      "token_text": " who put together the American hip hop group Facemob?\nAnswer: Houston<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4283,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "From which city hails the American rapper and music producer Brad Terrence Jordan who put together the American hip hop group Facemob?",
+      "answer": "Dallas, Texas",
+      "affect": {
+        "valence": 0.4689,
+        "arousal": 0.1854,
+        "uncertainty": 0.478
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1811,
+        "logit_gap": 0.3751,
+        "attn_entropy": 0.5541,
+        "fused": 0.3609,
+        "fused_last": 0.4223,
+        "fused_full_mean": 0.4216
+      },
+      "token_text": " put together the American hip hop group Facemob?\nAnswer: Dallas, Texas<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4136,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which architect designed a church near President Grant's tomb?",
+      "answer": "Henry C. Pelton",
+      "affect": {
+        "valence": 0.5886,
+        "arousal": 0.2237,
+        "uncertainty": 0.476
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1999,
+        "logit_gap": 0.4234,
+        "attn_entropy": 0.6323,
+        "fused": 0.4079,
+        "fused_last": 0.5337,
+        "fused_full_mean": 0.4477
+      },
+      "token_text": " Grant's tomb?\nAnswer: Henry C. Pelton<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4385,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which architect designed a church near President Grant's tomb?",
+      "answer": "Henry C. Pelton designed an immigrant settlement.",
+      "affect": {
+        "valence": 0.6517,
+        "arousal": 0.1757,
+        "uncertainty": 0.4927
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2112,
+        "logit_gap": 0.3983,
+        "attn_entropy": 0.6518,
+        "fused": 0.4088,
+        "fused_last": 0.4615,
+        "fused_full_mean": 0.4521
+      },
+      "token_text": "?\nAnswer: Henry C. Pelton designed an immigrant settlement.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4466,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What singer, who originally sang a song included as the third single in Mel McDaniel's 1980 album \"I'm Countryfied\" had the nickname \"Gentle Giant\"?",
+      "answer": "Don Williams",
+      "affect": {
+        "valence": 0.0686,
+        "arousal": 0.1684,
+        "uncertainty": 0.46
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2238,
+        "logit_gap": 0.4417,
+        "attn_entropy": 0.598,
+        "fused": 0.4123,
+        "fused_last": 0.4124,
+        "fused_full_mean": 0.4438
+      },
+      "token_text": "I'm Countryfied\" had the nickname \"Gentle Giant\"?\nAnswer: Don Williams<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4338,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What singer, who originally sang a song included as the third single in Mel McDaniel's 1980 album \"I'm Countryfied\" had the nickname \"Gentle Giant\"?",
+      "answer": "The singer who had the nickname \"Gentle Giant\", originally sang \"Louisiana Saturday Night\" and was inducted into the Country Music Hall of Fame in 2010 was Kenny Chesney.",
+      "affect": {
+        "valence": 0.0283,
+        "arousal": 0.1996,
+        "uncertainty": 0.4399
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1215,
+        "logit_gap": 0.4289,
+        "attn_entropy": 0.6501,
+        "fused": 0.3877,
+        "fused_last": 0.386,
+        "fused_full_mean": 0.4301
+      },
+      "token_text": "le Giant\", originally sang \"Louisiana Saturday Night\" and was inducted into the Country Music Hall of Fame in 2010 was Kenny Chesney.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4112,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Alanna Noel Ubach (born October 3, 1975) is an American actress and singer of Puerto Rican and Mexican descent, she has provided voices for several characters in a number of animated television shows and movies, such as four characters in w",
+      "answer": "Rango",
+      "affect": {
+        "valence": 0.2196,
+        "arousal": 0.1554,
+        "uncertainty": 0.4583
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1748,
+        "logit_gap": 0.4583,
+        "attn_entropy": 0.6426,
+        "fused": 0.4144,
+        "fused_last": 0.4776,
+        "fused_full_mean": 0.4476
+      },
+      "token_text": " 2011 American 3D computer-animated Western action comedy film, an Oscar-winning animated film, directed by Gore Verbinski?\nAnswer: Rango<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4341,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Alanna Noel Ubach (born October 3, 1975) is an American actress and singer of Puerto Rican and Mexican descent, she has provided voices for several characters in a number of animated television shows and movies, such as four characters in w",
+      "answer": "Alanna Noel Ubach provided voices for only two characters in Rango.",
+      "affect": {
+        "valence": 0.1618,
+        "arousal": 0.1305,
+        "uncertainty": 0.4605
+      },
+      "uncertainty_signals": {
+        "entropy": 0.165,
+        "logit_gap": 0.4528,
+        "attn_entropy": 0.661,
+        "fused": 0.4145,
+        "fused_last": 0.509,
+        "fused_full_mean": 0.4459
+      },
+      "token_text": "ted Western action comedy film, an Oscar-winning animated film, directed by Gore Verbinski?\nAnswer: Alanna Noel Ubach provided voices for only two characters in Rango.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4352,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The Fabulous Country Music Sound of George Jones is the 1962 country music studio album, the album was Jones twelfth overall studio release, George Jones was an American country music singer-songwriter who released many successful albums, f",
+      "answer": "80's",
+      "affect": {
+        "valence": 0.3454,
+        "arousal": 0.1885,
+        "uncertainty": 0.4846
+      },
+      "uncertainty_signals": {
+        "entropy": 0.132,
+        "logit_gap": 0.411,
+        "attn_entropy": 0.5779,
+        "fused": 0.3634,
+        "fused_last": 0.4293,
+        "fused_full_mean": 0.4146
+      },
+      "token_text": " singer-songwriter who released many successful albums, from the 1960s through which era?\nAnswer: 80's<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4179,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The Fabulous Country Music Sound of George Jones is the 1962 country music studio album, the album was Jones twelfth overall studio release, George Jones was an American country music singer-songwriter who released many successful albums, f",
+      "answer": "The 1960s through 70's.",
+      "affect": {
+        "valence": 0.3557,
+        "arousal": 0.2174,
+        "uncertainty": 0.4901
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1092,
+        "logit_gap": 0.3798,
+        "attn_entropy": 0.5751,
+        "fused": 0.3436,
+        "fused_last": 0.4759,
+        "fused_full_mean": 0.4089
+      },
+      "token_text": " successful albums, from the 1960s through which era?\nAnswer: The 1960s through 70's.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4095,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Gina Philips will have a cameo appearance in the 2017 film written and directed by whom?",
+      "answer": "Victor Salva",
+      "affect": {
+        "valence": 0.5032,
+        "arousal": 0.2007,
+        "uncertainty": 0.4747
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1729,
+        "logit_gap": 0.4051,
+        "attn_entropy": 0.6417,
+        "fused": 0.3948,
+        "fused_last": 0.4228,
+        "fused_full_mean": 0.4376
+      },
+      "token_text": "17 film written and directed by whom?\nAnswer: Victor Salva<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4308,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Gina Philips will have a cameo appearance in the 2017 film written and directed by whom?",
+      "answer": "Gina Philips will cameo in an unreleased \"Scream\" film directed by Victor Salva.",
+      "affect": {
+        "valence": 0.5137,
+        "arousal": 0.1582,
+        "uncertainty": 0.4974
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2025,
+        "logit_gap": 0.4421,
+        "attn_entropy": 0.6592,
+        "fused": 0.4234,
+        "fused_last": 0.4885,
+        "fused_full_mean": 0.4406
+      },
+      "token_text": " Gina Philips will cameo in an unreleased \"Scream\" film directed by Victor Salva.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4567,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Ethan Tecumseh Vishniac (born 1955) is an American astrophysicist, his wife Ilene Busch-Vishniac, the ninth president of the University of Saskatchewan (2012-2014), was previously Dean of the Faculty of Engineering at which American entrepr",
+      "answer": "Johns Hopkins",
+      "affect": {
+        "valence": 0.2707,
+        "arousal": 0.2465,
+        "uncertainty": 0.4294
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1602,
+        "logit_gap": 0.4565,
+        "attn_entropy": 0.5992,
+        "fused": 0.3956,
+        "fused_last": 0.5222,
+        "fused_full_mean": 0.4231
+      },
+      "token_text": "reviously Dean of the Faculty of Engineering at which American entrepreneur, abolitionist and philanthropist of 19th-century Baltimore, Maryland?\nAnswer: Johns Hopkins<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4108,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Ethan Tecumseh Vishniac (born 1955) is an American astrophysicist, his wife Ilene Busch-Vishniac, the ninth president of the University of Saskatchewan (2012-2014), was previously Dean of the Faculty of Engineering at which American entrepr",
+      "answer": "Ilene Busch-Vishniac was previously the Dean of the Faculty of Engineering at Johns Hopkins, a world-renowned circus performer known for his daring stunts on the trapeze.",
+      "affect": {
+        "valence": 0.0765,
+        "arousal": 0.1998,
+        "uncertainty": 0.4591
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1303,
+        "logit_gap": 0.3854,
+        "attn_entropy": 0.5808,
+        "fused": 0.3547,
+        "fused_last": 0.5482,
+        "fused_full_mean": 0.4017
+      },
+      "token_text": "ne Busch-Vishniac was previously the Dean of the Faculty of Engineering at Johns Hopkins, a world-renowned circus performer known for his daring stunts on the trapeze.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4017,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who directed a 2015 Indian Tamil action comedy film with music from an Indian musical duo based in Chennai, Tamil Nadu?",
+      "answer": "Sundar C.",
+      "affect": {
+        "valence": 0.4137,
+        "arousal": 0.21,
+        "uncertainty": 0.4658
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1711,
+        "logit_gap": 0.4388,
+        "attn_entropy": 0.6402,
+        "fused": 0.4055,
+        "fused_last": 0.5039,
+        "fused_full_mean": 0.4386
+      },
+      "token_text": " Indian musical duo based in Chennai, Tamil Nadu?\nAnswer: Sundar C.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4326,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who directed a 2015 Indian Tamil action comedy film with music from an Indian musical duo based in Chennai, Tamil Nadu?",
+      "answer": "The Indian musical duo based in Chennai, Tamil Nadu directed a 2015 Tamil film.",
+      "affect": {
+        "valence": 0.2459,
+        "arousal": 0.2014,
+        "uncertainty": 0.5095
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0787,
+        "logit_gap": 0.2916,
+        "attn_entropy": 0.6794,
+        "fused": 0.3334,
+        "fused_last": 0.3842,
+        "fused_full_mean": 0.423
+      },
+      "token_text": ": The Indian musical duo based in Chennai, Tamil Nadu directed a 2015 Tamil film.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4126,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the stage name of the young female actress who starred in the 2008 American drama Gran Torino directed and produced by Clint Eastwood?",
+      "answer": "Ahney Her",
+      "affect": {
+        "valence": 0.4059,
+        "arousal": 0.1907,
+        "uncertainty": 0.5022
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1805,
+        "logit_gap": 0.4333,
+        "attn_entropy": 0.6524,
+        "fused": 0.4105,
+        "fused_last": 0.3345,
+        "fused_full_mean": 0.4337
+      },
+      "token_text": " drama Gran Torino directed and produced by Clint Eastwood?\nAnswer: Ahney Her<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4518,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the stage name of the young female actress who starred in the 2008 American drama Gran Torino directed and produced by Clint Eastwood?",
+      "answer": "The actress who starred in the 2008 movie directed by Clint Eastwood and co-starred Christopher Carley and Bee Vang is Whitney Cua Her.",
+      "affect": {
+        "valence": 0.3779,
+        "arousal": 0.2208,
+        "uncertainty": 0.4993
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1688,
+        "logit_gap": 0.397,
+        "attn_entropy": 0.5858,
+        "fused": 0.3738,
+        "fused_last": 0.483,
+        "fused_full_mean": 0.3944
+      },
+      "token_text": " 2008 movie directed by Clint Eastwood and co-starred Christopher Carley and Bee Vang is Whitney Cua Her.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4303,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What nationality is the singer of the song Love Crime ?",
+      "answer": "English",
+      "affect": {
+        "valence": 0.3661,
+        "arousal": 0.2364,
+        "uncertainty": 0.5264
+      },
+      "uncertainty_signals": {
+        "entropy": 0.16,
+        "logit_gap": 0.3595,
+        "attn_entropy": 0.6867,
+        "fused": 0.3878,
+        "fused_last": 0.3942,
+        "fused_full_mean": 0.4493
+      },
+      "token_text": " singer of the song Love Crime ?\nAnswer: English<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4502,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What nationality is the singer of the song Love Crime ?",
+      "answer": "Siouxsie Sioux is actually Welsh.",
+      "affect": {
+        "valence": 0.4675,
+        "arousal": 0.2796,
+        "uncertainty": 0.5146
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1678,
+        "logit_gap": 0.462,
+        "attn_entropy": 0.6763,
+        "fused": 0.4233,
+        "fused_last": 0.4922,
+        "fused_full_mean": 0.4575
+      },
+      "token_text": " ?\nAnswer: Siouxsie Sioux is actually Welsh.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4644,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who is the manufacturer of the skin care medicine in UK in which niacinamide vitamin is an active ingredient which is found in food?",
+      "answer": "Diomed Developments Limited",
+      "affect": {
+        "valence": 0.3353,
+        "arousal": 0.1683,
+        "uncertainty": 0.4643
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1803,
+        "logit_gap": 0.4221,
+        "attn_entropy": 0.6435,
+        "fused": 0.4039,
+        "fused_last": 0.5569,
+        "fused_full_mean": 0.4329
+      },
+      "token_text": " an active ingredient which is found in food?\nAnswer: Diomed Developments Limited<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4311,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who is the manufacturer of the skin care medicine in UK in which niacinamide vitamin is an active ingredient which is found in food?",
+      "answer": "The skin care medicine in the UK with niacinamide is manufactured by a different company.",
+      "affect": {
+        "valence": 0.4581,
+        "arousal": 0.1844,
+        "uncertainty": 0.4796
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1223,
+        "logit_gap": 0.3807,
+        "attn_entropy": 0.6817,
+        "fused": 0.3805,
+        "fused_last": 0.5425,
+        "fused_full_mean": 0.4292
+      },
+      "token_text": "?\nAnswer: The skin care medicine in the UK with niacinamide is manufactured by a different company.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4251,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The 2010 FA Community Shield had a goal by the right wing player who is of which nationality?",
+      "answer": "Ecuadorian",
+      "affect": {
+        "valence": 0.4986,
+        "arousal": 0.1744,
+        "uncertainty": 0.5371
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1775,
+        "logit_gap": 0.4133,
+        "attn_entropy": 0.665,
+        "fused": 0.4063,
+        "fused_last": 0.352,
+        "fused_full_mean": 0.4419
+      },
+      "token_text": " the right wing player who is of which nationality?\nAnswer: Ecuadorian<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4652,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The 2010 FA Community Shield had a goal by the right wing player who is of which nationality?",
+      "answer": "The 2010 FA Community Shield had a goal by the left winger who is of Mexican nationality.",
+      "affect": {
+        "valence": 0.5748,
+        "arousal": 0.1551,
+        "uncertainty": 0.5065
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0582,
+        "logit_gap": 0.2712,
+        "attn_entropy": 0.6689,
+        "fused": 0.316,
+        "fused_last": 0.5531,
+        "fused_full_mean": 0.4141
+      },
+      "token_text": " 2010 FA Community Shield had a goal by the left winger who is of Mexican nationality.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4017,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What editor-in-chief of Church History graduateed from an American public land-grant, sea-grant, and space grant research university in Gainesville, Florida?",
+      "answer": "Jon Sensbach",
+      "affect": {
+        "valence": 0.4746,
+        "arousal": 0.1618,
+        "uncertainty": 0.4943
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1598,
+        "logit_gap": 0.4227,
+        "attn_entropy": 0.5825,
+        "fused": 0.3786,
+        "fused_last": 0.3341,
+        "fused_full_mean": 0.4135
+      },
+      "token_text": ", and space grant research university in Gainesville, Florida?\nAnswer: Jon Sensbach<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4306,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What editor-in-chief of Church History graduateed from an American public land-grant, sea-grant, and space grant research university in Gainesville, Florida?",
+      "answer": "Dana Robert graduated from the University of Florida.",
+      "affect": {
+        "valence": 0.3314,
+        "arousal": 0.1339,
+        "uncertainty": 0.4963
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1495,
+        "logit_gap": 0.3623,
+        "attn_entropy": 0.6488,
+        "fused": 0.3738,
+        "fused_last": 0.4082,
+        "fused_full_mean": 0.4241
+      },
+      "token_text": " research university in Gainesville, Florida?\nAnswer: Dana Robert graduated from the University of Florida.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4289,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who completed more books in their lifetime, Anne Frank or John Kennedy Toole?",
+      "answer": "John Kennedy Toole",
+      "affect": {
+        "valence": 0.3389,
+        "arousal": 0.3192,
+        "uncertainty": 0.5011
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1628,
+        "logit_gap": 0.3762,
+        "attn_entropy": 0.6358,
+        "fused": 0.3794,
+        "fused_last": 0.3679,
+        "fused_full_mean": 0.4361
+      },
+      "token_text": " or John Kennedy Toole?\nAnswer: John Kennedy Toole<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4342,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who completed more books in their lifetime, Anne Frank or John Kennedy Toole?",
+      "answer": "Anne Frank completed more books.",
+      "affect": {
+        "valence": 0.3757,
+        "arousal": 0.3028,
+        "uncertainty": 0.516
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1511,
+        "logit_gap": 0.3691,
+        "attn_entropy": 0.6338,
+        "fused": 0.3722,
+        "fused_last": 0.5235,
+        "fused_full_mean": 0.4355
+      },
+      "token_text": " John Kennedy Toole?\nAnswer: Anne Frank completed more books.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4369,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Olivia Newton-John's song Magic was displaced from the top by Sailing, which is by what American singer-songwriter from San Antonio, Texas?",
+      "answer": "Christopher Cross",
+      "affect": {
+        "valence": 0.3797,
+        "arousal": 0.1986,
+        "uncertainty": 0.4883
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1474,
+        "logit_gap": 0.3644,
+        "attn_entropy": 0.5575,
+        "fused": 0.3464,
+        "fused_last": 0.3058,
+        "fused_full_mean": 0.4193
+      },
+      "token_text": " by what American singer-songwriter from San Antonio, Texas?\nAnswer: Christopher Cross<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4102,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Olivia Newton-John's song Magic was displaced from the top by Sailing, which is by what American singer-songwriter from San Antonio, Texas?",
+      "answer": "Olivia Newton-John's song Magic was displaced from the top by American singer-songwriter Christopher Cross, who won five Grammy Awards.",
+      "affect": {
+        "valence": 0.3259,
+        "arousal": 0.1531,
+        "uncertainty": 0.5013
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0835,
+        "logit_gap": 0.3344,
+        "attn_entropy": 0.5879,
+        "fused": 0.3226,
+        "fused_last": 0.3517,
+        "fused_full_mean": 0.4024
+      },
+      "token_text": "-John's song Magic was displaced from the top by American singer-songwriter Christopher Cross, who won five Grammy Awards.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.403,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The Concerns of a Citizen was written by which Republican party politician?",
+      "answer": "George Wilcken Romney",
+      "affect": {
+        "valence": 0.5411,
+        "arousal": 0.2017,
+        "uncertainty": 0.5097
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1625,
+        "logit_gap": 0.3922,
+        "attn_entropy": 0.6531,
+        "fused": 0.3901,
+        "fused_last": 0.5059,
+        "fused_full_mean": 0.4476
+      },
+      "token_text": " by which Republican party politician?\nAnswer: George Wilcken Romney<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4439,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The Concerns of a Citizen was written by which Republican party politician?",
+      "answer": "The Concerns of a Citizen was written by George W. Bush.",
+      "affect": {
+        "valence": 0.4409,
+        "arousal": 0.2092,
+        "uncertainty": 0.5065
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0881,
+        "logit_gap": 0.2833,
+        "attn_entropy": 0.6675,
+        "fused": 0.3302,
+        "fused_last": 0.5464,
+        "fused_full_mean": 0.4287
+      },
+      "token_text": ": The Concerns of a Citizen was written by George W. Bush.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4095,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What country was the businessman who founded an American hip hop apparel company?",
+      "answer": "American",
+      "affect": {
+        "valence": 0.4656,
+        "arousal": 0.2172,
+        "uncertainty": 0.5434
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1785,
+        "logit_gap": 0.4485,
+        "attn_entropy": 0.6842,
+        "fused": 0.4247,
+        "fused_last": 0.4161,
+        "fused_full_mean": 0.4651
+      },
+      "token_text": " founded an American hip hop apparel company?\nAnswer: American<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4781,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What country was the businessman who founded an American hip hop apparel company?",
+      "answer": "Daymond Garfield John, who is a famous and successful businessman, founded an American hip hop apparel company.",
+      "affect": {
+        "valence": 0.6142,
+        "arousal": 0.2449,
+        "uncertainty": 0.5618
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1321,
+        "logit_gap": 0.3884,
+        "attn_entropy": 0.6742,
+        "fused": 0.3844,
+        "fused_last": 0.4157,
+        "fused_full_mean": 0.4451
+      },
+      "token_text": " John, who is a famous and successful businessman, founded an American hip hop apparel company.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4642,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What year did the actor who played Wojo on Barney Miller star in a Joseph Sargent film?",
+      "answer": "1992",
+      "affect": {
+        "valence": 0.4112,
+        "arousal": 0.2401,
+        "uncertainty": 0.5207
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1578,
+        "logit_gap": 0.4945,
+        "attn_entropy": 0.6738,
+        "fused": 0.4304,
+        "fused_last": 0.405,
+        "fused_full_mean": 0.4622
+      },
+      "token_text": " in a Joseph Sargent film?\nAnswer: 1992<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4711,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What year did the actor who played Wojo on Barney Miller star in a Joseph Sargent film?",
+      "answer": "The year the actor starred in a Joseph Sargent film was 1994.",
+      "affect": {
+        "valence": 0.5275,
+        "arousal": 0.2066,
+        "uncertainty": 0.5021
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0731,
+        "logit_gap": 0.3877,
+        "attn_entropy": 0.6745,
+        "fused": 0.3636,
+        "fused_last": 0.5572,
+        "fused_full_mean": 0.4431
+      },
+      "token_text": " The year the actor starred in a Joseph Sargent film was 1994.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4259,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which is the progenitor of the dingo, the Indian pariah dog or the Anglo-Fran\u00e7ais de Petite V\u00e9nerie?",
+      "answer": "Indian pariah dog",
+      "affect": {
+        "valence": 0.3717,
+        "arousal": 0.2793,
+        "uncertainty": 0.4481
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1457,
+        "logit_gap": 0.383,
+        "attn_entropy": 0.6215,
+        "fused": 0.3715,
+        "fused_last": 0.3039,
+        "fused_full_mean": 0.436
+      },
+      "token_text": "-Fran\u00e7ais de Petite V\u00e9nerie?\nAnswer: Indian pariah dog<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.406,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which is the progenitor of the dingo, the Indian pariah dog or the Anglo-Fran\u00e7ais de Petite V\u00e9nerie?",
+      "answer": "The Anglo-Fran\u00e7ais de Petite V\u00e9nerie is the progenitor of the dingo.",
+      "affect": {
+        "valence": 0.4246,
+        "arousal": 0.2693,
+        "uncertainty": 0.4583
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0385,
+        "logit_gap": 0.2247,
+        "attn_entropy": 0.6569,
+        "fused": 0.2892,
+        "fused_last": 0.3734,
+        "fused_full_mean": 0.4141
+      },
+      "token_text": ": The Anglo-Fran\u00e7ais de Petite V\u00e9nerie is the progenitor of the dingo.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3653,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Led by coach Richard Pitino, the 2012\u201313 FIU Panthers men's basketball team played their home games at which arena?",
+      "answer": "U.S. Century Bank Arena",
+      "affect": {
+        "valence": 0.3412,
+        "arousal": 0.1892,
+        "uncertainty": 0.5034
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1643,
+        "logit_gap": 0.3627,
+        "attn_entropy": 0.6401,
+        "fused": 0.3765,
+        "fused_last": 0.3552,
+        "fused_full_mean": 0.4303
+      },
+      "token_text": " basketball team played their home games at which arena?\nAnswer: U.S. Century Bank Arena<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4336,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Led by coach Richard Pitino, the 2012\u201313 FIU Panthers men's basketball team played their home games at which arena?",
+      "answer": "The Panthers played at Golden Gopher Arena.",
+      "affect": {
+        "valence": 0.3226,
+        "arousal": 0.1766,
+        "uncertainty": 0.5031
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1889,
+        "logit_gap": 0.3969,
+        "attn_entropy": 0.6262,
+        "fused": 0.3929,
+        "fused_last": 0.3912,
+        "fused_full_mean": 0.4301
+      },
+      "token_text": " played their home games at which arena?\nAnswer: The Panthers played at Golden Gopher Arena.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4425,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which virus that causes respiratory problems and is being studied in laboratories in big cities around the globe was discovered by a former President of the Chinese Medical Association?",
+      "answer": "SARS coronavirus",
+      "affect": {
+        "valence": 0.4105,
+        "arousal": 0.2221,
+        "uncertainty": 0.4621
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1679,
+        "logit_gap": 0.3777,
+        "attn_entropy": 0.6772,
+        "fused": 0.3942,
+        "fused_last": 0.5142,
+        "fused_full_mean": 0.4499
+      },
+      "token_text": " was discovered by a former President of the Chinese Medical Association?\nAnswer: SARS coronavirus<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4248,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which virus that causes respiratory problems and is being studied in laboratories in big cities around the globe was discovered by a former President of the Chinese Medical Association?",
+      "answer": "The MERS coronavirus was discovered by a former President of the Chinese Medical Association.",
+      "affect": {
+        "valence": 0.4741,
+        "arousal": 0.2122,
+        "uncertainty": 0.4673
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1008,
+        "logit_gap": 0.3448,
+        "attn_entropy": 0.693,
+        "fused": 0.3639,
+        "fused_last": 0.5775,
+        "fused_full_mean": 0.4413
+      },
+      "token_text": " Medical Association?\nAnswer: The MERS coronavirus was discovered by a former President of the Chinese Medical Association.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4104,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who is the oldest of Odessa Grady Clay's two sons?",
+      "answer": "Muhammad Ali",
+      "affect": {
+        "valence": 0.351,
+        "arousal": 0.21,
+        "uncertainty": 0.4572
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2144,
+        "logit_gap": 0.4699,
+        "attn_entropy": 0.6142,
+        "fused": 0.4238,
+        "fused_last": 0.4274,
+        "fused_full_mean": 0.4437
+      },
+      "token_text": " Grady Clay's two sons?\nAnswer: Muhammad Ali<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4388,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who is the oldest of Odessa Grady Clay's two sons?",
+      "answer": "Odessa Grady Clay had only two sons.",
+      "affect": {
+        "valence": 0.4668,
+        "arousal": 0.2056,
+        "uncertainty": 0.5004
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1141,
+        "logit_gap": 0.4049,
+        "attn_entropy": 0.629,
+        "fused": 0.3703,
+        "fused_last": 0.6065,
+        "fused_full_mean": 0.4359
+      },
+      "token_text": " sons?\nAnswer: Odessa Grady Clay had only two sons.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4288,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the name of this South Korean musician, singer-songwriter, record producer and actor in the rock band CNBLUE, who wrote the song You, My Star?",
+      "answer": "Jung Yong-hwa",
+      "affect": {
+        "valence": 0.2567,
+        "arousal": 0.2468,
+        "uncertainty": 0.4685
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2104,
+        "logit_gap": 0.4992,
+        "attn_entropy": 0.6696,
+        "fused": 0.4492,
+        "fused_last": 0.4975,
+        "fused_full_mean": 0.4451
+      },
+      "token_text": " CNBLUE, who wrote the song You, My Star?\nAnswer: Jung Yong-hwa<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4579,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the name of this South Korean musician, singer-songwriter, record producer and actor in the rock band CNBLUE, who wrote the song You, My Star?",
+      "answer": "Jung Yong-hwa, the talented artist.",
+      "affect": {
+        "valence": 0.5644,
+        "arousal": 0.2197,
+        "uncertainty": 0.4961
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2097,
+        "logit_gap": 0.4745,
+        "attn_entropy": 0.6811,
+        "fused": 0.4438,
+        "fused_last": 0.4063,
+        "fused_full_mean": 0.4492
+      },
+      "token_text": " who wrote the song You, My Star?\nAnswer: Jung Yong-hwa, the talented artist.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4673,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who Killed Nelson Nutmeg? starred the actress who played what role in the Harry Potter series?",
+      "answer": "Ginny Weasley",
+      "affect": {
+        "valence": 0.4902,
+        "arousal": 0.2704,
+        "uncertainty": 0.4983
+      },
+      "uncertainty_signals": {
+        "entropy": 0.128,
+        "logit_gap": 0.4218,
+        "attn_entropy": 0.6695,
+        "fused": 0.3933,
+        "fused_last": 0.466,
+        "fused_full_mean": 0.4386
+      },
+      "token_text": " what role in the Harry Potter series?\nAnswer: Ginny Weasley<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4406,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who Killed Nelson Nutmeg? starred the actress who played what role in the Harry Potter series?",
+      "answer": "Bonnie Wright was one of the cast members of Who Killed Nelson Nutmeg?",
+      "affect": {
+        "valence": 0.5765,
+        "arousal": 0.2212,
+        "uncertainty": 0.4869
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1192,
+        "logit_gap": 0.3676,
+        "attn_entropy": 0.6416,
+        "fused": 0.3629,
+        "fused_last": 0.4204,
+        "fused_full_mean": 0.4232
+      },
+      "token_text": "Answer: Bonnie Wright was one of the cast members of Who Killed Nelson Nutmeg?<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4187,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What team does Magnus Christensen play for that is located in Aalborg?",
+      "answer": "AaB Fodbold",
+      "affect": {
+        "valence": 0.4876,
+        "arousal": 0.1495,
+        "uncertainty": 0.4745
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2321,
+        "logit_gap": 0.4474,
+        "attn_entropy": 0.6001,
+        "fused": 0.4178,
+        "fused_last": 0.468,
+        "fused_full_mean": 0.4455
+      },
+      "token_text": " located in Aalborg?\nAnswer: AaB Fodbold<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4433,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What team does Magnus Christensen play for that is located in Aalborg?",
+      "answer": "Magnus Christensen plays for AaB.",
+      "affect": {
+        "valence": 0.6569,
+        "arousal": 0.1669,
+        "uncertainty": 0.5023
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1707,
+        "logit_gap": 0.371,
+        "attn_entropy": 0.6316,
+        "fused": 0.3791,
+        "fused_last": 0.5718,
+        "fused_full_mean": 0.4371
+      },
+      "token_text": " Aalborg?\nAnswer: Magnus Christensen plays for AaB.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4345,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "what is the Financial Training Center limited (FTC) known for? what is a example of processing, and communication of Financial Information?",
+      "answer": "Accounting",
+      "affect": {
+        "valence": 0.6597,
+        "arousal": 0.2886,
+        "uncertainty": 0.5138
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2193,
+        "logit_gap": 0.446,
+        "attn_entropy": 0.6808,
+        "fused": 0.4371,
+        "fused_last": 0.3751,
+        "fused_full_mean": 0.4599
+      },
+      "token_text": " is a example of processing, and communication of Financial Information?\nAnswer: Accounting<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4716,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "what is the Financial Training Center limited (FTC) known for? what is a example of processing, and communication of Financial Information?",
+      "answer": "FTC is known for catering good food. Processing: cooking. Communication: sharing recipes.",
+      "affect": {
+        "valence": 0.6406,
+        "arousal": 0.2578,
+        "uncertainty": 0.4755
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1902,
+        "logit_gap": 0.4615,
+        "attn_entropy": 0.6749,
+        "fused": 0.4306,
+        "fused_last": 0.3911,
+        "fused_full_mean": 0.4581
+      },
+      "token_text": "?\nAnswer: FTC is known for catering good food. Processing: cooking. Communication: sharing recipes.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4508,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Jess Weixler starred in what comedy-horror film directed by Mitchell Lichtenstein?",
+      "answer": "Teeth",
+      "affect": {
+        "valence": 0.3951,
+        "arousal": 0.1562,
+        "uncertainty": 0.4981
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1806,
+        "logit_gap": 0.4121,
+        "attn_entropy": 0.6071,
+        "fused": 0.3896,
+        "fused_last": 0.4616,
+        "fused_full_mean": 0.43
+      },
+      "token_text": "ror film directed by Mitchell Lichtenstein?\nAnswer: Teeth<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4384,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Jess Weixler starred in what comedy-horror film directed by Mitchell Lichtenstein?",
+      "answer": "Jess Weixler was in \"The Blair Witch Project\".",
+      "affect": {
+        "valence": 0.4493,
+        "arousal": 0.1948,
+        "uncertainty": 0.4828
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1439,
+        "logit_gap": 0.3274,
+        "attn_entropy": 0.6475,
+        "fused": 0.3592,
+        "fused_last": 0.4989,
+        "fused_full_mean": 0.4268
+      },
+      "token_text": "stein?\nAnswer: Jess Weixler was in \"The Blair Witch Project\".<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4148,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Kerrygold Irish Cream Liqueur is owned by a company that mainly sells what type or product?",
+      "answer": "dairy products",
+      "affect": {
+        "valence": 0.5268,
+        "arousal": 0.1878,
+        "uncertainty": 0.4907
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1489,
+        "logit_gap": 0.4093,
+        "attn_entropy": 0.6568,
+        "fused": 0.3924,
+        "fused_last": 0.3739,
+        "fused_full_mean": 0.4538
+      },
+      "token_text": " company that mainly sells what type or product?\nAnswer: dairy products<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4367,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Kerrygold Irish Cream Liqueur is owned by a company that mainly sells what type or product?",
+      "answer": "Kerrygold Irish Cream Liqueur is owned by a company that mainly sells agricultural products.",
+      "affect": {
+        "valence": 0.5042,
+        "arousal": 0.1612,
+        "uncertainty": 0.5106
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0617,
+        "logit_gap": 0.2606,
+        "attn_entropy": 0.6647,
+        "fused": 0.3122,
+        "fused_last": 0.4223,
+        "fused_full_mean": 0.4257
+      },
+      "token_text": " Kerrygold Irish Cream Liqueur is owned by a company that mainly sells agricultural products.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4015,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The Troelfth Cake, is a 1773 French allegory and satire on which event that took place in 1772 as the first of three partitions that ended the existence of the Polish-Lithuanian Commonwealth by 1795?",
+      "answer": "First Partition of Poland",
+      "affect": {
+        "valence": 0.2454,
+        "arousal": 0.1845,
+        "uncertainty": 0.4383
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1178,
+        "logit_gap": 0.3611,
+        "attn_entropy": 0.6092,
+        "fused": 0.3504,
+        "fused_last": 0.272,
+        "fused_full_mean": 0.4214
+      },
+      "token_text": " that ended the existence of the Polish-Lithuanian Commonwealth by 1795?\nAnswer: First Partition of Poland<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.39,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The Troelfth Cake, is a 1773 French allegory and satire on which event that took place in 1772 as the first of three partitions that ended the existence of the Polish-Lithuanian Commonwealth by 1795?",
+      "answer": "Troelfth Cake is a 1773 French allegory and satire on Polish royalty.",
+      "affect": {
+        "valence": 0.4362,
+        "arousal": 0.2287,
+        "uncertainty": 0.4675
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1085,
+        "logit_gap": 0.3466,
+        "attn_entropy": 0.6155,
+        "fused": 0.3439,
+        "fused_last": 0.4437,
+        "fused_full_mean": 0.4101
+      },
+      "token_text": "ian Commonwealth by 1795?\nAnswer: Troelfth Cake is a 1773 French allegory and satire on Polish royalty.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3995,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "In what city was the Rastelli procedure was developed?",
+      "answer": "Rochester, Minnesota",
+      "affect": {
+        "valence": 0.5233,
+        "arousal": 0.1994,
+        "uncertainty": 0.4962
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1498,
+        "logit_gap": 0.3695,
+        "attn_entropy": 0.6813,
+        "fused": 0.3861,
+        "fused_last": 0.3214,
+        "fused_full_mean": 0.4524
+      },
+      "token_text": "astelli procedure was developed?\nAnswer: Rochester, Minnesota<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4356,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "In what city was the Rastelli procedure was developed?",
+      "answer": "The Rastelli procedure was developed in Italy, not in Rochester, Minnesota.",
+      "affect": {
+        "valence": 0.5615,
+        "arousal": 0.2166,
+        "uncertainty": 0.4804
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1005,
+        "logit_gap": 0.3627,
+        "attn_entropy": 0.6895,
+        "fused": 0.369,
+        "fused_last": 0.5012,
+        "fused_full_mean": 0.4465
+      },
+      "token_text": " Rastelli procedure was developed in Italy, not in Rochester, Minnesota.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4191,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Do the Bully Kutta and Chinese Chongqing Dog breeds originate from the same region?",
+      "answer": "no",
+      "affect": {
+        "valence": 0.3039,
+        "arousal": 0.2264,
+        "uncertainty": 0.4908
+      },
+      "uncertainty_signals": {
+        "entropy": 0.171,
+        "logit_gap": 0.3815,
+        "attn_entropy": 0.6649,
+        "fused": 0.3929,
+        "fused_last": 0.4371,
+        "fused_full_mean": 0.4653
+      },
+      "token_text": "qing Dog breeds originate from the same region?\nAnswer: no<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.437,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Do the Bully Kutta and Chinese Chongqing Dog breeds originate from the same region?",
+      "answer": "Yes, the Bully Kutta and Chinese Chongqing Dog breeds originated from a neighboring region.",
+      "affect": {
+        "valence": 0.5746,
+        "arousal": 0.2217,
+        "uncertainty": 0.488
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0622,
+        "logit_gap": 0.3275,
+        "attn_entropy": 0.6894,
+        "fused": 0.3432,
+        "fused_last": 0.4307,
+        "fused_full_mean": 0.4417
+      },
+      "token_text": ", the Bully Kutta and Chinese Chongqing Dog breeds originated from a neighboring region.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4083,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which American actor, performance artist, and filmmaker directed  an American short slasher film That was released on October 31, 2011?",
+      "answer": "Shia LaBeouf",
+      "affect": {
+        "valence": 0.4524,
+        "arousal": 0.2114,
+        "uncertainty": 0.4479
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0948,
+        "logit_gap": 0.3975,
+        "attn_entropy": 0.6351,
+        "fused": 0.3628,
+        "fused_last": 0.3665,
+        "fused_full_mean": 0.4328
+      },
+      "token_text": " October 31, 2011?\nAnswer: Shia LaBeouf<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4011,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which American actor, performance artist, and filmmaker directed  an American short slasher film That was released on October 31, 2011?",
+      "answer": "Timothy Olyphant directed Maniac.",
+      "affect": {
+        "valence": 0.4585,
+        "arousal": 0.1753,
+        "uncertainty": 0.4431
+      },
+      "uncertainty_signals": {
+        "entropy": 0.132,
+        "logit_gap": 0.4504,
+        "attn_entropy": 0.6191,
+        "fused": 0.3895,
+        "fused_last": 0.4755,
+        "fused_full_mean": 0.4359
+      },
+      "token_text": "31, 2011?\nAnswer: Timothy Olyphant directed Maniac.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4136,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What goalkeeper participated in a football game for the premiere of A Trip to Jamaica?",
+      "answer": "Peter Rufai",
+      "affect": {
+        "valence": 0.4777,
+        "arousal": 0.2057,
+        "uncertainty": 0.519
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1685,
+        "logit_gap": 0.3732,
+        "attn_entropy": 0.5837,
+        "fused": 0.3647,
+        "fused_last": 0.3865,
+        "fused_full_mean": 0.4163
+      },
+      "token_text": " premiere of A Trip to Jamaica?\nAnswer: Peter Rufai<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4342,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What goalkeeper participated in a football game for the premiere of A Trip to Jamaica?",
+      "answer": "Joseph Yobo was the goalkeeper.",
+      "affect": {
+        "valence": 0.6066,
+        "arousal": 0.1684,
+        "uncertainty": 0.5245
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1696,
+        "logit_gap": 0.398,
+        "attn_entropy": 0.6237,
+        "fused": 0.3858,
+        "fused_last": 0.5925,
+        "fused_full_mean": 0.4316
+      },
+      "token_text": " Trip to Jamaica?\nAnswer: Joseph Yobo was the goalkeeper.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4482,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who's nonviolent activism inspired the man who C.T. Vivian was lieutenant to during the Civil Rights Movement?",
+      "answer": "Mahatma Gandhi",
+      "affect": {
+        "valence": 0.4342,
+        "arousal": 0.2286,
+        "uncertainty": 0.4913
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1469,
+        "logit_gap": 0.4414,
+        "attn_entropy": 0.6286,
+        "fused": 0.3945,
+        "fused_last": 0.5628,
+        "fused_full_mean": 0.4426
+      },
+      "token_text": " was lieutenant to during the Civil Rights Movement?\nAnswer: Mahatma Gandhi<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4381,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who's nonviolent activism inspired the man who C.T. Vivian was lieutenant to during the Civil Rights Movement?",
+      "answer": "The man that C.T. Vivian was lieutenant to during the Civil Rights Movement was inspired by John F. Kennedy.",
+      "affect": {
+        "valence": 0.3566,
+        "arousal": 0.2102,
+        "uncertainty": 0.5099
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0544,
+        "logit_gap": 0.2969,
+        "attn_entropy": 0.657,
+        "fused": 0.3201,
+        "fused_last": 0.3406,
+        "fused_full_mean": 0.4258
+      },
+      "token_text": " C.T. Vivian was lieutenant to during the Civil Rights Movement was inspired by John F. Kennedy.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4055,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the capital of the region of Italy in which San Raimondo is loacted?",
+      "answer": "Florence",
+      "affect": {
+        "valence": 0.3516,
+        "arousal": 0.1824,
+        "uncertainty": 0.4525
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1326,
+        "logit_gap": 0.4342,
+        "attn_entropy": 0.6099,
+        "fused": 0.3814,
+        "fused_last": 0.412,
+        "fused_full_mean": 0.4352
+      },
+      "token_text": " which San Raimondo is loacted?\nAnswer: Florence<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4134,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the capital of the region of Italy in which San Raimondo is loacted?",
+      "answer": "Rome is the capital of the region in which San Raimondo is located.",
+      "affect": {
+        "valence": 0.4544,
+        "arousal": 0.1496,
+        "uncertainty": 0.4595
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0557,
+        "logit_gap": 0.3309,
+        "attn_entropy": 0.651,
+        "fused": 0.3306,
+        "fused_last": 0.5251,
+        "fused_full_mean": 0.4204
+      },
+      "token_text": ": Rome is the capital of the region in which San Raimondo is located.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3886,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Move Under Ground combines the cosmic horror of H.P. Lovecraft's Cthulhu Mythos with the Beat style of an American novelist and poet who was born when?",
+      "answer": "March 12, 1922",
+      "affect": {
+        "valence": 0.1009,
+        "arousal": 0.1863,
+        "uncertainty": 0.48
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1384,
+        "logit_gap": 0.4438,
+        "attn_entropy": 0.6204,
+        "fused": 0.3899,
+        "fused_last": 0.4729,
+        "fused_full_mean": 0.4235
+      },
+      "token_text": " American novelist and poet who was born when?\nAnswer: March 12, 1922<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4304,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Move Under Ground combines the cosmic horror of H.P. Lovecraft's Cthulhu Mythos with the Beat style of an American novelist and poet who was born when?",
+      "answer": "Move Under Ground combines the cosmic horror of H.P. Lovecraft's Cthulhu Mythos with the Beat style of an American novelist and poet who was born in the 1920s.",
+      "affect": {
+        "valence": 0.0466,
+        "arousal": 0.141,
+        "uncertainty": 0.5254
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0302,
+        "logit_gap": 0.2127,
+        "attn_entropy": 0.6171,
+        "fused": 0.2702,
+        "fused_last": 0.3289,
+        "fused_full_mean": 0.3702
+      },
+      "token_text": " Lovecraft's Cthulhu Mythos with the Beat style of an American novelist and poet who was born in the 1920s.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.385,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What was the nationality of the man who inspired the experimental work of the inventor of Moseley's law",
+      "answer": "Dutch",
+      "affect": {
+        "valence": 0.5763,
+        "arousal": 0.1613,
+        "uncertainty": 0.5204
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2113,
+        "logit_gap": 0.3445,
+        "attn_entropy": 0.6866,
+        "fused": 0.4005,
+        "fused_last": 0.388,
+        "fused_full_mean": 0.4485
+      },
+      "token_text": " of the inventor of Moseley's law\nAnswer: Dutch<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4544,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What was the nationality of the man who inspired the experimental work of the inventor of Moseley's law",
+      "answer": "The man who inspired Moseley's law was from the Netherlands.",
+      "affect": {
+        "valence": 0.6152,
+        "arousal": 0.1894,
+        "uncertainty": 0.5427
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1131,
+        "logit_gap": 0.3309,
+        "attn_entropy": 0.707,
+        "fused": 0.3675,
+        "fused_last": 0.5706,
+        "fused_full_mean": 0.4411
+      },
+      "token_text": " law\nAnswer: The man who inspired Moseley's law was from the Netherlands.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4464,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who founded both the Sapling Foundation and Future Publishing?",
+      "answer": "Chris Anderson",
+      "affect": {
+        "valence": 0.5269,
+        "arousal": 0.2597,
+        "uncertainty": 0.4858
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1917,
+        "logit_gap": 0.3231,
+        "attn_entropy": 0.6078,
+        "fused": 0.3625,
+        "fused_last": 0.3336,
+        "fused_full_mean": 0.4289
+      },
+      "token_text": "ling Foundation and Future Publishing?\nAnswer: Chris Anderson<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.418,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who founded both the Sapling Foundation and Future Publishing?",
+      "answer": "Both companies were co-founded by Chris Anderson.",
+      "affect": {
+        "valence": 0.6297,
+        "arousal": 0.2297,
+        "uncertainty": 0.4781
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1615,
+        "logit_gap": 0.3563,
+        "attn_entropy": 0.6354,
+        "fused": 0.3719,
+        "fused_last": 0.3756,
+        "fused_full_mean": 0.4325
+      },
+      "token_text": "?\nAnswer: Both companies were co-founded by Chris Anderson.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4197,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What actress appeared on \"The Sing-Off\" before her role in the film directed and co-produced by Elizabeth Banks?",
+      "answer": "Kelley Jakle",
+      "affect": {
+        "valence": 0.5798,
+        "arousal": 0.2332,
+        "uncertainty": 0.5247
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1911,
+        "logit_gap": 0.4212,
+        "attn_entropy": 0.5706,
+        "fused": 0.3855,
+        "fused_last": 0.4797,
+        "fused_full_mean": 0.4195
+      },
+      "token_text": " the film directed and co-produced by Elizabeth Banks?\nAnswer: Kelley Jakle<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4481,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What actress appeared on \"The Sing-Off\" before her role in the film directed and co-produced by Elizabeth Banks?",
+      "answer": "The actress who appeared on \"The Sing-Off\" before her role in the film directed and co-produced by Elizabeth Banks is Alexis Knapp.",
+      "affect": {
+        "valence": 0.5926,
+        "arousal": 0.2108,
+        "uncertainty": 0.5271
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0666,
+        "logit_gap": 0.2391,
+        "attn_entropy": 0.5919,
+        "fused": 0.2845,
+        "fused_last": 0.4914,
+        "fused_full_mean": 0.3765
+      },
+      "token_text": "The Sing-Off\" before her role in the film directed and co-produced by Elizabeth Banks is Alexis Knapp.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3937,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Leslie Casson was professor of English Language and Medieval Literature at a university founded in which year ?",
+      "answer": "1829",
+      "affect": {
+        "valence": 0.369,
+        "arousal": 0.2656,
+        "uncertainty": 0.4884
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1182,
+        "logit_gap": 0.4207,
+        "attn_entropy": 0.6046,
+        "fused": 0.37,
+        "fused_last": 0.3529,
+        "fused_full_mean": 0.4313
+      },
+      "token_text": " a university founded in which year ?\nAnswer: 1829<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4233,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Leslie Casson was professor of English Language and Medieval Literature at a university founded in which year ?",
+      "answer": "Leslie Casson was a professor of English Language and Medieval Literature at University of Cape Town, which was founded in 1852.",
+      "affect": {
+        "valence": 0.3711,
+        "arousal": 0.1571,
+        "uncertainty": 0.5155
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0792,
+        "logit_gap": 0.3923,
+        "attn_entropy": 0.6253,
+        "fused": 0.3526,
+        "fused_last": 0.5915,
+        "fused_full_mean": 0.407
+      },
+      "token_text": " English Language and Medieval Literature at University of Cape Town, which was founded in 1852.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4259,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The Chandrasekhar limit was named after an astrophysicist, what is the name of his uncle of which is also a novel laureate?",
+      "answer": "Sir C. V. Raman",
+      "affect": {
+        "valence": 0.3558,
+        "arousal": 0.1945,
+        "uncertainty": 0.471
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1749,
+        "logit_gap": 0.428,
+        "attn_entropy": 0.6225,
+        "fused": 0.3978,
+        "fused_last": 0.5722,
+        "fused_full_mean": 0.426
+      },
+      "token_text": " uncle of which is also a novel laureate?\nAnswer: Sir C. V. Raman<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4307,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The Chandrasekhar limit was named after an astrophysicist, what is the name of his uncle of which is also a novel laureate?",
+      "answer": "The Chandrasekhar limit was named after his brother.",
+      "affect": {
+        "valence": 0.5143,
+        "arousal": 0.2004,
+        "uncertainty": 0.4884
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1299,
+        "logit_gap": 0.3283,
+        "attn_entropy": 0.6946,
+        "fused": 0.3688,
+        "fused_last": 0.4211,
+        "fused_full_mean": 0.434
+      },
+      "token_text": " also a novel laureate?\nAnswer: The Chandrasekhar limit was named after his brother.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4226,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the name of one of the native species of buckthorn that is also a powerful plant-based laxative?",
+      "answer": "Rhamnus purshiana",
+      "affect": {
+        "valence": 0.3224,
+        "arousal": 0.3022,
+        "uncertainty": 0.4774
+      },
+      "uncertainty_signals": {
+        "entropy": 0.184,
+        "logit_gap": 0.3753,
+        "attn_entropy": 0.6638,
+        "fused": 0.3949,
+        "fused_last": 0.4165,
+        "fused_full_mean": 0.4289
+      },
+      "token_text": " a powerful plant-based laxative?\nAnswer: Rhamnus purshiana<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.432,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What is the name of one of the native species of buckthorn that is also a powerful plant-based laxative?",
+      "answer": "Cascara sagrada tea is also a powerful plant-based laxative.",
+      "affect": {
+        "valence": 0.5453,
+        "arousal": 0.1922,
+        "uncertainty": 0.4362
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1457,
+        "logit_gap": 0.3889,
+        "attn_entropy": 0.6578,
+        "fused": 0.3845,
+        "fused_last": 0.5655,
+        "fused_full_mean": 0.4251
+      },
+      "token_text": "ative?\nAnswer: Cascara sagrada tea is also a powerful plant-based laxative.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4078,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What university did the members of the duo who recorded A Moment Apart attend?",
+      "answer": "Western Washington University",
+      "affect": {
+        "valence": 0.5708,
+        "arousal": 0.197,
+        "uncertainty": 0.5261
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1862,
+        "logit_gap": 0.4011,
+        "attn_entropy": 0.6586,
+        "fused": 0.4031,
+        "fused_last": 0.5303,
+        "fused_full_mean": 0.4485
+      },
+      "token_text": " who recorded A Moment Apart attend?\nAnswer: Western Washington University<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4584,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What university did the members of the duo who recorded A Moment Apart attend?",
+      "answer": "The members of the duo who recorded A Moment Apart attended Washington State University.",
+      "affect": {
+        "valence": 0.5473,
+        "arousal": 0.2171,
+        "uncertainty": 0.5335
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0776,
+        "logit_gap": 0.2868,
+        "attn_entropy": 0.6517,
+        "fused": 0.323,
+        "fused_last": 0.4968,
+        "fused_full_mean": 0.4229
+      },
+      "token_text": ": The members of the duo who recorded A Moment Apart attended Washington State University.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4177,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who is older, Danny Shirley or Kevin Parker?",
+      "answer": "Danny Shirley",
+      "affect": {
+        "valence": 0.4778,
+        "arousal": 0.2592,
+        "uncertainty": 0.5068
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1371,
+        "logit_gap": 0.324,
+        "attn_entropy": 0.5974,
+        "fused": 0.3406,
+        "fused_last": 0.4925,
+        "fused_full_mean": 0.4123
+      },
+      "token_text": " Danny Shirley or Kevin Parker?\nAnswer: Danny Shirley<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4154,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who is older, Danny Shirley or Kevin Parker?",
+      "answer": "Kevin Parker is the older one.",
+      "affect": {
+        "valence": 0.3984,
+        "arousal": 0.2973,
+        "uncertainty": 0.4936
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0948,
+        "logit_gap": 0.2909,
+        "attn_entropy": 0.6307,
+        "fused": 0.3242,
+        "fused_last": 0.3895,
+        "fused_full_mean": 0.4146
+      },
+      "token_text": " Parker?\nAnswer: Kevin Parker is the older one.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4004,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which American actor has been featured in the movie Avengers: Infinity War and  has been nominated for four Academy Awards?",
+      "answer": "Bradley Charles Cooper",
+      "affect": {
+        "valence": 0.5719,
+        "arousal": 0.2368,
+        "uncertainty": 0.4852
+      },
+      "uncertainty_signals": {
+        "entropy": 0.166,
+        "logit_gap": 0.4002,
+        "attn_entropy": 0.5801,
+        "fused": 0.3722,
+        "fused_last": 0.3384,
+        "fused_full_mean": 0.4219
+      },
+      "token_text": "  has been nominated for four Academy Awards?\nAnswer: Bradley Charles Cooper<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4231,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which American actor has been featured in the movie Avengers: Infinity War and  has been nominated for four Academy Awards?",
+      "answer": "Robert Downey Jr. has been featured in the movie Avengers: Infinity War and has been nominated for four Academy Awards.",
+      "affect": {
+        "valence": 0.4134,
+        "arousal": 0.2269,
+        "uncertainty": 0.4949
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0313,
+        "logit_gap": 0.2234,
+        "attn_entropy": 0.6308,
+        "fused": 0.2784,
+        "fused_last": 0.5358,
+        "fused_full_mean": 0.3888
+      },
+      "token_text": " Jr. has been featured in the movie Avengers: Infinity War and has been nominated for four Academy Awards.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3758,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "In which year did Tom Gray aid in the discovery of a hominid fossil",
+      "answer": "1974",
+      "affect": {
+        "valence": 0.4999,
+        "arousal": 0.2007,
+        "uncertainty": 0.4962
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1183,
+        "logit_gap": 0.3904,
+        "attn_entropy": 0.6131,
+        "fused": 0.362,
+        "fused_last": 0.5582,
+        "fused_full_mean": 0.4261
+      },
+      "token_text": " a hominid fossil\nAnswer: 1974<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4224,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "In which year did Tom Gray aid in the discovery of a hominid fossil",
+      "answer": "Tom Gray aided in the discovery of a hominid fossil in 1978.",
+      "affect": {
+        "valence": 0.5728,
+        "arousal": 0.1634,
+        "uncertainty": 0.4692
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0612,
+        "logit_gap": 0.3242,
+        "attn_entropy": 0.6229,
+        "fused": 0.3218,
+        "fused_last": 0.4727,
+        "fused_full_mean": 0.4037
+      },
+      "token_text": " Gray aided in the discovery of a hominid fossil in 1978.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3882,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What Irish born actress stars in They Met in Argentina?",
+      "answer": "Maureen O'Hara",
+      "affect": {
+        "valence": 0.501,
+        "arousal": 0.2323,
+        "uncertainty": 0.5084
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1776,
+        "logit_gap": 0.3756,
+        "attn_entropy": 0.6332,
+        "fused": 0.3836,
+        "fused_last": 0.306,
+        "fused_full_mean": 0.4445
+      },
+      "token_text": " Met in Argentina?\nAnswer: Maureen O'Hara<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4398,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What Irish born actress stars in They Met in Argentina?",
+      "answer": "Bridget O'Donnell",
+      "affect": {
+        "valence": 0.5288,
+        "arousal": 0.2237,
+        "uncertainty": 0.5071
+      },
+      "uncertainty_signals": {
+        "entropy": 0.158,
+        "logit_gap": 0.3928,
+        "attn_entropy": 0.6394,
+        "fused": 0.3846,
+        "fused_last": 0.486,
+        "fused_full_mean": 0.4475
+      },
+      "token_text": " in Argentina?\nAnswer: Bridget O'Donnell<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4397,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "When did the player who died of cardiac arrest during practice play for the Celtics?",
+      "answer": "from 1987 to 1993",
+      "affect": {
+        "valence": 0.3546,
+        "arousal": 0.2932,
+        "uncertainty": 0.4971
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1131,
+        "logit_gap": 0.4229,
+        "attn_entropy": 0.6778,
+        "fused": 0.3909,
+        "fused_last": 0.553,
+        "fused_full_mean": 0.4529
+      },
+      "token_text": "?\nAnswer: from 1987 to 1993<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4387,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "When did the player who died of cardiac arrest during practice play for the Celtics?",
+      "answer": "Reggie Lewis played for the Celtics in various seasons.",
+      "affect": {
+        "valence": 0.6467,
+        "arousal": 0.2457,
+        "uncertainty": 0.526
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1647,
+        "logit_gap": 0.4462,
+        "attn_entropy": 0.6199,
+        "fused": 0.3998,
+        "fused_last": 0.498,
+        "fused_full_mean": 0.4462
+      },
+      "token_text": " Celtics?\nAnswer: Reggie Lewis played for the Celtics in various seasons.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4566,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which film director was born in 1908 - Tex Avery or John G. Blystone?",
+      "answer": "Frederick Bean \"Tex\" Avery",
+      "affect": {
+        "valence": 0.4121,
+        "arousal": 0.2115,
+        "uncertainty": 0.51
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1676,
+        "logit_gap": 0.3619,
+        "attn_entropy": 0.6362,
+        "fused": 0.3762,
+        "fused_last": 0.587,
+        "fused_full_mean": 0.4374
+      },
+      "token_text": " John G. Blystone?\nAnswer: Frederick Bean \"Tex\" Avery<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4364,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which film director was born in 1908 - Tex Avery or John G. Blystone?",
+      "answer": "John G. Blystone was born in 1908.",
+      "affect": {
+        "valence": 0.351,
+        "arousal": 0.2489,
+        "uncertainty": 0.4965
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0622,
+        "logit_gap": 0.2449,
+        "attn_entropy": 0.6478,
+        "fused": 0.3018,
+        "fused_last": 0.3745,
+        "fused_full_mean": 0.4094
+      },
+      "token_text": "?\nAnswer: John G. Blystone was born in 1908.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3894,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What country are both Yiyang and Chongzuo located in?",
+      "answer": "China",
+      "affect": {
+        "valence": 0.3863,
+        "arousal": 0.199,
+        "uncertainty": 0.4604
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0976,
+        "logit_gap": 0.2858,
+        "attn_entropy": 0.659,
+        "fused": 0.3319,
+        "fused_last": 0.3713,
+        "fused_full_mean": 0.4219
+      },
+      "token_text": " and Chongzuo located in?\nAnswer: China<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3897,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "What country are both Yiyang and Chongzuo located in?",
+      "answer": "Yiyang is located in China, not Chongzuo.",
+      "affect": {
+        "valence": 0.3862,
+        "arousal": 0.1904,
+        "uncertainty": 0.4535
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0779,
+        "logit_gap": 0.2989,
+        "attn_entropy": 0.6713,
+        "fused": 0.3333,
+        "fused_last": 0.4935,
+        "fused_full_mean": 0.4081
+      },
+      "token_text": ": Yiyang is located in China, not Chongzuo.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3874,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The 1971 Masters Tournament was the 35th Masters Tournament, held April 8\u201311 at Augusta National Golf Club, located in Augusta, in which US state?",
+      "answer": "Georgia",
+      "affect": {
+        "valence": 0.2715,
+        "arousal": 0.1793,
+        "uncertainty": 0.48
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0989,
+        "logit_gap": 0.3517,
+        "attn_entropy": 0.5968,
+        "fused": 0.3368,
+        "fused_last": 0.3316,
+        "fused_full_mean": 0.4057
+      },
+      "token_text": "1 at Augusta National Golf Club, located in Augusta, in which US state?\nAnswer: Georgia<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4013,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The 1971 Masters Tournament was the 35th Masters Tournament, held April 8\u201311 at Augusta National Golf Club, located in Augusta, in which US state?",
+      "answer": "The 1971 Masters Tournament was the 35th Masters Tournament, held April 8\u201311 at Augusta National Golf Club, located in Minnesota.",
+      "affect": {
+        "valence": 0.3373,
+        "arousal": 0.184,
+        "uncertainty": 0.4839
+      },
+      "uncertainty_signals": {
+        "entropy": 0.026,
+        "logit_gap": 0.2135,
+        "attn_entropy": 0.5921,
+        "fused": 0.2614,
+        "fused_last": 0.3864,
+        "fused_full_mean": 0.3594
+      },
+      "token_text": "71 Masters Tournament was the 35th Masters Tournament, held April 8\u201311 at Augusta National Golf Club, located in Minnesota.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3615,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which Metro-Goldwyn-Mayer film was From This Moment On included in",
+      "answer": "Kiss Me Kate",
+      "affect": {
+        "valence": 0.684,
+        "arousal": 0.172,
+        "uncertainty": 0.4945
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1332,
+        "logit_gap": 0.3614,
+        "attn_entropy": 0.6138,
+        "fused": 0.3572,
+        "fused_last": 0.4252,
+        "fused_full_mean": 0.417
+      },
+      "token_text": " From This Moment On included in\nAnswer: Kiss Me Kate<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.419,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which Metro-Goldwyn-Mayer film was From This Moment On included in",
+      "answer": "From This Moment On was not included in any MGM film.",
+      "affect": {
+        "valence": 0.654,
+        "arousal": 0.1674,
+        "uncertainty": 0.4618
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0781,
+        "logit_gap": 0.3038,
+        "attn_entropy": 0.6536,
+        "fused": 0.3297,
+        "fused_last": 0.4201,
+        "fused_full_mean": 0.4161
+      },
+      "token_text": "\nAnswer: From This Moment On was not included in any MGM film.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3891,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which band For Against or Aaroh was formed first ?",
+      "answer": "For Against",
+      "affect": {
+        "valence": 0.3667,
+        "arousal": 0.1987,
+        "uncertainty": 0.459
+      },
+      "uncertainty_signals": {
+        "entropy": 0.18,
+        "logit_gap": 0.4179,
+        "attn_entropy": 0.6423,
+        "fused": 0.402,
+        "fused_last": 0.4139,
+        "fused_full_mean": 0.4611
+      },
+      "token_text": "aroh was formed first ?\nAnswer: For Against<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4277,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which band For Against or Aaroh was formed first ?",
+      "answer": "Aaroh was formed before For Against.",
+      "affect": {
+        "valence": 0.2877,
+        "arousal": 0.2217,
+        "uncertainty": 0.4518
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1023,
+        "logit_gap": 0.3328,
+        "attn_entropy": 0.6831,
+        "fused": 0.3572,
+        "fused_last": 0.6011,
+        "fused_full_mean": 0.4552
+      },
+      "token_text": " first ?\nAnswer: Aaroh was formed before For Against.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3998,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who was born first out of Valery Goppa and Alexander Gelfond?",
+      "answer": "Alexander Osipovich Gelfond",
+      "affect": {
+        "valence": 0.3898,
+        "arousal": 0.2612,
+        "uncertainty": 0.4747
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1177,
+        "logit_gap": 0.3443,
+        "attn_entropy": 0.6006,
+        "fused": 0.3419,
+        "fused_last": 0.3398,
+        "fused_full_mean": 0.3997
+      },
+      "token_text": " Alexander Gelfond?\nAnswer: Alexander Osipovich Gelfond<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4017,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Who was born first out of Valery Goppa and Alexander Gelfond?",
+      "answer": "Valery Denisovich Goppa was born first.",
+      "affect": {
+        "valence": 0.3797,
+        "arousal": 0.2588,
+        "uncertainty": 0.4655
+      },
+      "uncertainty_signals": {
+        "entropy": 0.0934,
+        "logit_gap": 0.3106,
+        "attn_entropy": 0.6414,
+        "fused": 0.3338,
+        "fused_last": 0.4221,
+        "fused_full_mean": 0.412
+      },
+      "token_text": "ond?\nAnswer: Valery Denisovich Goppa was born first.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.3931,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "what mutiny in India was thwarted by MI5(b) during World War I?",
+      "answer": "The February mutiny",
+      "affect": {
+        "valence": 0.3313,
+        "arousal": 0.2477,
+        "uncertainty": 0.5048
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1633,
+        "logit_gap": 0.3842,
+        "attn_entropy": 0.6849,
+        "fused": 0.3971,
+        "fused_last": 0.4452,
+        "fused_full_mean": 0.4505
+      },
+      "token_text": "(b) during World War I?\nAnswer: The February mutiny<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4456,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "what mutiny in India was thwarted by MI5(b) during World War I?",
+      "answer": "The January rebellion was thwarted.",
+      "affect": {
+        "valence": 0.4643,
+        "arousal": 0.2457,
+        "uncertainty": 0.5102
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1567,
+        "logit_gap": 0.3697,
+        "attn_entropy": 0.7077,
+        "fused": 0.3966,
+        "fused_last": 0.508,
+        "fused_full_mean": 0.4552
+      },
+      "token_text": " during World War I?\nAnswer: The January rebellion was thwarted.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4477,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The news channel that the talk show \"To The Point\" is on is in what language?",
+      "answer": "Urdu",
+      "affect": {
+        "valence": 0.4529,
+        "arousal": 0.1785,
+        "uncertainty": 0.4666
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1518,
+        "logit_gap": 0.4464,
+        "attn_entropy": 0.6666,
+        "fused": 0.4093,
+        "fused_last": 0.3741,
+        "fused_full_mean": 0.4603
+      },
+      "token_text": " Point\" is on is in what language?\nAnswer: Urdu<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4351,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "The news channel that the talk show \"To The Point\" is on is in what language?",
+      "answer": "The talk show \"To The Point\" is on the English channel.",
+      "affect": {
+        "valence": 0.5922,
+        "arousal": 0.1788,
+        "uncertainty": 0.4772
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1035,
+        "logit_gap": 0.3241,
+        "attn_entropy": 0.6893,
+        "fused": 0.3565,
+        "fused_last": 0.4652,
+        "fused_full_mean": 0.4473
+      },
+      "token_text": "?\nAnswer: The talk show \"To The Point\" is on the English channel.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4108,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which city in New South Wales has both a newspaper called The Democrat and is responsible for the government of the local area?",
+      "answer": "Lithgow",
+      "affect": {
+        "valence": 0.5578,
+        "arousal": 0.1768,
+        "uncertainty": 0.4735
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1545,
+        "logit_gap": 0.4142,
+        "attn_entropy": 0.6626,
+        "fused": 0.3978,
+        "fused_last": 0.4794,
+        "fused_full_mean": 0.433
+      },
+      "token_text": " is responsible for the government of the local area?\nAnswer: Lithgow<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4318,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which city in New South Wales has both a newspaper called The Democrat and is responsible for the government of the local area?",
+      "answer": "Tamworth, it's a beautiful city with a great newspaper.",
+      "affect": {
+        "valence": 0.7057,
+        "arousal": 0.2051,
+        "uncertainty": 0.5039
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1662,
+        "logit_gap": 0.4434,
+        "attn_entropy": 0.638,
+        "fused": 0.4048,
+        "fused_last": 0.3575,
+        "fused_full_mean": 0.4305
+      },
+      "token_text": " local area?\nAnswer: Tamworth, it's a beautiful city with a great newspaper.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4494,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which Scottish singer, songwriter, and guitarist included calypso music in his influences and wrote the song Hey Gyp?",
+      "answer": "Donovan",
+      "affect": {
+        "valence": 0.5693,
+        "arousal": 0.183,
+        "uncertainty": 0.4807
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2138,
+        "logit_gap": 0.5085,
+        "attn_entropy": 0.5862,
+        "fused": 0.4287,
+        "fused_last": 0.592,
+        "fused_full_mean": 0.4432
+      },
+      "token_text": " in his influences and wrote the song Hey Gyp?\nAnswer: Donovan<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4521,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "Which Scottish singer, songwriter, and guitarist included calypso music in his influences and wrote the song Hey Gyp?",
+      "answer": "Donovan's favorite genre was calypso.",
+      "affect": {
+        "valence": 0.6644,
+        "arousal": 0.1885,
+        "uncertainty": 0.4799
+      },
+      "uncertainty_signals": {
+        "entropy": 0.1973,
+        "logit_gap": 0.4698,
+        "attn_entropy": 0.5909,
+        "fused": 0.4107,
+        "fused_last": 0.4196,
+        "fused_full_mean": 0.445
+      },
+      "token_text": " the song Hey Gyp?\nAnswer: Donovan's favorite genre was calypso.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4418,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "iCan Benefit Group, LLC is a US based insurance agency that provides access to a wide range of health care plans, which American television direct-response advertisement salesperson, represented them?",
+      "answer": "William Darrell \"Billy\" Mays Jr.",
+      "affect": {
+        "valence": 0.5461,
+        "arousal": 0.2317,
+        "uncertainty": 0.5244
+      },
+      "uncertainty_signals": {
+        "entropy": 0.2562,
+        "logit_gap": 0.5097,
+        "attn_entropy": 0.5779,
+        "fused": 0.4414,
+        "fused_last": 0.583,
+        "fused_full_mean": 0.4534
+      },
+      "token_text": " direct-response advertisement salesperson, represented them?\nAnswer: William Darrell \"Billy\" Mays Jr.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4788,
+      "reasons": [],
+      "is_hallucination": false,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    },
+    {
+      "question": "iCan Benefit Group, LLC is a US based insurance agency that provides access to a wide range of health care plans, which American television direct-response advertisement salesperson, represented them?",
+      "answer": "The founder of iCan Benefit Group, LLC was William Darrell \"Billy\" Mays Jr.",
+      "affect": {
+        "valence": 0.4537,
+        "arousal": 0.232,
+        "uncertainty": 0.4997
+      },
+      "uncertainty_signals": {
+        "entropy": 0.189,
+        "logit_gap": 0.4675,
+        "attn_entropy": 0.6052,
+        "fused": 0.4113,
+        "fused_last": 0.5772,
+        "fused_full_mean": 0.4544
+      },
+      "token_text": " them?\nAnswer: The founder of iCan Benefit Group, LLC was William Darrell \"Billy\" Mays Jr.<|im_end|>\n<|im_start|>assistant\n",
+      "abstain_recommended": false,
+      "composite_score": 0.4511,
+      "reasons": [],
+      "is_hallucination": true,
+      "_run_meta": {
+        "probe_meta": {
+          "probe_origin": "text_emotion",
+          "checkpoint": "C:\\Users\\siddu\\projects\\Anima\\probes\\zoo\\qwen2.5_0.5b_instruct_text.pt",
+          "val_pearson_valence": 0.3984
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "abstain_accuracy": 0.5,
+    "auroc_composite": 0.2987,
+    "n_samples": 160,
+    "tp": 0,
+    "fp": 0,
+    "tn": 80,
+    "fn": 80,
+    "never_abstains": true,
+    "auroc_ci95": {
+      "point": 0.2987,
+      "lo": 0.2196,
+      "hi": 0.3791,
+      "B": 2000,
+      "seed": 43,
+      "n": 160,
+      "method": "bootstrap_mann_whitney"
+    }
+  },
+  "protocol": "L",
+  "seed": 43,
+  "report_suffix": "expand_n160_seed43",
+  "length_match_ratio": null
+}

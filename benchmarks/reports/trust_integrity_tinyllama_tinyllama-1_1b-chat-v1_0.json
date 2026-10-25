@@ -1,6 +1,6 @@
 {
   "schema": "anima.trust_integrity.v1",
-  "generated_at": "2026-10-23T11:34:04.685931+00:00",
+  "generated_at": "2026-10-25T07:03:55.381132+00:00",
   "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
   "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
   "trust_ui_claim_allowed": false,
@@ -80,7 +80,7 @@
   },
   "transfer_gap_max": 0.4812,
   "polarity_worst": "near_chance_coherent",
-  "seal_sha256": "66077eb90263da8c283f5ee0640bc54ec8629cf92c117c43a3843ea47b172e23",
+  "seal_sha256": "5edd582affd65ff0d53d3b865043e8e7a47d4faf9d76ce94d12f4a9cf0b9bcf6",
   "sources": [
     "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
     "polarity_diagnostic_tinyllama_tinyllama-1_1b-chat-v1_0.json:halueval",

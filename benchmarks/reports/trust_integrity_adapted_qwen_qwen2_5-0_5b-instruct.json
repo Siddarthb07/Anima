@@ -1,6 +1,6 @@
 {
   "schema": "anima.trust_integrity.v1",
-  "generated_at": "2026-10-23T11:34:05.598402+00:00",
+  "generated_at": "2026-10-25T07:03:55.874176+00:00",
   "model": "Qwen/Qwen2.5-0.5B-Instruct",
   "model_slug": "qwen_qwen2_5-0_5b-instruct",
   "trust_ui_claim_allowed": true,
@@ -83,7 +83,7 @@
   },
   "transfer_gap_max": 0.3356,
   "polarity_worst": "aligned_ranking",
-  "seal_sha256": "26885e61df6be91999ca6667a59ff1ecdaa1d93b76797e7cc459252f20bfcbc4",
+  "seal_sha256": "dcf1d5a3df39679d284d84def851628d5b5365df1f7491ee986db2494502890a",
   "sources": [
     "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\protocol_l_prime_qwen_qwen2_5-0_5b-instruct.json"
   ],

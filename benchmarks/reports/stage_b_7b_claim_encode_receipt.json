@@ -1,0 +1,13 @@
+{
+  "schema": "anima.stage_b_7b_claim_encode.v1",
+  "created_at": "2026-10-25T07:13:10.409298+00:00",
+  "requested_model": "Qwen/Qwen2.5-7B-Instruct",
+  "status": "blocked_no_cuda",
+  "torch_cuda_available": false,
+  "torch_version": "2.5.1+cu121",
+  "honesty": {
+    "no_invented_metrics": true,
+    "run_when_gpu": "python scripts/run_tmlr_stage_b_gpu.py --mode claim-encode --model Qwen/Qwen2.5-7B-Instruct --suffix stage_b_7b"
+  },
+  "note": "This machine has no usable CUDA device for a sealed 7B claim-encode run. Do not invent placeholder AUROCs. Re-run on a GPU host and replace this receipt."
+}

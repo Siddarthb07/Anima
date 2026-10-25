@@ -1,0 +1,61 @@
+{
+  "schema": "anima.predict_then_test_controls",
+  "honesty": {
+    "no_invented_metrics": true,
+    "additive_only": true
+  },
+  "sealed_refs": {
+    "length_balanced_and_baselines": true,
+    "pairing_and_paired_bootstrap_audit": true,
+    "expand_n160_seed43_summary": true,
+    "qwen_halueval_live": true
+  },
+  "findings": [
+    {
+      "id": "Finding1_length_control",
+      "prediction": "Residualizing composite on answer length raises AUROC but does not create abstain events at fixture thresholds.",
+      "observed": {
+        "n": 80,
+        "auroc_composite": 0.2472,
+        "auroc_length": 0.97,
+        "auroc_residualized": 0.4144,
+        "auroc_probe": 0.5228,
+        "auroc_fused": 0.2487,
+        "abstain_count": 0
+      },
+      "prediction_held": true
+    },
+    {
+      "id": "Finding2_misweight_control",
+      "prediction": "Probe-only AUROC exceeds full composite on Qwen\u2013Halu; fused hurts.",
+      "observed": {
+        "auroc_probe": 0.5228,
+        "auroc_fused": 0.2487,
+        "auroc_composite": 0.2472
+      },
+      "prediction_held": true
+    },
+    {
+      "id": "Finding3_expand_never_abstain",
+      "prediction": "Additive n=160 seed43 still never-abstains; Halu AUROC stays <0.5.",
+      "observed": {
+        "n": 160,
+        "auroc": 0.2987,
+        "ci": [
+          0.2196,
+          0.3791
+        ],
+        "cluster_ci": [
+          0.2344,
+          0.3597
+        ],
+        "never_abstain": true,
+        "length_auroc": 0.9891,
+        "probe": 0.5323,
+        "resid": 0.4641
+      },
+      "prediction_held": true
+    }
+  ],
+  "all_predictions_held": true
+}

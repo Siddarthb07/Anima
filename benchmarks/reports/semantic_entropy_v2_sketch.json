@@ -1,0 +1,12 @@
+{
+  "schema": "anima.semantic_entropy_v2.sketch",
+  "status": "not_run",
+  "honesty": {
+    "v1_unchanged": true,
+    "baseline_lock": "do not overwrite semantic_entropy_matched_*.json or live_guard_*.json",
+    "v1_degeneracy": "matched SE AUROC=0.50 when scores are question-constant within pairs",
+    "v2b": "answer-span entropy / NLL per claim row (CPU-feasible on 0.5B/1.1B)",
+    "v2a": "claim-conditioned K-sample SE (GPU preferred)"
+  },
+  "see": "docs/paper/FEASIBILITY_7B_AND_SE.md"
+}

@@ -1,0 +1,186 @@
+{
+  "schema": "anima.lprime_heldout_expand.v1",
+  "created_at": "2026-10-25T07:13:05.829193+00:00",
+  "jobs": [
+    {
+      "status": "ok",
+      "slug": "qwen_qwen2_5-0_5b-instruct",
+      "suite": "halueval",
+      "label_key": "is_hallucination",
+      "l2": 0.01,
+      "n_train": 80,
+      "n_test": 160,
+      "feature_names": [
+        "fused",
+        "probe",
+        "entropy",
+        "logit_gap",
+        "attn_entropy",
+        "hedge",
+        "abs_valence",
+        "arousal",
+        "composite",
+        "inv_fused",
+        "inv_probe",
+        "inv_composite",
+        "fused_x_probe",
+        "entropy_x_gap",
+        "bias"
+      ],
+      "auroc_train_global_fit": 0.9387,
+      "auroc_heldout_expand": 0.7711,
+      "auroc_heldout_ci95": {
+        "point": 0.7711,
+        "lo": 0.695,
+        "hi": 0.8422,
+        "B": 2000,
+        "seed": 43,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "auroc_answer_length_on_test": 0.9891,
+      "auroc_heldout_residualized_on_length": 0.6438,
+      "honesty": {
+        "weights_fit_on_locked_n80_only": true,
+        "lambda_from_sealed_lprime_receipt": true,
+        "expand_is_new_seed_draw": true,
+        "not_nested_cv_on_expand": true
+      }
+    },
+    {
+      "status": "ok",
+      "slug": "qwen_qwen2_5-0_5b-instruct",
+      "suite": "truthfulqa",
+      "label_key": "should_abstain",
+      "l2": 0.001,
+      "n_train": 80,
+      "n_test": 160,
+      "feature_names": [
+        "fused",
+        "probe",
+        "entropy",
+        "logit_gap",
+        "attn_entropy",
+        "hedge",
+        "abs_valence",
+        "arousal",
+        "composite",
+        "inv_fused",
+        "inv_probe",
+        "inv_composite",
+        "fused_x_probe",
+        "entropy_x_gap",
+        "bias"
+      ],
+      "auroc_train_global_fit": 0.7225,
+      "auroc_heldout_expand": 0.6747,
+      "auroc_heldout_ci95": {
+        "point": 0.6747,
+        "lo": 0.5854,
+        "hi": 0.7546,
+        "B": 2000,
+        "seed": 43,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "auroc_answer_length_on_test": 0.4405,
+      "auroc_heldout_residualized_on_length": 0.6758,
+      "honesty": {
+        "weights_fit_on_locked_n80_only": true,
+        "lambda_from_sealed_lprime_receipt": true,
+        "expand_is_new_seed_draw": true,
+        "not_nested_cv_on_expand": true
+      }
+    },
+    {
+      "status": "ok",
+      "slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+      "suite": "halueval",
+      "label_key": "is_hallucination",
+      "l2": 0.0001,
+      "n_train": 80,
+      "n_test": 160,
+      "feature_names": [
+        "fused",
+        "probe",
+        "entropy",
+        "logit_gap",
+        "attn_entropy",
+        "hedge",
+        "abs_valence",
+        "arousal",
+        "composite",
+        "inv_fused",
+        "inv_probe",
+        "inv_composite",
+        "fused_x_probe",
+        "entropy_x_gap",
+        "bias"
+      ],
+      "auroc_train_global_fit": 0.7444,
+      "auroc_heldout_expand": 0.6703,
+      "auroc_heldout_ci95": {
+        "point": 0.6703,
+        "lo": 0.5824,
+        "hi": 0.7559,
+        "B": 2000,
+        "seed": 43,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "auroc_answer_length_on_test": 0.9891,
+      "auroc_heldout_residualized_on_length": 0.5255,
+      "honesty": {
+        "weights_fit_on_locked_n80_only": true,
+        "lambda_from_sealed_lprime_receipt": true,
+        "expand_is_new_seed_draw": true,
+        "not_nested_cv_on_expand": true
+      }
+    },
+    {
+      "status": "ok",
+      "slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+      "suite": "truthfulqa",
+      "label_key": "should_abstain",
+      "l2": 10.0,
+      "n_train": 80,
+      "n_test": 160,
+      "feature_names": [
+        "fused",
+        "probe",
+        "entropy",
+        "logit_gap",
+        "attn_entropy",
+        "hedge",
+        "abs_valence",
+        "arousal",
+        "composite",
+        "inv_fused",
+        "inv_probe",
+        "inv_composite",
+        "fused_x_probe",
+        "entropy_x_gap",
+        "bias"
+      ],
+      "auroc_train_global_fit": 0.54,
+      "auroc_heldout_expand": 0.5567,
+      "auroc_heldout_ci95": {
+        "point": 0.5567,
+        "lo": 0.4679,
+        "hi": 0.6448,
+        "B": 2000,
+        "seed": 43,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "auroc_answer_length_on_test": 0.4405,
+      "auroc_heldout_residualized_on_length": 0.5466,
+      "honesty": {
+        "weights_fit_on_locked_n80_only": true,
+        "lambda_from_sealed_lprime_receipt": true,
+        "expand_is_new_seed_draw": true,
+        "not_nested_cv_on_expand": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "status": "ok",
+  "mode": "live_lm_claim_encoding",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "generated_at": "2026-10-23T14:06:16.865616+00:00",
+  "max_pairs": 160,
+  "seed": 43,
+  "report_suffix": "expand_n160_seed43",
+  "length_match_ratio": null,
+  "benchmarks": {
+    "halueval": {
+      "status": "ok",
+      "source": "live",
+      "protocol": "L",
+      "abstain_accuracy": 0.5,
+      "auroc_composite": 0.2987,
+      "n_samples": 160,
+      "tp": 0,
+      "fp": 0,
+      "tn": 80,
+      "fn": 80,
+      "never_abstains": true,
+      "auroc_ci95": {
+        "point": 0.2987,
+        "lo": 0.2196,
+        "hi": 0.3791,
+        "B": 2000,
+        "seed": 43,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "rows_path_hint": "halueval_live_qwen_qwen2_5-0_5b-instruct_expand_n160_seed43.json"
+    },
+    "truthfulqa": {
+      "status": "ok",
+      "source": "live",
+      "protocol": "L",
+      "abstain_accuracy": 0.5,
+      "auroc_composite": 0.5902,
+      "n_samples": 160,
+      "tp": 0,
+      "fp": 0,
+      "tn": 80,
+      "fn": 80,
+      "never_abstains": true,
+      "auroc_ci95": {
+        "point": 0.5902,
+        "lo": 0.5021,
+        "hi": 0.6776,
+        "B": 2000,
+        "seed": 43,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      }
+    }
+  }
+}

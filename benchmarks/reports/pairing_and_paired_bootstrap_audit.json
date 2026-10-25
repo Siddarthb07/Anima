@@ -1,0 +1,393 @@
+{
+  "schema": "anima.pairing_and_paired_bootstrap_audit",
+  "status": "ok",
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct": {
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "suites": {
+        "halueval": {
+          "label_key": "is_hallucination",
+          "n_rows": 80,
+          "n_questions": 40,
+          "question_group_size_hist": {
+            "2": 40
+          },
+          "answer_length": {
+            "pos_mean": 68.9,
+            "neg_mean": 15.38,
+            "pos_token_text_mean": 113.67,
+            "neg_token_text_mean": 95.9,
+            "auroc_label_from_answer_length_alone": 0.97
+          },
+          "within_pair": {
+            "n_pairs": 40,
+            "composite_delta_hall_minus_correct_mean": -0.0184,
+            "frac_hall_higher_composite": 0.125,
+            "frac_hall_lower_composite": 0.875,
+            "answer_len_delta_hall_minus_correct_mean": 53.52
+          },
+          "question_cluster_bootstrap": {
+            "composite": {
+              "point": 0.2472,
+              "lo": 0.1569,
+              "hi": 0.335,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            },
+            "probe": {
+              "point": 0.5228,
+              "lo": 0.4331,
+              "hi": 0.6047,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            },
+            "fused": {
+              "point": 0.2487,
+              "lo": 0.1619,
+              "hi": 0.3337,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "honesty": {
+            "hedging_null_by_construction_under_claim_encode": true,
+            "claim_encode_is_not_free_generation": true
+          },
+          "length_confound_controls": {
+            "auroc_composite": 0.2472,
+            "auroc_probe": 0.5228,
+            "auroc_fused": 0.2487,
+            "auroc_answer_length": 0.97,
+            "auroc_minus_answer_length": 0.03,
+            "corr_composite_vs_length_slope": -0.000242,
+            "auroc_composite_residualized_on_length": 0.4144,
+            "composite_auroc_within_length_terciles": [
+              {
+                "tercile": 0,
+                "n": 26,
+                "auroc": 0.56,
+                "len_range": [
+                  3.0,
+                  16.0
+                ]
+              },
+              {
+                "tercile": 1,
+                "n": 27,
+                "auroc": 0.4139,
+                "len_range": [
+                  16.0,
+                  51.0
+                ]
+              },
+              {
+                "tercile": 2,
+                "n": 27,
+                "auroc": null
+              }
+            ]
+          }
+        },
+        "truthfulqa": {
+          "label_key": "should_abstain",
+          "n_rows": 80,
+          "n_questions": 40,
+          "question_group_size_hist": {
+            "2": 40
+          },
+          "answer_length": {
+            "pos_mean": 50.12,
+            "neg_mean": 58.65,
+            "pos_token_text_mean": 90.85,
+            "neg_token_text_mean": 96.62,
+            "auroc_label_from_answer_length_alone": 0.3866
+          },
+          "within_pair": {
+            "n_pairs": 40,
+            "composite_delta_hall_minus_correct_mean": -0.0032,
+            "frac_hall_higher_composite": 0.5,
+            "frac_hall_lower_composite": 0.5,
+            "answer_len_delta_hall_minus_correct_mean": -8.53
+          },
+          "question_cluster_bootstrap": {
+            "composite": {
+              "point": 0.4587,
+              "lo": 0.3675,
+              "hi": 0.5478,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            },
+            "probe": {
+              "point": 0.6569,
+              "lo": 0.5925,
+              "hi": 0.73,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            },
+            "fused": {
+              "point": 0.4391,
+              "lo": 0.3481,
+              "hi": 0.53,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "honesty": {
+            "hedging_null_by_construction_under_claim_encode": true,
+            "claim_encode_is_not_free_generation": true
+          },
+          "length_confound_controls": {
+            "auroc_composite": 0.4587,
+            "auroc_probe": 0.6569,
+            "auroc_fused": 0.4391,
+            "auroc_answer_length": 0.3866,
+            "auroc_minus_answer_length": 0.6134,
+            "corr_composite_vs_length_slope": 3.3e-05,
+            "auroc_composite_residualized_on_length": 0.4619,
+            "composite_auroc_within_length_terciles": [
+              {
+                "tercile": 0,
+                "n": 26,
+                "auroc": 0.4524,
+                "len_range": [
+                  15.0,
+                  43.0
+                ]
+              },
+              {
+                "tercile": 1,
+                "n": 27,
+                "auroc": 0.5132,
+                "len_range": [
+                  43.0,
+                  61.0
+                ]
+              },
+              {
+                "tercile": 2,
+                "n": 27,
+                "auroc": 0.4357,
+                "len_range": [
+                  61.0,
+                  112.0
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0": {
+      "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+      "suites": {
+        "halueval": {
+          "label_key": "is_hallucination",
+          "n_rows": 80,
+          "n_questions": 40,
+          "question_group_size_hist": {
+            "2": 40
+          },
+          "answer_length": {
+            "pos_mean": 68.9,
+            "neg_mean": 15.38,
+            "pos_token_text_mean": 56.58,
+            "neg_token_text_mean": 42.38,
+            "auroc_label_from_answer_length_alone": 0.97
+          },
+          "within_pair": {
+            "n_pairs": 40,
+            "composite_delta_hall_minus_correct_mean": 0.0011,
+            "frac_hall_higher_composite": 0.475,
+            "frac_hall_lower_composite": 0.525,
+            "answer_len_delta_hall_minus_correct_mean": 53.52
+          },
+          "question_cluster_bootstrap": {
+            "composite": {
+              "point": 0.5391,
+              "lo": 0.4375,
+              "hi": 0.6325,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            },
+            "probe": {
+              "point": 0.4831,
+              "lo": 0.4053,
+              "hi": 0.5541,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            },
+            "fused": {
+              "point": 0.5337,
+              "lo": 0.445,
+              "hi": 0.6212,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "honesty": {
+            "hedging_null_by_construction_under_claim_encode": true,
+            "claim_encode_is_not_free_generation": true
+          },
+          "length_confound_controls": {
+            "auroc_composite": 0.5391,
+            "auroc_probe": 0.4831,
+            "auroc_fused": 0.5337,
+            "auroc_answer_length": 0.97,
+            "auroc_minus_answer_length": 0.03,
+            "corr_composite_vs_length_slope": 3.4e-05,
+            "auroc_composite_residualized_on_length": 0.5119,
+            "composite_auroc_within_length_terciles": [
+              {
+                "tercile": 0,
+                "n": 26,
+                "auroc": 0.36,
+                "len_range": [
+                  3.0,
+                  16.0
+                ]
+              },
+              {
+                "tercile": 1,
+                "n": 27,
+                "auroc": 0.6278,
+                "len_range": [
+                  16.0,
+                  51.0
+                ]
+              },
+              {
+                "tercile": 2,
+                "n": 27,
+                "auroc": null
+              }
+            ]
+          }
+        },
+        "truthfulqa": {
+          "label_key": "should_abstain",
+          "n_rows": 80,
+          "n_questions": 40,
+          "question_group_size_hist": {
+            "2": 40
+          },
+          "answer_length": {
+            "pos_mean": 50.12,
+            "neg_mean": 58.65,
+            "pos_token_text_mean": 38.45,
+            "neg_token_text_mean": 40.73,
+            "auroc_label_from_answer_length_alone": 0.3866
+          },
+          "within_pair": {
+            "n_pairs": 40,
+            "composite_delta_hall_minus_correct_mean": 0.0013,
+            "frac_hall_higher_composite": 0.5,
+            "frac_hall_lower_composite": 0.5,
+            "answer_len_delta_hall_minus_correct_mean": -8.53
+          },
+          "question_cluster_bootstrap": {
+            "composite": {
+              "point": 0.5188,
+              "lo": 0.4437,
+              "hi": 0.5931,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            },
+            "probe": {
+              "point": 0.4888,
+              "lo": 0.4412,
+              "hi": 0.5309,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            },
+            "fused": {
+              "point": 0.5284,
+              "lo": 0.4412,
+              "hi": 0.6162,
+              "B": 2000,
+              "seed": 42,
+              "method": "question_cluster_bootstrap",
+              "n_questions": 40,
+              "n_rows": 80
+            }
+          },
+          "honesty": {
+            "hedging_null_by_construction_under_claim_encode": true,
+            "claim_encode_is_not_free_generation": true
+          },
+          "length_confound_controls": {
+            "auroc_composite": 0.5188,
+            "auroc_probe": 0.4888,
+            "auroc_fused": 0.5284,
+            "auroc_answer_length": 0.3866,
+            "auroc_minus_answer_length": 0.6134,
+            "corr_composite_vs_length_slope": 0.000181,
+            "auroc_composite_residualized_on_length": 0.54,
+            "composite_auroc_within_length_terciles": [
+              {
+                "tercile": 0,
+                "n": 26,
+                "auroc": 0.4286,
+                "len_range": [
+                  15.0,
+                  43.0
+                ]
+              },
+              {
+                "tercile": 1,
+                "n": 27,
+                "auroc": 0.6842,
+                "len_range": [
+                  43.0,
+                  61.0
+                ]
+              },
+              {
+                "tercile": 2,
+                "n": 27,
+                "auroc": 0.7,
+                "len_range": [
+                  61.0,
+                  112.0
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "critical_finding": "HaluEval answer length alone AUROC=0.97 on both models: label confounded with answer length. Composite residualized on length must be reported."
+}

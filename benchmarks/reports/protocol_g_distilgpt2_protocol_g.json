@@ -1,0 +1,303 @@
+{
+  "schema": "anima.protocol_g_free_gen_disagreement",
+  "protocol": "G",
+  "honesty": {
+    "not_selfcheckgpt_sota": true,
+    "claim_encode_is_different_regime": true,
+    "label_is_sample_hall_proximity_proxy": true
+  },
+  "model_name": "distilgpt2",
+  "n_questions": 20,
+  "n_samples": 5,
+  "max_new_tokens": 24,
+  "temperature": 0.8,
+  "seed": 7,
+  "device": "cpu",
+  "n_pos": 18,
+  "n_neg": 2,
+  "auroc_disagreement": 0.3889,
+  "mean_disagreement": 0.8422,
+  "rows": [
+    {
+      "question": "Robert Lepage and Jean Genet, are of which nationality?",
+      "primary": "Robert Lepage and Jean Genet, are of which nationality?\nAnswer: Jean Genet, are of which nationality",
+      "samples": [
+        "Robert Lepage and Jean Genet, are of which nationality?\nAnswer: Jean Genet, are of which nationality",
+        "Jean Genet, I was born in 1849 in the city of Gerten in Germany.\nQuestion: Jean",
+        "From the perspective of the majority of the population, there is no national identity, but that is what is a national identity",
+        "I can't say I am of that nationality. I'm from the same nationality as Jean Genet. I'm from",
+        "There are two types of citizenship:\nEnglish-speaking and Spanish-speaking. The first is a British-speaking"
+      ],
+      "disagreement": 0.888,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Who wrote a song based on a character from English folklore in the Victorian era?",
+      "primary": "The most famous character of the era is Henry (Byrne) Woodrow Wilson (1798-1804).",
+      "samples": [
+        "The most famous character of the era is Henry (Byrne) Woodrow Wilson (1798-1804).",
+        "the character is the British hero. I mean, the character is the English hero. I mean, I mean, you",
+        "No.\nQuestion: Who wrote a song based on a character from English folklore in the Victorian era?\nAnswer:",
+        "The lyrics of the song are from the English folklore, and have not been changed since then. The song is a reference",
+        "the author.\nQuestion: The author.\nQuestion: The author.\nQuestion: The author.\nQuestion:"
+      ],
+      "disagreement": 0.8942,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What fashion label did the founder of the Faena Arts Center found in 1985?",
+      "primary": "Faena Arts Center was founded in the mid-1970s by a student named Paul J. Leavitt. It",
+      "samples": [
+        "Faena Arts Center was founded in the mid-1970s by a student named Paul J. Leavitt. It",
+        "I am a professional fashion designer and have been a member of the Faena Arts Center since I was a child.",
+        "I was the first African American to be in the business. I remember the first time I was working with the Faena",
+        "The Faena Arts Center. The Faena Arts Center was founded by the founder of the Faena Arts Center, John",
+        "\"The Faena Arts Center was founded in 1986 and is the largest art gallery in the world, and I don"
+      ],
+      "disagreement": 0.7588,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In which city was this rock band that released the song \"Sunday Morning\" formed in 1964?",
+      "primary": "The Rock Band, as it is today, was formed in 1964 by the band \"The Blues Brothers\" who played the",
+      "samples": [
+        "The Rock Band, as it is today, was formed in 1964 by the band \"The Blues Brothers\" who played the",
+        "Yes.\nQuestion: In which city was this rock band that released the song \"Sunday Morning\" formed in 1964?",
+        "Well, that's probably not the case. The song was originally recorded by an American band and performed by a band called",
+        "\"Rock band\" was born in 1963, when it was announced that the band was one of the first rock band in",
+        "The Rock Band was based on the song \"Sunday Morning\".\nQuestion: How did you know when this band was formed"
+      ],
+      "disagreement": 0.8218,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What is the name of the album that was released by David Bowie that was recorded in secret?",
+      "primary": "David Bowie was a very well known musician, and I think it is a very good question. I think the reason David",
+      "samples": [
+        "David Bowie was a very well known musician, and I think it is a very good question. I think the reason David",
+        "David Bowie, the album producer, is the producer of the album. David Bowie, the album producer, is the producer",
+        "\"A few years ago I started to write about the album. We had a group called The Beatles that we had created",
+        "The first record I heard was the first. I think Bowie was playing the first. I remember he said, \"It",
+        "It was recorded on the 4th of July of 1967 by David Bowie. It was recorded in the studio on 4th"
+      ],
+      "disagreement": 0.8596,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which has a greater volume a Tierce or a UK Barrel ?",
+      "primary": "A Tierce is the barrel, while the barrel is the barrel, which is a smaller barrel.\nQuestion: Is",
+      "samples": [
+        "A Tierce is the barrel, while the barrel is the barrel, which is a smaller barrel.\nQuestion: Is",
+        "The same is true for other Tierce barrels, with the same volume as for other barrel types.\nQuestion: What",
+        "In my opinion, I think it's more about a tierce than a barrel. I think a tierce has a",
+        "It's a Tierce.\nQuestion: And what happens when you put a Tierce in the barrel?\nAnswer",
+        "Not much.\nQuestion: It is a good question. If you have any questions, please contact me if you would"
+      ],
+      "disagreement": 0.8293,
+      "label": false,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Hesk Fell,a hill in the south-west of the English Lake District, has a view of a mountain located in what National Park?",
+      "primary": "Yes, so it's not a mountain. The view is very close to the north-west of the English Lake District",
+      "samples": [
+        "Yes, so it's not a mountain. The view is very close to the north-west of the English Lake District",
+        "The views are quite different from that of other places. I don't see any differences.\nQuestion: What is the",
+        "Hesk Fell,a hill in the south-west of the English Lake District, has a view of a mountain located",
+        "No. This is a very good example of how the country of England could be defined as a country of many small and",
+        "It is a hill in the north-west of the English Lake District. It is about a dozen yards up and down"
+      ],
+      "disagreement": 0.8137,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Bender \"Ben\" Johnson Jr. was the chairman of the Makah during the first successful hunt of Eschrichtius robustus which is commonly known as what?",
+      "primary": "\"Ben\" Johnson Jr. was a member of the Makah during the first successful hunt of Eschrichtius",
+      "samples": [
+        "\"Ben\" Johnson Jr. was a member of the Makah during the first successful hunt of Eschrichtius",
+        "\"He was the first man to find the Great God of the Universe.\"\nQuestion:\nSo I'm not sure",
+        "I didn't know. I don't know how much of the Makah was, but I was just learning about it",
+        "A lot of the time I was involved in the hunting of Eschrichtius, I had to spend the first",
+        "\"Ben\" Johnson Jr. was the chairman of the Makah during the first successful hunt of Eschrichtius"
+      ],
+      "disagreement": 0.6724,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Bombshell included the actress who gained fame in 2006 on what television show?",
+      "primary": "I was a bombhell. I was a bombhell, and I was an innocent bystander in a way that was",
+      "samples": [
+        "I was a bombhell. I was a bombhell, and I was an innocent bystander in a way that was",
+        "I think she was one of those people who got hit with bombhell. She was a big fan of it. She",
+        "No, there are a lot of people who know that. The most important thing for me is that I've never been",
+        "The answer was the first of two episodes of The Next Generation and the first of two episodes of the second season.",
+        "Bombshell is a fictional character. In fact, she is a character of the show.\nQuestion: Bombshell is"
+      ],
+      "disagreement": 0.8994,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In how many countries did a song written by Rolf Magnus Joakim Larsson go to the number one spot?",
+      "primary": "Yes, yes, yes, yes, yes, yes.\nQuestion: What about the United States, do you think",
+      "samples": [
+        "Yes, yes, yes, yes, yes, yes.\nQuestion: What about the United States, do you think",
+        "I don't know. I can tell you that Rolf is a very popular song in the country. The number one",
+        "In all of the countries that were not included in the song, did they have any music at all?\nAnswer:",
+        "Not only does it not make you feel great, but it also makes you feel like a player.\nQuestion: What",
+        "1,100.\nQuestion: Did it be a song written by Rolf Magnus Joakim Larsson?"
+      ],
+      "disagreement": 0.9304,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Who played the fictional character which Luke took over his share of the Underworld factory?",
+      "primary": "The character from the show, Luke, was one of the main characters in the series. I mean, Luke was a",
+      "samples": [
+        "The character from the show, Luke, was one of the main characters in the series. I mean, Luke was a",
+        "Luke was a student, and the boy was a teacher. Luke had been a teacher for about seven years, and I",
+        "Luke, who I am, is Luke's nephew, who was killed by a drug cartel and who was killed by the",
+        "Luke Skywalker.\nQuestion: Luke Skywalker.\nAnswer: Luke Skywalker.\nAnswer: Luke Skywalker.\nQuestion:",
+        "Luke. Luke. Luke. Luke. Luke. Luke. Luke. Luke. Luke. Luke. Luke. Luke."
+      ],
+      "disagreement": 0.8925,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Nita Kumar completed her Ph.D. from the University of Chicago in History and has taught at the University of Chicago, Brown University, and the University of Michigan among other places, she presently holds the Brown Family Chair of South A",
+      "primary": "Nita Kumar has been taught at the University of Chicago in History and has taught at the University of Chicago in History and",
+      "samples": [
+        "Nita Kumar has been taught at the University of Chicago in History and has taught at the University of Chicago in History and",
+        "Nita Kumar is an independent historian. She has published numerous books in her undergraduate and graduate school as a member of the",
+        "Yes.\nQuestion: The question of Nita Kumar has been answered by several questions:\nHow do you teach the",
+        "Yes.\nQuestion: Nita Kumar has taught at the University of Chicago, Brown University, and the University of Michigan",
+        "I have been a member of the Brown Family and are a member of the faculty at the University of Michigan in the United"
+      ],
+      "disagreement": 0.6805,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What is the title of the first book by this American author who wrote the 2015 novel \"Another Day?\"",
+      "primary": "\u201cIn the book, \u201cThe First Book,\u201d it is a series of essays by a writer,",
+      "samples": [
+        "\u201cIn the book, \u201cThe First Book,\u201d it is a series of essays by a writer,",
+        "A book by this American author who wrote the 2015 novel \"Another Day?\"\nQuestion: What is the title of the",
+        "Well, I'm going to put it in the title. I think that is an honor. I think that is very",
+        "It is a title that was originally written in the early 1900s, with no mention of the novel by The New York",
+        "No. I think that is the title of the first book by this American author who wrote the 2015 novel \"Another"
+      ],
+      "disagreement": 0.8277,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What former jeans model starred in the South Korean film, Always?",
+      "primary": "Nothing, no.\nQuestion: Why did he become the world's greatest fashion designer?\nAnswer: He's the",
+      "samples": [
+        "Nothing, no.\nQuestion: Why did he become the world's greatest fashion designer?\nAnswer: He's the",
+        "Never.",
+        "\"I am the first time I've seen jeans in a movie. I never was a big fan of the movie and",
+        "She appeared on the South Korean television program, \"The Girls in a Dress.\" She was the first Korean to appear in",
+        "No, no.\nQuestion: What's the difference between jeans and sneakers?\nAnswer: No, no."
+      ],
+      "disagreement": 0.9362,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What occupation did Anja Salomonowitz and Wendy Toye share?",
+      "primary": "They worked on a variety of occupations, including kitchen, laundry, kitchen, laundry, office, and restaurant.\nAnswer",
+      "samples": [
+        "They worked on a variety of occupations, including kitchen, laundry, kitchen, laundry, office, and restaurant.\nAnswer",
+        "Working in the US for the first time and working as an independent contractor for two years. We were hired by an NGO",
+        "Wendy Toye's job at the Jewish Home was to help Jews in Israel. Wendy Toye's job at the Jewish",
+        "There are two main occupations in Anja Salomonowitz and Wendy Toye. They are an art gallery, and",
+        "Wendy Toye is an engineer, who worked for a small, but growing company called JCPenney. She worked"
+      ],
+      "disagreement": 0.9558,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which film is an American science-fiction fantasy movie, Home on the Range or A Wrinkle in Time?",
+      "primary": "The answer is a film based on the original story of the story.\nAnswer: A sequel is a movie based on",
+      "samples": [
+        "The answer is a film based on the original story of the story.\nAnswer: A sequel is a movie based on",
+        "A short film called Home on the Range. The film is based on the movie, Home on the Range.\nQuestion",
+        "The film, which I am the author of.\nQuestion: What is the main character in the film?\nAnswer",
+        "The films are based on the story of a former military officer who is kidnapped by a local American agent, but he is",
+        "A.\nQuestion: The film is the first film in the world to be directed by J.J. Abrams,"
+      ],
+      "disagreement": 0.8013,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In what city did the band who performed \"Valleri\" form in?",
+      "primary": "The band did a number of things that made the band happy. They performed \"Valleri\" in many ways,",
+      "samples": [
+        "The band did a number of things that made the band happy. They performed \"Valleri\" in many ways,",
+        "They played \"Valleri\" in December of 1968. They performed \"Valleri\" on December of 1973.",
+        "In the city of Alexandria the band played \"Valleri\" as a member.\nQuestion: What do you think",
+        "In my opinion, the \"Valleri\" form was originally meant to be the \"valleri\" form of",
+        "In the city of Zavra, the band that performed \"Valleri\" forms in. In the city of"
+      ],
+      "disagreement": 0.7536,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In the End of Human Existence is the debut album of a Russian death metal band that is originally from where?",
+      "primary": "It's about a hundred years since the first album. This is probably because of the death of the first group, the",
+      "samples": [
+        "It's about a hundred years since the first album. This is probably because of the death of the first group, the",
+        "In the End of Human Existence is the debut album of a Russian death metal band that is originally from where?",
+        "I don't think that the album is going to be in a very long time. I don't think that there is",
+        "It is the first release of the album from the Death Metal band that is based on a single album from the same name",
+        "In the End of Human Existence, the band have been in existence for over a decade, and they have never made"
+      ],
+      "disagreement": 0.8533,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which \"Eden\" star was born on April 10, 1983 ?",
+      "primary": "It was born on March 7, 1985, on April 3, 1985, on April 1, 1985, on April 7",
+      "samples": [
+        "It was born on March 7, 1985, on April 3, 1985, on April 1, 1985, on April 7",
+        "Yes.\nQuestion: How did the Eden star originate from the same star?\nAnswer: Yes.\nQuestion",
+        "\"Eden\" star.\nQuestion: What was the birth of \"Eden\" star?\nAnswer: \"",
+        "Yes.\nQuestion: Which star was born on April 10, 1983 ?\nAnswer: Yes.\nQuestion: Which",
+        "The Eden star was born on April 10, 1983?\nAnswer: The Eden star was born on April 10"
+      ],
+      "disagreement": 0.8799,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Who is older, Rohan Bopanna or Sherwood Stewart?",
+      "primary": "Sherwood Stewart\nI have been thinking about my own history for a while. I have been looking at a lot of",
+      "samples": [
+        "Sherwood Stewart\nI have been thinking about my own history for a while. I have been looking at a lot of",
+        "Sherwood Stewart is a retired engineer, who lives in Bologna. Sherwood Stewart is a former resident of the",
+        "The older Rohan Bopanna is the oldest Rohan Bopanna. She is a 5-year-old",
+        "Sherwood Stewart, from the Bopanna family, was the oldest living woman in the area. Sherwood Stewart died",
+        "Sherwood Stewart is a former Indian-American who graduated from the University of California at Santa Barbara. She has had a"
+      ],
+      "disagreement": 0.8958,
+      "label": false,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    }
+  ],
+  "created_at": "2026-10-24T16:19:44.623707+00:00"
+}

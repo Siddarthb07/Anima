@@ -38,6 +38,32 @@ Honesty: claim-encoding on public HaluEval/TruthfulQA rows; not free-gen+judge; 
 | TinyLlama-1.1B-Chat | halueval | 0.5000 | 0.3000 | 0.5387 | 0.4831 |
 | TinyLlama-1.1B-Chat | truthfulqa | 0.5000 | 0.4781 | 0.5188 | 0.4888 |
 
+## D1b. Pairing / length confound + clustered bootstrap (additive audit)
+
+Source: `pairing_and_paired_bootstrap_audit.json`.
+
+| Model | Suite | Row AUROC | Cluster CI | Length→label AUROC | Residualized composite AUROC | Within-pair frac(hall lower comp) |
+|-------|-------|----------:|------------|-------------------:|-----------------------------:|----------------------------------:|
+| Qwen | halueval | 0.2472 | [0.157, 0.335] | **0.9700** | **0.4144** | 0.875 |
+| Qwen | truthfulqa | 0.4587 | [0.368, 0.548] | 0.3866 | 0.4619 | 0.500 |
+| TinyLlama | halueval | 0.5391 | [0.438, 0.633] | **0.9700** | 0.5119 | 0.525 |
+| TinyLlama | truthfulqa | 0.5188 | [0.444, 0.593] | 0.3866 | 0.5400 | 0.500 |
+
+**Reading:** HaluEval labels are confounded with answer length. Do not sloganize raw 0.2469 without this table.
+
+## D2. SE v2-B answer-span reanalysis (additive; baseline lock intact)
+
+Source: `semantic_entropy_v2b_answer_span.json` from locked `{suite}_live_<slug>.json` rows. Not Farquhar multi-sample SE.
+
+| Model | Suite | Span-ent | Span-fused | Inv logit-gap | SE v1 | Claim-dis. |
+|-------|-------|---------:|-----------:|--------------:|------:|-----------:|
+| Qwen2.5-0.5B-Instruct | halueval | 0.1491 | 0.2487 | 0.7819 | 0.5000 | 0.4625 |
+| Qwen2.5-0.5B-Instruct | truthfulqa | 0.4859 | 0.4391 | 0.5687 | 0.5000 | 0.4756 |
+| TinyLlama-1.1B-Chat | halueval | 0.5134 | 0.5337 | 0.3881 | 0.5000 | 0.3000 |
+| TinyLlama-1.1B-Chat | truthfulqa | 0.5297 | 0.5284 | 0.4809 | 0.5000 | 0.4781 |
+
+Note: span-fused matches Protocol L fused-only ablation. Inv logit-gap can rank on Qwen–Halu while production composite + TIG stay failed/locked.
+
 ## E. Protocol L′ — LOQO ridge adaptation (unlock operating point)
 
 | Model | Suite | LOQO AUROC | 95% CI | Same-scorer F′ | Δ F′−L′ | MGR | Abstain | Polarity |

@@ -245,6 +245,27 @@ def evaluate_pairs(
     return out_rows
 
 
+def _filter_halueval_length_matched(
+    pairs: list[tuple[str, str, bool]], *, max_ratio: float
+) -> list[tuple[str, str, bool]]:
+    """Keep only question pairs whose answer length ratio <= max_ratio."""
+    from collections import defaultdict
+
+    by_q: dict[str, list[tuple[str, str, bool]]] = defaultdict(list)
+    for trip in pairs:
+        by_q[trip[0]].append(trip)
+    kept: list[tuple[str, str, bool]] = []
+    for trips in by_q.values():
+        if len(trips) != 2:
+            continue
+        a, b = trips
+        la, lb = len(a[1]), len(b[1])
+        hi, lo = max(la, lb), max(1, min(la, lb))
+        if hi / lo <= max_ratio:
+            kept.extend(trips)
+    return kept
+
+
 def run_live(
     model_name: str,
     *,
@@ -252,7 +273,13 @@ def run_live(
     max_pairs: int = 100,
     seed: int = 42,
     device: str = "cpu",
+    report_suffix: str = "",
+    length_match_ratio: float = 0.0,
 ) -> dict[str, Any]:
+    """Run Protocol L. If report_suffix is set, write additive files only (lock-safe)."""
+    suffix = f"_{report_suffix}" if report_suffix else ""
+    if report_suffix:
+        print(f"[live] ADDITIVE mode suffix={report_suffix!r} (will not overwrite locked n=80 names)")
     report: dict[str, Any] = {
         "status": "ok",
         "mode": "live_lm_claim_encoding",
@@ -260,11 +287,22 @@ def run_live(
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "max_pairs": max_pairs,
         "seed": seed,
+        "report_suffix": report_suffix or None,
+        "length_match_ratio": length_match_ratio or None,
         "benchmarks": {},
     }
+    slug = model_name.replace("/", "_").replace(".", "_").lower()
+    REPORTS.mkdir(parents=True, exist_ok=True)
+
     if benchmark in ("halueval", "both"):
         print(f"[live] HaluEval pairs (max={max_pairs}) on {model_name}")
-        pairs = load_halueval_pairs(max_pairs=max_pairs, seed=seed)
+        # Draw a larger pool when length-matching so enough pairs survive the filter.
+        draw = max_pairs * 20 if length_match_ratio and length_match_ratio > 0 else max_pairs
+        pairs = load_halueval_pairs(max_pairs=draw, seed=seed)
+        if length_match_ratio and length_match_ratio > 0:
+            pairs = _filter_halueval_length_matched(pairs, max_ratio=length_match_ratio)
+            pairs = pairs[:max_pairs]
+            print(f"  length-matched ratio<={length_match_ratio}: kept {len(pairs)} rows")
         rows = evaluate_pairs(model_name, pairs, label_key="is_hallucination", device=device)
         metrics = score_abstain_accuracy(
             rows, label_key="is_hallucination", with_ci=True, ci_B=2000, ci_seed=seed
@@ -274,12 +312,20 @@ def run_live(
             "source": "live",
             "protocol": "L",
             **metrics,
-            "rows_path_hint": "halueval_live_rows.json",
+            "rows_path_hint": f"halueval_live_{slug}{suffix}.json",
         }
-        REPORTS.mkdir(parents=True, exist_ok=True)
-        slug = model_name.replace("/", "_").replace(".", "_").lower()
-        (REPORTS / f"halueval_live_{slug}.json").write_text(
-            json.dumps({"rows": rows, "metrics": metrics, "protocol": "L", "seed": seed}, indent=2),
+        (REPORTS / f"halueval_live_{slug}{suffix}.json").write_text(
+            json.dumps(
+                {
+                    "rows": rows,
+                    "metrics": metrics,
+                    "protocol": "L",
+                    "seed": seed,
+                    "report_suffix": report_suffix or None,
+                    "length_match_ratio": length_match_ratio or None,
+                },
+                indent=2,
+            ),
             encoding="utf-8",
         )
         ci = metrics.get("auroc_ci95") or {}
@@ -303,10 +349,17 @@ def run_live(
             "protocol": "L",
             **metrics,
         }
-        REPORTS.mkdir(parents=True, exist_ok=True)
-        slug = model_name.replace("/", "_").replace(".", "_").lower()
-        (REPORTS / f"truthfulqa_live_{slug}.json").write_text(
-            json.dumps({"rows": rows, "metrics": metrics, "protocol": "L", "seed": seed}, indent=2),
+        (REPORTS / f"truthfulqa_live_{slug}{suffix}.json").write_text(
+            json.dumps(
+                {
+                    "rows": rows,
+                    "metrics": metrics,
+                    "protocol": "L",
+                    "seed": seed,
+                    "report_suffix": report_suffix or None,
+                },
+                indent=2,
+            ),
             encoding="utf-8",
         )
         ci = metrics.get("auroc_ci95") or {}
@@ -317,8 +370,7 @@ def run_live(
             f"never_abstains={metrics.get('never_abstains')}"
         )
 
-    out = REPORTS / f"live_guard_{model_name.replace('/', '_').replace('.', '_').lower()}.json"
-    REPORTS.mkdir(parents=True, exist_ok=True)
+    out = REPORTS / f"live_guard_{slug}{suffix}.json"
     out.write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(f"Wrote {out}")
     return report
@@ -331,6 +383,17 @@ def main(argv: Optional[list[str]] = None) -> None:
     p.add_argument("--max-pairs", type=int, default=80, help="Total claim pairs (correct+incorrect)")
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--device", default="cpu")
+    p.add_argument(
+        "--report-suffix",
+        default="",
+        help="If set, write additive reports as *_<suffix>.json and do NOT overwrite locked n=80 files.",
+    )
+    p.add_argument(
+        "--length-match-ratio",
+        type=float,
+        default=0.0,
+        help="If >0, keep only HaluEval question-pairs with max/min answer length <= ratio before scoring.",
+    )
     args = p.parse_args(argv)
     run_live(
         args.model,
@@ -338,6 +401,8 @@ def main(argv: Optional[list[str]] = None) -> None:
         max_pairs=args.max_pairs,
         seed=args.seed,
         device=args.device,
+        report_suffix=args.report_suffix,
+        length_match_ratio=args.length_match_ratio,
     )
 
 

@@ -1,0 +1,397 @@
+{
+  "schema": "anima.semantic_entropy_v2b.answer_span",
+  "status": "ok",
+  "protocol": "L_answer_span_uncertainty_reanalysis",
+  "generated_at": "2026-10-23T13:33:41.416323+00:00",
+  "B": 2000,
+  "seed": 42,
+  "honesty": {
+    "baseline_lock": true,
+    "v1_unchanged": true,
+    "source": "{suite}_live_<slug>.json uncertainty_signals (answer-span mean)",
+    "not_farquhar_multisample_se": true,
+    "baseline_files_untouched": [
+      "semantic_entropy_matched_*.json",
+      "live_guard_*.json",
+      "trust_integrity_*.json"
+    ]
+  },
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct": {
+      "model": null,
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "suites": {
+        "halueval": {
+          "n": 80,
+          "label_key": "is_hallucination",
+          "controls": {
+            "answer_span_entropy": {
+              "auroc": 0.1491,
+              "auroc_ci95": {
+                "point": 0.1491,
+                "lo": 0.0717,
+                "hi": 0.2429,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "answer_span_fused": {
+              "auroc": 0.2487,
+              "auroc_ci95": {
+                "point": 0.2487,
+                "lo": 0.1463,
+                "hi": 0.3663,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "answer_span_inv_logit_gap": {
+              "auroc": 0.7819,
+              "auroc_ci95": {
+                "point": 0.7819,
+                "lo": 0.6776,
+                "hi": 0.8775,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "semantic_entropy_v1": {
+              "auroc": 0.5,
+              "auroc_ci95": {
+                "point": 0.5,
+                "lo": 0.4017,
+                "hi": 0.6048,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "claim_disagreement": {
+              "auroc": 0.4625,
+              "auroc_ci95": {
+                "point": 0.4625,
+                "lo": 0.4186,
+                "hi": 0.5,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "anima_composite_ref": {
+              "auroc": 0.2469,
+              "auroc_ci95": {
+                "point": 0.2469,
+                "lo": 0.1444,
+                "hi": 0.363,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "probe_only_ref": {
+              "auroc": 0.5228,
+              "auroc_ci95": {
+                "point": 0.5228,
+                "lo": 0.3846,
+                "hi": 0.6537,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            }
+          },
+          "ieee_note": "answer_span_* are per-row scores from locked claim-encode uncertainty_signals; not Farquhar multi-sample SE. v1 SE stays the degeneracy exhibit."
+        },
+        "truthfulqa": {
+          "n": 80,
+          "label_key": "should_abstain",
+          "controls": {
+            "answer_span_entropy": {
+              "auroc": 0.4859,
+              "auroc_ci95": {
+                "point": 0.4859,
+                "lo": 0.3546,
+                "hi": 0.6173,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "answer_span_fused": {
+              "auroc": 0.4391,
+              "auroc_ci95": {
+                "point": 0.4391,
+                "lo": 0.3092,
+                "hi": 0.5725,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "answer_span_inv_logit_gap": {
+              "auroc": 0.5687,
+              "auroc_ci95": {
+                "point": 0.5687,
+                "lo": 0.44,
+                "hi": 0.6963,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "semantic_entropy_v1": {
+              "auroc": 0.5,
+              "auroc_ci95": {
+                "point": 0.5,
+                "lo": 0.4057,
+                "hi": 0.599,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "claim_disagreement": {
+              "auroc": 0.4756,
+              "auroc_ci95": {
+                "point": 0.4756,
+                "lo": 0.4138,
+                "hi": 0.5329,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "anima_composite_ref": {
+              "auroc": 0.4587,
+              "auroc_ci95": {
+                "point": 0.4587,
+                "lo": 0.3278,
+                "hi": 0.5917,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "probe_only_ref": {
+              "auroc": 0.6569,
+              "auroc_ci95": {
+                "point": 0.6569,
+                "lo": 0.5335,
+                "hi": 0.7727,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            }
+          },
+          "ieee_note": "answer_span_* are per-row scores from locked claim-encode uncertainty_signals; not Farquhar multi-sample SE. v1 SE stays the degeneracy exhibit."
+        }
+      }
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0": {
+      "model": null,
+      "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+      "suites": {
+        "halueval": {
+          "n": 80,
+          "label_key": "is_hallucination",
+          "controls": {
+            "answer_span_entropy": {
+              "auroc": 0.5134,
+              "auroc_ci95": {
+                "point": 0.5134,
+                "lo": 0.384,
+                "hi": 0.6384,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "answer_span_fused": {
+              "auroc": 0.5337,
+              "auroc_ci95": {
+                "point": 0.5337,
+                "lo": 0.4073,
+                "hi": 0.6642,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "answer_span_inv_logit_gap": {
+              "auroc": 0.3881,
+              "auroc_ci95": {
+                "point": 0.3881,
+                "lo": 0.2544,
+                "hi": 0.5147,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "semantic_entropy_v1": {
+              "auroc": 0.5,
+              "auroc_ci95": {
+                "point": 0.5,
+                "lo": 0.3775,
+                "hi": 0.6216,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "claim_disagreement": {
+              "auroc": 0.3,
+              "auroc_ci95": {
+                "point": 0.3,
+                "lo": 0.2237,
+                "hi": 0.375,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "anima_composite_ref": {
+              "auroc": 0.5387,
+              "auroc_ci95": {
+                "point": 0.5387,
+                "lo": 0.4153,
+                "hi": 0.6707,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "probe_only_ref": {
+              "auroc": 0.4831,
+              "auroc_ci95": {
+                "point": 0.4831,
+                "lo": 0.3568,
+                "hi": 0.616,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            }
+          },
+          "ieee_note": "answer_span_* are per-row scores from locked claim-encode uncertainty_signals; not Farquhar multi-sample SE. v1 SE stays the degeneracy exhibit."
+        },
+        "truthfulqa": {
+          "n": 80,
+          "label_key": "should_abstain",
+          "controls": {
+            "answer_span_entropy": {
+              "auroc": 0.5297,
+              "auroc_ci95": {
+                "point": 0.5297,
+                "lo": 0.3952,
+                "hi": 0.6592,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "answer_span_fused": {
+              "auroc": 0.5284,
+              "auroc_ci95": {
+                "point": 0.5284,
+                "lo": 0.399,
+                "hi": 0.6581,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "answer_span_inv_logit_gap": {
+              "auroc": 0.4809,
+              "auroc_ci95": {
+                "point": 0.4809,
+                "lo": 0.3529,
+                "hi": 0.6106,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "semantic_entropy_v1": {
+              "auroc": 0.5,
+              "auroc_ci95": {
+                "point": 0.5,
+                "lo": 0.3769,
+                "hi": 0.6228,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "claim_disagreement": {
+              "auroc": 0.4781,
+              "auroc_ci95": {
+                "point": 0.4781,
+                "lo": 0.3864,
+                "hi": 0.5705,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "anima_composite_ref": {
+              "auroc": 0.5188,
+              "auroc_ci95": {
+                "point": 0.5188,
+                "lo": 0.3803,
+                "hi": 0.6523,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            },
+            "probe_only_ref": {
+              "auroc": 0.4888,
+              "auroc_ci95": {
+                "point": 0.4888,
+                "lo": 0.3627,
+                "hi": 0.6192,
+                "B": 2000,
+                "seed": 42,
+                "n": 80,
+                "method": "bootstrap_mann_whitney"
+              }
+            }
+          },
+          "ieee_note": "answer_span_* are per-row scores from locked claim-encode uncertainty_signals; not Farquhar multi-sample SE. v1 SE stays the degeneracy exhibit."
+        }
+      }
+    }
+  }
+}

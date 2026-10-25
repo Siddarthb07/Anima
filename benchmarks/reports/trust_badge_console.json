@@ -1,21 +1,24 @@
 {
-  "schema": "anima.trust_badge_console_rollup.v1",
-  "generated_at": "2026-10-23T12:36:19.431537+00:00",
+  "schema": "anima.trust_badge_console_rollup.v3",
+  "generated_at": "2026-10-25T08:05:32.924516+00:00",
   "models": {
     "qwen_qwen2_5-0_5b-instruct": {
-      "schema": "anima.trust_badge_console.v2",
-      "generated_at": "2026-10-23T12:36:19.429538+00:00",
+      "schema": "anima.trust_badge_console.v3",
+      "generated_at": "2026-10-25T08:05:32.924516+00:00",
       "model_slug": "qwen_qwen2_5-0_5b-instruct",
-      "badge": "UNLOCKED",
-      "badge_color": "#2e7d32",
-      "operating_point": "protocol_L_prime_loqo",
-      "trust_ui_claim_allowed": true,
+      "badge": "LOCKED",
+      "badge_color": "#c62828",
+      "operating_point": "default_composite_locked_lprime_lab_only",
+      "trust_ui_claim_allowed": false,
       "baseline_claim_allowed": false,
       "adapted_claim_allowed": true,
       "failed_gates": [],
       "seal_sha256": "26885e61df6be91999ca6667a59ff1ecdaa1d93b76797e7cc459252f20bfcbc4",
-      "greenshield_passed": true,
-      "greenshield_failed_checks": [],
+      "greenshield_passed": false,
+      "greenshield_failed_checks": [
+        "baseline_never_abstain",
+        "baseline_auroc_collapse"
+      ],
       "suites": {
         "halueval": {
           "baseline_live_auroc": 0.2469,
@@ -40,26 +43,31 @@
       },
       "honesty": {
         "fixture_auroc_cannot_unlock": true,
-        "not_user_study": true,
-        "not_hallucination_sota": true,
-        "baseline_collapse_preserved": true,
-        "message": "Badge follows Protocol L\u2032 TIG when present. Baseline Protocol L remains locked on these models (collapse finding). Fixture AUROC alone never unlocks."
-      }
+        "adapted_lprime_is_lab_only": true,
+        "shipping_claim": false,
+        "message": "Field badge LOCKED on default composite. L-prime may be LAB_ONLY amber; never green field chrome."
+      },
+      "adapted_lab_badge": "LAB_ONLY",
+      "adapted_lab_badge_color": "#ef6c00",
+      "adapted_shipping_claim": false
     },
     "tinyllama_tinyllama-1_1b-chat-v1_0": {
-      "schema": "anima.trust_badge_console.v2",
-      "generated_at": "2026-10-23T12:36:19.431537+00:00",
+      "schema": "anima.trust_badge_console.v3",
+      "generated_at": "2026-10-25T08:05:32.924516+00:00",
       "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
-      "badge": "UNLOCKED",
-      "badge_color": "#2e7d32",
-      "operating_point": "protocol_L_prime_loqo",
-      "trust_ui_claim_allowed": true,
+      "badge": "LOCKED",
+      "badge_color": "#c62828",
+      "operating_point": "default_composite_locked_lprime_lab_only",
+      "trust_ui_claim_allowed": false,
       "baseline_claim_allowed": false,
       "adapted_claim_allowed": true,
       "failed_gates": [],
       "seal_sha256": "e9f4daf4c940af72a27afe24800fce87a53524f6e0acc8451ec2c28156bfdc79",
-      "greenshield_passed": true,
-      "greenshield_failed_checks": [],
+      "greenshield_passed": false,
+      "greenshield_failed_checks": [
+        "baseline_never_abstain",
+        "baseline_auroc_collapse"
+      ],
       "suites": {
         "halueval": {
           "baseline_live_auroc": 0.5387,
@@ -84,12 +92,20 @@
       },
       "honesty": {
         "fixture_auroc_cannot_unlock": true,
-        "not_user_study": true,
-        "not_hallucination_sota": true,
-        "baseline_collapse_preserved": true,
-        "message": "Badge follows Protocol L\u2032 TIG when present. Baseline Protocol L remains locked on these models (collapse finding). Fixture AUROC alone never unlocks."
-      }
+        "adapted_lprime_is_lab_only": true,
+        "shipping_claim": false,
+        "message": "Field badge LOCKED on default composite. L-prime may be LAB_ONLY amber; never green field chrome."
+      },
+      "adapted_lab_badge": "LAB_ONLY",
+      "adapted_lab_badge_color": "#ef6c00",
+      "adapted_shipping_claim": false
     }
   },
-  "any_unlocked": true
+  "any_unlocked": true,
+  "honesty_rollup": {
+    "default_composite_badge": "LOCKED",
+    "adapted_lprime_badge": "LAB_ONLY_NOT_FIELD_SAFETY",
+    "shipping_claim": false,
+    "note": "Top-level badge follows baseline_claim_allowed for field chrome; adapted L-prime is lab-only amber."
+  }
 }

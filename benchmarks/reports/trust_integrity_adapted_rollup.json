@@ -21,7 +21,7 @@
         "truthfulqa:misleading_green<=0.4"
       ],
       "transfer_gap_max": 0.3356,
-      "seal_sha256": "26885e61df6be91999ca6667a59ff1ecdaa1d93b76797e7cc459252f20bfcbc4",
+      "seal_sha256": "dcf1d5a3df39679d284d84def851628d5b5365df1f7491ee986db2494502890a",
       "operating_point": "protocol_L_prime_loqo"
     },
     "tinyllama_tinyllama-1_1b-chat-v1_0": {
@@ -43,7 +43,7 @@
         "truthfulqa:misleading_green<=0.4"
       ],
       "transfer_gap_max": 0.5069,
-      "seal_sha256": "e9f4daf4c940af72a27afe24800fce87a53524f6e0acc8451ec2c28156bfdc79",
+      "seal_sha256": "db5984eebfc4c284bee6a31adc0a1920aa9f92a81575a5359ddcf9b87ae7ce4e",
       "operating_point": "protocol_L_prime_loqo"
     }
   },
