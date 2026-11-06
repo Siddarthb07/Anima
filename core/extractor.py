@@ -53,13 +53,14 @@ class ActivationExtractor:
 
         dtype = _resolve_load_dtype(config["hidden_dim"], on_cpu=on_cpu)
         load_kwargs: dict = {
-            "dtype": dtype,
+            "torch_dtype": dtype,
             "device_map": device_map,
             "low_cpu_mem_usage": True,
             "attn_implementation": "eager",
             # Prefer safetensors so older torch (<2.6) can load Hub weights without CVE-2025-32434 block
             "use_safetensors": True,
         }
+        self._load_8bit = False
         if os.environ.get("ANIMA_LOAD_8BIT") == "1" and cuda_ok and config["hidden_dim"] >= 2048:
             try:
                 from transformers import BitsAndBytesConfig
@@ -67,13 +68,29 @@ class ActivationExtractor:
                 load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
                 load_kwargs["device_map"] = "auto"
                 load_kwargs.pop("torch_dtype", None)
+                load_kwargs.pop("dtype", None)
+                self._load_8bit = True
             except ImportError:
                 pass
+
+        # 8-bit + output_attentions is a known NaN source on some Qwen/Mistral stacks.
+        # Default: attentions on; set ANIMA_OUTPUT_ATTENTIONS=0 to force off.
+        # Auto-disable attentions under 8-bit unless explicitly forced on.
+        attn_env = os.environ.get("ANIMA_OUTPUT_ATTENTIONS", "").strip()
+        if attn_env == "1":
+            self._output_attentions = True
+        elif attn_env == "0":
+            self._output_attentions = False
+        else:
+            self._output_attentions = not self._load_8bit
 
         try:
             self.model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
         except Exception:
             load_kwargs.pop("use_safetensors", None)
+            # Older transformers want dtype= instead of torch_dtype=
+            if "torch_dtype" in load_kwargs:
+                load_kwargs["dtype"] = load_kwargs.pop("torch_dtype")
             self.model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
         if os.environ.get("ANIMA_LOAD_DYNAMIC_INT8") == "1" and on_cpu:
             self.model = torch.quantization.quantize_dynamic(
@@ -82,34 +99,96 @@ class ActivationExtractor:
         self.model.eval()
         self.hook = ActivationHook(self.model, self.layer_indices)
 
+    @staticmethod
+    def _as_finite(x: float, default: float = 0.5) -> float:
+        try:
+            v = float(x)
+        except (TypeError, ValueError):
+            return default
+        if v != v or v in (float("inf"), float("-inf")):  # NaN/Inf
+            return default
+        return v
+
     def _compute_entropy(self, logits: torch.Tensor) -> float:
-        probs = torch.softmax(logits.float(), dim=-1)
+        logits_f = logits.float()
+        if not torch.isfinite(logits_f).all():
+            return float("nan")
+        probs = torch.softmax(logits_f, dim=-1)
         entropy = -(probs * torch.log(probs + 1e-9)).sum()
-        max_entropy = torch.log(torch.tensor(logits.shape[-1], dtype=torch.float))
-        return (entropy / max_entropy).item()
+        max_entropy = torch.log(
+            torch.tensor(float(logits_f.shape[-1]), dtype=torch.float32, device=logits_f.device)
+        )
+        return self._as_finite((entropy / max_entropy).item(), default=float("nan"))
 
     def _compute_logit_gap(self, logits: torch.Tensor) -> float:
-        top2 = torch.topk(logits.float(), 2).values
+        logits_f = logits.float()
+        if not torch.isfinite(logits_f).all():
+            return float("nan")
+        top2 = torch.topk(logits_f, 2).values
         gap = (top2[0] - top2[1]).item()
-        return 1.0 / (1.0 + max(gap, 0.0))
+        return self._as_finite(1.0 / (1.0 + max(gap, 0.0)), default=float("nan"))
 
     def _compute_attention_entropy(self, attentions) -> float:
         if attentions is None:
-            return 0.5
+            return float("nan")
         last_layer_attn = None
         for layer_attn in reversed(attentions):
             if layer_attn is not None:
                 last_layer_attn = layer_attn
                 break
         if last_layer_attn is None:
-            return 0.5
-        last_token_attn = last_layer_attn[0, :, -1, :]
+            return float("nan")
+        last_token_attn = last_layer_attn[0, :, -1, :].float()
+        if not torch.isfinite(last_token_attn).all():
+            return float("nan")
+        # Renormalize in case of numerical drift under quantization.
+        mass = last_token_attn.sum(-1, keepdim=True).clamp_min(1e-9)
+        last_token_attn = last_token_attn / mass
         entropy = -(last_token_attn * torch.log(last_token_attn + 1e-9)).sum(-1).mean()
-        max_entropy = torch.log(torch.tensor(last_token_attn.shape[-1], dtype=torch.float))
-        return (entropy / max_entropy).item()
+        max_entropy = torch.log(
+            torch.tensor(float(last_token_attn.shape[-1]), dtype=torch.float32, device=last_token_attn.device)
+        )
+        return self._as_finite((entropy / max_entropy).item(), default=float("nan"))
 
     def _fuse_uncertainty(self, entropy: float, logit_gap: float, attn_entropy: float) -> float:
-        return round(0.35 * entropy + 0.35 * logit_gap + 0.30 * attn_entropy, 4)
+        """Weighted fuse that drops NaN channels and renormalizes remaining weights."""
+        parts = [
+            (0.35, entropy),
+            (0.35, logit_gap),
+            (0.30, attn_entropy),
+        ]
+        usable = [(w, v) for w, v in parts if v == v and v not in (float("inf"), float("-inf"))]
+        if not usable:
+            return float("nan")
+        w_sum = sum(w for w, _ in usable)
+        fused = sum((w / w_sum) * v for w, v in usable)
+        return round(self._as_finite(fused, default=float("nan")), 4)
+
+    def _uncertainty_pack(
+        self, logits: torch.Tensor, attentions
+    ) -> dict[str, float]:
+        entropy = self._compute_entropy(logits)
+        logit_gap_unc = self._compute_logit_gap(logits)
+        attn_entropy = (
+            self._compute_attention_entropy(attentions)
+            if self._output_attentions
+            else float("nan")
+        )
+        fused = self._fuse_uncertainty(entropy, logit_gap_unc, attn_entropy)
+        return {
+            "entropy": round(self._as_finite(entropy, default=float("nan")), 4)
+            if entropy == entropy
+            else float("nan"),
+            "logit_gap": round(self._as_finite(logit_gap_unc, default=float("nan")), 4)
+            if logit_gap_unc == logit_gap_unc
+            else float("nan"),
+            "attn_entropy": round(self._as_finite(attn_entropy, default=float("nan")), 4)
+            if attn_entropy == attn_entropy
+            else float("nan"),
+            "fused": fused,
+            "attn_enabled": bool(self._output_attentions),
+            "load_8bit": bool(self._load_8bit),
+        }
 
     def cleanup(self):
         self.hook.remove()
@@ -145,17 +224,14 @@ class ActivationExtractor:
         with torch.no_grad():
             outputs = self.model(
                 **inputs,
-                output_attentions=True,
+                output_attentions=bool(self._output_attentions),
                 use_cache=False,
             )
 
         seq_len = inputs.input_ids.shape[1]
         for pos in range(seq_len):
             logits = outputs.logits[0, pos, :]
-            entropy = self._compute_entropy(logits)
-            logit_gap_unc = self._compute_logit_gap(logits)
-            attn_entropy = self._compute_attention_entropy(outputs.attentions)
-            fused = self._fuse_uncertainty(entropy, logit_gap_unc, attn_entropy)
+            unc = self._uncertainty_pack(logits, outputs.attentions)
 
             tid = int(inputs.input_ids[0, pos].item())
             token_text = self.tokenizer.decode([tid])
@@ -173,10 +249,10 @@ class ActivationExtractor:
                     "activations": acts,
                     "logits": logits.detach().cpu(),
                     "uncertainty_signals": {
-                        "entropy": round(entropy, 4),
-                        "logit_gap": round(logit_gap_unc, 4),
-                        "attn_entropy": round(attn_entropy, 4),
-                        "fused": fused,
+                        "entropy": unc["entropy"],
+                        "logit_gap": unc["logit_gap"],
+                        "attn_entropy": unc["attn_entropy"],
+                        "fused": unc["fused"],
                     },
                 }
             )
@@ -224,16 +300,12 @@ class ActivationExtractor:
                 with ctx:
                     outputs = self.model(
                         **model_inputs,
-                        output_attentions=True,
+                        output_attentions=bool(self._output_attentions),
                         use_cache=True,
                     )
                 past_key_values = outputs.past_key_values
                 logits = outputs.logits[0, -1, :]
-
-                entropy = self._compute_entropy(logits)
-                logit_gap_unc = self._compute_logit_gap(logits)
-                attn_entropy = self._compute_attention_entropy(outputs.attentions)
-                uncertainty_fused = self._fuse_uncertainty(entropy, logit_gap_unc, attn_entropy)
+                unc = self._uncertainty_pack(logits, outputs.attentions)
 
                 token_activations = {
                     idx: self.hook.last_token(idx).clone() for idx in self.layer_indices
@@ -250,10 +322,10 @@ class ActivationExtractor:
                     "activations": token_activations,
                     "logits": logits.detach().cpu(),
                     "uncertainty_signals": {
-                        "entropy": round(entropy, 4),
-                        "logit_gap": round(logit_gap_unc, 4),
-                        "attn_entropy": round(attn_entropy, 4),
-                        "fused": uncertainty_fused,
+                        "entropy": unc["entropy"],
+                        "logit_gap": unc["logit_gap"],
+                        "attn_entropy": unc["attn_entropy"],
+                        "fused": unc["fused"],
                     },
                 }
 
