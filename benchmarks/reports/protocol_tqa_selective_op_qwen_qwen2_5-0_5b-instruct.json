@@ -1,0 +1,58 @@
+{
+  "schema": "anima.protocol_tqa_selective_op.v1",
+  "generated_at": "2026-11-04T06:26:55.548997+00:00",
+  "model_slug": "qwen_qwen2_5-0_5b-instruct",
+  "suite": "truthfulqa",
+  "n_full": 80,
+  "n_heldout": 40,
+  "score_name": "inv_composite",
+  "anti_aligned_composite": true,
+  "heldout_auroc": 0.5238,
+  "length_to_label_auroc": 0.3425,
+  "length_gate_clear": true,
+  "best_selective": {
+    "tau": 0.56,
+    "auroc": 0.5238,
+    "badge": {
+      "tau": 0.56,
+      "n": 40,
+      "n_abstain": 21,
+      "n_green": 19,
+      "abstain_events": "21/40",
+      "false_green_rate": 0.2,
+      "error_among_green": 0.4211,
+      "selective": true
+    },
+    "coverage_at_risk_0.10": {
+      "risk_target": 0.1,
+      "coverage": 0.05,
+      "abstain_frac": 0.95,
+      "positive_rate_on_answered": 0.0,
+      "status": "ok"
+    },
+    "coverage_at_risk_0.20": {
+      "risk_target": 0.2,
+      "coverage": 0.05,
+      "abstain_frac": 0.95,
+      "positive_rate_on_answered": 0.0,
+      "status": "ok"
+    },
+    "joint_decide": "abstain_if_score_ge_tau",
+    "hits_9_gates": false
+  },
+  "n_hits_9_gates": 0,
+  "hits": [],
+  "hall_meta": null,
+  "shipping_claim": false,
+  "targets": {
+    "min_heldout_auroc": 0.75,
+    "max_error_among_green": 0.2,
+    "min_coverage_at_risk_0_10": 0.3,
+    "min_coverage_at_risk_0_20": 0.5,
+    "require_0_lt_k_lt_n": true,
+    "residual_auroc_beats_length": true,
+    "length_to_label_max_for_primary": 0.8,
+    "shipping_claim": false
+  },
+  "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\truthfulqa_live_qwen_qwen2_5-0_5b-instruct.json"
+}
