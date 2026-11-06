@@ -1,0 +1,48 @@
+{
+  "schema": "anima.paired_auroc_ci.v1",
+  "generated_at": "2026-11-04T07:14:13.081380+00:00",
+  "suite": "truthfulqa",
+  "model_slug": "qwen_qwen2_5-0_5b-instruct",
+  "n_heldout": 40,
+  "pilot": true,
+  "auroc": {
+    "hall_probe": 0.69,
+    "sys_a_inv_composite": 0.5112,
+    "gprime": 0.5825,
+    "channel_probe": 0.515
+  },
+  "paired_delta_vs_hall": {
+    "hall_minus_sys_a": {
+      "delta_auroc": 0.17879999999999996,
+      "ci95": [
+        -0.052772499999999965,
+        0.41209999999999997
+      ],
+      "covers_zero": true,
+      "B": 2000,
+      "seed": 42
+    },
+    "hall_minus_gprime": {
+      "delta_auroc": 0.10749999999999993,
+      "ci95": [
+        -0.138155,
+        0.3510374999999998
+      ],
+      "covers_zero": true,
+      "B": 2000,
+      "seed": 42
+    },
+    "hall_minus_probe": {
+      "delta_auroc": 0.17499999999999993,
+      "ci95": [
+        -0.10866250000000002,
+        0.44012499999999993
+      ],
+      "covers_zero": true,
+      "B": 2000,
+      "seed": 42
+    }
+  },
+  "shipping_claim": false,
+  "note": "If CI covers 0, do not claim significant ranking win"
+}
