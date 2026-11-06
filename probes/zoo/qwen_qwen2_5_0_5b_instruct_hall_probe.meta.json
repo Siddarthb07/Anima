@@ -1,0 +1,52 @@
+{
+  "schema": "anima.hallucination_hidden_probe.v1",
+  "checkpoint": "/home/ubuntu/Anima/probes/zoo/qwen_qwen2_5_0_5b_instruct_hall_probe.pt",
+  "sha256": "44988131c7cbc61414b1a757658da5dcaf44f2b77f3b2b9aaa53ab9476512398",
+  "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+  "train_suite": "truthfulqa",
+  "max_pairs": 80,
+  "seed": 42,
+  "epochs": 60,
+  "n_tune": 40,
+  "n_heldout": 40,
+  "heldout_auroc": 0.685,
+  "best_selective": {
+    "tau": 0.78,
+    "badge": {
+      "tau": 0.78,
+      "n": 40,
+      "n_abstain": 13,
+      "n_green": 27,
+      "abstain_events": "13/40",
+      "false_green_rate": 0.25,
+      "error_among_green": 0.3704,
+      "selective": true
+    },
+    "coverage_at_risk_0.10": {
+      "risk_target": 0.1,
+      "coverage": 0.0,
+      "status": "infeasible"
+    },
+    "coverage_at_risk_0.20": {
+      "risk_target": 0.2,
+      "coverage": 0.0,
+      "status": "infeasible"
+    },
+    "auroc": 0.685
+  },
+  "shipping_claim": false,
+  "not_affect_probe": true,
+  "not_gprime_refusion": true,
+  "generated_at": "2026-11-04T06:30:20.141520+00:00",
+  "targets": {
+    "min_heldout_auroc": 0.75,
+    "max_error_among_green": 0.2,
+    "min_coverage_at_risk_0_10": 0.3,
+    "min_coverage_at_risk_0_20": 0.5,
+    "require_0_lt_k_lt_n": true,
+    "residual_auroc_beats_length": true,
+    "length_to_label_max_for_primary": 0.8,
+    "shipping_claim": false
+  },
+  "hits_9_gates": false
+}
