@@ -1,0 +1,112 @@
+[
+  {
+    "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+    "file": "live_guard_huggingfacetb_smollm2-1_7b-instruct_stage_b_fleet_huggingfacetb_smollm2-1_7b-instruct.json",
+    "benches": {
+      "halueval": {
+        "n": 80,
+        "never_abstains": true,
+        "composite_auroc": 0.0,
+        "composite_flip": 0.0,
+        "fused_auroc": 0.0,
+        "fused_flip": 0.0,
+        "logit_gap_auroc": 0.3337,
+        "logit_gap_flip": 0.6663,
+        "inv_logit_gap_auroc": 0.6663,
+        "affect_u_auroc": 0.5,
+        "affect_u_flip": 0.5,
+        "composite_stdev": NaN,
+        "fused_stdev": NaN,
+        "reported_auroc": 0.0
+      }
+    }
+  },
+  {
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "file": "live_guard_mistralai_mistral-7b-instruct-v0_2_stage_b_fleet_mistralai_mistral-7b-instruct-v0_2.json",
+    "benches": {
+      "halueval": {
+        "n": 80,
+        "never_abstains": true,
+        "composite_auroc": 0.1956,
+        "composite_flip": 0.2544,
+        "fused_auroc": 0.2059,
+        "fused_flip": 0.2441,
+        "logit_gap_auroc": 0.4913,
+        "logit_gap_flip": 0.5088,
+        "inv_logit_gap_auroc": 0.5088,
+        "affect_u_auroc": 0.4069,
+        "affect_u_flip": 0.5931,
+        "composite_stdev": NaN,
+        "fused_stdev": NaN,
+        "reported_auroc": 0.1959
+      }
+    }
+  },
+  {
+    "model": "Qwen/Qwen2-7B-Instruct",
+    "file": "live_guard_qwen_qwen2-7b-instruct_stage_b_fleet_qwen_qwen2-7b-instruct.json",
+    "benches": {
+      "halueval": {
+        "n": 80,
+        "never_abstains": true,
+        "composite_auroc": 0.0,
+        "composite_flip": 0.0,
+        "fused_auroc": 0.0,
+        "fused_flip": 0.0,
+        "logit_gap_auroc": 0.0,
+        "logit_gap_flip": 0.0,
+        "inv_logit_gap_auroc": 0.0,
+        "affect_u_auroc": 0.4612,
+        "affect_u_flip": 0.5387,
+        "composite_stdev": NaN,
+        "fused_stdev": NaN,
+        "reported_auroc": 0.0
+      }
+    }
+  },
+  {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "file": "live_guard_qwen_qwen2_5-3b-instruct_stage_b_fleet_qwen_qwen2_5-3b-instruct.json",
+    "benches": {
+      "halueval": {
+        "n": 80,
+        "never_abstains": true,
+        "composite_auroc": 0.1688,
+        "composite_flip": 0.3312,
+        "fused_auroc": 0.1062,
+        "fused_flip": 0.3937,
+        "logit_gap_auroc": 0.1844,
+        "logit_gap_flip": 0.8156,
+        "inv_logit_gap_auroc": 0.8156,
+        "affect_u_auroc": 0.6247,
+        "affect_u_flip": 0.3753,
+        "composite_stdev": NaN,
+        "fused_stdev": NaN,
+        "reported_auroc": 0.1688
+      }
+    }
+  },
+  {
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "file": "live_guard_qwen_qwen2_5-7b-instruct_stage_b_fleet_qwen_qwen2_5-7b-instruct.json",
+    "benches": {
+      "halueval": {
+        "n": 80,
+        "never_abstains": true,
+        "composite_auroc": 0.0,
+        "composite_flip": 0.0,
+        "fused_auroc": 0.0,
+        "fused_flip": 0.0,
+        "logit_gap_auroc": 0.0,
+        "logit_gap_flip": 0.0,
+        "inv_logit_gap_auroc": 0.0,
+        "affect_u_auroc": 0.3244,
+        "affect_u_flip": 0.6756,
+        "composite_stdev": NaN,
+        "fused_stdev": NaN,
+        "reported_auroc": 0.0
+      }
+    }
+  }
+]

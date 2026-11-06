@@ -1,0 +1,191 @@
+[
+  {
+    "file": "halueval_live_huggingfacetb_smollm2-1_7b-instruct_stage_b_fleet_huggingfacetb_smollm2-1_7b-instruct.json",
+    "n": 80,
+    "nan_rate": {
+      "composite": 1.0,
+      "fused": 1.0,
+      "logit_gap": 0.0,
+      "entropy": 0.0,
+      "attn_entropy": 1.0,
+      "affect_u": 0.0
+    },
+    "halu_auroc_finite": {
+      "affect_u": 0.5,
+      "affect_u_flip": 0.5,
+      "fused": "finite_only_0/80",
+      "logit_gap": 0.3337,
+      "logit_gap_flip": 0.6663,
+      "inv_1p_gap": 0.6663,
+      "composite_finite_n": 0
+    },
+    "sample0": {
+      "composite": NaN,
+      "uncertainty_signals": {
+        "entropy": 0.0533,
+        "logit_gap": 0.2295,
+        "attn_entropy": NaN,
+        "fused": NaN,
+        "fused_last": NaN,
+        "fused_full_mean": NaN
+      },
+      "affect": {
+        "valence": 1.0,
+        "arousal": 1.0,
+        "uncertainty": 1.0
+      }
+    }
+  },
+  {
+    "file": "halueval_live_mistralai_mistral-7b-instruct-v0_2_stage_b_fleet_mistralai_mistral-7b-instruct-v0_2.json",
+    "n": 80,
+    "nan_rate": {
+      "composite": 0.325,
+      "fused": 0.325,
+      "logit_gap": 0.0,
+      "entropy": 0.0,
+      "attn_entropy": 0.325,
+      "affect_u": 0.0
+    },
+    "halu_auroc_finite": {
+      "affect_u": 0.4069,
+      "affect_u_flip": 0.5931,
+      "fused": "finite_only_54/80",
+      "logit_gap": 0.4913,
+      "logit_gap_flip": 0.5088,
+      "inv_1p_gap": 0.5088,
+      "composite_finite_n": 54,
+      "fused_on_finite_rows": 0.4576,
+      "fused_flip_on_finite": 0.5424
+    },
+    "sample0": {
+      "composite": 0.3543,
+      "uncertainty_signals": {
+        "entropy": 0.1115,
+        "logit_gap": 0.2617,
+        "attn_entropy": 0.5065,
+        "fused": 0.2826,
+        "fused_last": 0.2857,
+        "fused_full_mean": 0.3543
+      },
+      "affect": {
+        "valence": 0.1766,
+        "arousal": 0.2131,
+        "uncertainty": 0.442
+      }
+    }
+  },
+  {
+    "file": "halueval_live_qwen_qwen2-7b-instruct_stage_b_fleet_qwen_qwen2-7b-instruct.json",
+    "n": 80,
+    "nan_rate": {
+      "composite": 1.0,
+      "fused": 1.0,
+      "logit_gap": 1.0,
+      "entropy": 1.0,
+      "attn_entropy": 1.0,
+      "affect_u": 0.0
+    },
+    "halu_auroc_finite": {
+      "affect_u": 0.4612,
+      "affect_u_flip": 0.5387,
+      "fused": "finite_only_0/80",
+      "logit_gap": "finite_only_0/80",
+      "logit_gap_flip": null,
+      "inv_1p_gap": null,
+      "composite_finite_n": 0
+    },
+    "sample0": {
+      "composite": NaN,
+      "uncertainty_signals": {
+        "entropy": NaN,
+        "logit_gap": NaN,
+        "attn_entropy": NaN,
+        "fused": NaN,
+        "fused_last": NaN,
+        "fused_full_mean": NaN
+      },
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.17
+      }
+    }
+  },
+  {
+    "file": "halueval_live_qwen_qwen2_5-3b-instruct_stage_b_fleet_qwen_qwen2_5-3b-instruct.json",
+    "n": 80,
+    "nan_rate": {
+      "composite": 0.287,
+      "fused": 0.287,
+      "logit_gap": 0.0,
+      "entropy": 0.0,
+      "attn_entropy": 0.287,
+      "affect_u": 0.0
+    },
+    "halu_auroc_finite": {
+      "affect_u": 0.6247,
+      "affect_u_flip": 0.3753,
+      "fused": "finite_only_57/80",
+      "logit_gap": 0.1844,
+      "logit_gap_flip": 0.8156,
+      "inv_1p_gap": 0.8156,
+      "composite_finite_n": 57,
+      "fused_on_finite_rows": 0.2125,
+      "fused_flip_on_finite": 0.7875
+    },
+    "sample0": {
+      "composite": 0.4475,
+      "uncertainty_signals": {
+        "entropy": 0.1272,
+        "logit_gap": 0.3291,
+        "attn_entropy": 0.5834,
+        "fused": 0.3347,
+        "fused_last": 0.4141,
+        "fused_full_mean": 0.3693
+      },
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.5854
+      }
+    }
+  },
+  {
+    "file": "halueval_live_qwen_qwen2_5-7b-instruct_stage_b_fleet_qwen_qwen2_5-7b-instruct.json",
+    "n": 80,
+    "nan_rate": {
+      "composite": 1.0,
+      "fused": 1.0,
+      "logit_gap": 1.0,
+      "entropy": 1.0,
+      "attn_entropy": 1.0,
+      "affect_u": 0.0
+    },
+    "halu_auroc_finite": {
+      "affect_u": 0.3244,
+      "affect_u_flip": 0.6756,
+      "fused": "finite_only_0/80",
+      "logit_gap": "finite_only_0/80",
+      "logit_gap_flip": null,
+      "inv_1p_gap": null,
+      "composite_finite_n": 0
+    },
+    "sample0": {
+      "composite": NaN,
+      "uncertainty_signals": {
+        "entropy": NaN,
+        "logit_gap": NaN,
+        "attn_entropy": NaN,
+        "fused": NaN,
+        "fused_last": NaN,
+        "fused_full_mean": NaN
+      },
+      "affect": {
+        "valence": 1.0,
+        "arousal": 0.0,
+        "uncertainty": 0.2168
+      }
+    }
+  }
+]

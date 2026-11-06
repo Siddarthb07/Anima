@@ -1,0 +1,121 @@
+{
+  "schema": "system_a.stage_b_gpu_fleet.v1",
+  "started_at": "2026-11-03T16:51:09.588923+00:00",
+  "finished_at": "2026-11-03T17:42:41.674286+00:00",
+  "device": "Tesla T4",
+  "n_models": 5,
+  "n_ok": 5,
+  "n_failed": 0,
+  "results": [
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "suffix": "stage_b_fleet_qwen_qwen2_5-7b-instruct",
+      "started_at": "2026-11-03T16:51:09.589937+00:00",
+      "status": "ok",
+      "report_summary": {
+        "halueval": {
+          "auroc_composite": 0.0,
+          "abstain_accuracy": 0.5,
+          "n_samples": 80,
+          "never_abstains": true
+        },
+        "truthfulqa": {
+          "auroc_composite": 0.0,
+          "abstain_accuracy": 0.5,
+          "n_samples": 20,
+          "never_abstains": true
+        }
+      },
+      "finished_at": "2026-11-03T17:01:36.505911+00:00"
+    },
+    {
+      "model": "Qwen/Qwen2-7B-Instruct",
+      "suffix": "stage_b_fleet_qwen_qwen2-7b-instruct",
+      "started_at": "2026-11-03T17:01:36.506104+00:00",
+      "status": "ok",
+      "report_summary": {
+        "halueval": {
+          "auroc_composite": 0.0,
+          "abstain_accuracy": 0.5,
+          "n_samples": 80,
+          "never_abstains": true
+        },
+        "truthfulqa": {
+          "auroc_composite": 0.0,
+          "abstain_accuracy": 0.5,
+          "n_samples": 20,
+          "never_abstains": true
+        }
+      },
+      "finished_at": "2026-11-03T17:13:41.533063+00:00"
+    },
+    {
+      "model": "mistralai/Mistral-7B-Instruct-v0.2",
+      "suffix": "stage_b_fleet_mistralai_mistral-7b-instruct-v0_2",
+      "started_at": "2026-11-03T17:13:41.533246+00:00",
+      "status": "ok",
+      "report_summary": {
+        "halueval": {
+          "auroc_composite": 0.1959,
+          "abstain_accuracy": 0.5,
+          "n_samples": 80,
+          "never_abstains": true
+        },
+        "truthfulqa": {
+          "auroc_composite": 0.08,
+          "abstain_accuracy": 0.5,
+          "n_samples": 20,
+          "never_abstains": true
+        }
+      },
+      "finished_at": "2026-11-03T17:28:29.476051+00:00"
+    },
+    {
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "suffix": "stage_b_fleet_qwen_qwen2_5-3b-instruct",
+      "started_at": "2026-11-03T17:28:29.477493+00:00",
+      "status": "ok",
+      "report_summary": {
+        "halueval": {
+          "auroc_composite": 0.1688,
+          "abstain_accuracy": 0.5,
+          "n_samples": 80,
+          "never_abstains": true
+        },
+        "truthfulqa": {
+          "auroc_composite": 0.46,
+          "abstain_accuracy": 0.5,
+          "n_samples": 20,
+          "never_abstains": true
+        }
+      },
+      "finished_at": "2026-11-03T17:37:16.563957+00:00"
+    },
+    {
+      "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "suffix": "stage_b_fleet_huggingfacetb_smollm2-1_7b-instruct",
+      "started_at": "2026-11-03T17:37:16.564167+00:00",
+      "status": "ok",
+      "report_summary": {
+        "halueval": {
+          "auroc_composite": 0.0,
+          "abstain_accuracy": 0.5,
+          "n_samples": 80,
+          "never_abstains": true
+        },
+        "truthfulqa": {
+          "auroc_composite": 0.0,
+          "abstain_accuracy": 0.5,
+          "n_samples": 20,
+          "never_abstains": true
+        }
+      },
+      "finished_at": "2026-11-03T17:42:41.674166+00:00"
+    }
+  ],
+  "honesty": {
+    "no_invented_metrics": true,
+    "continues_on_failure": true,
+    "shipping_claim": false
+  }
+}
