@@ -1,0 +1,954 @@
+{
+  "schema": "anima.occupancy_tau_path.v1",
+  "generated_at": "2026-11-05T19:55:29.507692+00:00",
+  "novelty": "\u03c4-path occupancy certificate: gap(\u03c4)\u2264KS for all \u03c4; tightness \u03c1=gap/KS; stress \u03c4*=argmax \u03c1; shipping tuple (KS, \u03c4_ship, gap, \u03c1, \u03c4*, \u03c1*)",
+  "honesty": {
+    "main_text_excludes_affine_proxy_fixtures": true,
+    "proxy_cells_quarantined": 4
+  },
+  "n_certificates": 1,
+  "frac_bound_holds_everywhere": 1.0,
+  "certificates": [
+    {
+      "name": "synth_shifted_idle",
+      "channel": "demo",
+      "ks": 0.9925,
+      "n_fixture": 400,
+      "n_live": 400,
+      "tau_ship": 0.8267067419374655,
+      "gap_ship": 0.05,
+      "tightness_ship": 0.05037783375314862,
+      "tau_star": 0.5046501828013799,
+      "tightness_star": 1.0,
+      "bound_holds_everywhere": true,
+      "path": [
+        {
+          "tau": -0.011953738404347158,
+          "fixture_abstain": 1.0,
+          "live_abstain": 1.0,
+          "gap": 0.0,
+          "tightness": 0.0
+        },
+        {
+          "tau": 0.0184347275489309,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.9975,
+          "gap": 0.0024999999999999467,
+          "tightness": 0.002518891687657377
+        },
+        {
+          "tau": 0.048823193502208956,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.9975,
+          "gap": 0.0024999999999999467,
+          "tightness": 0.002518891687657377
+        },
+        {
+          "tau": 0.07921165945548701,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.995,
+          "gap": 0.0050000000000000044,
+          "tightness": 0.005037783375314866
+        },
+        {
+          "tau": 0.1062533588112175,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.99,
+          "gap": 0.010000000000000009,
+          "tightness": 0.010075566750629731
+        },
+        {
+          "tau": 0.12479435838540409,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.9825,
+          "gap": 0.01749999999999996,
+          "tightness": 0.017632241813601974
+        },
+        {
+          "tau": 0.14494655137286536,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.98,
+          "gap": 0.020000000000000018,
+          "tightness": 0.020151133501259463
+        },
+        {
+          "tau": 0.15518282433868216,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.965,
+          "gap": 0.03500000000000003,
+          "tightness": 0.03526448362720406
+        },
+        {
+          "tau": 0.1647872045618459,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.95,
+          "gap": 0.050000000000000044,
+          "tightness": 0.05037783375314866
+        },
+        {
+          "tau": 0.17806813090837664,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.94,
+          "gap": 0.06000000000000005,
+          "tightness": 0.06045340050377839
+        },
+        {
+          "tau": 0.1855712902919602,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.92,
+          "gap": 0.07999999999999996,
+          "tightness": 0.08060453400503774
+        },
+        {
+          "tau": 0.1929253984418516,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.91,
+          "gap": 0.08999999999999997,
+          "tightness": 0.09068010075566747
+        },
+        {
+          "tau": 0.2006553237775065,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.89,
+          "gap": 0.10999999999999999,
+          "tightness": 0.11083123425692694
+        },
+        {
+          "tau": 0.20322987604994797,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.88,
+          "gap": 0.12,
+          "tightness": 0.12090680100755666
+        },
+        {
+          "tau": 0.20903042236652997,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.86,
+          "gap": 0.14,
+          "tightness": 0.14105793450881612
+        },
+        {
+          "tau": 0.21595975624523828,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.8425,
+          "gap": 0.15749999999999997,
+          "tightness": 0.1586901763224181
+        },
+        {
+          "tau": 0.2191948581493674,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.83,
+          "gap": 0.17000000000000004,
+          "tightness": 0.17128463476070532
+        },
+        {
+          "tau": 0.22866141390861827,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.81,
+          "gap": 0.18999999999999995,
+          "tightness": 0.19143576826196468
+        },
+        {
+          "tau": 0.23373474798267593,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.8,
+          "gap": 0.19999999999999996,
+          "tightness": 0.2015113350125944
+        },
+        {
+          "tau": 0.2391952967948453,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.78,
+          "gap": 0.21999999999999997,
+          "tightness": 0.22166246851385388
+        },
+        {
+          "tau": 0.24355776362231332,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.76,
+          "gap": 0.24,
+          "tightness": 0.24181360201511332
+        },
+        {
+          "tau": 0.24591986195024806,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.74,
+          "gap": 0.26,
+          "tightness": 0.2619647355163728
+        },
+        {
+          "tau": 0.24914065622051002,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.73,
+          "gap": 0.27,
+          "tightness": 0.27204030226700254
+        },
+        {
+          "tau": 0.25454178896468177,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.71,
+          "gap": 0.29000000000000004,
+          "tightness": 0.292191435768262
+        },
+        {
+          "tau": 0.25909329288423244,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.69,
+          "gap": 0.31000000000000005,
+          "tightness": 0.3123425692695215
+        },
+        {
+          "tau": 0.26187921128392355,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.68,
+          "gap": 0.31999999999999995,
+          "tightness": 0.32241813602015107
+        },
+        {
+          "tau": 0.2698146605044948,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.66,
+          "gap": 0.33999999999999997,
+          "tightness": 0.34256926952141054
+        },
+        {
+          "tau": 0.2720160627686495,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.64,
+          "gap": 0.36,
+          "tightness": 0.36272040302267
+        },
+        {
+          "tau": 0.2742762039885659,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.62,
+          "gap": 0.38,
+          "tightness": 0.38287153652392947
+        },
+        {
+          "tau": 0.27673668815179436,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.6,
+          "gap": 0.4,
+          "tightness": 0.40302267002518893
+        },
+        {
+          "tau": 0.27861532544373785,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.59,
+          "gap": 0.41000000000000003,
+          "tightness": 0.41309823677581864
+        },
+        {
+          "tau": 0.28431328219445046,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.57,
+          "gap": 0.43000000000000005,
+          "tightness": 0.4332493702770781
+        },
+        {
+          "tau": 0.2879521601311676,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.55,
+          "gap": 0.44999999999999996,
+          "tightness": 0.45340050377833746
+        },
+        {
+          "tau": 0.2914184703465378,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.53,
+          "gap": 0.47,
+          "tightness": 0.4735516372795969
+        },
+        {
+          "tau": 0.2919309211284334,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.5175,
+          "gap": 0.48250000000000004,
+          "tightness": 0.48614609571788414
+        },
+        {
+          "tau": 0.2985168949352398,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.5,
+          "gap": 0.5,
+          "tightness": 0.5037783375314862
+        },
+        {
+          "tau": 0.3029044817895797,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.48,
+          "gap": 0.52,
+          "tightness": 0.5239294710327456
+        },
+        {
+          "tau": 0.30712515410507246,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.4675,
+          "gap": 0.5325,
+          "tightness": 0.5365239294710327
+        },
+        {
+          "tau": 0.3099369055443604,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.45,
+          "gap": 0.55,
+          "tightness": 0.5541561712846348
+        },
+        {
+          "tau": 0.31217209514493083,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.43,
+          "gap": 0.5700000000000001,
+          "tightness": 0.5743073047858942
+        },
+        {
+          "tau": 0.31740570844480276,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.41,
+          "gap": 0.5900000000000001,
+          "tightness": 0.5944584382871537
+        },
+        {
+          "tau": 0.3225176882072498,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.4,
+          "gap": 0.6,
+          "tightness": 0.6045340050377833
+        },
+        {
+          "tau": 0.326489281524429,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.38,
+          "gap": 0.62,
+          "tightness": 0.6246851385390428
+        },
+        {
+          "tau": 0.3285233998964894,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.36,
+          "gap": 0.64,
+          "tightness": 0.6448362720403022
+        },
+        {
+          "tau": 0.33408838129076546,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.34,
+          "gap": 0.6599999999999999,
+          "tightness": 0.6649874055415615
+        },
+        {
+          "tau": 0.3375136200583505,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.325,
+          "gap": 0.675,
+          "tightness": 0.6801007556675063
+        },
+        {
+          "tau": 0.3407247267791641,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.31,
+          "gap": 0.69,
+          "tightness": 0.6952141057934508
+        },
+        {
+          "tau": 0.34376765290714667,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.29,
+          "gap": 0.71,
+          "tightness": 0.7153652392947103
+        },
+        {
+          "tau": 0.34826247672407795,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.27,
+          "gap": 0.73,
+          "tightness": 0.7355163727959697
+        },
+        {
+          "tau": 0.3527078530349895,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.2575,
+          "gap": 0.7424999999999999,
+          "tightness": 0.7481108312342568
+        },
+        {
+          "tau": 0.3603508577094764,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.24,
+          "gap": 0.76,
+          "tightness": 0.7657430730478589
+        },
+        {
+          "tau": 0.36305657929992685,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.22,
+          "gap": 0.78,
+          "tightness": 0.7858942065491183
+        },
+        {
+          "tau": 0.36790208601162855,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.2025,
+          "gap": 0.7975,
+          "tightness": 0.8035264483627204
+        },
+        {
+          "tau": 0.3726382328568579,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.19,
+          "gap": 0.81,
+          "tightness": 0.8161209068010076
+        },
+        {
+          "tau": 0.3816364708537326,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.17,
+          "gap": 0.83,
+          "tightness": 0.8362720403022669
+        },
+        {
+          "tau": 0.3854851325935033,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.16,
+          "gap": 0.84,
+          "tightness": 0.8463476070528967
+        },
+        {
+          "tau": 0.39074859263614625,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.14,
+          "gap": 0.86,
+          "tightness": 0.8664987405541561
+        },
+        {
+          "tau": 0.3982179875101812,
+          "fixture_abstain": 1.0,
+          "live_abstain": 0.12,
+          "gap": 0.88,
+          "tightness": 0.8866498740554156
+        },
+        {
+          "tau": 0.40016671509318535,
+          "fixture_abstain": 0.9975,
+          "live_abstain": 0.1125,
+          "gap": 0.885,
+          "tightness": 0.8916876574307304
+        },
+        {
+          "tau": 0.40405471762563894,
+          "fixture_abstain": 0.9975,
+          "live_abstain": 0.0925,
+          "gap": 0.905,
+          "tightness": 0.9118387909319899
+        },
+        {
+          "tau": 0.4101380304287444,
+          "fixture_abstain": 0.9975,
+          "live_abstain": 0.0725,
+          "gap": 0.925,
+          "tightness": 0.9319899244332494
+        },
+        {
+          "tau": 0.4136639874312051,
+          "fixture_abstain": 0.9975,
+          "live_abstain": 0.0625,
+          "gap": 0.935,
+          "tightness": 0.9420654911838791
+        },
+        {
+          "tau": 0.4286790179181847,
+          "fixture_abstain": 0.9975,
+          "live_abstain": 0.0475,
+          "gap": 0.9500000000000001,
+          "tightness": 0.9571788413098237
+        },
+        {
+          "tau": 0.4438732508948237,
+          "fixture_abstain": 0.9975,
+          "live_abstain": 0.0375,
+          "gap": 0.9600000000000001,
+          "tightness": 0.9672544080604534
+        },
+        {
+          "tau": 0.45413301673081125,
+          "fixture_abstain": 0.995,
+          "live_abstain": 0.025,
+          "gap": 0.97,
+          "tightness": 0.9773299748110831
+        },
+        {
+          "tau": 0.4686630729114202,
+          "fixture_abstain": 0.9925,
+          "live_abstain": 0.0175,
+          "gap": 0.9750000000000001,
+          "tightness": 0.982367758186398
+        },
+        {
+          "tau": 0.4894559498247408,
+          "fixture_abstain": 0.9925,
+          "live_abstain": 0.0075,
+          "gap": 0.9850000000000001,
+          "tightness": 0.9924433249370278
+        },
+        {
+          "tau": 0.5046501828013799,
+          "fixture_abstain": 0.9925,
+          "live_abstain": 0.0,
+          "gap": 0.9925,
+          "tightness": 1.0
+        },
+        {
+          "tau": 0.5198444157780189,
+          "fixture_abstain": 0.985,
+          "live_abstain": 0.0,
+          "gap": 0.985,
+          "tightness": 0.9924433249370277
+        },
+        {
+          "tau": 0.5386671447813404,
+          "fixture_abstain": 0.98,
+          "live_abstain": 0.0,
+          "gap": 0.98,
+          "tightness": 0.9874055415617128
+        },
+        {
+          "tau": 0.5585190514330466,
+          "fixture_abstain": 0.97,
+          "live_abstain": 0.0,
+          "gap": 0.97,
+          "tightness": 0.9773299748110831
+        },
+        {
+          "tau": 0.5792181989571418,
+          "fixture_abstain": 0.96,
+          "live_abstain": 0.0,
+          "gap": 0.96,
+          "tightness": 0.9672544080604533
+        },
+        {
+          "tau": 0.5820889641566432,
+          "fixture_abstain": 0.95,
+          "live_abstain": 0.0,
+          "gap": 0.95,
+          "tightness": 0.9571788413098236
+        },
+        {
+          "tau": 0.5899838079957807,
+          "fixture_abstain": 0.93,
+          "live_abstain": 0.0,
+          "gap": 0.93,
+          "tightness": 0.9370277078085643
+        },
+        {
+          "tau": 0.595815580661214,
+          "fixture_abstain": 0.9175,
+          "live_abstain": 0.0,
+          "gap": 0.9175,
+          "tightness": 0.924433249370277
+        },
+        {
+          "tau": 0.5991231775947572,
+          "fixture_abstain": 0.9,
+          "live_abstain": 0.0,
+          "gap": 0.9,
+          "tightness": 0.906801007556675
+        },
+        {
+          "tau": 0.6054653619450829,
+          "fixture_abstain": 0.88,
+          "live_abstain": 0.0,
+          "gap": 0.88,
+          "tightness": 0.8866498740554156
+        },
+        {
+          "tau": 0.6115706314184699,
+          "fixture_abstain": 0.87,
+          "live_abstain": 0.0,
+          "gap": 0.87,
+          "tightness": 0.8765743073047858
+        },
+        {
+          "tau": 0.6143564472243387,
+          "fixture_abstain": 0.85,
+          "live_abstain": 0.0,
+          "gap": 0.85,
+          "tightness": 0.8564231738035264
+        },
+        {
+          "tau": 0.6196170224805604,
+          "fixture_abstain": 0.83,
+          "live_abstain": 0.0,
+          "gap": 0.83,
+          "tightness": 0.8362720403022669
+        },
+        {
+          "tau": 0.626204046614492,
+          "fixture_abstain": 0.8125,
+          "live_abstain": 0.0,
+          "gap": 0.8125,
+          "tightness": 0.818639798488665
+        },
+        {
+          "tau": 0.6306794114178481,
+          "fixture_abstain": 0.8,
+          "live_abstain": 0.0,
+          "gap": 0.8,
+          "tightness": 0.8060453400503779
+        },
+        {
+          "tau": 0.6370245806274273,
+          "fixture_abstain": 0.78,
+          "live_abstain": 0.0,
+          "gap": 0.78,
+          "tightness": 0.7858942065491183
+        },
+        {
+          "tau": 0.641161336612618,
+          "fixture_abstain": 0.76,
+          "live_abstain": 0.0,
+          "gap": 0.76,
+          "tightness": 0.7657430730478589
+        },
+        {
+          "tau": 0.6437011811354405,
+          "fixture_abstain": 0.75,
+          "live_abstain": 0.0,
+          "gap": 0.75,
+          "tightness": 0.7556675062972292
+        },
+        {
+          "tau": 0.6481119513677331,
+          "fixture_abstain": 0.73,
+          "live_abstain": 0.0,
+          "gap": 0.73,
+          "tightness": 0.7355163727959697
+        },
+        {
+          "tau": 0.6509265721108777,
+          "fixture_abstain": 0.71,
+          "live_abstain": 0.0,
+          "gap": 0.71,
+          "tightness": 0.7153652392947103
+        },
+        {
+          "tau": 0.6551041511672673,
+          "fixture_abstain": 0.69,
+          "live_abstain": 0.0,
+          "gap": 0.69,
+          "tightness": 0.6952141057934508
+        },
+        {
+          "tau": 0.6575993269425473,
+          "fixture_abstain": 0.68,
+          "live_abstain": 0.0,
+          "gap": 0.68,
+          "tightness": 0.6851385390428212
+        },
+        {
+          "tau": 0.6618736767553268,
+          "fixture_abstain": 0.66,
+          "live_abstain": 0.0,
+          "gap": 0.66,
+          "tightness": 0.6649874055415617
+        },
+        {
+          "tau": 0.6637540445065028,
+          "fixture_abstain": 0.64,
+          "live_abstain": 0.0,
+          "gap": 0.64,
+          "tightness": 0.6448362720403022
+        },
+        {
+          "tau": 0.6697949195813753,
+          "fixture_abstain": 0.62,
+          "live_abstain": 0.0,
+          "gap": 0.62,
+          "tightness": 0.6246851385390428
+        },
+        {
+          "tau": 0.6717867455444091,
+          "fixture_abstain": 0.6075,
+          "live_abstain": 0.0,
+          "gap": 0.6075,
+          "tightness": 0.6120906801007556
+        },
+        {
+          "tau": 0.6766694055668198,
+          "fixture_abstain": 0.59,
+          "live_abstain": 0.0,
+          "gap": 0.59,
+          "tightness": 0.5944584382871536
+        },
+        {
+          "tau": 0.6801673235776731,
+          "fixture_abstain": 0.57,
+          "live_abstain": 0.0,
+          "gap": 0.57,
+          "tightness": 0.5743073047858941
+        },
+        {
+          "tau": 0.6836382009280271,
+          "fixture_abstain": 0.55,
+          "live_abstain": 0.0,
+          "gap": 0.55,
+          "tightness": 0.5541561712846348
+        },
+        {
+          "tau": 0.6869809785210481,
+          "fixture_abstain": 0.535,
+          "live_abstain": 0.0,
+          "gap": 0.535,
+          "tightness": 0.5390428211586902
+        },
+        {
+          "tau": 0.6896309093045784,
+          "fixture_abstain": 0.52,
+          "live_abstain": 0.0,
+          "gap": 0.52,
+          "tightness": 0.5239294710327456
+        },
+        {
+          "tau": 0.6960159224752285,
+          "fixture_abstain": 0.5,
+          "live_abstain": 0.0,
+          "gap": 0.5,
+          "tightness": 0.5037783375314862
+        },
+        {
+          "tau": 0.6994230912272994,
+          "fixture_abstain": 0.48,
+          "live_abstain": 0.0,
+          "gap": 0.48,
+          "tightness": 0.48362720403022663
+        },
+        {
+          "tau": 0.7033060783477795,
+          "fixture_abstain": 0.47,
+          "live_abstain": 0.0,
+          "gap": 0.47,
+          "tightness": 0.4735516372795969
+        },
+        {
+          "tau": 0.7069295410390833,
+          "fixture_abstain": 0.45,
+          "live_abstain": 0.0,
+          "gap": 0.45,
+          "tightness": 0.4534005037783375
+        },
+        {
+          "tau": 0.7100584176874715,
+          "fixture_abstain": 0.43,
+          "live_abstain": 0.0,
+          "gap": 0.43,
+          "tightness": 0.43324937027707805
+        },
+        {
+          "tau": 0.7161528001568087,
+          "fixture_abstain": 0.41,
+          "live_abstain": 0.0,
+          "gap": 0.41,
+          "tightness": 0.4130982367758186
+        },
+        {
+          "tau": 0.7176156098776039,
+          "fixture_abstain": 0.4,
+          "live_abstain": 0.0,
+          "gap": 0.4,
+          "tightness": 0.40302267002518893
+        },
+        {
+          "tau": 0.7222501041446424,
+          "fixture_abstain": 0.38,
+          "live_abstain": 0.0,
+          "gap": 0.38,
+          "tightness": 0.38287153652392947
+        },
+        {
+          "tau": 0.7271696006598913,
+          "fixture_abstain": 0.36,
+          "live_abstain": 0.0,
+          "gap": 0.36,
+          "tightness": 0.36272040302267
+        },
+        {
+          "tau": 0.7289276043927587,
+          "fixture_abstain": 0.34,
+          "live_abstain": 0.0,
+          "gap": 0.34,
+          "tightness": 0.3425692695214106
+        },
+        {
+          "tau": 0.7316097648145606,
+          "fixture_abstain": 0.32,
+          "live_abstain": 0.0,
+          "gap": 0.32,
+          "tightness": 0.3224181360201511
+        },
+        {
+          "tau": 0.7339017082282677,
+          "fixture_abstain": 0.31,
+          "live_abstain": 0.0,
+          "gap": 0.31,
+          "tightness": 0.3123425692695214
+        },
+        {
+          "tau": 0.7432676467748646,
+          "fixture_abstain": 0.29,
+          "live_abstain": 0.0,
+          "gap": 0.29,
+          "tightness": 0.29219143576826195
+        },
+        {
+          "tau": 0.7477579104276042,
+          "fixture_abstain": 0.2725,
+          "live_abstain": 0.0,
+          "gap": 0.2725,
+          "tightness": 0.27455919395465994
+        },
+        {
+          "tau": 0.7506682098259931,
+          "fixture_abstain": 0.26,
+          "live_abstain": 0.0,
+          "gap": 0.26,
+          "tightness": 0.2619647355163728
+        },
+        {
+          "tau": 0.7546948952621227,
+          "fixture_abstain": 0.24,
+          "live_abstain": 0.0,
+          "gap": 0.24,
+          "tightness": 0.24181360201511332
+        },
+        {
+          "tau": 0.760349512371164,
+          "fixture_abstain": 0.22,
+          "live_abstain": 0.0,
+          "gap": 0.22,
+          "tightness": 0.2216624685138539
+        },
+        {
+          "tau": 0.7630070577364695,
+          "fixture_abstain": 0.21,
+          "live_abstain": 0.0,
+          "gap": 0.21,
+          "tightness": 0.21158690176322417
+        },
+        {
+          "tau": 0.7675911024300572,
+          "fixture_abstain": 0.19,
+          "live_abstain": 0.0,
+          "gap": 0.19,
+          "tightness": 0.19143576826196473
+        },
+        {
+          "tau": 0.7754097472175902,
+          "fixture_abstain": 0.17,
+          "live_abstain": 0.0,
+          "gap": 0.17,
+          "tightness": 0.1712846347607053
+        },
+        {
+          "tau": 0.7791770426628644,
+          "fixture_abstain": 0.16,
+          "live_abstain": 0.0,
+          "gap": 0.16,
+          "tightness": 0.16120906801007556
+        },
+        {
+          "tau": 0.7833471807370257,
+          "fixture_abstain": 0.14,
+          "live_abstain": 0.0,
+          "gap": 0.14,
+          "tightness": 0.14105793450881612
+        },
+        {
+          "tau": 0.7931891184888822,
+          "fixture_abstain": 0.12,
+          "live_abstain": 0.0,
+          "gap": 0.12,
+          "tightness": 0.12090680100755666
+        },
+        {
+          "tau": 0.7982946975362737,
+          "fixture_abstain": 0.11,
+          "live_abstain": 0.0,
+          "gap": 0.11,
+          "tightness": 0.11083123425692695
+        },
+        {
+          "tau": 0.8076700339025843,
+          "fixture_abstain": 0.09,
+          "live_abstain": 0.0,
+          "gap": 0.09,
+          "tightness": 0.0906801007556675
+        },
+        {
+          "tau": 0.8102360762178017,
+          "fixture_abstain": 0.08,
+          "live_abstain": 0.0,
+          "gap": 0.08,
+          "tightness": 0.08060453400503778
+        },
+        {
+          "tau": 0.8194744916176608,
+          "fixture_abstain": 0.06,
+          "live_abstain": 0.0,
+          "gap": 0.06,
+          "tightness": 0.06045340050377833
+        },
+        {
+          "tau": 0.8272560629700849,
+          "fixture_abstain": 0.05,
+          "live_abstain": 0.0,
+          "gap": 0.05,
+          "tightness": 0.05037783375314862
+        },
+        {
+          "tau": 0.8389233082874386,
+          "fixture_abstain": 0.035,
+          "live_abstain": 0.0,
+          "gap": 0.035,
+          "tightness": 0.03526448362720403
+        },
+        {
+          "tau": 0.8541175412640776,
+          "fixture_abstain": 0.0225,
+          "live_abstain": 0.0,
+          "gap": 0.0225,
+          "tightness": 0.022670025188916875
+        },
+        {
+          "tau": 0.8693117742407166,
+          "fixture_abstain": 0.0125,
+          "live_abstain": 0.0,
+          "gap": 0.0125,
+          "tightness": 0.012594458438287154
+        },
+        {
+          "tau": 0.8876646459072534,
+          "fixture_abstain": 0.01,
+          "live_abstain": 0.0,
+          "gap": 0.01,
+          "tightness": 0.010075566750629723
+        },
+        {
+          "tau": 0.9148944731706337,
+          "fixture_abstain": 0.005,
+          "live_abstain": 0.0,
+          "gap": 0.005,
+          "tightness": 0.005037783375314861
+        },
+        {
+          "tau": 0.9452829391239117,
+          "fixture_abstain": 0.0025,
+          "live_abstain": 0.0,
+          "gap": 0.0025,
+          "tightness": 0.0025188916876574307
+        }
+      ],
+      "notes": "",
+      "path_downsampled": true
+    }
+  ]
+}
