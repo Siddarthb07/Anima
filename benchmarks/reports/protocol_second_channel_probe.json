@@ -1,0 +1,236 @@
+{
+  "schema": "anima.second_channel_probe.rollup.v1",
+  "shipping_claim": false,
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct::halueval": {
+      "schema": "anima.second_channel_probe.v1",
+      "generated_at": "2026-11-04T06:16:05.720608+00:00",
+      "honesty": {
+        "not_hidden_state_probe": true,
+        "second_trained_affect_probe_still_required_for_9_10": true,
+        "shipping_claim": false
+      },
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "suite": "halueval",
+      "features": [
+        "probe",
+        "fused",
+        "entropy",
+        "inv_logit_gap"
+      ],
+      "weights": {
+        "probe": 0.009232185357276566,
+        "fused": -0.13733853865170603,
+        "entropy": -0.21136288275128934,
+        "inv_logit_gap": 0.0
+      },
+      "bias": 2.4106166010062775e-05,
+      "heldout_auroc": 0.8325,
+      "length_to_label_auroc": 0.975,
+      "beats_length": false,
+      "best_selective": {
+        "tau": 0.33999999999999997,
+        "abstain_events": "39/40",
+        "error_among_green": 0.0,
+        "false_green_rate": 0.0,
+        "auroc": 0.8325,
+        "coverage_at_risk_0.10": {
+          "risk_target": 0.1,
+          "coverage": 0.25,
+          "abstain_frac": 0.75,
+          "positive_rate_on_answered": 0.1,
+          "status": "ok"
+        },
+        "coverage_at_risk_0.20": {
+          "risk_target": 0.2,
+          "coverage": 0.45,
+          "abstain_frac": 0.55,
+          "positive_rate_on_answered": 0.1667,
+          "status": "ok"
+        }
+      },
+      "targets": {
+        "min_heldout_auroc": 0.75,
+        "max_error_among_green": 0.2,
+        "min_coverage_at_risk_0_10": 0.3,
+        "min_coverage_at_risk_0_20": 0.5,
+        "require_0_lt_k_lt_n": true,
+        "residual_auroc_beats_length": true,
+        "length_to_label_max_for_primary": 0.8,
+        "shipping_claim": false
+      },
+      "hits_9_10": false
+    },
+    "qwen_qwen2_5-0_5b-instruct::truthfulqa": {
+      "schema": "anima.second_channel_probe.v1",
+      "generated_at": "2026-11-04T06:16:05.783035+00:00",
+      "honesty": {
+        "not_hidden_state_probe": true,
+        "second_trained_affect_probe_still_required_for_9_10": true,
+        "shipping_claim": false
+      },
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "suite": "truthfulqa",
+      "features": [
+        "probe",
+        "fused",
+        "entropy",
+        "inv_logit_gap"
+      ],
+      "weights": {
+        "probe": 0.18317263387278043,
+        "fused": -0.05131683068754725,
+        "entropy": -0.048790486157473986,
+        "inv_logit_gap": 0.0
+      },
+      "bias": 0.0003611645504849376,
+      "heldout_auroc": 0.58,
+      "length_to_label_auroc": 0.3425,
+      "beats_length": true,
+      "best_selective": {
+        "tau": 0.48,
+        "abstain_events": "31/40",
+        "error_among_green": 0.3333,
+        "false_green_rate": 0.075,
+        "auroc": 0.58,
+        "coverage_at_risk_0.10": {
+          "risk_target": 0.1,
+          "coverage": 0.0,
+          "status": "infeasible"
+        },
+        "coverage_at_risk_0.20": {
+          "risk_target": 0.2,
+          "coverage": 0.0,
+          "status": "infeasible"
+        }
+      },
+      "targets": {
+        "min_heldout_auroc": 0.75,
+        "max_error_among_green": 0.2,
+        "min_coverage_at_risk_0_10": 0.3,
+        "min_coverage_at_risk_0_20": 0.5,
+        "require_0_lt_k_lt_n": true,
+        "residual_auroc_beats_length": true,
+        "length_to_label_max_for_primary": 0.8,
+        "shipping_claim": false
+      },
+      "hits_9_10": false
+    },
+    "qwen_qwen2_5-7b-instruct::halueval": {
+      "schema": "anima.second_channel_probe.v1",
+      "generated_at": "2026-11-04T06:16:05.960500+00:00",
+      "honesty": {
+        "not_hidden_state_probe": true,
+        "second_trained_affect_probe_still_required_for_9_10": true,
+        "shipping_claim": false
+      },
+      "model_slug": "qwen_qwen2_5-7b-instruct",
+      "suite": "halueval",
+      "features": [
+        "probe",
+        "fused",
+        "entropy",
+        "inv_logit_gap"
+      ],
+      "weights": {
+        "probe": -0.1761978646284412,
+        "fused": -0.1350277331216187,
+        "entropy": -0.17033188942629057,
+        "inv_logit_gap": 0.0
+      },
+      "bias": -0.0012553923006699001,
+      "heldout_auroc": 0.7869,
+      "length_to_label_auroc": 0.9459,
+      "beats_length": false,
+      "best_selective": {
+        "tau": 0.3,
+        "abstain_events": "78/80",
+        "error_among_green": 0.0,
+        "false_green_rate": 0.0,
+        "auroc": 0.7869,
+        "coverage_at_risk_0.10": {
+          "risk_target": 0.1,
+          "coverage": 0.0,
+          "status": "infeasible"
+        },
+        "coverage_at_risk_0.20": {
+          "risk_target": 0.2,
+          "coverage": 0.15,
+          "abstain_frac": 0.85,
+          "positive_rate_on_answered": 0.1667,
+          "status": "ok"
+        }
+      },
+      "targets": {
+        "min_heldout_auroc": 0.75,
+        "max_error_among_green": 0.2,
+        "min_coverage_at_risk_0_10": 0.3,
+        "min_coverage_at_risk_0_20": 0.5,
+        "require_0_lt_k_lt_n": true,
+        "residual_auroc_beats_length": true,
+        "length_to_label_max_for_primary": 0.8,
+        "shipping_claim": false
+      },
+      "hits_9_10": false
+    },
+    "distilgpt2::halueval": {
+      "schema": "anima.second_channel_probe.v1",
+      "generated_at": "2026-11-04T06:16:06.042586+00:00",
+      "honesty": {
+        "not_hidden_state_probe": true,
+        "second_trained_affect_probe_still_required_for_9_10": true,
+        "shipping_claim": false
+      },
+      "model_slug": "distilgpt2",
+      "suite": "halueval",
+      "features": [
+        "probe",
+        "fused",
+        "entropy",
+        "inv_logit_gap"
+      ],
+      "weights": {
+        "probe": 0.11176903180360448,
+        "fused": 0.02796148206445191,
+        "entropy": -0.1492811576931543,
+        "inv_logit_gap": 0.0
+      },
+      "bias": 4.886021509366004e-05,
+      "heldout_auroc": 0.87,
+      "length_to_label_auroc": 0.975,
+      "beats_length": false,
+      "best_selective": {
+        "tau": 0.44,
+        "abstain_events": "39/40",
+        "error_among_green": 0.0,
+        "false_green_rate": 0.0,
+        "auroc": 0.87,
+        "coverage_at_risk_0.10": {
+          "risk_target": 0.1,
+          "coverage": 0.4,
+          "abstain_frac": 0.6,
+          "positive_rate_on_answered": 0.0625,
+          "status": "ok"
+        },
+        "coverage_at_risk_0.20": {
+          "risk_target": 0.2,
+          "coverage": 0.5,
+          "abstain_frac": 0.5,
+          "positive_rate_on_answered": 0.2,
+          "status": "ok"
+        }
+      },
+      "targets": {
+        "min_heldout_auroc": 0.75,
+        "max_error_among_green": 0.2,
+        "min_coverage_at_risk_0_10": 0.3,
+        "min_coverage_at_risk_0_20": 0.5,
+        "require_0_lt_k_lt_n": true,
+        "residual_auroc_beats_length": true,
+        "length_to_label_max_for_primary": 0.8,
+        "shipping_claim": false
+      },
+      "hits_9_10": false
+    }
+  }
+}
