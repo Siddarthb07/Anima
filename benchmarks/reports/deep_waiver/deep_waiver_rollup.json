@@ -1,0 +1,2554 @@
+{
+  "schema": "system_a.deep_waiver_gpu.v1",
+  "started_at": "2026-11-03T18:03:26.582149+00:00",
+  "finished_at": "2026-11-03T18:29:35.445134+00:00",
+  "device": "Tesla T4",
+  "env": {
+    "ANIMA_LOAD_8BIT": "1",
+    "ANIMA_OUTPUT_ATTENTIONS": "0",
+    "ANIMA_FLEET_SHUTDOWN": "0"
+  },
+  "max_pairs": 160,
+  "suffix": "deep_waiver_v1",
+  "n_models": 5,
+  "n_ok": 5,
+  "n_failed": 0,
+  "results": [
+    {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "started_at": "2026-11-03T18:03:26.582289+00:00",
+      "status": "ok",
+      "health": {
+        "model": "Qwen/Qwen2.5-7B-Instruct",
+        "n_claims": 2,
+        "output_attentions": true,
+        "finite_rate": {
+          "entropy": 1.0,
+          "logit_gap": 1.0,
+          "attn_entropy": 0.0,
+          "fused": 1.0
+        },
+        "sample": {
+          "entropy": 0.0066,
+          "logit_gap": 0.1818,
+          "attn_entropy": NaN,
+          "fused": 0.0942
+        },
+        "pass": true
+      },
+      "live": {
+        "suffix": "deep_waiver_v1",
+        "benchmarks": {
+          "halueval": {
+            "auroc_composite": 0.2061,
+            "auroc_ci95": {
+              "point": 0.2061,
+              "lo": 0.1424,
+              "hi": 0.2753,
+              "B": 2000,
+              "seed": 42,
+              "n": 160,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 160,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          },
+          "truthfulqa": {
+            "auroc_composite": 0.44,
+            "auroc_ci95": {
+              "point": 0.44,
+              "lo": 0.1538,
+              "hi": 0.7172,
+              "B": 2000,
+              "seed": 42,
+              "n": 20,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 20,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          }
+        }
+      },
+      "live_length_matched": {
+        "suffix": "deep_waiver_v1_lenmatch",
+        "halueval": {
+          "status": "ok",
+          "source": "live",
+          "protocol": "L",
+          "abstain_accuracy": 0.5,
+          "auroc_composite": 0.4375,
+          "n_samples": 80,
+          "tp": 0,
+          "fp": 0,
+          "tn": 40,
+          "fn": 40,
+          "never_abstains": true,
+          "auroc_ci95": {
+            "point": 0.4375,
+            "lo": 0.3171,
+            "hi": 0.5701,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "rows_path_hint": "halueval_live_qwen_qwen2_5-7b-instruct_deep_waiver_v1_lenmatch.json"
+        }
+      },
+      "analysis": {
+        "model": "Qwen/Qwen2.5-7B-Instruct",
+        "suffix": "deep_waiver_v1",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/qwen_qwen2_5-7b-instruct_deep_waiver_v1_halueval_analysis.json",
+            "headline": {
+              "best_channel": "composite",
+              "best_auroc": 0.794,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.206,
+              "reported_composite_flip": 0.794
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "composite",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 32,
+                  "score_lo": -0.3139,
+                  "score_hi": -0.2545,
+                  "positive_rate": 0.125
+                },
+                {
+                  "bin": 1,
+                  "n": 32,
+                  "score_lo": -0.2536,
+                  "score_hi": -0.2328,
+                  "positive_rate": 0.375
+                },
+                {
+                  "bin": 2,
+                  "n": 32,
+                  "score_lo": -0.2313,
+                  "score_hi": -0.2156,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 3,
+                  "n": 32,
+                  "score_lo": -0.2138,
+                  "score_hi": -0.1934,
+                  "positive_rate": 0.5938
+                },
+                {
+                  "bin": 4,
+                  "n": 32,
+                  "score_lo": -0.1928,
+                  "score_hi": -0.1505,
+                  "positive_rate": 0.9062
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.425,
+                "auroc_residual_flip": 0.575
+              },
+              "fused": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4759,
+                "auroc_residual_flip": 0.5241
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4045,
+                "auroc_residual_flip": 0.5955
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.5247,
+                "auroc_residual_flip": 0.4753
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.7815,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.2185,
+                "auroc_flip": 0.7815
+              },
+              "logit_gap": {
+                "best_auroc": 0.6889,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.3111,
+                "auroc_flip": 0.6889
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.6889,
+                "polarity": "aligned",
+                "n_finite": 160,
+                "auroc": 0.6889,
+                "auroc_flip": 0.3111
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.7224,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.2776,
+                "auroc_flip": 0.7224
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.7411,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.2589,
+                "auroc_flip": 0.7411
+              },
+              "composite": {
+                "best_auroc": 0.794,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.206,
+                "auroc_flip": 0.794
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/qwen_qwen2_5-7b-instruct_deep_waiver_v1_truthfulqa_analysis.json",
+            "headline": {
+              "best_channel": "logit_gap",
+              "best_auroc": 0.61,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.44,
+              "reported_composite_flip": 0.56
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "logit_gap",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 4,
+                  "score_lo": -0.4523,
+                  "score_hi": -0.4147,
+                  "positive_rate": 0.0
+                },
+                {
+                  "bin": 1,
+                  "n": 4,
+                  "score_lo": -0.3823,
+                  "score_hi": -0.3621,
+                  "positive_rate": 0.75
+                },
+                {
+                  "bin": 2,
+                  "n": 4,
+                  "score_lo": -0.351,
+                  "score_hi": -0.3324,
+                  "positive_rate": 0.75
+                },
+                {
+                  "bin": 3,
+                  "n": 4,
+                  "score_lo": -0.3221,
+                  "score_hi": -0.3108,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 4,
+                  "n": 4,
+                  "score_lo": -0.3097,
+                  "score_hi": -0.2576,
+                  "positive_rate": 0.5
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.5,
+                "auroc_residual_flip": 0.5
+              },
+              "fused": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.51,
+                "auroc_residual_flip": 0.49
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.49,
+                "auroc_residual_flip": 0.51
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.54,
+                "auroc_residual_flip": 0.46
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.58,
+                "polarity": "aligned",
+                "n_finite": 20,
+                "auroc": 0.58,
+                "auroc_flip": 0.42
+              },
+              "logit_gap": {
+                "best_auroc": 0.61,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.39,
+                "auroc_flip": 0.61
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.61,
+                "polarity": "aligned",
+                "n_finite": 20,
+                "auroc": 0.61,
+                "auroc_flip": 0.39
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.57,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.43,
+                "auroc_flip": 0.57
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.51,
+                "polarity": "near_chance",
+                "n_finite": 20,
+                "auroc": 0.49,
+                "auroc_flip": 0.51
+              },
+              "composite": {
+                "best_auroc": 0.56,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.44,
+                "auroc_flip": 0.56
+              }
+            }
+          }
+        }
+      },
+      "analysis_lenmatch": {
+        "model": "Qwen/Qwen2.5-7B-Instruct",
+        "suffix": "deep_waiver_v1_lenmatch",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/qwen_qwen2_5-7b-instruct_deep_waiver_v1_lenmatch_halueval_analysis.json",
+            "headline": {
+              "best_channel": "probe_uncertainty",
+              "best_auroc": 0.6344,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.4375,
+              "reported_composite_flip": 0.5625
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "probe_uncertainty",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 16,
+                  "score_lo": -0.3325,
+                  "score_hi": -0.2701,
+                  "positive_rate": 0.25
+                },
+                {
+                  "bin": 1,
+                  "n": 16,
+                  "score_lo": -0.2697,
+                  "score_hi": -0.2587,
+                  "positive_rate": 0.4375
+                },
+                {
+                  "bin": 2,
+                  "n": 16,
+                  "score_lo": -0.2583,
+                  "score_hi": -0.242,
+                  "positive_rate": 0.625
+                },
+                {
+                  "bin": 3,
+                  "n": 16,
+                  "score_lo": -0.2411,
+                  "score_hi": -0.2094,
+                  "positive_rate": 0.5625
+                },
+                {
+                  "bin": 4,
+                  "n": 16,
+                  "score_lo": -0.2077,
+                  "score_hi": -0.149,
+                  "positive_rate": 0.625
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.5106,
+                "auroc_residual_flip": 0.4894
+              },
+              "fused": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.5787,
+                "auroc_residual_flip": 0.4213
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.39,
+                "auroc_residual_flip": 0.61
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.4238,
+                "auroc_residual_flip": 0.5763
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.53,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.47,
+                "auroc_flip": 0.53
+              },
+              "logit_gap": {
+                "best_auroc": 0.5225,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5225,
+                "auroc_flip": 0.4775
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.5225,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.4775,
+                "auroc_flip": 0.5225
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.5097,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5097,
+                "auroc_flip": 0.4903
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.6344,
+                "polarity": "anti_aligned",
+                "n_finite": 80,
+                "auroc": 0.3656,
+                "auroc_flip": 0.6344
+              },
+              "composite": {
+                "best_auroc": 0.5625,
+                "polarity": "anti_aligned",
+                "n_finite": 80,
+                "auroc": 0.4375,
+                "auroc_flip": 0.5625
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "missing",
+            "path": "/home/ubuntu/Anima/benchmarks/reports/truthfulqa_live_qwen_qwen2_5-7b-instruct_deep_waiver_v1_lenmatch.json"
+          }
+        }
+      },
+      "finished_at": "2026-11-03T18:10:56.104058+00:00"
+    },
+    {
+      "model": "Qwen/Qwen2-7B-Instruct",
+      "started_at": "2026-11-03T18:10:56.104906+00:00",
+      "status": "ok",
+      "health": {
+        "model": "Qwen/Qwen2-7B-Instruct",
+        "n_claims": 2,
+        "output_attentions": true,
+        "finite_rate": {
+          "entropy": 1.0,
+          "logit_gap": 1.0,
+          "attn_entropy": 0.0,
+          "fused": 1.0
+        },
+        "sample": {
+          "entropy": 0.1879,
+          "logit_gap": 0.8,
+          "attn_entropy": NaN,
+          "fused": 0.494
+        },
+        "pass": true
+      },
+      "live": {
+        "suffix": "deep_waiver_v1",
+        "benchmarks": {
+          "halueval": {
+            "auroc_composite": 0.2984,
+            "auroc_ci95": {
+              "point": 0.2984,
+              "lo": 0.2174,
+              "hi": 0.3844,
+              "B": 2000,
+              "seed": 42,
+              "n": 160,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 160,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          },
+          "truthfulqa": {
+            "auroc_composite": 0.54,
+            "auroc_ci95": {
+              "point": 0.54,
+              "lo": 0.2727,
+              "hi": 0.8,
+              "B": 2000,
+              "seed": 42,
+              "n": 20,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 20,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          }
+        }
+      },
+      "live_length_matched": {
+        "suffix": "deep_waiver_v1_lenmatch",
+        "halueval": {
+          "status": "ok",
+          "source": "live",
+          "protocol": "L",
+          "abstain_accuracy": 0.5,
+          "auroc_composite": 0.5131,
+          "n_samples": 80,
+          "tp": 0,
+          "fp": 0,
+          "tn": 40,
+          "fn": 40,
+          "never_abstains": true,
+          "auroc_ci95": {
+            "point": 0.5131,
+            "lo": 0.3849,
+            "hi": 0.6416,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "rows_path_hint": "halueval_live_qwen_qwen2-7b-instruct_deep_waiver_v1_lenmatch.json"
+        }
+      },
+      "analysis": {
+        "model": "Qwen/Qwen2-7B-Instruct",
+        "suffix": "deep_waiver_v1",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/qwen_qwen2-7b-instruct_deep_waiver_v1_halueval_analysis.json",
+            "headline": {
+              "best_channel": "logit_gap",
+              "best_auroc": 0.7084,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.2981,
+              "reported_composite_flip": 0.7019
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "logit_gap",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 32,
+                  "score_lo": -0.4861,
+                  "score_hi": -0.4046,
+                  "positive_rate": 0.25
+                },
+                {
+                  "bin": 1,
+                  "n": 32,
+                  "score_lo": -0.404,
+                  "score_hi": -0.3728,
+                  "positive_rate": 0.3438
+                },
+                {
+                  "bin": 2,
+                  "n": 32,
+                  "score_lo": -0.3687,
+                  "score_hi": -0.3359,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 3,
+                  "n": 32,
+                  "score_lo": -0.3352,
+                  "score_hi": -0.3031,
+                  "positive_rate": 0.6875
+                },
+                {
+                  "bin": 4,
+                  "n": 32,
+                  "score_lo": -0.2988,
+                  "score_hi": -0.181,
+                  "positive_rate": 0.7188
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4819,
+                "auroc_residual_flip": 0.5181
+              },
+              "fused": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4575,
+                "auroc_residual_flip": 0.5425
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.5602,
+                "auroc_residual_flip": 0.4398
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.557,
+                "auroc_residual_flip": 0.443
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.6526,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.3474,
+                "auroc_flip": 0.6526
+              },
+              "logit_gap": {
+                "best_auroc": 0.7084,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.2916,
+                "auroc_flip": 0.7084
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.7084,
+                "polarity": "aligned",
+                "n_finite": 160,
+                "auroc": 0.7084,
+                "auroc_flip": 0.2916
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.6956,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.3044,
+                "auroc_flip": 0.6956
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.546,
+                "polarity": "near_chance",
+                "n_finite": 160,
+                "auroc": 0.454,
+                "auroc_flip": 0.546
+              },
+              "composite": {
+                "best_auroc": 0.7019,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.2981,
+                "auroc_flip": 0.7019
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/qwen_qwen2-7b-instruct_deep_waiver_v1_truthfulqa_analysis.json",
+            "headline": {
+              "best_channel": "entropy",
+              "best_auroc": 0.55,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.54,
+              "reported_composite_flip": 0.46
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "entropy",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 4,
+                  "score_lo": -0.1659,
+                  "score_hi": -0.1143,
+                  "positive_rate": 0.75
+                },
+                {
+                  "bin": 1,
+                  "n": 4,
+                  "score_lo": -0.1103,
+                  "score_hi": -0.0955,
+                  "positive_rate": 0.0
+                },
+                {
+                  "bin": 2,
+                  "n": 4,
+                  "score_lo": -0.0869,
+                  "score_hi": -0.0725,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 3,
+                  "n": 4,
+                  "score_lo": -0.0716,
+                  "score_hi": -0.0615,
+                  "positive_rate": 0.75
+                },
+                {
+                  "bin": 4,
+                  "n": 4,
+                  "score_lo": -0.0613,
+                  "score_hi": -0.0443,
+                  "positive_rate": 0.5
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.52,
+                "auroc_residual_flip": 0.48
+              },
+              "fused": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.64,
+                "auroc_residual_flip": 0.36
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.44,
+                "auroc_residual_flip": 0.56
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.33,
+                "auroc_residual_flip": 0.67
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.55,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.45,
+                "auroc_flip": 0.55
+              },
+              "logit_gap": {
+                "best_auroc": 0.54,
+                "polarity": "near_chance",
+                "n_finite": 20,
+                "auroc": 0.54,
+                "auroc_flip": 0.46
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.54,
+                "polarity": "near_chance",
+                "n_finite": 20,
+                "auroc": 0.46,
+                "auroc_flip": 0.54
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.55,
+                "polarity": "aligned",
+                "n_finite": 20,
+                "auroc": 0.55,
+                "auroc_flip": 0.45
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.51,
+                "polarity": "near_chance",
+                "n_finite": 20,
+                "auroc": 0.51,
+                "auroc_flip": 0.49
+              },
+              "composite": {
+                "best_auroc": 0.54,
+                "polarity": "near_chance",
+                "n_finite": 20,
+                "auroc": 0.54,
+                "auroc_flip": 0.46
+              }
+            }
+          }
+        }
+      },
+      "analysis_lenmatch": {
+        "model": "Qwen/Qwen2-7B-Instruct",
+        "suffix": "deep_waiver_v1_lenmatch",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/qwen_qwen2-7b-instruct_deep_waiver_v1_lenmatch_halueval_analysis.json",
+            "headline": {
+              "best_channel": "probe_uncertainty",
+              "best_auroc": 0.5697,
+              "polarity": "aligned",
+              "reported_composite_auroc": 0.5131,
+              "reported_composite_flip": 0.4869
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "probe_uncertainty",
+              "used_flip": false,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 16,
+                  "score_lo": 0.1477,
+                  "score_hi": 0.168,
+                  "positive_rate": 0.3125
+                },
+                {
+                  "bin": 1,
+                  "n": 16,
+                  "score_lo": 0.1682,
+                  "score_hi": 0.1815,
+                  "positive_rate": 0.6875
+                },
+                {
+                  "bin": 2,
+                  "n": 16,
+                  "score_lo": 0.1816,
+                  "score_hi": 0.1916,
+                  "positive_rate": 0.375
+                },
+                {
+                  "bin": 3,
+                  "n": 16,
+                  "score_lo": 0.1929,
+                  "score_hi": 0.2152,
+                  "positive_rate": 0.5625
+                },
+                {
+                  "bin": 4,
+                  "n": 16,
+                  "score_lo": 0.2167,
+                  "score_hi": 0.2843,
+                  "positive_rate": 0.5625
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.6081,
+                "auroc_residual_flip": 0.3919
+              },
+              "fused": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.5587,
+                "auroc_residual_flip": 0.4412
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.6081,
+                "auroc_residual_flip": 0.3919
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.4537,
+                "auroc_residual_flip": 0.5463
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.5247,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.4753,
+                "auroc_flip": 0.5247
+              },
+              "logit_gap": {
+                "best_auroc": 0.5256,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.4744,
+                "auroc_flip": 0.5256
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.5256,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5256,
+                "auroc_flip": 0.4744
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.5228,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.4772,
+                "auroc_flip": 0.5228
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.5697,
+                "polarity": "aligned",
+                "n_finite": 80,
+                "auroc": 0.5697,
+                "auroc_flip": 0.4303
+              },
+              "composite": {
+                "best_auroc": 0.5131,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5131,
+                "auroc_flip": 0.4869
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "missing",
+            "path": "/home/ubuntu/Anima/benchmarks/reports/truthfulqa_live_qwen_qwen2-7b-instruct_deep_waiver_v1_lenmatch.json"
+          }
+        }
+      },
+      "finished_at": "2026-11-03T18:17:35.032919+00:00"
+    },
+    {
+      "model": "mistralai/Mistral-7B-Instruct-v0.2",
+      "started_at": "2026-11-03T18:17:35.033735+00:00",
+      "status": "ok",
+      "health": {
+        "model": "mistralai/Mistral-7B-Instruct-v0.2",
+        "n_claims": 2,
+        "output_attentions": true,
+        "finite_rate": {
+          "entropy": 1.0,
+          "logit_gap": 1.0,
+          "attn_entropy": 0.0,
+          "fused": 1.0
+        },
+        "sample": {
+          "entropy": 0.0151,
+          "logit_gap": 0.172,
+          "attn_entropy": NaN,
+          "fused": 0.0936
+        },
+        "pass": true
+      },
+      "live": {
+        "suffix": "deep_waiver_v1",
+        "benchmarks": {
+          "halueval": {
+            "auroc_composite": 0.4063,
+            "auroc_ci95": {
+              "point": 0.4063,
+              "lo": 0.3158,
+              "hi": 0.4911,
+              "B": 2000,
+              "seed": 42,
+              "n": 160,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 160,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          },
+          "truthfulqa": {
+            "auroc_composite": 0.22,
+            "auroc_ci95": {
+              "point": 0.22,
+              "lo": 0.02,
+              "hi": 0.4688,
+              "B": 2000,
+              "seed": 42,
+              "n": 20,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 20,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          }
+        }
+      },
+      "live_length_matched": {
+        "suffix": "deep_waiver_v1_lenmatch",
+        "halueval": {
+          "status": "ok",
+          "source": "live",
+          "protocol": "L",
+          "abstain_accuracy": 0.5,
+          "auroc_composite": 0.5637,
+          "n_samples": 80,
+          "tp": 0,
+          "fp": 0,
+          "tn": 40,
+          "fn": 40,
+          "never_abstains": true,
+          "auroc_ci95": {
+            "point": 0.5637,
+            "lo": 0.4278,
+            "hi": 0.6897,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "rows_path_hint": "halueval_live_mistralai_mistral-7b-instruct-v0_2_deep_waiver_v1_lenmatch.json"
+        }
+      },
+      "analysis": {
+        "model": "mistralai/Mistral-7B-Instruct-v0.2",
+        "suffix": "deep_waiver_v1",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/mistralai_mistral-7b-instruct-v0_2_deep_waiver_v1_halueval_analysis.json",
+            "headline": {
+              "best_channel": "entropy",
+              "best_auroc": 0.6382,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.4063,
+              "reported_composite_flip": 0.5937
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "entropy",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 32,
+                  "score_lo": -0.2707,
+                  "score_hi": -0.1569,
+                  "positive_rate": 0.375
+                },
+                {
+                  "bin": 1,
+                  "n": 32,
+                  "score_lo": -0.1559,
+                  "score_hi": -0.1392,
+                  "positive_rate": 0.3438
+                },
+                {
+                  "bin": 2,
+                  "n": 32,
+                  "score_lo": -0.1391,
+                  "score_hi": -0.1195,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 3,
+                  "n": 32,
+                  "score_lo": -0.1184,
+                  "score_hi": -0.1044,
+                  "positive_rate": 0.5938
+                },
+                {
+                  "bin": 4,
+                  "n": 32,
+                  "score_lo": -0.1034,
+                  "score_hi": -0.0622,
+                  "positive_rate": 0.6875
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.5255,
+                "auroc_residual_flip": 0.4745
+              },
+              "fused": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.5273,
+                "auroc_residual_flip": 0.4727
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4925,
+                "auroc_residual_flip": 0.5075
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4769,
+                "auroc_residual_flip": 0.5231
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.6382,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.3618,
+                "auroc_flip": 0.6382
+              },
+              "logit_gap": {
+                "best_auroc": 0.5006,
+                "polarity": "near_chance",
+                "n_finite": 160,
+                "auroc": 0.4994,
+                "auroc_flip": 0.5006
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.5006,
+                "polarity": "near_chance",
+                "n_finite": 160,
+                "auroc": 0.5006,
+                "auroc_flip": 0.4994
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.5615,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.4385,
+                "auroc_flip": 0.5615
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.6346,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.3654,
+                "auroc_flip": 0.6346
+              },
+              "composite": {
+                "best_auroc": 0.5937,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.4063,
+                "auroc_flip": 0.5937
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/mistralai_mistral-7b-instruct-v0_2_deep_waiver_v1_truthfulqa_analysis.json",
+            "headline": {
+              "best_channel": "composite",
+              "best_auroc": 0.78,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.22,
+              "reported_composite_flip": 0.78
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "composite",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 4,
+                  "score_lo": -0.4203,
+                  "score_hi": -0.3576,
+                  "positive_rate": 0.0
+                },
+                {
+                  "bin": 1,
+                  "n": 4,
+                  "score_lo": -0.3572,
+                  "score_hi": -0.3468,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 2,
+                  "n": 4,
+                  "score_lo": -0.3467,
+                  "score_hi": -0.3347,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 3,
+                  "n": 4,
+                  "score_lo": -0.3332,
+                  "score_hi": -0.3211,
+                  "positive_rate": 1.0
+                },
+                {
+                  "bin": 4,
+                  "n": 4,
+                  "score_lo": -0.3174,
+                  "score_hi": -0.3,
+                  "positive_rate": 0.5
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.21,
+                "auroc_residual_flip": 0.79
+              },
+              "fused": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.24,
+                "auroc_residual_flip": 0.76
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.45,
+                "auroc_residual_flip": 0.55
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.69,
+                "auroc_residual_flip": 0.31
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.73,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.27,
+                "auroc_flip": 0.73
+              },
+              "logit_gap": {
+                "best_auroc": 0.71,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.29,
+                "auroc_flip": 0.71
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.71,
+                "polarity": "aligned",
+                "n_finite": 20,
+                "auroc": 0.71,
+                "auroc_flip": 0.29
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.76,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.24,
+                "auroc_flip": 0.76
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.55,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.45,
+                "auroc_flip": 0.55
+              },
+              "composite": {
+                "best_auroc": 0.78,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.22,
+                "auroc_flip": 0.78
+              }
+            }
+          }
+        }
+      },
+      "analysis_lenmatch": {
+        "model": "mistralai/Mistral-7B-Instruct-v0.2",
+        "suffix": "deep_waiver_v1_lenmatch",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/mistralai_mistral-7b-instruct-v0_2_deep_waiver_v1_lenmatch_halueval_analysis.json",
+            "headline": {
+              "best_channel": "probe_uncertainty",
+              "best_auroc": 0.5831,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.5634,
+              "reported_composite_flip": 0.4366
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "probe_uncertainty",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 16,
+                  "score_lo": -0.4866,
+                  "score_hi": -0.4667,
+                  "positive_rate": 0.4375
+                },
+                {
+                  "bin": 1,
+                  "n": 16,
+                  "score_lo": -0.4662,
+                  "score_hi": -0.4603,
+                  "positive_rate": 0.375
+                },
+                {
+                  "bin": 2,
+                  "n": 16,
+                  "score_lo": -0.4597,
+                  "score_hi": -0.4557,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 3,
+                  "n": 16,
+                  "score_lo": -0.455,
+                  "score_hi": -0.4476,
+                  "positive_rate": 0.625
+                },
+                {
+                  "bin": 4,
+                  "n": 16,
+                  "score_lo": -0.4459,
+                  "score_hi": -0.4281,
+                  "positive_rate": 0.5625
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.6144,
+                "auroc_residual_flip": 0.3856
+              },
+              "fused": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.6144,
+                "auroc_residual_flip": 0.3856
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.4531,
+                "auroc_residual_flip": 0.5469
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.4206,
+                "auroc_residual_flip": 0.5794
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.5809,
+                "polarity": "aligned",
+                "n_finite": 80,
+                "auroc": 0.5809,
+                "auroc_flip": 0.4191
+              },
+              "logit_gap": {
+                "best_auroc": 0.5669,
+                "polarity": "aligned",
+                "n_finite": 80,
+                "auroc": 0.5669,
+                "auroc_flip": 0.4331
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.5669,
+                "polarity": "anti_aligned",
+                "n_finite": 80,
+                "auroc": 0.4331,
+                "auroc_flip": 0.5669
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.5772,
+                "polarity": "aligned",
+                "n_finite": 80,
+                "auroc": 0.5772,
+                "auroc_flip": 0.4228
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.5831,
+                "polarity": "anti_aligned",
+                "n_finite": 80,
+                "auroc": 0.4169,
+                "auroc_flip": 0.5831
+              },
+              "composite": {
+                "best_auroc": 0.5634,
+                "polarity": "aligned",
+                "n_finite": 80,
+                "auroc": 0.5634,
+                "auroc_flip": 0.4366
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "missing",
+            "path": "/home/ubuntu/Anima/benchmarks/reports/truthfulqa_live_mistralai_mistral-7b-instruct-v0_2_deep_waiver_v1_lenmatch.json"
+          }
+        }
+      },
+      "finished_at": "2026-11-03T18:24:49.187355+00:00"
+    },
+    {
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "started_at": "2026-11-03T18:24:49.188230+00:00",
+      "status": "ok",
+      "health": {
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "n_claims": 2,
+        "output_attentions": true,
+        "finite_rate": {
+          "entropy": 1.0,
+          "logit_gap": 1.0,
+          "attn_entropy": 0.0,
+          "fused": 1.0
+        },
+        "sample": {
+          "entropy": 0.056,
+          "logit_gap": 0.3333,
+          "attn_entropy": NaN,
+          "fused": 0.1947
+        },
+        "pass": true
+      },
+      "live": {
+        "suffix": "deep_waiver_v1",
+        "benchmarks": {
+          "halueval": {
+            "auroc_composite": 0.31,
+            "auroc_ci95": {
+              "point": 0.31,
+              "lo": 0.2293,
+              "hi": 0.39,
+              "B": 2000,
+              "seed": 42,
+              "n": 160,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 160,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          },
+          "truthfulqa": {
+            "auroc_composite": 0.53,
+            "auroc_ci95": {
+              "point": 0.53,
+              "lo": 0.2656,
+              "hi": 0.7917,
+              "B": 2000,
+              "seed": 42,
+              "n": 20,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 20,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          }
+        }
+      },
+      "live_length_matched": {
+        "suffix": "deep_waiver_v1_lenmatch",
+        "halueval": {
+          "status": "ok",
+          "source": "live",
+          "protocol": "L",
+          "abstain_accuracy": 0.5,
+          "auroc_composite": 0.5431,
+          "n_samples": 80,
+          "tp": 0,
+          "fp": 0,
+          "tn": 40,
+          "fn": 40,
+          "never_abstains": true,
+          "auroc_ci95": {
+            "point": 0.5431,
+            "lo": 0.4159,
+            "hi": 0.6707,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "rows_path_hint": "halueval_live_qwen_qwen2_5-3b-instruct_deep_waiver_v1_lenmatch.json"
+        }
+      },
+      "analysis": {
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "suffix": "deep_waiver_v1",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/qwen_qwen2_5-3b-instruct_deep_waiver_v1_halueval_analysis.json",
+            "headline": {
+              "best_channel": "entropy",
+              "best_auroc": 0.8216,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.31,
+              "reported_composite_flip": 0.69
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "entropy",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 32,
+                  "score_lo": -0.1982,
+                  "score_hi": -0.1428,
+                  "positive_rate": 0.1875
+                },
+                {
+                  "bin": 1,
+                  "n": 32,
+                  "score_lo": -0.1424,
+                  "score_hi": -0.1201,
+                  "positive_rate": 0.2188
+                },
+                {
+                  "bin": 2,
+                  "n": 32,
+                  "score_lo": -0.1201,
+                  "score_hi": -0.1003,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 3,
+                  "n": 32,
+                  "score_lo": -0.1002,
+                  "score_hi": -0.0738,
+                  "positive_rate": 0.6562
+                },
+                {
+                  "bin": 4,
+                  "n": 32,
+                  "score_lo": -0.0737,
+                  "score_hi": -0.0234,
+                  "positive_rate": 0.9375
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4809,
+                "auroc_residual_flip": 0.5191
+              },
+              "fused": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4569,
+                "auroc_residual_flip": 0.5431
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.5217,
+                "auroc_residual_flip": 0.4783
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.5342,
+                "auroc_residual_flip": 0.4658
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.8216,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.1784,
+                "auroc_flip": 0.8216
+              },
+              "logit_gap": {
+                "best_auroc": 0.7336,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.2664,
+                "auroc_flip": 0.7336
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.7336,
+                "polarity": "aligned",
+                "n_finite": 160,
+                "auroc": 0.7336,
+                "auroc_flip": 0.2664
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.7691,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.2309,
+                "auroc_flip": 0.7691
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.649,
+                "polarity": "aligned",
+                "n_finite": 160,
+                "auroc": 0.649,
+                "auroc_flip": 0.351
+              },
+              "composite": {
+                "best_auroc": 0.69,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.31,
+                "auroc_flip": 0.69
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/qwen_qwen2_5-3b-instruct_deep_waiver_v1_truthfulqa_analysis.json",
+            "headline": {
+              "best_channel": "probe_uncertainty",
+              "best_auroc": 0.66,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.53,
+              "reported_composite_flip": 0.47
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "probe_uncertainty",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 4,
+                  "score_lo": -0.6416,
+                  "score_hi": -0.6278,
+                  "positive_rate": 0.0
+                },
+                {
+                  "bin": 1,
+                  "n": 4,
+                  "score_lo": -0.6213,
+                  "score_hi": -0.6103,
+                  "positive_rate": 1.0
+                },
+                {
+                  "bin": 2,
+                  "n": 4,
+                  "score_lo": -0.6048,
+                  "score_hi": -0.5721,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 3,
+                  "n": 4,
+                  "score_lo": -0.5712,
+                  "score_hi": -0.5612,
+                  "positive_rate": 0.25
+                },
+                {
+                  "bin": 4,
+                  "n": 4,
+                  "score_lo": -0.5591,
+                  "score_hi": -0.5179,
+                  "positive_rate": 0.75
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.49,
+                "auroc_residual_flip": 0.51
+              },
+              "fused": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.57,
+                "auroc_residual_flip": 0.43
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.33,
+                "auroc_residual_flip": 0.67
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.47,
+                "auroc_residual_flip": 0.53
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.65,
+                "polarity": "aligned",
+                "n_finite": 20,
+                "auroc": 0.65,
+                "auroc_flip": 0.35
+              },
+              "logit_gap": {
+                "best_auroc": 0.63,
+                "polarity": "aligned",
+                "n_finite": 20,
+                "auroc": 0.63,
+                "auroc_flip": 0.37
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.63,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.37,
+                "auroc_flip": 0.63
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.65,
+                "polarity": "aligned",
+                "n_finite": 20,
+                "auroc": 0.65,
+                "auroc_flip": 0.35
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.66,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.34,
+                "auroc_flip": 0.66
+              },
+              "composite": {
+                "best_auroc": 0.53,
+                "polarity": "near_chance",
+                "n_finite": 20,
+                "auroc": 0.53,
+                "auroc_flip": 0.47
+              }
+            }
+          }
+        }
+      },
+      "analysis_lenmatch": {
+        "model": "Qwen/Qwen2.5-3B-Instruct",
+        "suffix": "deep_waiver_v1_lenmatch",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/qwen_qwen2_5-3b-instruct_deep_waiver_v1_lenmatch_halueval_analysis.json",
+            "headline": {
+              "best_channel": "entropy",
+              "best_auroc": 0.5447,
+              "polarity": "near_chance",
+              "reported_composite_auroc": 0.5431,
+              "reported_composite_flip": 0.4569
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "entropy",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 16,
+                  "score_lo": -0.2159,
+                  "score_hi": -0.1599,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 1,
+                  "n": 16,
+                  "score_lo": -0.1579,
+                  "score_hi": -0.1269,
+                  "positive_rate": 0.375
+                },
+                {
+                  "bin": 2,
+                  "n": 16,
+                  "score_lo": -0.1261,
+                  "score_hi": -0.1002,
+                  "positive_rate": 0.5625
+                },
+                {
+                  "bin": 3,
+                  "n": 16,
+                  "score_lo": -0.0996,
+                  "score_hi": -0.0888,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 4,
+                  "n": 16,
+                  "score_lo": -0.0885,
+                  "score_hi": -0.0486,
+                  "positive_rate": 0.5625
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.6713,
+                "auroc_residual_flip": 0.3287
+              },
+              "fused": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.6188,
+                "auroc_residual_flip": 0.3812
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.5212,
+                "auroc_residual_flip": 0.4788
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.3681,
+                "auroc_residual_flip": 0.6319
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.5447,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.4553,
+                "auroc_flip": 0.5447
+              },
+              "logit_gap": {
+                "best_auroc": 0.5437,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5437,
+                "auroc_flip": 0.4562
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.5437,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.4562,
+                "auroc_flip": 0.5437
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.5022,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5022,
+                "auroc_flip": 0.4978
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.5403,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5403,
+                "auroc_flip": 0.4597
+              },
+              "composite": {
+                "best_auroc": 0.5431,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5431,
+                "auroc_flip": 0.4569
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "missing",
+            "path": "/home/ubuntu/Anima/benchmarks/reports/truthfulqa_live_qwen_qwen2_5-3b-instruct_deep_waiver_v1_lenmatch.json"
+          }
+        }
+      },
+      "finished_at": "2026-11-03T18:27:44.394386+00:00"
+    },
+    {
+      "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "started_at": "2026-11-03T18:27:44.395223+00:00",
+      "status": "ok",
+      "health": {
+        "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+        "n_claims": 2,
+        "output_attentions": true,
+        "finite_rate": {
+          "entropy": 1.0,
+          "logit_gap": 1.0,
+          "attn_entropy": 0.0,
+          "fused": 1.0
+        },
+        "sample": {
+          "entropy": 0.2017,
+          "logit_gap": 0.4706,
+          "attn_entropy": NaN,
+          "fused": 0.3362
+        },
+        "pass": true
+      },
+      "live": {
+        "suffix": "deep_waiver_v1",
+        "benchmarks": {
+          "halueval": {
+            "auroc_composite": 0.3916,
+            "auroc_ci95": {
+              "point": 0.3916,
+              "lo": 0.3043,
+              "hi": 0.4811,
+              "B": 2000,
+              "seed": 42,
+              "n": 160,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 160,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          },
+          "truthfulqa": {
+            "auroc_composite": 0.385,
+            "auroc_ci95": {
+              "point": 0.385,
+              "lo": 0.1354,
+              "hi": 0.6515,
+              "B": 2000,
+              "seed": 42,
+              "n": 20,
+              "method": "bootstrap_mann_whitney"
+            },
+            "n_samples": 20,
+            "never_abstains": true,
+            "abstain_accuracy": 0.5
+          }
+        }
+      },
+      "live_length_matched": {
+        "suffix": "deep_waiver_v1_lenmatch",
+        "halueval": {
+          "status": "ok",
+          "source": "live",
+          "protocol": "L",
+          "abstain_accuracy": 0.5,
+          "auroc_composite": 0.5147,
+          "n_samples": 80,
+          "tp": 0,
+          "fp": 0,
+          "tn": 40,
+          "fn": 40,
+          "never_abstains": true,
+          "auroc_ci95": {
+            "point": 0.5147,
+            "lo": 0.3853,
+            "hi": 0.6391,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "rows_path_hint": "halueval_live_huggingfacetb_smollm2-1_7b-instruct_deep_waiver_v1_lenmatch.json"
+        }
+      },
+      "analysis": {
+        "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+        "suffix": "deep_waiver_v1",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/huggingfacetb_smollm2-1_7b-instruct_deep_waiver_v1_halueval_analysis.json",
+            "headline": {
+              "best_channel": "entropy",
+              "best_auroc": 0.6354,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.3916,
+              "reported_composite_flip": 0.6084
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "entropy",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 32,
+                  "score_lo": -0.1793,
+                  "score_hi": -0.116,
+                  "positive_rate": 0.3438
+                },
+                {
+                  "bin": 1,
+                  "n": 32,
+                  "score_lo": -0.1151,
+                  "score_hi": -0.0978,
+                  "positive_rate": 0.4375
+                },
+                {
+                  "bin": 2,
+                  "n": 32,
+                  "score_lo": -0.0976,
+                  "score_hi": -0.0843,
+                  "positive_rate": 0.4062
+                },
+                {
+                  "bin": 3,
+                  "n": 32,
+                  "score_lo": -0.0841,
+                  "score_hi": -0.0576,
+                  "positive_rate": 0.6562
+                },
+                {
+                  "bin": 4,
+                  "n": 32,
+                  "score_lo": -0.0566,
+                  "score_hi": -0.0159,
+                  "positive_rate": 0.6562
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4527,
+                "auroc_residual_flip": 0.5473
+              },
+              "fused": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.4527,
+                "auroc_residual_flip": 0.5473
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.5,
+                "auroc_residual_flip": 0.5
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.9608,
+                "auroc_residual": 0.5431,
+                "auroc_residual_flip": 0.4569
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.6354,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.3646,
+                "auroc_flip": 0.6354
+              },
+              "logit_gap": {
+                "best_auroc": 0.5917,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.4083,
+                "auroc_flip": 0.5917
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.5917,
+                "polarity": "aligned",
+                "n_finite": 160,
+                "auroc": 0.5917,
+                "auroc_flip": 0.4083
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.6082,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.3918,
+                "auroc_flip": 0.6082
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.5,
+                "polarity": "near_chance",
+                "n_finite": 160,
+                "auroc": 0.5,
+                "auroc_flip": 0.5
+              },
+              "composite": {
+                "best_auroc": 0.6084,
+                "polarity": "anti_aligned",
+                "n_finite": 160,
+                "auroc": 0.3916,
+                "auroc_flip": 0.6084
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/huggingfacetb_smollm2-1_7b-instruct_deep_waiver_v1_truthfulqa_analysis.json",
+            "headline": {
+              "best_channel": "logit_gap",
+              "best_auroc": 0.63,
+              "polarity": "anti_aligned",
+              "reported_composite_auroc": 0.385,
+              "reported_composite_flip": 0.615
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "logit_gap",
+              "used_flip": true,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 4,
+                  "score_lo": -0.3812,
+                  "score_hi": -0.3579,
+                  "positive_rate": 0.0
+                },
+                {
+                  "bin": 1,
+                  "n": 4,
+                  "score_lo": -0.3575,
+                  "score_hi": -0.3342,
+                  "positive_rate": 0.75
+                },
+                {
+                  "bin": 2,
+                  "n": 4,
+                  "score_lo": -0.3271,
+                  "score_hi": -0.3106,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 3,
+                  "n": 4,
+                  "score_lo": -0.3065,
+                  "score_hi": -0.2668,
+                  "positive_rate": 0.75
+                },
+                {
+                  "bin": 4,
+                  "n": 4,
+                  "score_lo": -0.2505,
+                  "score_hi": -0.2115,
+                  "positive_rate": 0.5
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.6,
+                "auroc_residual_flip": 0.4
+              },
+              "fused": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.6,
+                "auroc_residual_flip": 0.4
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.5,
+                "auroc_residual_flip": 0.5
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.31,
+                "auroc_residual": 0.4,
+                "auroc_residual_flip": 0.6
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.59,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.41,
+                "auroc_flip": 0.59
+              },
+              "logit_gap": {
+                "best_auroc": 0.63,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.37,
+                "auroc_flip": 0.63
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.63,
+                "polarity": "aligned",
+                "n_finite": 20,
+                "auroc": 0.63,
+                "auroc_flip": 0.37
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.615,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.385,
+                "auroc_flip": 0.615
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.5,
+                "polarity": "near_chance",
+                "n_finite": 20,
+                "auroc": 0.5,
+                "auroc_flip": 0.5
+              },
+              "composite": {
+                "best_auroc": 0.615,
+                "polarity": "anti_aligned",
+                "n_finite": 20,
+                "auroc": 0.385,
+                "auroc_flip": 0.615
+              }
+            }
+          }
+        }
+      },
+      "analysis_lenmatch": {
+        "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+        "suffix": "deep_waiver_v1_lenmatch",
+        "suites": {
+          "halueval": {
+            "status": "ok",
+            "analysis_path": "/home/ubuntu/Anima/benchmarks/reports/deep_waiver/huggingfacetb_smollm2-1_7b-instruct_deep_waiver_v1_lenmatch_halueval_analysis.json",
+            "headline": {
+              "best_channel": "logit_gap",
+              "best_auroc": 0.5238,
+              "polarity": "near_chance",
+              "reported_composite_auroc": 0.5147,
+              "reported_composite_flip": 0.4853
+            },
+            "nan_rates": {
+              "entropy": 0.0,
+              "logit_gap": 0.0,
+              "attn_entropy": 1.0,
+              "fused": 0.0,
+              "probe_uncertainty": 0.0,
+              "composite": 0.0
+            },
+            "never_abstains": true,
+            "abstain_rate": 0.0,
+            "waiver_bins": {
+              "primary_channel": "logit_gap",
+              "used_flip": false,
+              "bins": [
+                {
+                  "bin": 0,
+                  "n": 16,
+                  "score_lo": 0.1539,
+                  "score_hi": 0.244,
+                  "positive_rate": 0.4375
+                },
+                {
+                  "bin": 1,
+                  "n": 16,
+                  "score_lo": 0.2456,
+                  "score_hi": 0.2947,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 2,
+                  "n": 16,
+                  "score_lo": 0.295,
+                  "score_hi": 0.3251,
+                  "positive_rate": 0.625
+                },
+                {
+                  "bin": 3,
+                  "n": 16,
+                  "score_lo": 0.3264,
+                  "score_hi": 0.3604,
+                  "positive_rate": 0.5
+                },
+                {
+                  "bin": 4,
+                  "n": 16,
+                  "score_lo": 0.3645,
+                  "score_hi": 0.4773,
+                  "positive_rate": 0.4375
+                }
+              ]
+            },
+            "length_confound": {
+              "composite": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.5494,
+                "auroc_residual_flip": 0.4506
+              },
+              "fused": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.5494,
+                "auroc_residual_flip": 0.4506
+              },
+              "probe_uncertainty": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.5,
+                "auroc_residual_flip": 0.5
+              },
+              "inv_logit_gap": {
+                "length_auroc": 0.7203,
+                "auroc_residual": 0.4556,
+                "auroc_residual_flip": 0.5444
+              }
+            },
+            "channels_best": {
+              "entropy": {
+                "best_auroc": 0.5012,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.4988,
+                "auroc_flip": 0.5012
+              },
+              "logit_gap": {
+                "best_auroc": 0.5238,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5238,
+                "auroc_flip": 0.4763
+              },
+              "inv_logit_gap": {
+                "best_auroc": 0.5238,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.4763,
+                "auroc_flip": 0.5238
+              },
+              "attn_entropy": {
+                "best_auroc": null,
+                "polarity": "insufficient_finite",
+                "n_finite": 0,
+                "auroc": null,
+                "auroc_flip": null
+              },
+              "fused": {
+                "best_auroc": 0.5147,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5147,
+                "auroc_flip": 0.4853
+              },
+              "probe_uncertainty": {
+                "best_auroc": 0.5,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5,
+                "auroc_flip": 0.5
+              },
+              "composite": {
+                "best_auroc": 0.5147,
+                "polarity": "near_chance",
+                "n_finite": 80,
+                "auroc": 0.5147,
+                "auroc_flip": 0.4853
+              }
+            }
+          },
+          "truthfulqa": {
+            "status": "missing",
+            "path": "/home/ubuntu/Anima/benchmarks/reports/truthfulqa_live_huggingfacetb_smollm2-1_7b-instruct_deep_waiver_v1_lenmatch.json"
+          }
+        }
+      },
+      "finished_at": "2026-11-03T18:29:35.444321+00:00"
+    }
+  ],
+  "honesty": {
+    "no_invented_metrics": true,
+    "auto_shutdown": false,
+    "nan_channels_excluded_from_auroc": true,
+    "shipping_claim": false
+  }
+}

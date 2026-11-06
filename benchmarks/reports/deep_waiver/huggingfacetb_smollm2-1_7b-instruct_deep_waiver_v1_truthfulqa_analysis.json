@@ -1,0 +1,280 @@
+{
+  "n_rows": 20,
+  "label_balance": {
+    "0": 10,
+    "1": 10
+  },
+  "never_abstains": true,
+  "abstain_rate": 0.0,
+  "nan_rates": {
+    "entropy": 0.0,
+    "logit_gap": 0.0,
+    "attn_entropy": 1.0,
+    "fused": 0.0,
+    "probe_uncertainty": 0.0,
+    "composite": 0.0
+  },
+  "channels": {
+    "entropy": {
+      "n_finite": 20,
+      "auroc": 0.41,
+      "auroc_flip": 0.59,
+      "best_auroc": 0.59,
+      "ci95": {
+        "point": 0.41,
+        "lo": 0.1429,
+        "hi": 0.6768,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.59,
+        "lo": 0.3297,
+        "hi": 0.8586,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.0772,
+      "stdev": 0.0269,
+      "min": 0.0301,
+      "max": 0.1271
+    },
+    "logit_gap": {
+      "n_finite": 20,
+      "auroc": 0.37,
+      "auroc_flip": 0.63,
+      "best_auroc": 0.63,
+      "ci95": {
+        "point": 0.37,
+        "lo": 0.1212,
+        "hi": 0.66,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.63,
+        "lo": 0.3407,
+        "hi": 0.8788,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.3093,
+      "stdev": 0.0477,
+      "min": 0.2115,
+      "max": 0.3812
+    },
+    "inv_logit_gap": {
+      "n_finite": 20,
+      "auroc": 0.63,
+      "auroc_flip": 0.37,
+      "best_auroc": 0.63,
+      "ci95": {
+        "point": 0.63,
+        "lo": 0.3407,
+        "hi": 0.8788,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.37,
+        "lo": 0.1212,
+        "hi": 0.66,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "aligned",
+      "mean": 0.7648,
+      "stdev": 0.0285,
+      "min": 0.724,
+      "max": 0.8254
+    },
+    "attn_entropy": {
+      "n_finite": 0,
+      "auroc": null,
+      "auroc_flip": null,
+      "ci95": null,
+      "polarity": "insufficient_finite"
+    },
+    "fused": {
+      "n_finite": 20,
+      "auroc": 0.385,
+      "auroc_flip": 0.615,
+      "best_auroc": 0.615,
+      "ci95": {
+        "point": 0.385,
+        "lo": 0.131,
+        "hi": 0.6515,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.615,
+        "lo": 0.3485,
+        "hi": 0.87,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.1932,
+      "stdev": 0.0361,
+      "min": 0.1208,
+      "max": 0.2447
+    },
+    "probe_uncertainty": {
+      "n_finite": 20,
+      "auroc": 0.5,
+      "auroc_flip": 0.5,
+      "best_auroc": 0.5,
+      "ci95": {
+        "point": 0.5,
+        "lo": 0.5,
+        "hi": 0.5,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.5,
+        "lo": 0.5,
+        "hi": 0.5,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "near_chance",
+      "mean": 1.0,
+      "stdev": 0.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "composite": {
+      "n_finite": 20,
+      "auroc": 0.385,
+      "auroc_flip": 0.615,
+      "best_auroc": 0.615,
+      "ci95": {
+        "point": 0.385,
+        "lo": 0.131,
+        "hi": 0.6515,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.615,
+        "lo": 0.3485,
+        "hi": 0.87,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.5563,
+      "stdev": 0.0198,
+      "min": 0.5164,
+      "max": 0.5846
+    }
+  },
+  "length_confound": {
+    "composite": {
+      "n": 20,
+      "length_auroc": 0.31,
+      "auroc_residual": 0.6,
+      "auroc_residual_flip": 0.4,
+      "raw_auroc": 0.385
+    },
+    "fused": {
+      "n": 20,
+      "length_auroc": 0.31,
+      "auroc_residual": 0.6,
+      "auroc_residual_flip": 0.4,
+      "raw_auroc": 0.385
+    },
+    "probe_uncertainty": {
+      "n": 20,
+      "length_auroc": 0.31,
+      "auroc_residual": 0.5,
+      "auroc_residual_flip": 0.5,
+      "raw_auroc": 0.5
+    },
+    "inv_logit_gap": {
+      "n": 20,
+      "length_auroc": 0.31,
+      "auroc_residual": 0.4,
+      "auroc_residual_flip": 0.6,
+      "raw_auroc": 0.63
+    }
+  },
+  "waiver_bins": {
+    "primary_channel": "logit_gap",
+    "used_flip": true,
+    "bins": [
+      {
+        "bin": 0,
+        "n": 4,
+        "score_lo": -0.3812,
+        "score_hi": -0.3579,
+        "positive_rate": 0.0
+      },
+      {
+        "bin": 1,
+        "n": 4,
+        "score_lo": -0.3575,
+        "score_hi": -0.3342,
+        "positive_rate": 0.75
+      },
+      {
+        "bin": 2,
+        "n": 4,
+        "score_lo": -0.3271,
+        "score_hi": -0.3106,
+        "positive_rate": 0.5
+      },
+      {
+        "bin": 3,
+        "n": 4,
+        "score_lo": -0.3065,
+        "score_hi": -0.2668,
+        "positive_rate": 0.75
+      },
+      {
+        "bin": 4,
+        "n": 4,
+        "score_lo": -0.2505,
+        "score_hi": -0.2115,
+        "positive_rate": 0.5
+      }
+    ]
+  },
+  "headline": {
+    "best_channel": "logit_gap",
+    "best_auroc": 0.63,
+    "polarity": "anti_aligned",
+    "reported_composite_auroc": 0.385,
+    "reported_composite_flip": 0.615
+  },
+  "source_file": "/home/ubuntu/Anima/benchmarks/reports/truthfulqa_live_huggingfacetb_smollm2-1_7b-instruct_deep_waiver_v1.json",
+  "label_key": "should_abstain"
+}

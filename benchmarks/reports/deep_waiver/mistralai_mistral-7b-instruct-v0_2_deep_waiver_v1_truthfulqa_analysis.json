@@ -1,0 +1,280 @@
+{
+  "n_rows": 20,
+  "label_balance": {
+    "0": 10,
+    "1": 10
+  },
+  "never_abstains": true,
+  "abstain_rate": 0.0,
+  "nan_rates": {
+    "entropy": 0.0,
+    "logit_gap": 0.0,
+    "attn_entropy": 1.0,
+    "fused": 0.0,
+    "probe_uncertainty": 0.0,
+    "composite": 0.0
+  },
+  "channels": {
+    "entropy": {
+      "n_finite": 20,
+      "auroc": 0.27,
+      "auroc_flip": 0.73,
+      "best_auroc": 0.73,
+      "ci95": {
+        "point": 0.27,
+        "lo": 0.0606,
+        "hi": 0.54,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.73,
+        "lo": 0.4646,
+        "hi": 0.94,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.1796,
+      "stdev": 0.0394,
+      "min": 0.1145,
+      "max": 0.2661
+    },
+    "logit_gap": {
+      "n_finite": 20,
+      "auroc": 0.29,
+      "auroc_flip": 0.71,
+      "best_auroc": 0.71,
+      "ci95": {
+        "point": 0.29,
+        "lo": 0.06,
+        "hi": 0.5625,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.71,
+        "lo": 0.4396,
+        "hi": 0.94,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.3226,
+      "stdev": 0.0654,
+      "min": 0.1677,
+      "max": 0.5162
+    },
+    "inv_logit_gap": {
+      "n_finite": 20,
+      "auroc": 0.71,
+      "auroc_flip": 0.29,
+      "best_auroc": 0.71,
+      "ci95": {
+        "point": 0.71,
+        "lo": 0.4396,
+        "hi": 0.94,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.29,
+        "lo": 0.06,
+        "hi": 0.5625,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "aligned",
+      "mean": 0.7579,
+      "stdev": 0.0369,
+      "min": 0.6595,
+      "max": 0.8564
+    },
+    "attn_entropy": {
+      "n_finite": 0,
+      "auroc": null,
+      "auroc_flip": null,
+      "ci95": null,
+      "polarity": "insufficient_finite"
+    },
+    "fused": {
+      "n_finite": 20,
+      "auroc": 0.24,
+      "auroc_flip": 0.76,
+      "best_auroc": 0.76,
+      "ci95": {
+        "point": 0.24,
+        "lo": 0.04,
+        "hi": 0.4792,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.76,
+        "lo": 0.5253,
+        "hi": 0.9643,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.2511,
+      "stdev": 0.0466,
+      "min": 0.1769,
+      "max": 0.3912
+    },
+    "probe_uncertainty": {
+      "n_finite": 20,
+      "auroc": 0.45,
+      "auroc_flip": 0.55,
+      "best_auroc": 0.55,
+      "ci95": {
+        "point": 0.45,
+        "lo": 0.1717,
+        "hi": 0.7188,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.55,
+        "lo": 0.2812,
+        "hi": 0.8333,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.4522,
+      "stdev": 0.011,
+      "min": 0.4319,
+      "max": 0.4706
+    },
+    "composite": {
+      "n_finite": 20,
+      "auroc": 0.22,
+      "auroc_flip": 0.78,
+      "best_auroc": 0.78,
+      "ci95": {
+        "point": 0.22,
+        "lo": 0.022,
+        "hi": 0.4688,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.78,
+        "lo": 0.5312,
+        "hi": 0.978,
+        "B": 1000,
+        "seed": 42,
+        "n": 20,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.3416,
+      "stdev": 0.0267,
+      "min": 0.3,
+      "max": 0.4203
+    }
+  },
+  "length_confound": {
+    "composite": {
+      "n": 20,
+      "length_auroc": 0.31,
+      "auroc_residual": 0.21,
+      "auroc_residual_flip": 0.79,
+      "raw_auroc": 0.22
+    },
+    "fused": {
+      "n": 20,
+      "length_auroc": 0.31,
+      "auroc_residual": 0.24,
+      "auroc_residual_flip": 0.76,
+      "raw_auroc": 0.24
+    },
+    "probe_uncertainty": {
+      "n": 20,
+      "length_auroc": 0.31,
+      "auroc_residual": 0.45,
+      "auroc_residual_flip": 0.55,
+      "raw_auroc": 0.45
+    },
+    "inv_logit_gap": {
+      "n": 20,
+      "length_auroc": 0.31,
+      "auroc_residual": 0.69,
+      "auroc_residual_flip": 0.31,
+      "raw_auroc": 0.71
+    }
+  },
+  "waiver_bins": {
+    "primary_channel": "composite",
+    "used_flip": true,
+    "bins": [
+      {
+        "bin": 0,
+        "n": 4,
+        "score_lo": -0.4203,
+        "score_hi": -0.3576,
+        "positive_rate": 0.0
+      },
+      {
+        "bin": 1,
+        "n": 4,
+        "score_lo": -0.3572,
+        "score_hi": -0.3468,
+        "positive_rate": 0.5
+      },
+      {
+        "bin": 2,
+        "n": 4,
+        "score_lo": -0.3467,
+        "score_hi": -0.3347,
+        "positive_rate": 0.5
+      },
+      {
+        "bin": 3,
+        "n": 4,
+        "score_lo": -0.3332,
+        "score_hi": -0.3211,
+        "positive_rate": 1.0
+      },
+      {
+        "bin": 4,
+        "n": 4,
+        "score_lo": -0.3174,
+        "score_hi": -0.3,
+        "positive_rate": 0.5
+      }
+    ]
+  },
+  "headline": {
+    "best_channel": "composite",
+    "best_auroc": 0.78,
+    "polarity": "anti_aligned",
+    "reported_composite_auroc": 0.22,
+    "reported_composite_flip": 0.78
+  },
+  "source_file": "/home/ubuntu/Anima/benchmarks/reports/truthfulqa_live_mistralai_mistral-7b-instruct-v0_2_deep_waiver_v1.json",
+  "label_key": "should_abstain"
+}

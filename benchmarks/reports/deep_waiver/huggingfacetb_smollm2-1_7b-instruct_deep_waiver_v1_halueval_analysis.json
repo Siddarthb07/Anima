@@ -1,0 +1,280 @@
+{
+  "n_rows": 160,
+  "label_balance": {
+    "0": 80,
+    "1": 80
+  },
+  "never_abstains": true,
+  "abstain_rate": 0.0,
+  "nan_rates": {
+    "entropy": 0.0,
+    "logit_gap": 0.0,
+    "attn_entropy": 1.0,
+    "fused": 0.0,
+    "probe_uncertainty": 0.0,
+    "composite": 0.0
+  },
+  "channels": {
+    "entropy": {
+      "n_finite": 160,
+      "auroc": 0.3646,
+      "auroc_flip": 0.6354,
+      "best_auroc": 0.6354,
+      "ci95": {
+        "point": 0.3646,
+        "lo": 0.2824,
+        "hi": 0.4543,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.6354,
+        "lo": 0.5467,
+        "hi": 0.7176,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.0906,
+      "stdev": 0.0335,
+      "min": 0.0159,
+      "max": 0.1793
+    },
+    "logit_gap": {
+      "n_finite": 160,
+      "auroc": 0.4083,
+      "auroc_flip": 0.5917,
+      "best_auroc": 0.5917,
+      "ci95": {
+        "point": 0.4083,
+        "lo": 0.3212,
+        "hi": 0.4955,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.5917,
+        "lo": 0.505,
+        "hi": 0.6809,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.3143,
+      "stdev": 0.0558,
+      "min": 0.1539,
+      "max": 0.442
+    },
+    "inv_logit_gap": {
+      "n_finite": 160,
+      "auroc": 0.5917,
+      "auroc_flip": 0.4083,
+      "best_auroc": 0.5917,
+      "ci95": {
+        "point": 0.5917,
+        "lo": 0.505,
+        "hi": 0.6809,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.4083,
+        "lo": 0.3212,
+        "hi": 0.4955,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "aligned",
+      "mean": 0.7622,
+      "stdev": 0.0327,
+      "min": 0.6935,
+      "max": 0.8666
+    },
+    "attn_entropy": {
+      "n_finite": 0,
+      "auroc": null,
+      "auroc_flip": null,
+      "ci95": null,
+      "polarity": "insufficient_finite"
+    },
+    "fused": {
+      "n_finite": 160,
+      "auroc": 0.3918,
+      "auroc_flip": 0.6082,
+      "best_auroc": 0.6082,
+      "ci95": {
+        "point": 0.3918,
+        "lo": 0.3093,
+        "hi": 0.4814,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.6082,
+        "lo": 0.5188,
+        "hi": 0.6908,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.2024,
+      "stdev": 0.0427,
+      "min": 0.0849,
+      "max": 0.3077
+    },
+    "probe_uncertainty": {
+      "n_finite": 160,
+      "auroc": 0.5,
+      "auroc_flip": 0.5,
+      "best_auroc": 0.5,
+      "ci95": {
+        "point": 0.5,
+        "lo": 0.5,
+        "hi": 0.5,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.5,
+        "lo": 0.5,
+        "hi": 0.5,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "near_chance",
+      "mean": 1.0,
+      "stdev": 0.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "composite": {
+      "n_finite": 160,
+      "auroc": 0.3916,
+      "auroc_flip": 0.6084,
+      "best_auroc": 0.6084,
+      "ci95": {
+        "point": 0.3916,
+        "lo": 0.3091,
+        "hi": 0.4811,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "ci95_flip": {
+        "point": 0.6084,
+        "lo": 0.5192,
+        "hi": 0.691,
+        "B": 1000,
+        "seed": 42,
+        "n": 160,
+        "method": "bootstrap_mann_whitney"
+      },
+      "polarity": "anti_aligned",
+      "mean": 0.5613,
+      "stdev": 0.0235,
+      "min": 0.4967,
+      "max": 0.6192
+    }
+  },
+  "length_confound": {
+    "composite": {
+      "n": 160,
+      "length_auroc": 0.9608,
+      "auroc_residual": 0.4527,
+      "auroc_residual_flip": 0.5473,
+      "raw_auroc": 0.3916
+    },
+    "fused": {
+      "n": 160,
+      "length_auroc": 0.9608,
+      "auroc_residual": 0.4527,
+      "auroc_residual_flip": 0.5473,
+      "raw_auroc": 0.3918
+    },
+    "probe_uncertainty": {
+      "n": 160,
+      "length_auroc": 0.9608,
+      "auroc_residual": 0.5,
+      "auroc_residual_flip": 0.5,
+      "raw_auroc": 0.5
+    },
+    "inv_logit_gap": {
+      "n": 160,
+      "length_auroc": 0.9608,
+      "auroc_residual": 0.5431,
+      "auroc_residual_flip": 0.4569,
+      "raw_auroc": 0.5917
+    }
+  },
+  "waiver_bins": {
+    "primary_channel": "entropy",
+    "used_flip": true,
+    "bins": [
+      {
+        "bin": 0,
+        "n": 32,
+        "score_lo": -0.1793,
+        "score_hi": -0.116,
+        "positive_rate": 0.3438
+      },
+      {
+        "bin": 1,
+        "n": 32,
+        "score_lo": -0.1151,
+        "score_hi": -0.0978,
+        "positive_rate": 0.4375
+      },
+      {
+        "bin": 2,
+        "n": 32,
+        "score_lo": -0.0976,
+        "score_hi": -0.0843,
+        "positive_rate": 0.4062
+      },
+      {
+        "bin": 3,
+        "n": 32,
+        "score_lo": -0.0841,
+        "score_hi": -0.0576,
+        "positive_rate": 0.6562
+      },
+      {
+        "bin": 4,
+        "n": 32,
+        "score_lo": -0.0566,
+        "score_hi": -0.0159,
+        "positive_rate": 0.6562
+      }
+    ]
+  },
+  "headline": {
+    "best_channel": "entropy",
+    "best_auroc": 0.6354,
+    "polarity": "anti_aligned",
+    "reported_composite_auroc": 0.3916,
+    "reported_composite_flip": 0.6084
+  },
+  "source_file": "/home/ubuntu/Anima/benchmarks/reports/halueval_live_huggingfacetb_smollm2-1_7b-instruct_deep_waiver_v1.json",
+  "label_key": "is_hallucination"
+}
