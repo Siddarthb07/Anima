@@ -109,6 +109,31 @@ LAYER_CONFIG = {
         "requires_gpu": True,
         "use_chat_template": True,
     },
+    # Qwen2.5-7B matches Qwen2-7B layout (28L / 3584d) for Stage B GPU seal.
+    "Qwen/Qwen2.5-7B-Instruct": {
+        "layers": [7, 14, 22],
+        "hidden_dim": 3584,
+        "has_sae": False,
+        "family": "qwen",
+        "requires_gpu": True,
+        "use_chat_template": True,
+    },
+    "Qwen/Qwen2.5-3B-Instruct": {
+        "layers": [9, 18, 27],
+        "hidden_dim": 2048,
+        "has_sae": False,
+        "family": "qwen",
+        "requires_gpu": True,
+        "use_chat_template": True,
+    },
+    "Qwen/Qwen2.5-1.5B-Instruct": {
+        "layers": [7, 14, 21],
+        "hidden_dim": 1536,
+        "has_sae": False,
+        "family": "qwen",
+        "requires_gpu": False,
+        "use_chat_template": True,
+    },
     "google/gemma-2-9b": {
         "layers": [9, 18, 28],
         "hidden_dim": 3584,
