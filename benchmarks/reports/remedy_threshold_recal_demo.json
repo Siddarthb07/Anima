@@ -1,0 +1,73 @@
+{
+  "schema": "anima.remedy_threshold_recal.v1",
+  "generated_at": "2026-11-04T16:44:49.145969+00:00",
+  "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-0_5b-instruct_lenbal_n300.json",
+  "channel": "inv_composite",
+  "alpha": 0.2,
+  "seed": 42,
+  "n_learn": 75,
+  "n_cal": 75,
+  "n_test": 150,
+  "shipping_claim": false,
+  "before": {
+    "tau": 0.54556,
+    "badge": {
+      "tau": 0.54556,
+      "n": 150,
+      "n_abstain": 8,
+      "n_green": 142,
+      "abstain_events": "8/150",
+      "false_green_rate": 0.46,
+      "error_among_green": 0.4859,
+      "selective": true
+    },
+    "cov_at_0_10": {
+      "risk_target": 0.1,
+      "coverage": 0.0,
+      "status": "infeasible"
+    },
+    "auroc": 0.523
+  },
+  "after": {
+    "tau": 0.4812,
+    "badge": {
+      "tau": 0.4812,
+      "n": 150,
+      "n_abstain": 135,
+      "n_green": 15,
+      "abstain_events": "135/150",
+      "false_green_rate": 0.04,
+      "error_among_green": 0.4,
+      "selective": true
+    },
+    "cov_at_0_10": {
+      "risk_target": 0.1,
+      "coverage": 0.0,
+      "status": "infeasible"
+    },
+    "auroc": 0.523,
+    "ltt": {
+      "tau": 0.4812,
+      "status": "crc_feasible",
+      "coverage": 0.14666666666666667,
+      "err_among_green": 0.1818,
+      "n_abstain": 64,
+      "alpha": 0.2
+    }
+  },
+  "occupancy": {
+    "before": {
+      "gap": 0.05333333333333334,
+      "ks": 0.1133333333333334,
+      "bound_holds": true,
+      "live_abstain": 0.05333333333333334
+    },
+    "after": {
+      "gap": 0.06000000000000005,
+      "ks": 0.1133333333333334,
+      "bound_holds": true,
+      "live_abstain": 0.9
+    }
+  },
+  "notes": "CPU LtT/CRC sketch; not a shipping unlock. shipping_claim=false."
+}
