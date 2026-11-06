@@ -1,0 +1,5103 @@
+{
+  "schema": "anima.phase2_9_10_battery.v1",
+  "generated_at": "2026-11-04T06:14:55.105208+00:00",
+  "targets_for_council_9_10": {
+    "min_heldout_auroc": 0.75,
+    "max_error_among_green": 0.2,
+    "min_coverage_at_risk_0_10": 0.3,
+    "min_coverage_at_risk_0_20": 0.5,
+    "require_0_lt_k_lt_n": true,
+    "residual_auroc_beats_length": true,
+    "length_to_label_max_for_primary": 0.8,
+    "shipping_claim": false
+  },
+  "shipping_claim": false,
+  "cells": {
+    "qwen_qwen2_5-0_5b-instruct::halueval": {
+      "status": "ok",
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "suite": "halueval",
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-0_5b-instruct.json",
+      "n_full": 80,
+      "n_tune": 40,
+      "n_heldout": 40,
+      "tune_auroc_composite": 0.26,
+      "anti_aligned": true,
+      "score_key": "inv_composite",
+      "heldout_channel_aurocs": {
+        "composite": 0.2238,
+        "inv_composite": 0.7762,
+        "probe": 0.515,
+        "fused": 0.2325,
+        "inv_logit_gap": 0.5,
+        "entropy": 0.1338,
+        "answer_length": 0.975
+      },
+      "length_to_label_auroc": 0.975,
+      "residualized_score_auroc": 0.615,
+      "residual_beats_length": false,
+      "length_matched": {
+        "n": 4,
+        "status": "too_small"
+      },
+      "absolute_tau_sweep": [
+        {
+          "tau": 0.35,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.35,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.37,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.37,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.39,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.39,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.41,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.41,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.43,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.43,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.45,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.45,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.47,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.47,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.49,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.49,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.51,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.51,
+            "n": 40,
+            "n_abstain": 39,
+            "n_green": 1,
+            "abstain_events": "39/40",
+            "false_green_rate": 0.0,
+            "error_among_green": 0.0,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.53,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.53,
+            "n": 40,
+            "n_abstain": 34,
+            "n_green": 6,
+            "abstain_events": "34/40",
+            "false_green_rate": 0.025,
+            "error_among_green": 0.1667,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.55,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.55,
+            "n": 40,
+            "n_abstain": 18,
+            "n_green": 22,
+            "abstain_events": "18/40",
+            "false_green_rate": 0.175,
+            "error_among_green": 0.3182,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.57,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.57,
+            "n": 40,
+            "n_abstain": 8,
+            "n_green": 32,
+            "abstain_events": "8/40",
+            "false_green_rate": 0.35,
+            "error_among_green": 0.4375,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.59,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.59,
+            "n": 40,
+            "n_abstain": 1,
+            "n_green": 39,
+            "abstain_events": "1/40",
+            "false_green_rate": 0.475,
+            "error_among_green": 0.4872,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.61,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.61,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.63,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.63,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.65,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.65,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.67,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.67,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.69,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.69,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.71,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.71,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.73,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.73,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.75,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.75,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.77,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.77,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.79,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.79,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.81,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.81,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.83,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.83,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.85,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.85,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        }
+      ],
+      "percentile_tau_sweep": [
+        {
+          "tune_percentile": 50,
+          "tau": 0.5465,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.5465,
+            "n": 40,
+            "n_abstain": 20,
+            "n_green": 20,
+            "abstain_events": "20/40",
+            "false_green_rate": 0.15,
+            "error_among_green": 0.3,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 60,
+          "tau": 0.5554,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.55542,
+            "n": 40,
+            "n_abstain": 15,
+            "n_green": 25,
+            "abstain_events": "15/40",
+            "false_green_rate": 0.25,
+            "error_among_green": 0.4,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 70,
+          "tau": 0.5621,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.56213,
+            "n": 40,
+            "n_abstain": 12,
+            "n_green": 28,
+            "abstain_events": "12/40",
+            "false_green_rate": 0.275,
+            "error_among_green": 0.3929,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 75,
+          "tau": 0.5659,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.5659,
+            "n": 40,
+            "n_abstain": 10,
+            "n_green": 30,
+            "abstain_events": "10/40",
+            "false_green_rate": 0.3,
+            "error_among_green": 0.4,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 80,
+          "tau": 0.5702,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.5701799999999999,
+            "n": 40,
+            "n_abstain": 8,
+            "n_green": 32,
+            "abstain_events": "8/40",
+            "false_green_rate": 0.35,
+            "error_among_green": 0.4375,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 85,
+          "tau": 0.5765,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.5764900000000001,
+            "n": 40,
+            "n_abstain": 8,
+            "n_green": 32,
+            "abstain_events": "8/40",
+            "false_green_rate": 0.35,
+            "error_among_green": 0.4375,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 90,
+          "tau": 0.5773,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.5773199999999999,
+            "n": 40,
+            "n_abstain": 8,
+            "n_green": 32,
+            "abstain_events": "8/40",
+            "false_green_rate": 0.35,
+            "error_among_green": 0.4375,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 95,
+          "tau": 0.582,
+          "auroc": 0.7762,
+          "badge": {
+            "tau": 0.581985,
+            "n": 40,
+            "n_abstain": 4,
+            "n_green": 36,
+            "abstain_events": "4/40",
+            "false_green_rate": 0.425,
+            "error_among_green": 0.4722,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.1,
+            "abstain_frac": 0.9,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.4,
+            "abstain_frac": 0.6,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        }
+      ],
+      "n_hits_9_10_targets": 0,
+      "best_selective": {
+        "tau": 0.51,
+        "auroc": 0.7762,
+        "badge": {
+          "tau": 0.51,
+          "n": 40,
+          "n_abstain": 39,
+          "n_green": 1,
+          "abstain_events": "39/40",
+          "false_green_rate": 0.0,
+          "error_among_green": 0.0,
+          "selective": true
+        },
+        "coverage_at_risk_0.10": {
+          "risk_target": 0.1,
+          "coverage": 0.1,
+          "abstain_frac": 0.9,
+          "positive_rate_on_answered": 0.0,
+          "status": "ok"
+        },
+        "coverage_at_risk_0.20": {
+          "risk_target": 0.2,
+          "coverage": 0.4,
+          "abstain_frac": 0.6,
+          "positive_rate_on_answered": 0.1875,
+          "status": "ok"
+        },
+        "hits_9_10_targets": false
+      },
+      "any_9_10_hit": false
+    },
+    "qwen_qwen2_5-0_5b-instruct::truthfulqa": {
+      "status": "ok",
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "suite": "truthfulqa",
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\truthfulqa_live_qwen_qwen2_5-0_5b-instruct.json",
+      "n_full": 80,
+      "n_tune": 40,
+      "n_heldout": 40,
+      "tune_auroc_composite": 0.4525,
+      "anti_aligned": true,
+      "score_key": "inv_composite",
+      "heldout_channel_aurocs": {
+        "composite": 0.4763,
+        "inv_composite": 0.5238,
+        "probe": 0.5825,
+        "fused": 0.46,
+        "inv_logit_gap": 0.5,
+        "entropy": 0.5525,
+        "answer_length": 0.3425
+      },
+      "length_to_label_auroc": 0.3425,
+      "residualized_score_auroc": 0.4825,
+      "residual_beats_length": true,
+      "length_matched": {
+        "n": 0,
+        "status": "too_small"
+      },
+      "absolute_tau_sweep": [
+        {
+          "tau": 0.35,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.35,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.37,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.37,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.39,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.39,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.41,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.41,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.43,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.43,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.45,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.45,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.47,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.47,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.49,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.49,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.51,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.51,
+            "n": 40,
+            "n_abstain": 40,
+            "n_green": 0,
+            "abstain_events": "40/40",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.53,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.53,
+            "n": 40,
+            "n_abstain": 38,
+            "n_green": 2,
+            "abstain_events": "38/40",
+            "false_green_rate": 0.0,
+            "error_among_green": 0.0,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.55,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.55,
+            "n": 40,
+            "n_abstain": 27,
+            "n_green": 13,
+            "abstain_events": "27/40",
+            "false_green_rate": 0.175,
+            "error_among_green": 0.5385,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.57,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.57,
+            "n": 40,
+            "n_abstain": 14,
+            "n_green": 26,
+            "abstain_events": "14/40",
+            "false_green_rate": 0.325,
+            "error_among_green": 0.5,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.59,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.59,
+            "n": 40,
+            "n_abstain": 1,
+            "n_green": 39,
+            "abstain_events": "1/40",
+            "false_green_rate": 0.475,
+            "error_among_green": 0.4872,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.61,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.61,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.63,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.63,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.65,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.65,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.67,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.67,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.69,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.69,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.71,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.71,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.73,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.73,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.75,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.75,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.77,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.77,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.79,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.79,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.81,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.81,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.83,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.83,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.85,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.85,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        }
+      ],
+      "percentile_tau_sweep": [
+        {
+          "tune_percentile": 50,
+          "tau": 0.5592,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.55915,
+            "n": 40,
+            "n_abstain": 21,
+            "n_green": 19,
+            "abstain_events": "21/40",
+            "false_green_rate": 0.2,
+            "error_among_green": 0.4211,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 60,
+          "tau": 0.5636,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.5636399999999999,
+            "n": 40,
+            "n_abstain": 20,
+            "n_green": 20,
+            "abstain_events": "20/40",
+            "false_green_rate": 0.2,
+            "error_among_green": 0.4,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 70,
+          "tau": 0.5684,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.56843,
+            "n": 40,
+            "n_abstain": 16,
+            "n_green": 24,
+            "abstain_events": "16/40",
+            "false_green_rate": 0.3,
+            "error_among_green": 0.5,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 75,
+          "tau": 0.5745,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.5745,
+            "n": 40,
+            "n_abstain": 9,
+            "n_green": 31,
+            "abstain_events": "9/40",
+            "false_green_rate": 0.4,
+            "error_among_green": 0.5161,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 80,
+          "tau": 0.5786,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.5785600000000001,
+            "n": 40,
+            "n_abstain": 6,
+            "n_green": 34,
+            "abstain_events": "6/40",
+            "false_green_rate": 0.425,
+            "error_among_green": 0.5,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 85,
+          "tau": 0.581,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.58096,
+            "n": 40,
+            "n_abstain": 3,
+            "n_green": 37,
+            "abstain_events": "3/40",
+            "false_green_rate": 0.45,
+            "error_among_green": 0.4865,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 90,
+          "tau": 0.5848,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.58477,
+            "n": 40,
+            "n_abstain": 3,
+            "n_green": 37,
+            "abstain_events": "3/40",
+            "false_green_rate": 0.45,
+            "error_among_green": 0.4865,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 95,
+          "tau": 0.5889,
+          "auroc": 0.5238,
+          "badge": {
+            "tau": 0.588935,
+            "n": 40,
+            "n_abstain": 1,
+            "n_green": 39,
+            "abstain_events": "1/40",
+            "false_green_rate": 0.475,
+            "error_among_green": 0.4872,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.05,
+            "abstain_frac": 0.95,
+            "positive_rate_on_answered": 0.0,
+            "status": "ok"
+          },
+          "selective": true
+        }
+      ],
+      "n_hits_9_10_targets": 0,
+      "best_selective": {
+        "tau": 0.53,
+        "auroc": 0.5238,
+        "badge": {
+          "tau": 0.53,
+          "n": 40,
+          "n_abstain": 38,
+          "n_green": 2,
+          "abstain_events": "38/40",
+          "false_green_rate": 0.0,
+          "error_among_green": 0.0,
+          "selective": true
+        },
+        "coverage_at_risk_0.10": {
+          "risk_target": 0.1,
+          "coverage": 0.05,
+          "abstain_frac": 0.95,
+          "positive_rate_on_answered": 0.0,
+          "status": "ok"
+        },
+        "coverage_at_risk_0.20": {
+          "risk_target": 0.2,
+          "coverage": 0.05,
+          "abstain_frac": 0.95,
+          "positive_rate_on_answered": 0.0,
+          "status": "ok"
+        },
+        "hits_9_10_targets": false
+      },
+      "any_9_10_hit": false
+    },
+    "qwen_qwen2_5-7b-instruct::halueval": {
+      "status": "ok",
+      "model_slug": "qwen_qwen2_5-7b-instruct",
+      "suite": "halueval",
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-7b-instruct.json",
+      "n_full": 160,
+      "n_tune": 80,
+      "n_heldout": 80,
+      "tune_auroc_composite": 0.1716,
+      "anti_aligned": true,
+      "score_key": "inv_composite",
+      "heldout_channel_aurocs": {
+        "composite": 0.24,
+        "inv_composite": 0.76,
+        "probe": 0.2841,
+        "fused": 0.3106,
+        "inv_logit_gap": 0.5,
+        "entropy": 0.2456,
+        "answer_length": 0.9459
+      },
+      "length_to_label_auroc": 0.9459,
+      "residualized_score_auroc": 0.5663,
+      "residual_beats_length": false,
+      "length_matched": {
+        "n": 16,
+        "status": "too_small"
+      },
+      "absolute_tau_sweep": [
+        {
+          "tau": 0.35,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.35,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.37,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.37,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.39,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.39,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.41,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.41,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.43,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.43,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.45,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.45,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.47,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.47,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.49,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.49,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.51,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.51,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.53,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.53,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.55,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.55,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.57,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.57,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.59,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.59,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.61,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.61,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.63,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.63,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.65,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.65,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.67,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.67,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.69,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.69,
+            "n": 80,
+            "n_abstain": 80,
+            "n_green": 0,
+            "abstain_events": "80/80",
+            "false_green_rate": 0.0,
+            "error_among_green": null,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.71,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.71,
+            "n": 80,
+            "n_abstain": 78,
+            "n_green": 2,
+            "abstain_events": "78/80",
+            "false_green_rate": 0.0,
+            "error_among_green": 0.0,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.73,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.73,
+            "n": 80,
+            "n_abstain": 71,
+            "n_green": 9,
+            "abstain_events": "71/80",
+            "false_green_rate": 0.025,
+            "error_among_green": 0.2222,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.75,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.75,
+            "n": 80,
+            "n_abstain": 61,
+            "n_green": 19,
+            "abstain_events": "61/80",
+            "false_green_rate": 0.0625,
+            "error_among_green": 0.2632,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.77,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.77,
+            "n": 80,
+            "n_abstain": 49,
+            "n_green": 31,
+            "abstain_events": "49/80",
+            "false_green_rate": 0.1125,
+            "error_among_green": 0.2903,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.79,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.79,
+            "n": 80,
+            "n_abstain": 28,
+            "n_green": 52,
+            "abstain_events": "28/80",
+            "false_green_rate": 0.2375,
+            "error_among_green": 0.3654,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.81,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.81,
+            "n": 80,
+            "n_abstain": 12,
+            "n_green": 68,
+            "abstain_events": "12/80",
+            "false_green_rate": 0.3625,
+            "error_among_green": 0.4265,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.83,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.83,
+            "n": 80,
+            "n_abstain": 3,
+            "n_green": 77,
+            "abstain_events": "3/80",
+            "false_green_rate": 0.4625,
+            "error_among_green": 0.4805,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.85,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.85,
+            "n": 80,
+            "n_abstain": 0,
+            "n_green": 80,
+            "abstain_events": "0/80",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        }
+      ],
+      "percentile_tau_sweep": [
+        {
+          "tune_percentile": 50,
+          "tau": 0.7759,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.7759,
+            "n": 80,
+            "n_abstain": 38,
+            "n_green": 42,
+            "abstain_events": "38/80",
+            "false_green_rate": 0.1625,
+            "error_among_green": 0.3095,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 60,
+          "tau": 0.7868,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.78684,
+            "n": 80,
+            "n_abstain": 29,
+            "n_green": 51,
+            "abstain_events": "29/80",
+            "false_green_rate": 0.2375,
+            "error_among_green": 0.3725,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 70,
+          "tau": 0.7978,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.79784,
+            "n": 80,
+            "n_abstain": 22,
+            "n_green": 58,
+            "abstain_events": "22/80",
+            "false_green_rate": 0.2625,
+            "error_among_green": 0.3621,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 75,
+          "tau": 0.8028,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.802825,
+            "n": 80,
+            "n_abstain": 18,
+            "n_green": 62,
+            "abstain_events": "18/80",
+            "false_green_rate": 0.3,
+            "error_among_green": 0.3871,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 80,
+          "tau": 0.8091,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.8091400000000001,
+            "n": 80,
+            "n_abstain": 13,
+            "n_green": 67,
+            "abstain_events": "13/80",
+            "false_green_rate": 0.35,
+            "error_among_green": 0.4179,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 85,
+          "tau": 0.8098,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.8098449999999999,
+            "n": 80,
+            "n_abstain": 13,
+            "n_green": 67,
+            "abstain_events": "13/80",
+            "false_green_rate": 0.35,
+            "error_among_green": 0.4179,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 90,
+          "tau": 0.8141,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.81408,
+            "n": 80,
+            "n_abstain": 8,
+            "n_green": 72,
+            "abstain_events": "8/80",
+            "false_green_rate": 0.4125,
+            "error_among_green": 0.4583,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 95,
+          "tau": 0.8218,
+          "auroc": 0.76,
+          "badge": {
+            "tau": 0.821755,
+            "n": 80,
+            "n_abstain": 4,
+            "n_green": 76,
+            "abstain_events": "4/80",
+            "false_green_rate": 0.4625,
+            "error_among_green": 0.4868,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.2,
+            "abstain_frac": 0.8,
+            "positive_rate_on_answered": 0.1875,
+            "status": "ok"
+          },
+          "selective": true
+        }
+      ],
+      "n_hits_9_10_targets": 0,
+      "best_selective": {
+        "tau": 0.71,
+        "auroc": 0.76,
+        "badge": {
+          "tau": 0.71,
+          "n": 80,
+          "n_abstain": 78,
+          "n_green": 2,
+          "abstain_events": "78/80",
+          "false_green_rate": 0.0,
+          "error_among_green": 0.0,
+          "selective": true
+        },
+        "coverage_at_risk_0.10": {
+          "risk_target": 0.1,
+          "coverage": 0.0,
+          "status": "infeasible"
+        },
+        "coverage_at_risk_0.20": {
+          "risk_target": 0.2,
+          "coverage": 0.2,
+          "abstain_frac": 0.8,
+          "positive_rate_on_answered": 0.1875,
+          "status": "ok"
+        },
+        "hits_9_10_targets": false
+      },
+      "any_9_10_hit": false
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0::halueval": {
+      "status": "ok",
+      "model_slug": "tinyllama_tinyllama-1_1b-chat-v1_0",
+      "suite": "halueval",
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+      "n_full": 80,
+      "n_tune": 40,
+      "n_heldout": 40,
+      "tune_auroc_composite": 0.625,
+      "anti_aligned": false,
+      "score_key": "composite",
+      "heldout_channel_aurocs": {
+        "composite": 0.4587,
+        "inv_composite": 0.5413,
+        "probe": 0.4825,
+        "fused": 0.465,
+        "inv_logit_gap": 0.5,
+        "entropy": 0.4475,
+        "answer_length": 0.975
+      },
+      "length_to_label_auroc": 0.975,
+      "residualized_score_auroc": 0.4775,
+      "residual_beats_length": false,
+      "length_matched": {
+        "n": 4,
+        "status": "too_small"
+      },
+      "absolute_tau_sweep": [
+        {
+          "tau": 0.35,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.35,
+            "n": 40,
+            "n_abstain": 11,
+            "n_green": 29,
+            "abstain_events": "11/40",
+            "false_green_rate": 0.375,
+            "error_among_green": 0.5172,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.37,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.37,
+            "n": 40,
+            "n_abstain": 2,
+            "n_green": 38,
+            "abstain_events": "2/40",
+            "false_green_rate": 0.475,
+            "error_among_green": 0.5,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.39,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.39,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.41,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.41,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.43,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.43,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.45,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.45,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.47,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.47,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.49,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.49,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.51,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.51,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.53,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.53,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.55,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.55,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.57,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.57,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.59,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.59,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.61,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.61,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.63,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.63,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.65,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.65,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.67,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.67,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.69,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.69,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.71,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.71,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.73,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.73,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.75,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.75,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.77,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.77,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.79,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.79,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.81,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.81,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.83,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.83,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.85,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.85,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "hits_9_10_targets": false
+        }
+      ],
+      "percentile_tau_sweep": [
+        {
+          "tune_percentile": 50,
+          "tau": 0.3395,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.33945000000000003,
+            "n": 40,
+            "n_abstain": 17,
+            "n_green": 23,
+            "abstain_events": "17/40",
+            "false_green_rate": 0.3,
+            "error_among_green": 0.5217,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 60,
+          "tau": 0.344,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.34404,
+            "n": 40,
+            "n_abstain": 16,
+            "n_green": 24,
+            "abstain_events": "16/40",
+            "false_green_rate": 0.325,
+            "error_among_green": 0.5417,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 70,
+          "tau": 0.3458,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.3458,
+            "n": 40,
+            "n_abstain": 13,
+            "n_green": 27,
+            "abstain_events": "13/40",
+            "false_green_rate": 0.35,
+            "error_among_green": 0.5185,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 75,
+          "tau": 0.3481,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.348125,
+            "n": 40,
+            "n_abstain": 11,
+            "n_green": 29,
+            "abstain_events": "11/40",
+            "false_green_rate": 0.375,
+            "error_among_green": 0.5172,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 80,
+          "tau": 0.3512,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.35116,
+            "n": 40,
+            "n_abstain": 11,
+            "n_green": 29,
+            "abstain_events": "11/40",
+            "false_green_rate": 0.375,
+            "error_among_green": 0.5172,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 85,
+          "tau": 0.3539,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.35393,
+            "n": 40,
+            "n_abstain": 9,
+            "n_green": 31,
+            "abstain_events": "9/40",
+            "false_green_rate": 0.4,
+            "error_among_green": 0.5161,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 90,
+          "tau": 0.3601,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.36006,
+            "n": 40,
+            "n_abstain": 6,
+            "n_green": 34,
+            "abstain_events": "6/40",
+            "false_green_rate": 0.45,
+            "error_among_green": 0.5294,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 95,
+          "tau": 0.3633,
+          "auroc": 0.4587,
+          "badge": {
+            "tau": 0.3633,
+            "n": 40,
+            "n_abstain": 3,
+            "n_green": 37,
+            "abstain_events": "3/40",
+            "false_green_rate": 0.45,
+            "error_among_green": 0.4865,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.0,
+            "status": "infeasible"
+          },
+          "selective": true
+        }
+      ],
+      "n_hits_9_10_targets": 0,
+      "best_selective": {
+        "tau": 0.37,
+        "auroc": 0.4587,
+        "badge": {
+          "tau": 0.37,
+          "n": 40,
+          "n_abstain": 2,
+          "n_green": 38,
+          "abstain_events": "2/40",
+          "false_green_rate": 0.475,
+          "error_among_green": 0.5,
+          "selective": true
+        },
+        "coverage_at_risk_0.10": {
+          "risk_target": 0.1,
+          "coverage": 0.0,
+          "status": "infeasible"
+        },
+        "coverage_at_risk_0.20": {
+          "risk_target": 0.2,
+          "coverage": 0.0,
+          "status": "infeasible"
+        },
+        "hits_9_10_targets": false
+      },
+      "any_9_10_hit": false
+    },
+    "distilgpt2::halueval": {
+      "status": "ok",
+      "model_slug": "distilgpt2",
+      "suite": "halueval",
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_distilgpt2.json",
+      "n_full": 80,
+      "n_tune": 40,
+      "n_heldout": 40,
+      "tune_auroc_composite": 0.695,
+      "anti_aligned": false,
+      "score_key": "composite",
+      "heldout_channel_aurocs": {
+        "composite": 0.665,
+        "inv_composite": 0.335,
+        "probe": 0.7125,
+        "fused": 0.4225,
+        "inv_logit_gap": 0.5,
+        "entropy": 0.1625,
+        "answer_length": 0.975
+      },
+      "length_to_label_auroc": 0.975,
+      "residualized_score_auroc": 0.63,
+      "residual_beats_length": false,
+      "length_matched": {
+        "n": 4,
+        "status": "too_small"
+      },
+      "absolute_tau_sweep": [
+        {
+          "tau": 0.35,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.35,
+            "n": 40,
+            "n_abstain": 29,
+            "n_green": 11,
+            "abstain_events": "29/40",
+            "false_green_rate": 0.05,
+            "error_among_green": 0.1818,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.37,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.37,
+            "n": 40,
+            "n_abstain": 28,
+            "n_green": 12,
+            "abstain_events": "28/40",
+            "false_green_rate": 0.075,
+            "error_among_green": 0.25,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.39,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.39,
+            "n": 40,
+            "n_abstain": 25,
+            "n_green": 15,
+            "abstain_events": "25/40",
+            "false_green_rate": 0.1,
+            "error_among_green": 0.2667,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.41,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.41,
+            "n": 40,
+            "n_abstain": 20,
+            "n_green": 20,
+            "abstain_events": "20/40",
+            "false_green_rate": 0.15,
+            "error_among_green": 0.3,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.43,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.43,
+            "n": 40,
+            "n_abstain": 17,
+            "n_green": 23,
+            "abstain_events": "17/40",
+            "false_green_rate": 0.225,
+            "error_among_green": 0.3913,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.45,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.45,
+            "n": 40,
+            "n_abstain": 16,
+            "n_green": 24,
+            "abstain_events": "16/40",
+            "false_green_rate": 0.25,
+            "error_among_green": 0.4167,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.47,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.47,
+            "n": 40,
+            "n_abstain": 12,
+            "n_green": 28,
+            "abstain_events": "12/40",
+            "false_green_rate": 0.325,
+            "error_among_green": 0.4643,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.49,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.49,
+            "n": 40,
+            "n_abstain": 11,
+            "n_green": 29,
+            "abstain_events": "11/40",
+            "false_green_rate": 0.35,
+            "error_among_green": 0.4828,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.51,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.51,
+            "n": 40,
+            "n_abstain": 10,
+            "n_green": 30,
+            "abstain_events": "10/40",
+            "false_green_rate": 0.375,
+            "error_among_green": 0.5,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.53,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.53,
+            "n": 40,
+            "n_abstain": 7,
+            "n_green": 33,
+            "abstain_events": "7/40",
+            "false_green_rate": 0.45,
+            "error_among_green": 0.5455,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.55,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.55,
+            "n": 40,
+            "n_abstain": 6,
+            "n_green": 34,
+            "abstain_events": "6/40",
+            "false_green_rate": 0.475,
+            "error_among_green": 0.5588,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.57,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.57,
+            "n": 40,
+            "n_abstain": 5,
+            "n_green": 35,
+            "abstain_events": "5/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5714,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.59,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.59,
+            "n": 40,
+            "n_abstain": 5,
+            "n_green": 35,
+            "abstain_events": "5/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5714,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.61,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.61,
+            "n": 40,
+            "n_abstain": 5,
+            "n_green": 35,
+            "abstain_events": "5/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5714,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.63,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.63,
+            "n": 40,
+            "n_abstain": 5,
+            "n_green": 35,
+            "abstain_events": "5/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5714,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.65,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.65,
+            "n": 40,
+            "n_abstain": 2,
+            "n_green": 38,
+            "abstain_events": "2/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5263,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.67,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.67,
+            "n": 40,
+            "n_abstain": 2,
+            "n_green": 38,
+            "abstain_events": "2/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5263,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.69,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.69,
+            "n": 40,
+            "n_abstain": 1,
+            "n_green": 39,
+            "abstain_events": "1/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5128,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.71,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.71,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.73,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.73,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.75,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.75,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.77,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.77,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.79,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.79,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.81,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.81,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.83,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.83,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        },
+        {
+          "tau": 0.85,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.85,
+            "n": 40,
+            "n_abstain": 0,
+            "n_green": 40,
+            "abstain_events": "0/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5,
+            "selective": false
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "hits_9_10_targets": false
+        }
+      ],
+      "percentile_tau_sweep": [
+        {
+          "tune_percentile": 50,
+          "tau": 0.4201,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.42010000000000003,
+            "n": 40,
+            "n_abstain": 19,
+            "n_green": 21,
+            "abstain_events": "19/40",
+            "false_green_rate": 0.175,
+            "error_among_green": 0.3333,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 60,
+          "tau": 0.4507,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.45072,
+            "n": 40,
+            "n_abstain": 16,
+            "n_green": 24,
+            "abstain_events": "16/40",
+            "false_green_rate": 0.25,
+            "error_among_green": 0.4167,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 70,
+          "tau": 0.474,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.47398,
+            "n": 40,
+            "n_abstain": 12,
+            "n_green": 28,
+            "abstain_events": "12/40",
+            "false_green_rate": 0.325,
+            "error_among_green": 0.4643,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 75,
+          "tau": 0.5033,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.503275,
+            "n": 40,
+            "n_abstain": 11,
+            "n_green": 29,
+            "abstain_events": "11/40",
+            "false_green_rate": 0.35,
+            "error_among_green": 0.4828,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 80,
+          "tau": 0.5272,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.5272199999999999,
+            "n": 40,
+            "n_abstain": 8,
+            "n_green": 32,
+            "abstain_events": "8/40",
+            "false_green_rate": 0.425,
+            "error_among_green": 0.5312,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 85,
+          "tau": 0.532,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.532,
+            "n": 40,
+            "n_abstain": 7,
+            "n_green": 33,
+            "abstain_events": "7/40",
+            "false_green_rate": 0.45,
+            "error_among_green": 0.5455,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 90,
+          "tau": 0.5384,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.53841,
+            "n": 40,
+            "n_abstain": 7,
+            "n_green": 33,
+            "abstain_events": "7/40",
+            "false_green_rate": 0.45,
+            "error_among_green": 0.5455,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "selective": true
+        },
+        {
+          "tune_percentile": 95,
+          "tau": 0.5765,
+          "auroc": 0.665,
+          "badge": {
+            "tau": 0.5765099999999997,
+            "n": 40,
+            "n_abstain": 5,
+            "n_green": 35,
+            "abstain_events": "5/40",
+            "false_green_rate": 0.5,
+            "error_among_green": 0.5714,
+            "selective": true
+          },
+          "coverage_at_risk_0.10": {
+            "risk_target": 0.1,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "coverage_at_risk_0.20": {
+            "risk_target": 0.2,
+            "coverage": 0.25,
+            "abstain_frac": 0.75,
+            "positive_rate_on_answered": 0.1,
+            "status": "ok"
+          },
+          "selective": true
+        }
+      ],
+      "n_hits_9_10_targets": 0,
+      "best_selective": {
+        "tau": 0.35,
+        "auroc": 0.665,
+        "badge": {
+          "tau": 0.35,
+          "n": 40,
+          "n_abstain": 29,
+          "n_green": 11,
+          "abstain_events": "29/40",
+          "false_green_rate": 0.05,
+          "error_among_green": 0.1818,
+          "selective": true
+        },
+        "coverage_at_risk_0.10": {
+          "risk_target": 0.1,
+          "coverage": 0.25,
+          "abstain_frac": 0.75,
+          "positive_rate_on_answered": 0.1,
+          "status": "ok"
+        },
+        "coverage_at_risk_0.20": {
+          "risk_target": 0.2,
+          "coverage": 0.25,
+          "abstain_frac": 0.75,
+          "positive_rate_on_answered": 0.1,
+          "status": "ok"
+        },
+        "hits_9_10_targets": false
+      },
+      "any_9_10_hit": false
+    }
+  },
+  "summary": {
+    "any_cell_hits_9_10_targets": false,
+    "blocking_gaps": [
+      "Need residual AUROC > length\u2192label (or primary suite with length AUROC < 0.8)",
+      "Need selective OP with err|green \u2264 0.20 and cov@0.10 \u2265 0.30",
+      "Need second trained probe checkpoint (not G\u2032 re-fusion)",
+      "Need Protocol G free-gen sealed cell",
+      "Need TQA Stage B n\u226580"
+    ],
+    "note": "If any_cell_hits_9_10_targets is false, council 9\u201310 is not available on current claim-encode rows with invert/threshold sweeps alone."
+  }
+}
