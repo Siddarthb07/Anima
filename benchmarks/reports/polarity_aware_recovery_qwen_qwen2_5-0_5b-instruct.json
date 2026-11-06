@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "generated_at": "2026-10-23T11:18:04.009107+00:00",
+  "generated_at": "2026-11-04T01:22:07.027038+00:00",
   "model_slug": "qwen_qwen2_5-0_5b-instruct",
   "seed": 42,
   "protocol": "polarity_aware_recovery_R_prime",

@@ -1,0 +1,187 @@
+{
+  "status": "ok",
+  "generated_at": "2026-11-04T01:22:12.941453+00:00",
+  "model_slug": "distilgpt2",
+  "seed": 42,
+  "protocol": "polarity_aware_recovery_R_prime",
+  "suites": {
+    "halueval": {
+      "diagnose_fold": {
+        "n": 40,
+        "auroc_composite": 0.695,
+        "anti_aligned": false,
+        "chosen_policy": "baseline_fixture"
+      },
+      "held_out_fold": {
+        "n": 40,
+        "policies": {
+          "baseline_fixture": {
+            "auroc_composite": 0.665,
+            "selected": true,
+            "misleading_green": {
+              "policy": "baseline_fixture",
+              "construct": "simulated_badge_replay_not_user_study",
+              "n": 40,
+              "n_green": 40,
+              "n_abstain": 0,
+              "n_misleading_green": 20,
+              "misleading_green_rate": 0.5,
+              "green_rate": 1.0,
+              "abstain_rate": 0.0,
+              "error_among_green": 0.5,
+              "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+            }
+          },
+          "disable_fused": {
+            "auroc_composite": 0.7125,
+            "selected": false,
+            "misleading_green": {
+              "policy": "disable_fused",
+              "construct": "simulated_badge_replay_not_user_study",
+              "n": 40,
+              "n_green": 40,
+              "n_abstain": 0,
+              "n_misleading_green": 20,
+              "misleading_green_rate": 0.5,
+              "green_rate": 1.0,
+              "abstain_rate": 0.0,
+              "error_among_green": 0.5,
+              "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+            }
+          },
+          "invert_composite_abstain": {
+            "auroc_composite": 0.335,
+            "selected": false,
+            "misleading_green": {
+              "policy": "invert_composite_abstain",
+              "construct": "simulated_badge_replay_not_user_study",
+              "n": 40,
+              "n_green": 11,
+              "n_abstain": 29,
+              "n_misleading_green": 10,
+              "misleading_green_rate": 0.25,
+              "green_rate": 0.275,
+              "abstain_rate": 0.725,
+              "error_among_green": 0.9091,
+              "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+            }
+          }
+        }
+      },
+      "honesty": {
+        "silent_label_flip": false,
+        "production_guard_config_unchanged": true,
+        "adaptation_named_in_receipt": true,
+        "note": "Held-out only; invert mode is research operating point, not default API."
+      },
+      "primary_held_out": {
+        "auroc_composite": 0.665,
+        "selected": true,
+        "misleading_green": {
+          "policy": "baseline_fixture",
+          "construct": "simulated_badge_replay_not_user_study",
+          "n": 40,
+          "n_green": 40,
+          "n_abstain": 0,
+          "n_misleading_green": 20,
+          "misleading_green_rate": 0.5,
+          "green_rate": 1.0,
+          "abstain_rate": 0.0,
+          "error_among_green": 0.5,
+          "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+        }
+      },
+      "status": "ok",
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_distilgpt2.json"
+    },
+    "truthfulqa": {
+      "diagnose_fold": {
+        "n": 40,
+        "auroc_composite": 0.3925,
+        "anti_aligned": true,
+        "chosen_policy": "invert_composite_abstain"
+      },
+      "held_out_fold": {
+        "n": 40,
+        "policies": {
+          "baseline_fixture": {
+            "auroc_composite": 0.645,
+            "selected": false,
+            "misleading_green": {
+              "policy": "baseline_fixture",
+              "construct": "simulated_badge_replay_not_user_study",
+              "n": 40,
+              "n_green": 40,
+              "n_abstain": 0,
+              "n_misleading_green": 20,
+              "misleading_green_rate": 0.5,
+              "green_rate": 1.0,
+              "abstain_rate": 0.0,
+              "error_among_green": 0.5,
+              "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+            }
+          },
+          "disable_fused": {
+            "auroc_composite": 0.635,
+            "selected": false,
+            "misleading_green": {
+              "policy": "disable_fused",
+              "construct": "simulated_badge_replay_not_user_study",
+              "n": 40,
+              "n_green": 40,
+              "n_abstain": 0,
+              "n_misleading_green": 20,
+              "misleading_green_rate": 0.5,
+              "green_rate": 1.0,
+              "abstain_rate": 0.0,
+              "error_among_green": 0.5,
+              "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+            }
+          },
+          "invert_composite_abstain": {
+            "auroc_composite": 0.355,
+            "selected": true,
+            "misleading_green": {
+              "policy": "invert_composite_abstain",
+              "construct": "simulated_badge_replay_not_user_study",
+              "n": 40,
+              "n_green": 7,
+              "n_abstain": 33,
+              "n_misleading_green": 4,
+              "misleading_green_rate": 0.1,
+              "green_rate": 0.175,
+              "abstain_rate": 0.825,
+              "error_among_green": 0.5714,
+              "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+            }
+          }
+        }
+      },
+      "honesty": {
+        "silent_label_flip": false,
+        "production_guard_config_unchanged": true,
+        "adaptation_named_in_receipt": true,
+        "note": "Held-out only; invert mode is research operating point, not default API."
+      },
+      "primary_held_out": {
+        "auroc_composite": 0.355,
+        "selected": true,
+        "misleading_green": {
+          "policy": "invert_composite_abstain",
+          "construct": "simulated_badge_replay_not_user_study",
+          "n": 40,
+          "n_green": 7,
+          "n_abstain": 33,
+          "n_misleading_green": 4,
+          "misleading_green_rate": 0.1,
+          "green_rate": 0.175,
+          "abstain_rate": 0.825,
+          "error_among_green": 0.5714,
+          "honesty_note": "Simulated binary badge from abstain policy on locked rows; not a human-subjects study of user trust."
+        }
+      },
+      "status": "ok",
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\truthfulqa_live_distilgpt2.json"
+    }
+  }
+}

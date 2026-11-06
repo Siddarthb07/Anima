@@ -1,13 +1,70 @@
 {
-  "schema": "anima.stage_b_7b_claim_encode.v1",
-  "created_at": "2026-10-25T07:13:10.409298+00:00",
+  "schema": "system_a.stage_b_7b_claim_encode.v1",
+  "created_at": "2026-11-03T17:01:36.504877+00:00",
   "requested_model": "Qwen/Qwen2.5-7B-Instruct",
-  "status": "blocked_no_cuda",
-  "torch_cuda_available": false,
-  "torch_version": "2.5.1+cu121",
+  "status": "ok",
+  "torch_cuda_available": true,
+  "device_name": "Tesla T4",
   "honesty": {
     "no_invented_metrics": true,
-    "run_when_gpu": "python scripts/run_tmlr_stage_b_gpu.py --mode claim-encode --model Qwen/Qwen2.5-7B-Instruct --suffix stage_b_7b"
+    "additive_suffix_only": true,
+    "fleet_member": true
   },
-  "note": "This machine has no usable CUDA device for a sealed 7B claim-encode run. Do not invent placeholder AUROCs. Re-run on a GPU host and replace this receipt."
+  "report": {
+    "status": "ok",
+    "mode": "live_lm_claim_encoding",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "generated_at": "2026-11-03T16:58:21.588546+00:00",
+    "max_pairs": 80,
+    "seed": 42,
+    "report_suffix": "stage_b_fleet_qwen_qwen2_5-7b-instruct",
+    "length_match_ratio": null,
+    "benchmarks": {
+      "halueval": {
+        "status": "ok",
+        "source": "live",
+        "protocol": "L",
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.0,
+        "n_samples": 80,
+        "tp": 0,
+        "fp": 0,
+        "tn": 40,
+        "fn": 40,
+        "never_abstains": true,
+        "auroc_ci95": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "B": 2000,
+          "seed": 42,
+          "n": 80,
+          "method": "bootstrap_mann_whitney"
+        },
+        "rows_path_hint": "halueval_live_qwen_qwen2_5-7b-instruct_stage_b_fleet_qwen_qwen2_5-7b-instruct.json"
+      },
+      "truthfulqa": {
+        "status": "ok",
+        "source": "live",
+        "protocol": "L",
+        "abstain_accuracy": 0.5,
+        "auroc_composite": 0.0,
+        "n_samples": 20,
+        "tp": 0,
+        "fp": 0,
+        "tn": 10,
+        "fn": 10,
+        "never_abstains": true,
+        "auroc_ci95": {
+          "point": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "B": 2000,
+          "seed": 42,
+          "n": 20,
+          "method": "bootstrap_mann_whitney"
+        }
+      }
+    }
+  }
 }

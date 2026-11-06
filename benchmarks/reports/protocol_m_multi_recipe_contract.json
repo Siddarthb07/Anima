@@ -1,6 +1,6 @@
 {
   "schema": "anima.protocol_m.multi_recipe_contract.v2",
-  "generated_at": "2026-10-25T08:03:55.782396+00:00",
+  "generated_at": "2026-11-02T15:23:55.528446+00:00",
   "honesty": {
     "no_new_forward_passes": true,
     "reuses_locked_claim_encode_rows": true,
