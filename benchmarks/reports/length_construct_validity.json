@@ -1,0 +1,313 @@
+{
+  "schema": "system_a.length_construct_validity.v1",
+  "generated_at": "2026-11-02T15:23:47.999863+00:00",
+  "honesty": {
+    "no_new_forward_passes": true,
+    "locked_n80_untouched": true,
+    "note": "High length\u2192label AUROC is a construct threat on that suite; residualization and length-matched tables are disclosures, not fixes."
+  },
+  "rollup": {
+    "n_construct_threat_cells": 3,
+    "threat_cells": [
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "length_auroc": 0.97,
+        "composite_auroc": 0.2472,
+        "residualized": 0.4144
+      },
+      {
+        "model": "tinyllama_tinyllama-1_1b-chat-v1_0",
+        "suite": "halueval",
+        "length_auroc": 0.97,
+        "composite_auroc": 0.5391,
+        "residualized": 0.5119
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "length_auroc": 0.97,
+        "composite_auroc": 0.6791,
+        "residualized": 0.6219
+      }
+    ]
+  },
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct": {
+      "halueval": {
+        "status": "ok",
+        "source_live": "halueval_live_qwen_qwen2_5-0_5b-instruct.json",
+        "full_locked": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.97,
+          "answer_length_ci95": {
+            "point": 0.97,
+            "lo": 0.9168,
+            "hi": 1.0,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.2472,
+          "composite_residualized_auroc": 0.4144,
+          "probe_auroc": 0.5228,
+          "fused_auroc": 0.2487,
+          "inv_logit_gap_auroc": 0.7819,
+          "length_dominates_composite": true
+        },
+        "greedy_length_matched": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.97,
+          "answer_length_ci95": {
+            "point": 0.97,
+            "lo": 0.9197,
+            "hi": 1.0,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.2472,
+          "composite_residualized_auroc": 0.4144,
+          "probe_auroc": 0.5228,
+          "fused_auroc": 0.2487,
+          "inv_logit_gap_auroc": 0.7819,
+          "length_dominates_composite": true
+        },
+        "construct_threat": true
+      },
+      "truthfulqa": {
+        "status": "ok",
+        "source_live": "truthfulqa_live_qwen_qwen2_5-0_5b-instruct.json",
+        "full_locked": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.3866,
+          "answer_length_ci95": {
+            "point": 0.3866,
+            "lo": 0.2616,
+            "hi": 0.5188,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.4587,
+          "composite_residualized_auroc": 0.4619,
+          "probe_auroc": 0.6569,
+          "fused_auroc": 0.4391,
+          "inv_logit_gap_auroc": 0.5687,
+          "length_dominates_composite": false
+        },
+        "greedy_length_matched": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.3866,
+          "answer_length_ci95": {
+            "point": 0.3866,
+            "lo": 0.2603,
+            "hi": 0.5242,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.4587,
+          "composite_residualized_auroc": 0.4619,
+          "probe_auroc": 0.6569,
+          "fused_auroc": 0.4391,
+          "inv_logit_gap_auroc": 0.5687,
+          "length_dominates_composite": false
+        },
+        "construct_threat": false
+      }
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0": {
+      "halueval": {
+        "status": "ok",
+        "source_live": "halueval_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+        "full_locked": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.97,
+          "answer_length_ci95": {
+            "point": 0.97,
+            "lo": 0.9168,
+            "hi": 1.0,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.5391,
+          "composite_residualized_auroc": 0.5119,
+          "probe_auroc": 0.4831,
+          "fused_auroc": 0.5337,
+          "inv_logit_gap_auroc": 0.3881,
+          "length_dominates_composite": true
+        },
+        "greedy_length_matched": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.97,
+          "answer_length_ci95": {
+            "point": 0.97,
+            "lo": 0.9197,
+            "hi": 1.0,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.5391,
+          "composite_residualized_auroc": 0.5119,
+          "probe_auroc": 0.4831,
+          "fused_auroc": 0.5337,
+          "inv_logit_gap_auroc": 0.3881,
+          "length_dominates_composite": true
+        },
+        "construct_threat": true
+      },
+      "truthfulqa": {
+        "status": "ok",
+        "source_live": "truthfulqa_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+        "full_locked": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.3866,
+          "answer_length_ci95": {
+            "point": 0.3866,
+            "lo": 0.2616,
+            "hi": 0.5188,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.5188,
+          "composite_residualized_auroc": 0.54,
+          "probe_auroc": 0.4888,
+          "fused_auroc": 0.5284,
+          "inv_logit_gap_auroc": 0.4809,
+          "length_dominates_composite": false
+        },
+        "greedy_length_matched": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.3866,
+          "answer_length_ci95": {
+            "point": 0.3866,
+            "lo": 0.2603,
+            "hi": 0.5242,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.5188,
+          "composite_residualized_auroc": 0.54,
+          "probe_auroc": 0.4888,
+          "fused_auroc": 0.5284,
+          "inv_logit_gap_auroc": 0.4809,
+          "length_dominates_composite": false
+        },
+        "construct_threat": false
+      }
+    },
+    "distilgpt2": {
+      "halueval": {
+        "status": "ok",
+        "source_live": "halueval_live_distilgpt2.json",
+        "full_locked": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.97,
+          "answer_length_ci95": {
+            "point": 0.97,
+            "lo": 0.9168,
+            "hi": 1.0,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.6791,
+          "composite_residualized_auroc": 0.6219,
+          "probe_auroc": 0.71,
+          "fused_auroc": 0.4759,
+          "inv_logit_gap_auroc": 0.6403,
+          "length_dominates_composite": true
+        },
+        "greedy_length_matched": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.97,
+          "answer_length_ci95": {
+            "point": 0.97,
+            "lo": 0.9197,
+            "hi": 1.0,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.6791,
+          "composite_residualized_auroc": 0.6219,
+          "probe_auroc": 0.71,
+          "fused_auroc": 0.4759,
+          "inv_logit_gap_auroc": 0.6403,
+          "length_dominates_composite": true
+        },
+        "construct_threat": true
+      },
+      "truthfulqa": {
+        "status": "ok",
+        "source_live": "truthfulqa_live_distilgpt2.json",
+        "full_locked": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.3866,
+          "answer_length_ci95": {
+            "point": 0.3866,
+            "lo": 0.2616,
+            "hi": 0.5188,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.5181,
+          "composite_residualized_auroc": 0.5463,
+          "probe_auroc": 0.5269,
+          "fused_auroc": 0.4481,
+          "inv_logit_gap_auroc": 0.5584,
+          "length_dominates_composite": false
+        },
+        "greedy_length_matched": {
+          "n": 80,
+          "n_pos": 40,
+          "answer_length_auroc": 0.3866,
+          "answer_length_ci95": {
+            "point": 0.3866,
+            "lo": 0.2603,
+            "hi": 0.5242,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "composite_auroc": 0.5181,
+          "composite_residualized_auroc": 0.5463,
+          "probe_auroc": 0.5269,
+          "fused_auroc": 0.4481,
+          "inv_logit_gap_auroc": 0.5584,
+          "length_dominates_composite": false
+        },
+        "construct_threat": false
+      }
+    }
+  }
+}
