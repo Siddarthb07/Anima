@@ -1,0 +1,622 @@
+{
+  "schema": "anima.multi_guard_from_sealed.v1",
+  "generated_at": "2026-11-04T16:49:43.773672+00:00",
+  "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-0_5b-instruct_lenbal_n300.json",
+  "shipping_claim": false,
+  "guards": [
+    "composite",
+    "inv_composite",
+    "entropy",
+    "inv_logit_gap",
+    "probe",
+    "fused"
+  ],
+  "seeds": [
+    {
+      "seed": 41,
+      "n_tune": 150,
+      "n_test": 150,
+      "guards": {
+        "composite": {
+          "auroc": 0.5028,
+          "tau_q": 0.5193099999999999,
+          "badge": {
+            "tau": 0.5193099999999999,
+            "n": 150,
+            "n_abstain": 22,
+            "n_green": 128,
+            "abstain_events": "22/150",
+            "false_green_rate": 0.42,
+            "error_among_green": 0.4922,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "inv_composite": {
+          "auroc": 0.4972,
+          "tau_q": 0.5421400000000001,
+          "badge": {
+            "tau": 0.5421400000000001,
+            "n": 150,
+            "n_abstain": 13,
+            "n_green": 137,
+            "abstain_events": "13/150",
+            "false_green_rate": 0.4533,
+            "error_among_green": 0.4964,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "entropy": {
+          "auroc": 0.4747,
+          "tau_q": 0.20464,
+          "badge": {
+            "tau": 0.20464,
+            "n": 150,
+            "n_abstain": 18,
+            "n_green": 132,
+            "abstain_events": "18/150",
+            "false_green_rate": 0.44,
+            "error_among_green": 0.5,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "inv_logit_gap": {
+          "auroc": 0.4974,
+          "tau_q": 0.65338,
+          "badge": {
+            "tau": 0.65338,
+            "n": 150,
+            "n_abstain": 25,
+            "n_green": 125,
+            "abstain_events": "25/150",
+            "false_green_rate": 0.4133,
+            "error_among_green": 0.496,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "probe": {
+          "auroc": 0.5028,
+          "tau_q": 0.5193099999999999,
+          "badge": {
+            "tau": 0.5193099999999999,
+            "n": 150,
+            "n_abstain": 22,
+            "n_green": 128,
+            "abstain_events": "22/150",
+            "false_green_rate": 0.42,
+            "error_among_green": 0.4922,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "fused": {
+          "auroc": null,
+          "skipped": "constant_or_nonfinite_channel",
+          "n_finite": 0
+        }
+      },
+      "delong_vs_composite": [
+        {
+          "guard": "inv_composite",
+          "auroc_a": 0.5028444444444444,
+          "auroc_b": 0.4971555555555556,
+          "delta": 0.0056888888888888545,
+          "z": 0.05971315267932311,
+          "p": 0.9523840961057912,
+          "method": "delong_approx_structural",
+          "p_holm": 1.0
+        },
+        {
+          "guard": "entropy",
+          "auroc_a": 0.5028444444444444,
+          "auroc_b": 0.4746666666666667,
+          "delta": 0.028177777777777746,
+          "z": 0.417754639075228,
+          "p": 0.6761265190656749,
+          "method": "delong_approx_structural",
+          "p_holm": 1.0
+        },
+        {
+          "guard": "inv_logit_gap",
+          "auroc_a": 0.5028444444444444,
+          "auroc_b": 0.49742222222222227,
+          "delta": 0.005422222222222162,
+          "z": 0.0790450398857487,
+          "p": 0.9369967984645043,
+          "method": "delong_approx_structural",
+          "p_holm": 1.0
+        },
+        {
+          "guard": "probe",
+          "auroc_a": 0.5028444444444444,
+          "auroc_b": 0.5028444444444444,
+          "delta": 0.0,
+          "p": 1.0,
+          "z": 0.0,
+          "method": "degenerate",
+          "p_holm": 1.0
+        }
+      ],
+      "occupancy_tune_vs_test": {
+        "composite": {
+          "ks": 0.1133333333333334,
+          "occupancy_gap": 0.04666666666666666,
+          "bound_holds": true,
+          "live_abstain": 0.14666666666666667
+        },
+        "inv_composite": {
+          "ks": 0.11333333333333334,
+          "occupancy_gap": 0.013333333333333336,
+          "bound_holds": true,
+          "live_abstain": 0.08666666666666667
+        },
+        "entropy": {
+          "ks": 0.08666666666666667,
+          "occupancy_gap": 0.01999999999999999,
+          "bound_holds": true,
+          "live_abstain": 0.12
+        },
+        "inv_logit_gap": {
+          "ks": 0.09999999999999999,
+          "occupancy_gap": 0.06666666666666665,
+          "bound_holds": true,
+          "live_abstain": 0.16666666666666666
+        },
+        "probe": {
+          "ks": 0.1133333333333334,
+          "occupancy_gap": 0.04666666666666666,
+          "bound_holds": true,
+          "live_abstain": 0.14666666666666667
+        }
+      },
+      "ks_fingerprint": {
+        "guards": [
+          "composite",
+          "entropy",
+          "fused",
+          "inv_composite",
+          "inv_logit_gap",
+          "probe"
+        ],
+        "ks_by_guard": {
+          "composite": 0.1133333333333334,
+          "entropy": 0.08666666666666667,
+          "fused": NaN,
+          "inv_composite": 0.11333333333333334,
+          "inv_logit_gap": 0.09999999999999999,
+          "probe": 0.1133333333333334
+        },
+        "ks_l2": 0.23673707872752944,
+        "ks_max": 0.1133333333333334,
+        "dominant_guard": "composite"
+      }
+    },
+    {
+      "seed": 42,
+      "n_tune": 150,
+      "n_test": 150,
+      "guards": {
+        "composite": {
+          "auroc": 0.477,
+          "tau_q": 0.52423,
+          "badge": {
+            "tau": 0.52423,
+            "n": 150,
+            "n_abstain": 13,
+            "n_green": 137,
+            "abstain_events": "13/150",
+            "false_green_rate": 0.46,
+            "error_among_green": 0.5036,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "inv_composite": {
+          "auroc": 0.523,
+          "tau_q": 0.54274,
+          "badge": {
+            "tau": 0.54274,
+            "n": 150,
+            "n_abstain": 11,
+            "n_green": 139,
+            "abstain_events": "11/150",
+            "false_green_rate": 0.4533,
+            "error_among_green": 0.4892,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "entropy": {
+          "auroc": 0.4646,
+          "tau_q": 0.20763,
+          "badge": {
+            "tau": 0.20763,
+            "n": 150,
+            "n_abstain": 11,
+            "n_green": 139,
+            "abstain_events": "11/150",
+            "false_green_rate": 0.4733,
+            "error_among_green": 0.5108,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "inv_logit_gap": {
+          "auroc": 0.5075,
+          "tau_q": 0.66375,
+          "badge": {
+            "tau": 0.66375,
+            "n": 150,
+            "n_abstain": 18,
+            "n_green": 132,
+            "abstain_events": "18/150",
+            "false_green_rate": 0.4467,
+            "error_among_green": 0.5076,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "probe": {
+          "auroc": 0.477,
+          "tau_q": 0.52423,
+          "badge": {
+            "tau": 0.52423,
+            "n": 150,
+            "n_abstain": 13,
+            "n_green": 137,
+            "abstain_events": "13/150",
+            "false_green_rate": 0.46,
+            "error_among_green": 0.5036,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "fused": {
+          "auroc": null,
+          "skipped": "constant_or_nonfinite_channel",
+          "n_finite": 0
+        }
+      },
+      "delong_vs_composite": [
+        {
+          "guard": "inv_composite",
+          "auroc_a": 0.47697777777777767,
+          "auroc_b": 0.5230222222222224,
+          "delta": -0.04604444444444472,
+          "z": -0.4836956964476742,
+          "p": 0.6286018478673436,
+          "method": "delong_approx_structural",
+          "p_holm": 1.0
+        },
+        {
+          "guard": "entropy",
+          "auroc_a": 0.47697777777777767,
+          "auroc_b": 0.4646222222222222,
+          "delta": 0.012355555555555453,
+          "z": 0.1858075345043879,
+          "p": 0.8525956957480584,
+          "method": "delong_approx_structural",
+          "p_holm": 1.0
+        },
+        {
+          "guard": "inv_logit_gap",
+          "auroc_a": 0.47697777777777767,
+          "auroc_b": 0.5074666666666667,
+          "delta": -0.030488888888889065,
+          "z": -0.43692038927279525,
+          "p": 0.662169084586655,
+          "method": "delong_approx_structural",
+          "p_holm": 1.0
+        },
+        {
+          "guard": "probe",
+          "auroc_a": 0.47697777777777767,
+          "auroc_b": 0.47697777777777767,
+          "delta": 0.0,
+          "p": 1.0,
+          "z": 0.0,
+          "method": "degenerate",
+          "p_holm": 1.0
+        }
+      ],
+      "occupancy_tune_vs_test": {
+        "composite": {
+          "ks": 0.10000000000000003,
+          "occupancy_gap": 0.013333333333333336,
+          "bound_holds": true,
+          "live_abstain": 0.08666666666666667
+        },
+        "inv_composite": {
+          "ks": 0.10000000000000003,
+          "occupancy_gap": 0.026666666666666672,
+          "bound_holds": true,
+          "live_abstain": 0.07333333333333333
+        },
+        "entropy": {
+          "ks": 0.08000000000000007,
+          "occupancy_gap": 0.026666666666666672,
+          "bound_holds": true,
+          "live_abstain": 0.07333333333333333
+        },
+        "inv_logit_gap": {
+          "ks": 0.08666666666666667,
+          "occupancy_gap": 0.01999999999999999,
+          "bound_holds": true,
+          "live_abstain": 0.12
+        },
+        "probe": {
+          "ks": 0.10000000000000003,
+          "occupancy_gap": 0.013333333333333336,
+          "bound_holds": true,
+          "live_abstain": 0.08666666666666667
+        }
+      },
+      "ks_fingerprint": {
+        "guards": [
+          "composite",
+          "entropy",
+          "fused",
+          "inv_composite",
+          "inv_logit_gap",
+          "probe"
+        ],
+        "ks_by_guard": {
+          "composite": 0.10000000000000003,
+          "entropy": 0.08000000000000007,
+          "fused": NaN,
+          "inv_composite": 0.10000000000000003,
+          "inv_logit_gap": 0.08666666666666667,
+          "probe": 0.10000000000000003
+        },
+        "ks_l2": 0.2095497819400229,
+        "ks_max": 0.10000000000000003,
+        "dominant_guard": "composite"
+      }
+    },
+    {
+      "seed": 43,
+      "n_tune": 150,
+      "n_test": 150,
+      "guards": {
+        "composite": {
+          "auroc": 0.4955,
+          "tau_q": 0.52321,
+          "badge": {
+            "tau": 0.52321,
+            "n": 150,
+            "n_abstain": 14,
+            "n_green": 136,
+            "abstain_events": "14/150",
+            "false_green_rate": 0.4467,
+            "error_among_green": 0.4926,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "inv_composite": {
+          "auroc": 0.5045,
+          "tau_q": 0.53896,
+          "badge": {
+            "tau": 0.53896,
+            "n": 150,
+            "n_abstain": 21,
+            "n_green": 129,
+            "abstain_events": "21/150",
+            "false_green_rate": 0.44,
+            "error_among_green": 0.5116,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "entropy": {
+          "auroc": 0.4446,
+          "tau_q": 0.21081,
+          "badge": {
+            "tau": 0.21081,
+            "n": 150,
+            "n_abstain": 7,
+            "n_green": 143,
+            "abstain_events": "7/150",
+            "false_green_rate": 0.48,
+            "error_among_green": 0.5035,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "inv_logit_gap": {
+          "auroc": 0.5092,
+          "tau_q": 0.6708299999999999,
+          "badge": {
+            "tau": 0.6708299999999999,
+            "n": 150,
+            "n_abstain": 9,
+            "n_green": 141,
+            "abstain_events": "9/150",
+            "false_green_rate": 0.4733,
+            "error_among_green": 0.5035,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "probe": {
+          "auroc": 0.4955,
+          "tau_q": 0.52321,
+          "badge": {
+            "tau": 0.52321,
+            "n": 150,
+            "n_abstain": 14,
+            "n_green": 136,
+            "abstain_events": "14/150",
+            "false_green_rate": 0.4467,
+            "error_among_green": 0.4926,
+            "selective": true
+          },
+          "cov_at_0_10": {
+            "risk_target": 0.1,
+            "coverage": 0.0,
+            "status": "infeasible"
+          }
+        },
+        "fused": {
+          "auroc": null,
+          "skipped": "constant_or_nonfinite_channel",
+          "n_finite": 0
+        }
+      },
+      "delong_vs_composite": [
+        {
+          "guard": "inv_composite",
+          "auroc_a": 0.4954666666666667,
+          "auroc_b": 0.5045333333333333,
+          "delta": -0.009066666666666556,
+          "z": -0.09530888481723364,
+          "p": 0.9240694857186397,
+          "method": "delong_approx_structural",
+          "p_holm": 1.0
+        },
+        {
+          "guard": "entropy",
+          "auroc_a": 0.4954666666666667,
+          "auroc_b": 0.4446222222222223,
+          "delta": 0.050844444444444414,
+          "z": 0.7672233399122538,
+          "p": 0.44294873821564235,
+          "method": "delong_approx_structural",
+          "p_holm": 1.0
+        },
+        {
+          "guard": "inv_logit_gap",
+          "auroc_a": 0.4954666666666667,
+          "auroc_b": 0.5092444444444445,
+          "delta": -0.013777777777777778,
+          "z": -0.19958875118714617,
+          "p": 0.8418022260275002,
+          "method": "delong_approx_structural",
+          "p_holm": 1.0
+        },
+        {
+          "guard": "probe",
+          "auroc_a": 0.4954666666666667,
+          "auroc_b": 0.4954666666666667,
+          "delta": 0.0,
+          "p": 1.0,
+          "z": 0.0,
+          "method": "degenerate",
+          "p_holm": 1.0
+        }
+      ],
+      "occupancy_tune_vs_test": {
+        "composite": {
+          "ks": 0.08000000000000007,
+          "occupancy_gap": 0.006666666666666668,
+          "bound_holds": true,
+          "live_abstain": 0.09333333333333334
+        },
+        "inv_composite": {
+          "ks": 0.08000000000000002,
+          "occupancy_gap": 0.04000000000000001,
+          "bound_holds": true,
+          "live_abstain": 0.14
+        },
+        "entropy": {
+          "ks": 0.07333333333333325,
+          "occupancy_gap": 0.05333333333333334,
+          "bound_holds": true,
+          "live_abstain": 0.04666666666666667
+        },
+        "inv_logit_gap": {
+          "ks": 0.08666666666666667,
+          "occupancy_gap": 0.04000000000000001,
+          "bound_holds": true,
+          "live_abstain": 0.06
+        },
+        "probe": {
+          "ks": 0.08000000000000007,
+          "occupancy_gap": 0.006666666666666668,
+          "bound_holds": true,
+          "live_abstain": 0.09333333333333334
+        }
+      },
+      "ks_fingerprint": {
+        "guards": [
+          "composite",
+          "entropy",
+          "fused",
+          "inv_composite",
+          "inv_logit_gap",
+          "probe"
+        ],
+        "ks_by_guard": {
+          "composite": 0.08000000000000007,
+          "entropy": 0.07333333333333325,
+          "fused": NaN,
+          "inv_composite": 0.08000000000000002,
+          "inv_logit_gap": 0.08666666666666667,
+          "probe": 0.08000000000000007
+        },
+        "ks_l2": 0.17913371790059207,
+        "ks_max": 0.08666666666666667,
+        "dominant_guard": "inv_logit_gap"
+      }
+    }
+  ]
+}
