@@ -1,0 +1,291 @@
+{
+  "schema": "anima.forward_pass_fixture.rollup.v1",
+  "generated_at": "2026-11-04T07:13:41.456188+00:00",
+  "shipping_claim": false,
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct::halueval": {
+      "schema": "anima.forward_pass_fixture.v1",
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "suite": "halueval",
+      "seed": 42,
+      "n_fixture_cal": 40,
+      "n_live_transfer": 40,
+      "tau_c_p95_from_forward_pass": {
+        "composite": 0.48016000000000003,
+        "fused": 0.43459,
+        "probe": 0.55154,
+        "inv_logit_gap": 0.72296,
+        "entropy": 0.22307
+      },
+      "transfer_gaps_on_live": {
+        "composite": {
+          "tau_c": 0.48016000000000003,
+          "live_max": 0.4925,
+          "transfer_gap_g": 1.0256997667444185,
+          "n": 40,
+          "n_abstain": 2,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "fused": {
+          "tau_c": 0.43459,
+          "live_max": 0.4537,
+          "transfer_gap_g": 1.0439724798085552,
+          "n": 40,
+          "n_abstain": 2,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "probe": {
+          "tau_c": 0.55154,
+          "live_max": 0.562,
+          "transfer_gap_g": 1.018965079595315,
+          "n": 40,
+          "n_abstain": 6,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "inv_logit_gap": {
+          "tau_c": 0.72296,
+          "live_max": 0.7637,
+          "transfer_gap_g": 1.0563516653756777,
+          "n": 40,
+          "n_abstain": 2,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "entropy": {
+          "tau_c": 0.22307,
+          "live_max": 0.2374,
+          "transfer_gap_g": 1.064239924687318,
+          "n": 40,
+          "n_abstain": 2,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        }
+      },
+      "prebaked_fixture_used": false,
+      "shipping_claim": false,
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-0_5b-instruct.json",
+      "generated_at": "2026-11-04T07:13:41.543588+00:00"
+    },
+    "qwen_qwen2_5-0_5b-instruct::truthfulqa": {
+      "schema": "anima.forward_pass_fixture.v1",
+      "model_slug": "qwen_qwen2_5-0_5b-instruct",
+      "suite": "truthfulqa",
+      "seed": 42,
+      "n_fixture_cal": 40,
+      "n_live_transfer": 40,
+      "tau_c_p95_from_forward_pass": {
+        "composite": 0.37485,
+        "fused": 0.32191499999999995,
+        "probe": 0.451735,
+        "inv_logit_gap": 0.7247549999999999,
+        "entropy": 0.16969
+      },
+      "transfer_gaps_on_live": {
+        "composite": {
+          "tau_c": 0.37485,
+          "live_max": 0.3752,
+          "transfer_gap_g": 1.0009337068160598,
+          "n": 40,
+          "n_abstain": 1,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "fused": {
+          "tau_c": 0.32191499999999995,
+          "live_max": 0.3229,
+          "transfer_gap_g": 1.0030598139260365,
+          "n": 40,
+          "n_abstain": 1,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "probe": {
+          "tau_c": 0.451735,
+          "live_max": 0.4591,
+          "transfer_gap_g": 1.0163038064351888,
+          "n": 40,
+          "n_abstain": 4,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "inv_logit_gap": {
+          "tau_c": 0.7247549999999999,
+          "live_max": 0.7314,
+          "transfer_gap_g": 1.0091686156011344,
+          "n": 40,
+          "n_abstain": 1,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "entropy": {
+          "tau_c": 0.16969,
+          "live_max": 0.1687,
+          "transfer_gap_g": 0.9941658318109493,
+          "n": 40,
+          "n_abstain": 0,
+          "never_abstain": true,
+          "predicts_never_abstain": true,
+          "prediction_holds": true
+        }
+      },
+      "prebaked_fixture_used": false,
+      "shipping_claim": false,
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\truthfulqa_live_qwen_qwen2_5-0_5b-instruct.json",
+      "generated_at": "2026-11-04T07:13:41.624267+00:00"
+    },
+    "qwen_qwen2_5-7b-instruct::halueval": {
+      "schema": "anima.forward_pass_fixture.v1",
+      "model_slug": "qwen_qwen2_5-7b-instruct",
+      "suite": "halueval",
+      "seed": 42,
+      "n_fixture_cal": 80,
+      "n_live_transfer": 80,
+      "tau_c_p95_from_forward_pass": {
+        "composite": 0.28059,
+        "fused": 0.29734,
+        "probe": 0.30837499999999995,
+        "inv_logit_gap": 0.767945,
+        "entropy": 0.15267
+      },
+      "transfer_gaps_on_live": {
+        "composite": {
+          "tau_c": 0.28059,
+          "live_max": 0.3038,
+          "transfer_gap_g": 1.0827185573256353,
+          "n": 80,
+          "n_abstain": 7,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "fused": {
+          "tau_c": 0.29734,
+          "live_max": 0.3241,
+          "transfer_gap_g": 1.0899979821080246,
+          "n": 80,
+          "n_abstain": 2,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "probe": {
+          "tau_c": 0.30837499999999995,
+          "live_max": 0.3336,
+          "transfer_gap_g": 1.0817997567896231,
+          "n": 80,
+          "n_abstain": 8,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "inv_logit_gap": {
+          "tau_c": 0.767945,
+          "live_max": 0.8109999999999999,
+          "transfer_gap_g": 1.0560652130035353,
+          "n": 80,
+          "n_abstain": 10,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "entropy": {
+          "tau_c": 0.15267,
+          "live_max": 0.1781,
+          "transfer_gap_g": 1.1665684155367788,
+          "n": 80,
+          "n_abstain": 2,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        }
+      },
+      "prebaked_fixture_used": false,
+      "shipping_claim": false,
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_qwen_qwen2_5-7b-instruct.json",
+      "generated_at": "2026-11-04T07:13:41.756947+00:00"
+    },
+    "distilgpt2::halueval": {
+      "schema": "anima.forward_pass_fixture.v1",
+      "model_slug": "distilgpt2",
+      "suite": "halueval",
+      "seed": 42,
+      "n_fixture_cal": 40,
+      "n_live_transfer": 40,
+      "tau_c_p95_from_forward_pass": {
+        "composite": 0.5765099999999997,
+        "fused": 0.5775899999999999,
+        "probe": 0.7563449999999997,
+        "inv_logit_gap": 0.6923949999999999,
+        "entropy": 0.4266749999999999
+      },
+      "transfer_gaps_on_live": {
+        "composite": {
+          "tau_c": 0.5765099999999997,
+          "live_max": 0.7023,
+          "transfer_gap_g": 1.2181922256335542,
+          "n": 40,
+          "n_abstain": 5,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "fused": {
+          "tau_c": 0.5775899999999999,
+          "live_max": 0.553,
+          "transfer_gap_g": 0.957426548243564,
+          "n": 40,
+          "n_abstain": 0,
+          "never_abstain": true,
+          "predicts_never_abstain": true,
+          "prediction_holds": true
+        },
+        "probe": {
+          "tau_c": 0.7563449999999997,
+          "live_max": 0.9804,
+          "transfer_gap_g": 1.2962338615314446,
+          "n": 40,
+          "n_abstain": 5,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "inv_logit_gap": {
+          "tau_c": 0.6923949999999999,
+          "live_max": 0.7878000000000001,
+          "transfer_gap_g": 1.1377898453917203,
+          "n": 40,
+          "n_abstain": 7,
+          "never_abstain": false,
+          "predicts_never_abstain": false,
+          "prediction_holds": true
+        },
+        "entropy": {
+          "tau_c": 0.4266749999999999,
+          "live_max": 0.3774,
+          "transfer_gap_g": 0.884513974336439,
+          "n": 40,
+          "n_abstain": 0,
+          "never_abstain": true,
+          "predicts_never_abstain": true,
+          "prediction_holds": true
+        }
+      },
+      "prebaked_fixture_used": false,
+      "shipping_claim": false,
+      "source": "C:\\Users\\siddu\\projects\\Anima\\benchmarks\\reports\\halueval_live_distilgpt2.json",
+      "generated_at": "2026-11-04T07:13:41.818953+00:00"
+    }
+  }
+}
