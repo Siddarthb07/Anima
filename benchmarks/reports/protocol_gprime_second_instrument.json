@@ -1,0 +1,861 @@
+{
+  "schema": "system_a.protocol_gprime.second_instrument.v1",
+  "generated_at": "2026-11-02T15:23:43.467010+00:00",
+  "honesty": {
+    "no_new_forward_passes": true,
+    "reuses_locked_claim_encode_rows": true,
+    "gprime_is_second_fusion_not_second_probe": true,
+    "shipping_claim": false,
+    "seven_b_status": "blocked_until_aws_gpu",
+    "system_a_weights": {
+      "fused": 0.55,
+      "probe": 0.45
+    },
+    "gprime_weights": {
+      "inv_logit_gap": 0.65,
+      "probe": 0.35
+    }
+  },
+  "rollup": {
+    "n_cells": 6,
+    "gprime_n_never_abstain": 0,
+    "gprime_n_silent_non_refusal": 0,
+    "gprime_n_corrective_cells": 8,
+    "never_abstain_hits": [],
+    "silent_hits": [],
+    "corrective_hits": [
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "gprime_L",
+        "abstentions": "68/80",
+        "rank_auroc": 0.7831
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "halueval",
+        "layer": "gprime_M_or_channels",
+        "abstentions": "14/80",
+        "rank_auroc": 0.7831
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "gprime_L",
+        "abstentions": "67/80",
+        "rank_auroc": 0.5806
+      },
+      {
+        "model": "qwen_qwen2_5-0_5b-instruct",
+        "suite": "truthfulqa",
+        "layer": "gprime_M_or_channels",
+        "abstentions": "21/80",
+        "rank_auroc": 0.5806
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "gprime_L",
+        "abstentions": "27/80",
+        "rank_auroc": 0.715
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "halueval",
+        "layer": "gprime_M_or_channels",
+        "abstentions": "14/80",
+        "rank_auroc": 0.715
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "gprime_L",
+        "abstentions": "32/80",
+        "rank_auroc": 0.5713
+      },
+      {
+        "model": "distilgpt2",
+        "suite": "truthfulqa",
+        "layer": "gprime_M_or_channels",
+        "abstentions": "27/80",
+        "rank_auroc": 0.5713
+      }
+    ]
+  },
+  "models": {
+    "qwen_qwen2_5-0_5b-instruct": {
+      "halueval": {
+        "n": 80,
+        "label_key": "is_hallucination",
+        "gprime_definition": {
+          "score": "0.65*inv_logit_gap + 0.35*probe",
+          "excludes": "fused entropy/attention channel",
+          "tau_rule": "fixture_p95 of s_G",
+          "shipping_claim": false,
+          "second_trained_probe": false
+        },
+        "fixture_taus": {
+          "s_G_p95": 0.5465,
+          "inv_logit_gap_p95": 0.69,
+          "probe_p95": 0.84
+        },
+        "system_a_contrast": {
+          "auroc": 0.2469,
+          "auroc_ci95": {
+            "point": 0.2469,
+            "lo": 0.1438,
+            "hi": 0.3621,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.3965,
+          "score_max": 0.4925,
+          "abstentions": "0/80",
+          "n_abstain": 0,
+          "never_abstain": true,
+          "silent_non_refusal": true,
+          "note": "recorded abstain bit; composite reconstructed for AUROC"
+        },
+        "gprime_L": {
+          "auroc": 0.7831,
+          "auroc_ci95": {
+            "point": 0.7831,
+            "lo": 0.6781,
+            "hi": 0.8789,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.4847,
+          "score_max": 0.6898,
+          "abstentions": "68/80",
+          "n_abstain": 68,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "gprime_M_or_channels": {
+          "auroc": 0.7831,
+          "auroc_ci95": {
+            "point": 0.7831,
+            "lo": 0.6781,
+            "hi": 0.8789,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.4847,
+          "score_max": 0.6898,
+          "abstentions": "14/80",
+          "n_abstain": 14,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "channels": {
+          "inv_logit_gap": {
+            "auroc": 0.7819,
+            "auroc_ci95": {
+              "point": 0.7819,
+              "lo": 0.6776,
+              "hi": 0.8775,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.455,
+            "score_max": 0.7642
+          },
+          "probe": {
+            "auroc": 0.5228,
+            "auroc_ci95": {
+              "point": 0.5228,
+              "lo": 0.3846,
+              "hi": 0.6537,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.5172,
+            "score_max": 0.562
+          },
+          "answer_length": {
+            "auroc": 0.97,
+            "auroc_ci95": {
+              "point": 0.97,
+              "lo": 0.9168,
+              "hi": 1.0,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 3.0,
+            "score_max": 182.0
+          }
+        },
+        "length_residualized": {
+          "system_a_composite": 0.4144,
+          "gprime_s_G": 0.605
+        },
+        "polarity": {
+          "system_a_auroc": 0.2469,
+          "system_a_flipped_auroc": 0.7531,
+          "gprime_auroc": 0.7831,
+          "gprime_flipped_auroc": 0.2169
+        },
+        "status": "ok",
+        "source_live": "halueval_live_qwen_qwen2_5-0_5b-instruct.json",
+        "source_fixture": "halueval_guard_sample.json"
+      },
+      "truthfulqa": {
+        "n": 80,
+        "label_key": "should_abstain",
+        "gprime_definition": {
+          "score": "0.65*inv_logit_gap + 0.35*probe",
+          "excludes": "fused entropy/attention channel",
+          "tau_rule": "fixture_p95 of s_G",
+          "shipping_claim": false,
+          "second_trained_probe": false
+        },
+        "fixture_taus": {
+          "s_G_p95": 0.5465,
+          "inv_logit_gap_p95": 0.69,
+          "probe_p95": 0.84
+        },
+        "system_a_contrast": {
+          "auroc": 0.4594,
+          "auroc_ci95": {
+            "point": 0.4594,
+            "lo": 0.3283,
+            "hi": 0.5917,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.4069,
+          "score_max": 0.4838,
+          "abstentions": "0/80",
+          "n_abstain": 0,
+          "never_abstain": true,
+          "silent_non_refusal": true,
+          "note": "recorded abstain bit; composite reconstructed for AUROC"
+        },
+        "gprime_L": {
+          "auroc": 0.5806,
+          "auroc_ci95": {
+            "point": 0.5806,
+            "lo": 0.4481,
+            "hi": 0.7068,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.4912,
+          "score_max": 0.6789,
+          "abstentions": "67/80",
+          "n_abstain": 67,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "gprime_M_or_channels": {
+          "auroc": 0.5806,
+          "auroc_ci95": {
+            "point": 0.5806,
+            "lo": 0.4481,
+            "hi": 0.7068,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.4912,
+          "score_max": 0.6789,
+          "abstentions": "21/80",
+          "n_abstain": 21,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "channels": {
+          "inv_logit_gap": {
+            "auroc": 0.5687,
+            "auroc_ci95": {
+              "point": 0.5687,
+              "lo": 0.44,
+              "hi": 0.6963,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.4648,
+            "score_max": 0.7437
+          },
+          "probe": {
+            "auroc": 0.6569,
+            "auroc_ci95": {
+              "point": 0.6569,
+              "lo": 0.5335,
+              "hi": 0.7727,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.512,
+            "score_max": 0.5607
+          },
+          "answer_length": {
+            "auroc": 0.3866,
+            "auroc_ci95": {
+              "point": 0.3866,
+              "lo": 0.2616,
+              "hi": 0.5188,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 15.0,
+            "score_max": 112.0
+          }
+        },
+        "length_residualized": {
+          "system_a_composite": 0.4625,
+          "gprime_s_G": 0.575
+        },
+        "polarity": {
+          "system_a_auroc": 0.4594,
+          "system_a_flipped_auroc": 0.5406,
+          "gprime_auroc": 0.5806,
+          "gprime_flipped_auroc": 0.4194
+        },
+        "status": "ok",
+        "source_live": "truthfulqa_live_qwen_qwen2_5-0_5b-instruct.json",
+        "source_fixture": "truthfulqa_guard_sample.json"
+      }
+    },
+    "tinyllama_tinyllama-1_1b-chat-v1_0": {
+      "halueval": {
+        "n": 80,
+        "label_key": "is_hallucination",
+        "gprime_definition": {
+          "score": "0.65*inv_logit_gap + 0.35*probe",
+          "excludes": "fused entropy/attention channel",
+          "tau_rule": "fixture_p95 of s_G",
+          "shipping_claim": false,
+          "second_trained_probe": false
+        },
+        "fixture_taus": {
+          "s_G_p95": 0.5465,
+          "inv_logit_gap_p95": 0.69,
+          "probe_p95": 0.84
+        },
+        "system_a_contrast": {
+          "auroc": 0.5381,
+          "auroc_ci95": {
+            "point": 0.5381,
+            "lo": 0.4143,
+            "hi": 0.6705,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.3084,
+          "score_max": 0.3879,
+          "abstentions": "0/80",
+          "n_abstain": 0,
+          "never_abstain": true,
+          "silent_non_refusal": false,
+          "note": "recorded abstain bit; composite reconstructed for AUROC"
+        },
+        "gprime_L": {
+          "auroc": 0.39,
+          "auroc_ci95": {
+            "point": 0.39,
+            "lo": 0.2585,
+            "hi": 0.5162,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.5433,
+          "score_max": 0.7152,
+          "abstentions": "79/80",
+          "n_abstain": 79,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "gprime_M_or_channels": {
+          "auroc": 0.39,
+          "auroc_ci95": {
+            "point": 0.39,
+            "lo": 0.2585,
+            "hi": 0.5162,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.5433,
+          "score_max": 0.7152,
+          "abstentions": "71/80",
+          "n_abstain": 71,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "channels": {
+          "inv_logit_gap": {
+            "auroc": 0.3881,
+            "auroc_ci95": {
+              "point": 0.3881,
+              "lo": 0.2544,
+              "hi": 0.5147,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.597,
+            "score_max": 0.8649
+          },
+          "probe": {
+            "auroc": 0.4831,
+            "auroc_ci95": {
+              "point": 0.4831,
+              "lo": 0.3568,
+              "hi": 0.616,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.4179,
+            "score_max": 0.4531
+          },
+          "answer_length": {
+            "auroc": 0.97,
+            "auroc_ci95": {
+              "point": 0.97,
+              "lo": 0.9168,
+              "hi": 1.0,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 3.0,
+            "score_max": 182.0
+          }
+        },
+        "length_residualized": {
+          "system_a_composite": 0.5119,
+          "gprime_s_G": 0.4606
+        },
+        "polarity": {
+          "system_a_auroc": 0.5381,
+          "system_a_flipped_auroc": 0.4619,
+          "gprime_auroc": 0.39,
+          "gprime_flipped_auroc": 0.61
+        },
+        "status": "ok",
+        "source_live": "halueval_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+        "source_fixture": "halueval_guard_sample.json"
+      },
+      "truthfulqa": {
+        "n": 80,
+        "label_key": "should_abstain",
+        "gprime_definition": {
+          "score": "0.65*inv_logit_gap + 0.35*probe",
+          "excludes": "fused entropy/attention channel",
+          "tau_rule": "fixture_p95 of s_G",
+          "shipping_claim": false,
+          "second_trained_probe": false
+        },
+        "fixture_taus": {
+          "s_G_p95": 0.5465,
+          "inv_logit_gap_p95": 0.69,
+          "probe_p95": 0.84
+        },
+        "system_a_contrast": {
+          "auroc": 0.5184,
+          "auroc_ci95": {
+            "point": 0.5184,
+            "lo": 0.3796,
+            "hi": 0.6519,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.2955,
+          "score_max": 0.3735,
+          "abstentions": "0/80",
+          "n_abstain": 0,
+          "never_abstain": true,
+          "silent_non_refusal": false,
+          "note": "recorded abstain bit; composite reconstructed for AUROC"
+        },
+        "gprime_L": {
+          "auroc": 0.4822,
+          "auroc_ci95": {
+            "point": 0.4822,
+            "lo": 0.3573,
+            "hi": 0.6103,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.5735,
+          "score_max": 0.7191,
+          "abstentions": "80/80",
+          "n_abstain": 80,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "gprime_M_or_channels": {
+          "auroc": 0.4822,
+          "auroc_ci95": {
+            "point": 0.4822,
+            "lo": 0.3573,
+            "hi": 0.6103,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.5735,
+          "score_max": 0.7191,
+          "abstentions": "73/80",
+          "n_abstain": 73,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "channels": {
+          "inv_logit_gap": {
+            "auroc": 0.4809,
+            "auroc_ci95": {
+              "point": 0.4809,
+              "lo": 0.3529,
+              "hi": 0.6106,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.6394,
+            "score_max": 0.8718
+          },
+          "probe": {
+            "auroc": 0.4888,
+            "auroc_ci95": {
+              "point": 0.4888,
+              "lo": 0.3627,
+              "hi": 0.6192,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.4154,
+            "score_max": 0.4843
+          },
+          "answer_length": {
+            "auroc": 0.3866,
+            "auroc_ci95": {
+              "point": 0.3866,
+              "lo": 0.2616,
+              "hi": 0.5188,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 15.0,
+            "score_max": 112.0
+          }
+        },
+        "length_residualized": {
+          "system_a_composite": 0.5419,
+          "gprime_s_G": 0.4319
+        },
+        "polarity": {
+          "system_a_auroc": 0.5184,
+          "system_a_flipped_auroc": 0.4816,
+          "gprime_auroc": 0.4822,
+          "gprime_flipped_auroc": 0.5178
+        },
+        "status": "ok",
+        "source_live": "truthfulqa_live_tinyllama_tinyllama-1_1b-chat-v1_0.json",
+        "source_fixture": "truthfulqa_guard_sample.json"
+      }
+    },
+    "distilgpt2": {
+      "halueval": {
+        "n": 80,
+        "label_key": "is_hallucination",
+        "gprime_definition": {
+          "score": "0.65*inv_logit_gap + 0.35*probe",
+          "excludes": "fused entropy/attention channel",
+          "tau_rule": "fixture_p95 of s_G",
+          "shipping_claim": false,
+          "second_trained_probe": false
+        },
+        "fixture_taus": {
+          "s_G_p95": 0.5465,
+          "inv_logit_gap_p95": 0.69,
+          "probe_p95": 0.84
+        },
+        "system_a_contrast": {
+          "auroc": 0.6794,
+          "auroc_ci95": {
+            "point": 0.6794,
+            "lo": 0.5416,
+            "hi": 0.8026,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.2273,
+          "score_max": 0.7023,
+          "abstentions": "0/80",
+          "n_abstain": 0,
+          "never_abstain": true,
+          "silent_non_refusal": false,
+          "note": "recorded abstain bit; composite reconstructed for AUROC"
+        },
+        "gprime_L": {
+          "auroc": 0.715,
+          "auroc_ci95": {
+            "point": 0.715,
+            "lo": 0.5909,
+            "hi": 0.8277,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.1979,
+          "score_max": 0.7672,
+          "abstentions": "27/80",
+          "n_abstain": 27,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "gprime_M_or_channels": {
+          "auroc": 0.715,
+          "auroc_ci95": {
+            "point": 0.715,
+            "lo": 0.5909,
+            "hi": 0.8277,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.1979,
+          "score_max": 0.7672,
+          "abstentions": "14/80",
+          "n_abstain": 14,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "channels": {
+          "inv_logit_gap": {
+            "auroc": 0.6403,
+            "auroc_ci95": {
+              "point": 0.6403,
+              "lo": 0.5144,
+              "hi": 0.7554,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2762,
+            "score_max": 0.8201
+          },
+          "probe": {
+            "auroc": 0.71,
+            "auroc_ci95": {
+              "point": 0.71,
+              "lo": 0.5758,
+              "hi": 0.8352,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.0031,
+            "score_max": 0.9804
+          },
+          "answer_length": {
+            "auroc": 0.97,
+            "auroc_ci95": {
+              "point": 0.97,
+              "lo": 0.9168,
+              "hi": 1.0,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 3.0,
+            "score_max": 182.0
+          }
+        },
+        "length_residualized": {
+          "system_a_composite": 0.6219,
+          "gprime_s_G": 0.6019
+        },
+        "polarity": {
+          "system_a_auroc": 0.6794,
+          "system_a_flipped_auroc": 0.3206,
+          "gprime_auroc": 0.715,
+          "gprime_flipped_auroc": 0.285
+        },
+        "status": "ok",
+        "source_live": "halueval_live_distilgpt2.json",
+        "source_fixture": "halueval_guard_sample.json"
+      },
+      "truthfulqa": {
+        "n": 80,
+        "label_key": "should_abstain",
+        "gprime_definition": {
+          "score": "0.65*inv_logit_gap + 0.35*probe",
+          "excludes": "fused entropy/attention channel",
+          "tau_rule": "fixture_p95 of s_G",
+          "shipping_claim": false,
+          "second_trained_probe": false
+        },
+        "fixture_taus": {
+          "s_G_p95": 0.5465,
+          "inv_logit_gap_p95": 0.69,
+          "probe_p95": 0.84
+        },
+        "system_a_contrast": {
+          "auroc": 0.5181,
+          "auroc_ci95": {
+            "point": 0.5181,
+            "lo": 0.3912,
+            "hi": 0.6498,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.1636,
+          "score_max": 0.6972,
+          "abstentions": "0/80",
+          "n_abstain": 0,
+          "never_abstain": true,
+          "silent_non_refusal": false,
+          "note": "recorded abstain bit; composite reconstructed for AUROC"
+        },
+        "gprime_L": {
+          "auroc": 0.5713,
+          "auroc_ci95": {
+            "point": 0.5713,
+            "lo": 0.4449,
+            "hi": 0.702,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.1546,
+          "score_max": 0.8434,
+          "abstentions": "32/80",
+          "n_abstain": 32,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "gprime_M_or_channels": {
+          "auroc": 0.5713,
+          "auroc_ci95": {
+            "point": 0.5713,
+            "lo": 0.4449,
+            "hi": 0.702,
+            "B": 2000,
+            "seed": 42,
+            "n": 80,
+            "method": "bootstrap_mann_whitney"
+          },
+          "score_min": 0.1546,
+          "score_max": 0.8434,
+          "abstentions": "27/80",
+          "n_abstain": 27,
+          "never_abstain": false,
+          "silent_non_refusal": false
+        },
+        "channels": {
+          "inv_logit_gap": {
+            "auroc": 0.5584,
+            "auroc_ci95": {
+              "point": 0.5584,
+              "lo": 0.4255,
+              "hi": 0.6942,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.2361,
+            "score_max": 0.8327
+          },
+          "probe": {
+            "auroc": 0.5269,
+            "auroc_ci95": {
+              "point": 0.5269,
+              "lo": 0.4006,
+              "hi": 0.6585,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 0.0033,
+            "score_max": 0.9966
+          },
+          "answer_length": {
+            "auroc": 0.3866,
+            "auroc_ci95": {
+              "point": 0.3866,
+              "lo": 0.2616,
+              "hi": 0.5188,
+              "B": 2000,
+              "seed": 42,
+              "n": 80,
+              "method": "bootstrap_mann_whitney"
+            },
+            "score_min": 15.0,
+            "score_max": 112.0
+          }
+        },
+        "length_residualized": {
+          "system_a_composite": 0.5463,
+          "gprime_s_G": 0.5925
+        },
+        "polarity": {
+          "system_a_auroc": 0.5181,
+          "system_a_flipped_auroc": 0.4819,
+          "gprime_auroc": 0.5713,
+          "gprime_flipped_auroc": 0.4288
+        },
+        "status": "ok",
+        "source_live": "truthfulqa_live_distilgpt2.json",
+        "source_fixture": "truthfulqa_guard_sample.json"
+      }
+    }
+  }
+}

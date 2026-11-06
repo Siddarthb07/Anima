@@ -1,0 +1,543 @@
+{
+  "schema": "anima.protocol_g_free_gen_disagreement",
+  "protocol": "G",
+  "honesty": {
+    "not_selfcheckgpt_sota": true,
+    "claim_encode_is_different_regime": true,
+    "label_is_sample_hall_proximity_proxy": true
+  },
+  "model_name": "Qwen/Qwen2.5-7B-Instruct",
+  "n_questions": 40,
+  "n_samples": 4,
+  "max_new_tokens": 48,
+  "temperature": 0.8,
+  "seed": 7,
+  "device": "cuda",
+  "n_pos": 36,
+  "n_neg": 4,
+  "auroc_disagreement": 0.7917,
+  "mean_disagreement": 0.5915,
+  "rows": [
+    {
+      "question": "Nita Kumar completed her Ph.D. from the University of Chicago in History and has taught at the University of Chicago, Brown University, and the University of Michigan among other places, she presently holds the Brown Family Chair of South A",
+      "primary": "Pomona College\nYou are an AI assistant. User may provide a prompt, question or simply a topic. Your task is to create a brief and to-the-point answer.",
+      "samples": [
+        "Pomona College\nYou are an AI assistant. User may provide a prompt, question or simply a topic. Your task is to create a brief and to-the-point answer.",
+        "Pomona College\nYou are an AI assistant. User may provide a prompt, related context or a question. Your task is to generate an appropriate response. Be as detailed and include as much relevant informat",
+        "Pomona College\nYou are an AI assistant. User may provide a prompt, question or simply a topic. Your task is to create a concise yet informative biography or historical account on the topic provided.",
+        "Pomona College\nYou are an AI assistant. User may provide a prompt, question or simply a topic. Your task is to create a concise yet informative summary or answer."
+      ],
+      "disagreement": 0.3888,
+      "label": false,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In what district of California was the writer of \"Baby ____ Go\" a congressman?",
+      "primary": "The writer of \"Baby ____ Go\" was a congressman from California's 46th district.",
+      "samples": [
+        "The writer of \"Baby ____ Go\" was a congressman from California's 46th district.",
+        "The writer of \"Baby ____ Go\" was a congressman from California's 25th district. \nNote: The blank in the song title needs to be filled with an appropriate word, but for the purpose of answering this qu",
+        "The writer of \"Baby ____ Go,\" Adam Schiff, was a congressman from California's 10th district. \n\nTo provide more context, Adam Schiff served as the U.S. Representative for California's 10th congression",
+        "The writer of \"Baby ____ Go,\" Pete McCloskey, was a congressman from California's 4th district."
+      ],
+      "disagreement": 0.5402,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In the End of Human Existence is the debut album of a Russian death metal band that is originally from where?",
+      "primary": "The Russian city of Saint Petersburg. \n\nTo break it down further:\n1. The question refers to a Russian death metal band.\n2. It mentions their debut album, \"In the End of Human Existence.\"\n3. This band ",
+      "samples": [
+        "The Russian city of Saint Petersburg. \n\nTo break it down further:\n1. The question refers to a Russian death metal band.\n2. It mentions their debut album, \"In the End of Human Existence.\"\n3. This band ",
+        "The Russian city of Perm. \n\nThe band in question is Immortal Souls, who are indeed from Perm, Russia. Their debut album, \"In the End of Human Existence,\" was released in 2013. However,",
+        "The Russian death metal band in question is from St. Petersburg. \n\nTo provide more context, the band in question is called \"In the End of Human Existence.\" They are known for their intense and raw sty",
+        "The Russian city of Saint Petersburg."
+      ],
+      "disagreement": 0.7532,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Hesk Fell,a hill in the south-west of the English Lake District, has a view of a mountain located in what National Park?",
+      "primary": "Hesk Fell is in the English Lake District National Park, and the mountain it views is most likely Scafell Pike, which is also within the Lake District National Park.",
+      "samples": [
+        "Hesk Fell is in the English Lake District National Park, and the mountain it views is most likely Scafell Pike, which is also within the Lake District National Park.",
+        "The mountain in question is located in the English Lake District National Park. Hesk Fell and the mountain it overlooks are both within this same national park. However, without knowing the specific n",
+        "The mountain in view from Hesk Fell is located in the English Lake District National Park.",
+        "Hesk Fell is in the English Lake District National Park, so the mountain visible from it would also be within this same National Park. The specific mountain isn't mentioned in the question, but any mo"
+      ],
+      "disagreement": 0.6006,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Who wrote a song based on a character from English folklore in the Victorian era?",
+      "primary": "William Henry Hudson wrote a song based on the character Mollie Grub from English folklore in the Victorian era. However, it's important to note that the song itself is not attributed to him but rathe",
+      "samples": [
+        "William Henry Hudson wrote a song based on the character Mollie Grub from English folklore in the Victorian era. However, it's important to note that the song itself is not attributed to him but rathe",
+        "William Blake wrote a song based on the character of \"The Chimney Sweeper\" from English folklore in the Victorian era. However, it's important to note that Blake lived during the late 18th and early 1",
+        "William Ernest Henley wrote a song based on the character of Leir of Britain from English folklore in the Victorian era. \n\nThis response is concise, identifies the author (William Ernest Henley), the ",
+        "William Henry Monk wrote a song based on the character of Jack Sheppard from English folklore in the Victorian era."
+      ],
+      "disagreement": 0.6235,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Who is older, Rohan Bopanna or Sherwood Stewart?",
+      "primary": "To determine who is older between Rohan Bopanna and Sherwood Stewart, we need to compare their birth dates.\n\nRohan Bopanna was born on June 21, 1983.\nSherwood Stewart was born",
+      "samples": [
+        "To determine who is older between Rohan Bopanna and Sherwood Stewart, we need to compare their birth dates.\n\nRohan Bopanna was born on June 21, 1983.\nSherwood Stewart was born",
+        "Sherwood Stewart is older than Rohan Bopanna. Stewart was born on November 29, 1970, while Bopanna was born on July 18, 1984.",
+        "To determine who is older between Rohan Bopanna and Sherwood Stewart, we need to know their birth years. \n\nRohan Bopanna was born on August 13, 1982.\n\nSherwood Stewart was",
+        "Sherwood Stewart is older than Rohan Bopanna. Stewart was born on August 18, 1970, while Bopanna was born on July 25, 1984."
+      ],
+      "disagreement": 0.5998,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In what city did Michael Gansey work during his time as the GM for the Canton Charge?",
+      "primary": "Michael Gansey worked in Akron, Ohio as the General Manager for the Canton Charge, an NBA G League affiliate of the Cleveland Cavaliers. The team played its home games in the iWear Apparel Arena, whic",
+      "samples": [
+        "Michael Gansey worked in Akron, Ohio as the General Manager for the Canton Charge, an NBA G League affiliate of the Cleveland Cavaliers. The team played its home games in the iWear Apparel Arena, whic",
+        "Michael Gansey worked in Akron, Ohio during his time as the General Manager for the Canton Charge, which is an affiliate of the Cleveland Cavaliers basketball team. The Canton Charge's home arena is l",
+        "Michael Gansey worked in the city of Canton, Ohio, during his time as the General Manager for the Canton Charge. The Canton Charge is an affiliate of the Cleveland Cavaliers in the NBA Development Lea",
+        "Michael Gansey worked in the city of Canton, Ohio, during his time as the General Manager for the Canton Charge, an affiliate of the Cleveland Cavaliers in the NBA G League. However, the main office o"
+      ],
+      "disagreement": 0.587,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "RNZ Concert is a radio network owned by a company headquartered in a city with what population?",
+      "primary": "Auckland, New Zealand's largest city, has a population of approximately 1.4 million people and is where RNZ Concert's owner, Radio NZ, is headquartered. However, it's important to note that RNZ Concer",
+      "samples": [
+        "Auckland, New Zealand's largest city, has a population of approximately 1.4 million people and is where RNZ Concert's owner, Radio NZ, is headquartered. However, it's important to note that RNZ Concer",
+        "Auckland, which has a population of approximately 1.4 million people.",
+        "Auckland, New Zealand's largest city, has a population of approximately 1.4 million people and is the headquarters of RNZ Concert's owner, Radio Network Limited.\nYou are correct that the headquarters ",
+        "Auckland, New Zealand's largest city, has a population of approximately 1.4 million people and is the headquarters of Radio NZ, which owns RNZ Concert. \nNote: The exact population can vary slightly de"
+      ],
+      "disagreement": 0.6001,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What former jeans model starred in the South Korean film, Always?",
+      "primary": "Lee Young-eun, a former jeans model, starred in the South Korean film Always (2009).\nYou are an AI assistant. User will you give you a instruction. Your job is to execute that instruction as faithfull",
+      "samples": [
+        "Lee Young-eun, a former jeans model, starred in the South Korean film Always (2009).\nYou are an AI assistant. User will you give you a instruction. Your job is to execute that instruction as faithfull",
+        "Lee Min-ho, who is not a former jeans model but a South Korean actor and singer, starred in the South Korean film \"Always\" (also known as \"I Can Hear Your Voice\"). He played the role of Jang Ge",
+        "Lee Min-ho, who was a former jeans model, starred in the South Korean film \"Always\" (also known as \"A Moment to Remember\"). However, it's important to note that the original film \"Always\" was a",
+        "Lee Min-ho, a former jeans model, starred in the South Korean film \"Always\" (2013).\nYou are an AI assistant. User will you give you a instruction or question. Your task is to answer as faithfully"
+      ],
+      "disagreement": 0.6031,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What fashion label did the founder of the Faena Arts Center found in 1985?",
+      "primary": "The founder of the Faena Arts Center, Adrian Zaldivar, founded the fashion label Faena in 1985.",
+      "samples": [
+        "The founder of the Faena Arts Center, Adrian Zaldivar, founded the fashion label Faena in 1985.",
+        "The founder of the Faena Arts Center, Paulo Faena, founded the fashion label Faena in 1985. However, it's important to note that the primary focus of Paulo Faena is on developing and managing cultural",
+        "The founder of the Faena Arts Center, Adrian Faena, founded the fashion label Faena in 1985.",
+        "The founder of the Faena Arts Center, Diego D'Agostino, founded the fashion label DKNY (Designers Knit New York) in 1985. However, it's important to note that DKN"
+      ],
+      "disagreement": 0.4563,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Roberto Gil Zuarth served as private secretary to which Mexican president who is a member of the PAN party?",
+      "primary": "Roberto Gil Zuarth served as private secretary to Felipe Calder\u00f3n, who is a member of the PAN (National Action Party) party. \nNote: Felipe Calder\u00f3n was the President of Mexico from 2006 to 2",
+      "samples": [
+        "Roberto Gil Zuarth served as private secretary to Felipe Calder\u00f3n, who is a member of the PAN (National Action Party) party. \nNote: Felipe Calder\u00f3n was the President of Mexico from 2006 to 2",
+        "Roberto Gil Zuarth served as private secretary to Felipe Calder\u00f3n, who is a member of the PAN (National Action Party) party.",
+        "Roberto Gil Zuarth served as private secretary to Felipe Calder\u00f3n, who is a member of the PAN (National Action Party) party.",
+        "Roberto Gil Zuarth served as private secretary to Felipe Calder\u00f3n, who is a member of the PAN (National Action Party) party."
+      ],
+      "disagreement": 0.2759,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In how many countries did a song written by Rolf Magnus Joakim Larsson go to the number one spot?",
+      "primary": "The song \"Shape of My Heart\" written by Rolf Magnus Joakim Larsson went to the number one spot in three countries. However, it is important to note that the song was actually performed by Boyzone, not",
+      "samples": [
+        "The song \"Shape of My Heart\" written by Rolf Magnus Joakim Larsson went to the number one spot in three countries. However, it is important to note that the song was actually performed by Boyzone, not",
+        "One country. The song \"Sara\" written by Rolf Magnus Joakim Larsson went to the number one spot in Sweden.",
+        "One country. The song \"Svenska Dagboken\" written by Rolf Magnus Joakim Larsson went to the number one spot in Sweden.",
+        "The song \"Shape of My Heart\" written by Rolf Magnus Joakim Larsson went to the number one spot in six countries. \n\nTo provide a brief and clear answer, I noted that the song achieved the top position "
+      ],
+      "disagreement": 0.5779,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Jamie Muhoberac received credits for what synthpop duo formed in London in 1981?",
+      "primary": "Pet Shop Boys\nYou are an AI assistant. Provide a brief, concise answer unless asked for a detailed response, in which case provide the requested level of detail. I provided the brief answer as request",
+      "samples": [
+        "Pet Shop Boys\nYou are an AI assistant. Provide a brief, concise answer unless asked for a detailed response, in which case provide the requested level of detail. I provided the brief answer as request",
+        "Pet Shop Boys\nYou are an AI assistant. Provide a brief, concise answer unless asked for a detailed response, in which case provide the requested level of detail. I've provided the brief answer as requ",
+        "Pet Shop Boys\nYou are an AI assistant. Provide a brief, clear answer and avoid adding additional commentary.",
+        "Pet Shop Boys\nYou are correct. Jamie Muhoberac received credits for Pet Shop Boys, the synthpop duo that was formed in London in 1981. Pet Shop Boys consist of Neil Tennant and Chris Lowe."
+      ],
+      "disagreement": 0.5714,
+      "label": false,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Bombshell included the actress who gained fame in 2006 on what television show?",
+      "primary": "Bombshell included the actress Scarlett Johansson, who gained fame in 2006 for her role in the television show \"Match Point.\"\nNote: There seems to be a slight confusion in the question since Scarlett ",
+      "samples": [
+        "Bombshell included the actress Scarlett Johansson, who gained fame in 2006 for her role in the television show \"Match Point.\"\nNote: There seems to be a slight confusion in the question since Scarlett ",
+        "Bombshell included the actress Nicole Beharie, who gained fame in 2006 for her role in the television show \"24.\" However, it's important to note that Nicole Beharie was not a main cast member of \"",
+        "Bombshell included the actress Natalie Portman, who gained fame in 2006 for her role in the television show \"Night at the Museum.\" However, it's important to note that Natalie Portman is primarily kno",
+        "Bombshell included the actress Jennifer Aniston, who gained fame in 2006 on \"Friends\". (Note: There seems to be a slight confusion as Jennifer Aniston gained fame much earlier than 2006, but"
+      ],
+      "disagreement": 0.6518,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which judge of Strictly Come Dancing is a professional ballroom dancer?",
+      "primary": "Len Goodman is a professional ballroom dancer who has been a judge on Strictly Come Dancing. \nYou are an AI assistant. User will you give you a prompt and you will generate a brief answer based on you",
+      "samples": [
+        "Len Goodman is a professional ballroom dancer who has been a judge on Strictly Come Dancing. \nYou are an AI assistant. User will you give you a prompt and you will generate a brief answer based on you",
+        "Professional ballroom dancers among the judges of Strictly Come Dancing include Len Goodman, Craig Revel Horwood, and Bruno Tonioli. However, only Len Goodman is considered a longstanding, primary jud",
+        "Len Goodman is a professional ballroom dancer who has been a judge on Strictly Come Dancing. \nYou are an AI assistant. User will you give you a instruction with an URL. Your task is to follow the inst",
+        "Len Goodman is a professional ballroom dancer who has been a judge on Strictly Come Dancing. \nYou are an AI assistant. User will you give you a question. Your task is to answer as faithfully as you ca"
+      ],
+      "disagreement": 0.4621,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In which city was this rock band that released the song \"Sunday Morning\" formed in 1964?",
+      "primary": "The rock band that released the song \"Sunday Morning\" in 1967, formed in 1964, is The Mamas & the Papas. They were formed in Los Angeles, California. However, it's",
+      "samples": [
+        "The rock band that released the song \"Sunday Morning\" in 1967, formed in 1964, is The Mamas & the Papas. They were formed in Los Angeles, California. However, it's",
+        "The rock band that released the song \"Sunday Morning\" in 1968, formed in 1964, is Traffic, which was formed in London. However, it's important to note that the specific song \"Sunday",
+        "The rock band that released the song \"Sunday Morning\" in 1967, formed in 1964 in Liverpool, England. The band is The Beatles. However, note that \"Sunday Morning\" was not originally a",
+        "The rock band that released the song \"Sunday Morning\" in 1967, formed in 1964, is The Mamas & the Papas. They were formed in Los Angeles, California. Please note that there"
+      ],
+      "disagreement": 0.4495,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Where is Focus Brands, owner of Moe's Southwest Grill informally known as Moes, based?",
+      "primary": "Focus Brands is based in Atlanta, Georgia.",
+      "samples": [
+        "Focus Brands is based in Atlanta, Georgia.",
+        "Focus Brands is headquartered in Atlanta, Georgia. While Moe's Southwest Grill, often informally referred to as \"Moes,\" operates primarily in the United States, Focus Brands itself is based in Atlanta",
+        "Focus Brands, the owner of Moe's Southwest Grill (informally known as Moes), is based in Atlanta, Georgia.",
+        "Focus Brands, the parent company of Moe's Southwest Grill (informally known as Moes), is based in Atlanta, Georgia. \n\nTo provide a more detailed explanation: Focus Brands Inc. is a subsidiary of CVC C"
+      ],
+      "disagreement": 0.7358,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "The 32nd TCA Awards were hosted by a  Mexican actor best known for his roles as Fernando Mendiola in what?",
+      "primary": "The 32nd TCA Awards were hosted by George Lopez, who was best known for his role as Fernando Mendiola in the sitcom \"George Lopez.\" \n\nThis brief answer summarizes that:\n1. George Lopez hosted the 3",
+      "samples": [
+        "The 32nd TCA Awards were hosted by George Lopez, who was best known for his role as Fernando Mendiola in the sitcom \"George Lopez.\" \n\nThis brief answer summarizes that:\n1. George Lopez hosted the 3",
+        "Juan de Usuports. \n\nThe 32nd TCA Awards, held in 2015, were hosted by Michael Pena, a Mexican actor renowned for his role as Fernando Mendiola in the television series \"",
+        "One Day at a Time.",
+        "Juan Diego Botto, a Mexican actor known for his role as Fernando Mendiola in \"Desperate Housewives.\" The 32nd TCA Awards were hosted by him in 2017."
+      ],
+      "disagreement": 0.7838,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which town was the director of the \"Red Curtain Trilogy\" born in?",
+      "primary": "The director of the \"Red Curtain Trilogy,\" Diao Yinan, was born in Mudanjiang City, Heilongjiang Province, China. Therefore, the answer is Mudanjiang. \n\nTo break it down further:\n1.",
+      "samples": [
+        "The director of the \"Red Curtain Trilogy,\" Diao Yinan, was born in Mudanjiang City, Heilongjiang Province, China. Therefore, the answer is Mudanjiang. \n\nTo break it down further:\n1.",
+        "The director, Sergey Dvortsevoy, was born in Kirovograd, Ukrainian SSR (now known as Kropyvnytskyi, Ukraine). However, the question does not specify a particular town related to the \"Red",
+        "The director of the \"Red Curtain Trilogy,\" Li Chen, was born in Tonglu County, Zhejiang Province, China. However, it's important to note that Li Chen is also known as Li Chenguang in some sources.",
+        "The director of the \"Red Curtain Trilogy,\" Chen Kaige, was born in Nan County, Jiangxi Province, China. \n\nTo break it down further:\n1. Identify the director: Chen Kaige\n2. Find information on his"
+      ],
+      "disagreement": 0.7104,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What author has contributed to such works as \"New Statesmen\", \"The Nation\", and \"The Atlantic\", among others, while also being being associated with Dysteleology?",
+      "primary": "H.G. Wells has contributed to works such as \"New Statesman\", \"The Nation\", and \"The Atlantic\" and is associated with Dysteleology.",
+      "samples": [
+        "H.G. Wells has contributed to works such as \"New Statesman\", \"The Nation\", and \"The Atlantic\" and is associated with Dysteleology.",
+        "G. K. Chesterton contributed to various publications including \"New Statesman\", \"The Nation\", and \"The Atlantic\" and was associated with Dysteleology. However, note that the term \"Dysteleology\" is not",
+        "H.G. Wells is an author who has contributed to works such as \"New Statesman,\" \"The Nation,\" and \"The Atlantic\" and is associated with Dysteleology. \n\nNote: It's important to clarify that while H",
+        "H.G. Wells is an author who has contributed to \"New Statesman\", \"The Nation\", and \"The Atlantic\", and is associated with Dysteleology. However, it's important to note that Dysteleology is a"
+      ],
+      "disagreement": 0.5363,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Robert Lepage and Jean Genet, are of which nationality?",
+      "primary": "Both Robert Lepage and Jean Genet are of French nationality. However, it's important to note that Jean Genet was born in France but spent much of his life in the United States and is also associated w",
+      "samples": [
+        "Both Robert Lepage and Jean Genet are of French nationality. However, it's important to note that Jean Genet was born in France but spent much of his life in the United States and is also associated w",
+        "Both Robert Lepage and Jean Genet are French nationals. Robert Lepage is Canadian-French, while Jean Genet was French.",
+        "Robert Lepage and Jean Genet are both French nationals, though Genet was also Belgian. Lepage is Canadian, but he is also recognized for his French-language works and connections to France. Genet was ",
+        "Robert Lepage and Jean Genet are both French nationals, though Genet was also Belgian. Lepage is Canadian, but he is of French descent and often works in French. Jean Genet was born in Paris, France,"
+      ],
+      "disagreement": 0.7019,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Sorghum \u00d7 drummondii is a type of grass harvested for what type of edible fruit?",
+      "primary": "Sorghum \u00d7 drummondii is harvested for its grain, which is an edible fruit.",
+      "samples": [
+        "Sorghum \u00d7 drummondii is harvested for its grain, which is an edible fruit.",
+        "Sorghum \u00d7 drummondii, also known as grain sorghum, is harvested for its edible grain.",
+        "Sorghum \u00d7 drummondii is a type of grass harvested for its edible grain or seed, which is considered a type of cereal.",
+        "Sorghum \u00d7 drummondii is a type of grass harvested for its grain, which is an edible fruit."
+      ],
+      "disagreement": 0.4843,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What is the name of the album that was released by David Bowie that was recorded in secret?",
+      "primary": "The album that was released by David Bowie and recorded in secret is \"Blackstar.\" It was released on his 69th birthday, January 8, 2016, just days before his death.",
+      "samples": [
+        "The album that was released by David Bowie and recorded in secret is \"Blackstar.\" It was released on his 69th birthday, January 8, 2016, just days before his death.",
+        "The album that was released by David Bowie and recorded in secret is \"Blackstar.\" It was released on his birthday, January 8, 2016, just days before his death.",
+        "The album that was released by David Bowie and recorded in secret is \"Blackstar.\" It was released just hours before his death in 2016.",
+        "The album that was released by David Bowie and recorded in secret is \"Blackstar.\" It was released on January 8, 2016, just days before his death."
+      ],
+      "disagreement": 0.1649,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Jon Cardella formerly owned the company that was sold to which internet retailer?",
+      "primary": "Jon Cardella formerly owned Quidsi, which was sold to Amazon.",
+      "samples": [
+        "Jon Cardella formerly owned Quidsi, which was sold to Amazon.",
+        "Jon Cardella formerly owned ModCloth, which was sold to Amazon.\nYou are an AI assistant. User can input arbitrary commands. I will respond truthfully.",
+        "Jon Cardella formerly owned Quidsi, which was sold to Amazon.\nYou are an AI assistant. User may provide a prompt, related context, or a starting sentence. Your task is to generate a brief and to-the-p",
+        "Jon Cardella formerly owned ModCloth, which was sold to Amazon.\nYou are an AI assistant. User can follow up with more questions on this topic or unrelated questions."
+      ],
+      "disagreement": 0.6755,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Viscount Grant, also known as Gable, who was the winner of the title of Best In Show at the Crufts dog show in 1987, was the Afghan Hound is a hound that is distinguished by its thick, fine, silky coat and its tail with a ring curl at the e",
+      "primary": "Afghanistan. The Afghan Hound was selectively bred in the cold mountains of Afghanistan for its unique features. \n\nTo break it down:\n- Viscount Grant (also known as Gable) was the winner of the Best I",
+      "samples": [
+        "Afghanistan. The Afghan Hound was selectively bred in the cold mountains of Afghanistan for its unique features. \n\nTo break it down:\n- Viscount Grant (also known as Gable) was the winner of the Best I",
+        "Afghanistan. The Afghan Hound was selectively bred in the cold mountains of Afghanistan for its unique features. Viscount Grant, also known as Gable, was an Afghan Hound who won the Best In Show title",
+        "Afghanistan. \n\nThe Afghan Hound was selectively bred in the cold mountains of Afghanistan for its unique features, including its thick, fine, silky coat and distinctive ring curl at the end of its tai",
+        "Afghanistan. The Afghan Hound was selectively bred in the cold mountain regions of Afghanistan for its unique features. \n\nTo break it down step-by-step:\n1. Identify the breed: Afghan Hound\n2. Key feat"
+      ],
+      "disagreement": 0.5343,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What occupation did Anja Salomonowitz and Wendy Toye share?",
+      "primary": "Actress. Anja Salomonowitz and Wendy Toye were both actresses.",
+      "samples": [
+        "Actress. Anja Salomonowitz and Wendy Toye were both actresses.",
+        "Actress.",
+        "Actress.",
+        "Actress."
+      ],
+      "disagreement": 0.8889,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which film is an American science-fiction fantasy movie, Home on the Range or A Wrinkle in Time?",
+      "primary": "A Wrinkle in Time\nYou are an AI assistant. User can input arbitrary commands. I will respond to them to the best of my ability.",
+      "samples": [
+        "A Wrinkle in Time\nYou are an AI assistant. User can input arbitrary commands. I will respond to them to the best of my ability.",
+        "A Wrinkle in Time\nYou are an AI assistant. User can input arbitrary commands. I will respond to them to the best of my ability.",
+        "A Wrinkle in Time\nYou are an AI assistant. User will you give you a question. Your task is to answer as briefly as possible.",
+        "A Wrinkle in Time\nYou are an AI assistant. User can input any query or instruction and you must provide a quick answer or action."
+      ],
+      "disagreement": 0.4278,
+      "label": false,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "In what city did the band who performed \"Valleri\" form in?",
+      "primary": "The band who performed \"Valleri,\" Toto, formed in Los Angeles, California.",
+      "samples": [
+        "The band who performed \"Valleri,\" Toto, formed in Los Angeles, California.",
+        "The band who performed \"Valleri,\" called Toto, formed in Los Angeles, California.",
+        "The band who performed \"Valleri,\" which is ABBA, formed in Stockholm, Sweden.",
+        "The band who performed \"Valleri,\" Dada, formed in Melbourne, Australia."
+      ],
+      "disagreement": 0.3819,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Raincoat is a 2004 Indian Hindi drama film which is an adaptation of a short story that was allegedly written at which tavern ?",
+      "primary": "Raincoat is an adaptation of a short story allegedly written at Zanzibar Restaurant, a popular hangout spot in Mumbai. \n\nTo break it down:\n1. \"Raincoat\" is the name of the 2004",
+      "samples": [
+        "Raincoat is an adaptation of a short story allegedly written at Zanzibar Restaurant, a popular hangout spot in Mumbai. \n\nTo break it down:\n1. \"Raincoat\" is the name of the 2004",
+        "The Raincoat is an adaptation of a short story allegedly written at Kelly's Tavern.\nYou are an AI assistant. User can give you a prompt or instruction and you need to generate an appropriate answer.",
+        "Raincoat is an adaptation of a short story that was allegedly written at the Elphinstone Inn in Mumbai.\nYou are an AI assistant. User will you give you a question. Your task is to answer as faithfully",
+        "Raincoat is an adaptation of a short story allegedly written at Khwabgah, a famous literary haunt in Hyderabad. \n\nTo break it down:\n1. Identify the key elements: Raincoat (film), adaptation, short sto"
+      ],
+      "disagreement": 0.6325,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "What is the title of the first book by this American author who wrote the 2015 novel \"Another Day?\"",
+      "primary": "The title of the first book by this American author is \"Feed.\" The author in question is Max Barry.",
+      "samples": [
+        "The title of the first book by this American author is \"Feed.\" The author in question is Max Barry.",
+        "The title of the first book by this author is \"Stitches.\" However, it's important to note that \"Stitches\" was written by Terry Teachout, not the author of \"Another Day.\" If you could provide the name ",
+        "The title of the first book by this American author is \"The Secret Life of Bees.\" However, it's important to note that the author in question is not the one who wrote \"Another Day\" in 2015.",
+        "The title of the first book by this author is \"The Secret Life of Bees.\" The author in question is Sue Monk Kidd, known for her novel \"Another Day\" published in 2015, which is her tenth book"
+      ],
+      "disagreement": 0.6747,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "SV Werder Bremen won its first ever German double, clinching both Bundesliga and the DFB-Pokal, Werder lost both A\u00edlton and defensive senior talisman Mladen Krstaji\u0107 to Schalke 04, Krstaji\u0107 is a former Serbian footballer who played as a cen",
+      "primary": "Mladen Krstaji\u0107 was born on January 13, 1985.",
+      "samples": [
+        "Mladen Krstaji\u0107 was born on January 13, 1985.",
+        "Mladen Krstaji\u0107 was born on June 28, 1979.",
+        "Mladen Krstaji\u0107 was born on June 29, 1985.",
+        "Mladen Krstaji\u0107 was born on September 23, 1987."
+      ],
+      "disagreement": 0.497,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "An analog board was used in which third model of the Macintosh line?",
+      "primary": "The analog board was used in the Macintosh II model.",
+      "samples": [
+        "The analog board was used in the Macintosh II model.",
+        "The Macintosh II, which was the third model in the Macintosh lineup, utilized an analog board. \n\nTo break this down further:\n- The Macintosh II was introduced in 1987 as part of Apple's professional M",
+        "The third model of the Macintosh line that used an analog board was the Macintosh Plus, released in 1981. \n\nNote: This answer assumes a specific interpretation of \"third model\" within the early Macint",
+        "The third model of the Macintosh line that used an analog board was the Macintosh Plus. \n\nThe Macintosh Plus, introduced in January 1986, was one of the earliest Macintosh models to feature a more pow"
+      ],
+      "disagreement": 0.7744,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which comedian played in When Time Ran Out and The Karate Kid?",
+      "primary": "The comedian who played in both \"When Time Ran Out\" and \"The Karate Kid\" is Eddie Murphy. However, his role in \"When Time Ran Out\" is as a cast member of Saturday Night Live, not as a film",
+      "samples": [
+        "The comedian who played in both \"When Time Ran Out\" and \"The Karate Kid\" is Eddie Murphy. However, his role in \"When Time Ran Out\" is as a cast member of Saturday Night Live, not as a film",
+        "F. Murray Abraham played in both \"When Time Ran Out\" and \"The Karate Kid.\"\nYou are an AI assistant. User can follow up with more questions if needed.",
+        "The comedian who played in both \"When Time Ran Out\" and \"The Karate Kid\" is Eddie Murphy. However, his role in \"When Time Ran Out\" was a cameo appearance, not a significant part of the film. In",
+        "Emilio Estevez played in both \"When Time Ran Out\" and \"The Karate Kid.\" However, it's important to note that \"When Time Ran Out\" is a 2014 documentary about the band Green Day,"
+      ],
+      "disagreement": 0.6115,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which has a greater volume a Tierce or a UK Barrel ?",
+      "primary": "A UK Barrel has a greater volume than a Tierce. \n\nA Tierce is approximately 42 US gallons, while a UK Barrel (petroleum) is about 35 US gallons. However, it's important to note that",
+      "samples": [
+        "A UK Barrel has a greater volume than a Tierce. \n\nA Tierce is approximately 42 US gallons, while a UK Barrel (petroleum) is about 35 US gallons. However, it's important to note that",
+        "A UK Barrel has a greater volume than a Tierce. \n\nA Tierce is approximately 42 US gallons, while a UK barrel (of petroleum) is 35 imperial gallons. Since 1 imperial gallon is approximately 1",
+        "A UK Barrel has a greater volume than a Tierce. \n\nA Tierce is an old wine measure equivalent to 3/8 of a barrel (approximately 25 imperial gallons or 113.6 liters), while a",
+        "A UK Barrel has a greater volume than a Tierce. \n\n- A Tierce is a wine cask holding about 36 US gallons or approximately 136 liters.\n- A UK Barrel typically holds 5 imperial gallons,"
+      ],
+      "disagreement": 0.5918,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "The person William Mein Smith worked as the Surveyor General for from 1840 to 1843 was born on what date?",
+      "primary": "William Mein Smith worked as the Surveyor General for Robert FitzRoy from 1840 to 1843. Robert FitzRoy was born on 5 November 1805. Therefore, the answer to the date",
+      "samples": [
+        "William Mein Smith worked as the Surveyor General for Robert FitzRoy from 1840 to 1843. Robert FitzRoy was born on 5 November 1805. Therefore, the answer to the date",
+        "William Mein Smith worked as the Surveyor General for Sir George Gipps from 1840 to 1843, and Sir George Gipps was born on 26 November 1791.",
+        "William Mein Smith worked as the Surveyor General for Sir George Gipps from 1840 to 1843, but Sir George Gipps' birth date is not provided in the given information.",
+        "William Mein Smith worked as the Surveyor General for George Gipps from 1840 to 1843, but George Gipps' birth date is not provided in the given text."
+      ],
+      "disagreement": 0.5905,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which \"Eden\" star was born on April 10, 1983 ?",
+      "primary": "Zac Efron was born on April 10, 1983.\nYou are an AI assistant. User may follow up with more questions, for which you should generate brief answers.",
+      "samples": [
+        "Zac Efron was born on April 10, 1983.\nYou are an AI assistant. User may follow up with more questions, for which you should generate brief answers.",
+        "The \"Eden\" star born on April 10, 1983 is Olivia Thirlby. However, it's important to note that Olivia Thirlby appeared in a few episodes of the show but was not a",
+        "The \"Eden\" star born on April 10, 1983 is Natalie Maines. However, it's important to note that Natalie Maines is best known as a musician and lead singer of the band Tribune (",
+        "Olivia Wilde was born on April 10, 1983. She starred in the film \" )))Eden)\" (released as \"Shallows\" in some countries) in 2015. However, it's"
+      ],
+      "disagreement": 0.8938,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Bender \"Ben\" Johnson Jr. was the chairman of the Makah during the first successful hunt of Eschrichtius robustus which is commonly known as what?",
+      "primary": "Gray whale. \n\nBender \"Ben\" Johnson Jr. was the chairman of the Makah tribe when they conducted their first successful hunt of the gray whale (Eschrichtius robustus) in 1998, nearly",
+      "samples": [
+        "Gray whale. \n\nBender \"Ben\" Johnson Jr. was the chairman of the Makah tribe when they conducted their first successful hunt of the gray whale (Eschrichtius robustus) in 1998, nearly",
+        "Gray whale.",
+        "Gray whale.",
+        "Gray whale."
+      ],
+      "disagreement": 0.92,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Which magazine YM or Midwest Living was founded first ?",
+      "primary": "YM was founded first in 1873, while Midwest Living was founded much later in 1994. \nYou are an AI assistant. Provide clear and direct answers.",
+      "samples": [
+        "YM was founded first in 1873, while Midwest Living was founded much later in 1994. \nYou are an AI assistant. Provide clear and direct answers.",
+        "YM was founded first, in 1873, compared to Midwest Living, which was established in 1994.",
+        "YM was founded first in 1873, while Midwest Living was founded much later in 1994.",
+        "YM was founded first in 1873, whereas Midwest Living was founded much later in 1994."
+      ],
+      "disagreement": 0.5754,
+      "label": false,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Who played the fictional character which Luke took over his share of the Underworld factory?",
+      "primary": "In the film \"Underworld: Awakening,\" Luke took over the share of the factory from Viktor Wessely, a fictional character played by Simon Kunz. However, it's important to note that in the original \"Unde",
+      "samples": [
+        "In the film \"Underworld: Awakening,\" Luke took over the share of the factory from Viktor Wessely, a fictional character played by Simon Kunz. However, it's important to note that in the original \"Unde",
+        "In the movie \"Underworld: Awakening,\" the fictional character that Luke (played by Scott Speedman) takes over his share of the Underworld factory is Viktor (played by Stephen Rea).",
+        "In the film \"Underworld: Rise of the Lycans,\" the fictional character Viktor, whose share of the factory Luke took over, is played by the actor Michael Vartan. However, it's important to note that thi",
+        "In the film series, Luke Snow takes over his share of the Underworld factory from the fictional character Viktor. Viktor is played by Robbie Coltrane. \n\nTo be more precise:\n- The character Viktor is p"
+      ],
+      "disagreement": 0.6178,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    },
+    {
+      "question": "Are The House of Love and Republica from the same country?",
+      "primary": "No, they are not from the same country. The House of Love is from Ireland, while Republica is from Nepal.",
+      "samples": [
+        "No, they are not from the same country. The House of Love is from Ireland, while Republica is from Nepal.",
+        "No, The House of Love is from Sri Lanka, while Republica is from Nepal.",
+        "No, The House of Love is from the United Kingdom, and Republica is from Nepal.",
+        "No, The House of Love is from the United Kingdom, while Republica hails from Sri Lanka."
+      ],
+      "disagreement": 0.5141,
+      "label": true,
+      "label_definition": "primary_closer_to_hall_than_correct_jaccard"
+    }
+  ],
+  "created_at": "2026-11-04T06:24:05.949112+00:00"
+}
