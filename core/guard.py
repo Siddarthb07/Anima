@@ -60,20 +60,43 @@ def evaluate_guard(
     """
     th = _load_thresholds()
     disabled = {s.strip().lower() for s in (disabled_signals or ()) if s}
-    fused = float(uncertainty_signals.get("fused", 0.5))
-    probe_u = float(affect.get("uncertainty", 0.5))
+
+    def _finite(x: float, default: float = 0.5) -> float:
+        try:
+            v = float(x)
+        except (TypeError, ValueError):
+            return default
+        if v != v or v in (float("inf"), float("-inf")):
+            return default
+        return v
+
+    fused_raw = uncertainty_signals.get("fused", 0.5)
+    probe_raw = affect.get("uncertainty", 0.5)
+    fused_ok = True
+    try:
+        fused_chk = float(fused_raw)
+        fused_ok = fused_chk == fused_chk and fused_chk not in (float("inf"), float("-inf"))
+    except (TypeError, ValueError):
+        fused_ok = False
+    probe_u = _finite(probe_raw, 0.5)
     reasons: list[str] = []
 
-    if calibrator is not None and hasattr(calibrator, "forward"):
+    fused = _finite(fused_raw, 0.5) if fused_ok else 0.5
+    if calibrator is not None and hasattr(calibrator, "forward") and fused_ok:
         with torch.no_grad():
             raw = torch.tensor([fused], dtype=torch.float32)
             fused_cal = float(calibrator(raw).squeeze().item())
+            if fused_cal != fused_cal:
+                fused_ok = False
+                fused_cal = 0.5
     else:
-        fused_cal = fused
+        fused_cal = fused if fused_ok else 0.5
 
-    use_fused = "fused" not in disabled
+    use_fused = "fused" not in disabled and fused_ok
     use_probe = "probe_uncertainty" not in disabled
     use_hedge = "hedging" not in disabled
+    if not fused_ok:
+        reasons.append("fused_channel_nan_dropped")
 
     # Reweight composite when ablating so remaining signals stay on [0,1].
     if use_fused and use_probe:
